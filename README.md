@@ -9,12 +9,12 @@
 EasyList / EasyList China / EasyPrivacy / AdGuard SDNS / OISD / anti-AD / StevenBlack
 —— 8 大上游自动收集 · 语义去重 · 合并输出
 
-<img src="https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/badge-rules.svg" alt="规则总数"/>
-<img src="https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/badge-domains.svg" alt="拦截域名"/>
-<img src="https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/badge-updated.svg" alt="更新时间"/>
-<img src="https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/badge-cadence.svg" alt="更新节奏"/>
+<img src="https://wansheng8.github.io/LJGZ/badge-rules.svg" alt="规则总数"/>
+<img src="https://wansheng8.github.io/LJGZ/badge-domains.svg" alt="拦截域名"/>
+<img src="https://wansheng8.github.io/LJGZ/badge-updated.svg" alt="更新时间"/>
+<img src="https://wansheng8.github.io/LJGZ/badge-cadence.svg" alt="更新节奏"/>
 <br/>
-<img src="https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/badge-compat.svg" alt="兼容"/>
+<img src="https://wansheng8.github.io/LJGZ/badge-compat.svg" alt="兼容"/>
 <img src="https://github.com/wansheng8/LJGZ/actions/workflows/update.yml/badge.svg" alt="工作流"/>
 
 **🌐 [在线订阅中心](https://wansheng8.github.io/LJGZ/)** — 点开即复制，无需看文档
@@ -25,16 +25,16 @@ EasyList / EasyList China / EasyPrivacy / AdGuard SDNS / OISD / anti-AD / Steven
 
 ## 📥 一键订阅
 
-| 场景 | 推荐 (国内 CDN) | 最短 (GitHub Pages) | 备用 (raw) |
+| 场景 | 推荐 (国内 CDN)† | GitHub Pages | 备用 (raw) |
 |---|---|---|---|
-| 🧩 **浏览器扩展**<br><sub>uBlock Origin · AdGuard · Adblock Plus</sub> | [all.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/all.txt) | [all.txt](https://wansheng8.github.io/LJGZ/all.txt) | [all.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/all.txt) |
+| 🧩 **浏览器扩展**<br><sub>uBlock Origin · AdGuard · Adblock Plus</sub> | — | [**all.txt**](https://wansheng8.github.io/LJGZ/all.txt) | [all.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/all.txt) |
 | 🏠 **AdGuard Home**<br><sub>AdGuard Home · AdGuard DNS</sub> | [adguard.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/adguard.txt) | [adguard.txt](https://wansheng8.github.io/LJGZ/adguard.txt) | [adguard.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/adguard.txt) |
 | 🕳 **Pi-hole / hosts**<br><sub>Pi-hole · SwitchHosts · 路由器</sub> | [hosts.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/hosts.txt) | [hosts.txt](https://wansheng8.github.io/LJGZ/hosts.txt) | [hosts.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/hosts.txt) |
 | 📃 **纯域名列表**<br><sub>Cloudflare Gateway · NextDNS</sub> | [domains.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/domains.txt) | [domains.txt](https://wansheng8.github.io/LJGZ/domains.txt) | [domains.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/domains.txt) |
 | ✅ **DNS 白名单**<br><sub>误拦截放行 · 例外列表</sub> | [whitelist.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/whitelist.txt) | [whitelist.txt](https://wansheng8.github.io/LJGZ/whitelist.txt) | [whitelist.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/whitelist.txt) |
 
-> 💡 **国内用户优先用“推荐”列（jsDelivr CDN）**，速度最快；raw 链接在部分网络不可达。
-> 浏览器扩展用户：uBO → 设置 → 过滤器列表 → 导入；AdGuard → 设置 → 内容拦截 → 添加。
+> † **jsDelivr 单文件上限 20MB**，`all.txt` 已超限（约 27MB）无法走 CDN，浏览器扩展请用 Pages 列。
+> 💡 浏览器扩展用户：uBO → 设置 → 过滤器列表 → 导入；AdGuard → 设置 → 内容拦截 → 添加。
 
 ## ⚙️ 引擎特性
 
@@ -80,10 +80,10 @@ Fork 后 `.github/workflows/update.yml` 自动生效，产出你自己的订阅�
 <summary><b>🚀 部署说明（每日北京时间 08:00 / 20:00 自动更新）</b></summary>
 
 - 工作流：`.github/workflows/update.yml`（cron `0 0,12 * * *` UTC = 北京 08:00/20:00，`TZ=Asia/Shanghai`）
-- 流程：73 项测试 → 下载 8 源 → 合并 → 无变化跳过提交，有变化自动 commit + push
-- **GitHub Pages**：workflow 同时部署 `docs/` 订阅中心 + 全部订阅文件到
-  `wansheng8.github.io/LJGZ`。首次使用需到 **Settings → Pages → Source 选 "GitHub Actions"**（一次性设置，已推送后生效）
+- 流程：73 项测试 → 下载 8 源 → 合并 → 无变化跳过提交，有变化自动 commit + push → 部署 Pages
+- **GitHub Pages**：`wansheng8.github.io/LJGZ` 托管订阅中心 + 全部订阅文件（Settings → Pages → Source 已设为 GitHub Actions）
 - 输出头部含 `! Last Modified: ... (北京时间 UTC+8)` 与 `! Expires: 12 hours`
+- 徽章 SVG 由引擎每次运行自动重新生成（`output/badge-*.svg`），数字始终与最新一次合并一致
 
 </details>
 
