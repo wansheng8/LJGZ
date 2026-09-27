@@ -1,113 +1,113 @@
-# AdFilter Merge — 广告过滤规则合并引擎
+<div align="center">
 
-一个将众多上游广告过滤器列表**自动收集、转化、去重、合并**的 Python 程序，
-输出可被 Adblock Plus / uBlock Origin / AdGuard / AdGuard Home / Pi-hole 等
-常见拦截软件直接订阅的规则文件。全部时间戳使用**北京时间 (UTC+8)**。
+<img src="docs/logo.svg" width="96" alt="LJGZ Logo"/>
 
-> 依据《广告拦截软件过滤规则语法大全.md》实现（ABP / uBO / AdGuard / AdGuard Home / Pi-hole 官方语法）。
+# LJGZ · 广告过滤规则聚合
 
-## 输出文件
+**一键订阅 · 每日北京时间自动更新 · 兼容主流拦截软件**
 
-| 文件 | 用途 | 格式 |
-|---|---|---|
-| `output/all.txt` | 浏览器扩展订阅 (ABP/uBO/AdGuard) | 全格式: `\|\|域名^` + 网络规则 + 元素隐藏 + `@@` 例外 |
-| `output/adguard.txt` | AdGuard Home / AdGuard DNS 订阅 | `\|\|域名^` (子域折叠) + `$dnsrewrite` 等 DNS 规则 + DNS 白名单 |
-| `output/hosts.txt` | Pi-hole / 任意 hosts 方案 | `0.0.0.0 域名` |
-| `output/domains.txt` | 纯域名场景 (Cloudflare Gateway 等) | 一行一域 |
-| `output/whitelist.txt` | DNS 白名单 (订阅为例外) | `@@\|\|域名^` |
-| `output/stats.json` | 本次运行统计 | JSON |
+EasyList / EasyList China / EasyPrivacy / AdGuard SDNS / OISD / anti-AD / StevenBlack
+—— 8 大上游自动收集 · 语义去重 · 合并输出
 
-订阅地址（已部署到 https://github.com/wansheng8/LJGZ）：
+<img src="https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/badge-rules.svg" alt="规则总数"/>
+<img src="https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/badge-domains.svg" alt="拦截域名"/>
+<img src="https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/badge-updated.svg" alt="更新时间"/>
+<img src="https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/badge-cadence.svg" alt="更新节奏"/>
+<br/>
+<img src="https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/badge-compat.svg" alt="兼容"/>
+<img src="https://github.com/wansheng8/LJGZ/actions/workflows/update.yml/badge.svg" alt="工作流"/>
 
-```
-https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/all.txt
-https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/adguard.txt
-https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/hosts.txt
-https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/domains.txt
-```
+**🌐 [在线订阅中心](https://wansheng8.github.io/LJGZ/)** — 点开即复制，无需看文档
 
-## 本地使用
+</div>
+
+---
+
+## 📥 一键订阅
+
+| 场景 | 推荐 (国内 CDN) | 最短 (GitHub Pages) | 备用 (raw) |
+|---|---|---|---|
+| 🧩 **浏览器扩展**<br><sub>uBlock Origin · AdGuard · Adblock Plus</sub> | [all.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/all.txt) | [all.txt](https://wansheng8.github.io/LJGZ/all.txt) | [all.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/all.txt) |
+| 🏠 **AdGuard Home**<br><sub>AdGuard Home · AdGuard DNS</sub> | [adguard.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/adguard.txt) | [adguard.txt](https://wansheng8.github.io/LJGZ/adguard.txt) | [adguard.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/adguard.txt) |
+| 🕳 **Pi-hole / hosts**<br><sub>Pi-hole · SwitchHosts · 路由器</sub> | [hosts.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/hosts.txt) | [hosts.txt](https://wansheng8.github.io/LJGZ/hosts.txt) | [hosts.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/hosts.txt) |
+| 📃 **纯域名列表**<br><sub>Cloudflare Gateway · NextDNS</sub> | [domains.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/domains.txt) | [domains.txt](https://wansheng8.github.io/LJGZ/domains.txt) | [domains.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/domains.txt) |
+| ✅ **DNS 白名单**<br><sub>误拦截放行 · 例外列表</sub> | [whitelist.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/whitelist.txt) | [whitelist.txt](https://wansheng8.github.io/LJGZ/whitelist.txt) | [whitelist.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/whitelist.txt) |
+
+> 💡 **国内用户优先用“推荐”列（jsDelivr CDN）**，速度最快；raw 链接在部分网络不可达。
+> 浏览器扩展用户：uBO → 设置 → 过滤器列表 → 导入；AdGuard → 设置 → 内容拦截 → 添加。
+
+## ⚙️ 引擎特性
+
+- **全语法识别** — ABP / uBO / AdGuard 网络规则、`##` 元素隐藏、`##+js()` 脚本注入、`@@` 例外、`$dnsrewrite`、hosts 式、Pi-hole 正则 `(^|\.)ad\.com$`、纯域名，一网打尽
+- **语义去重合并** — `||d^` ≡ `d` ≡ `0.0.0.0 d` ≡ `*.d` ≡ Pi-hole 正则归并为一条；修饰符顺序无关；大小写/FQDN 尾点归一
+- **智能仲裁** — `$badfilter` 失效规则、`@@` 例外保护 DNS 输出、`$important` 压过普通例外（与 AdGuard 语义一致）、子域折叠
+- **格式分诊** — `||ads.com^$script` 等浏览器专用规则不污染 DNS/hosts 输出；localhost/`.arpa`/本机 IP 自动清除
+- **零依赖** — 纯 stdlib 单文件，`python merge_filters.py` 即跑
+
+## 🔧 DIY 定制
 
 ```bash
-# 零第三方依赖 (纯 stdlib)。如用 YAML 配置才需要: pip install pyyaml
-python merge_filters.py --test                 # 内置冒烟自检
-python -m unittest discover -s tests           # 完整测试套件 (67 项)
-python merge_filters.py                        # 按 config.json 下载+合并 → ./output/
-python merge_filters.py --outdir D:/rules      # 自定义输出路径
+git clone https://github.com/wansheng8/LJGZ.git
+cd LJGZ
+python merge_filters.py --test              # 冒烟自检
+python -m unittest discover -s tests         # 73 项测试
+python merge_filters.py                      # 下载合并 → ./output/
 ```
 
-## DIY 定制（添加上游列表）
-
-编辑 `config.json`：
+编辑 `config.json` 增删上游（任何 ABP 兼容列表均可）：
 
 ```json
-{
-  "sources": [
-    { "name": "我的列表", "url": "https://example.com/filter.txt", "enabled": true }
-  ]
-}
+{ "name": "我的列表", "url": "https://example.com/filter.txt", "enabled": true }
 ```
 
-- 任何兼容 **Adblock Plus 语法** 的列表均可（`||domain^`、`$script`、`##元素隐藏`、`@@例外`、
-  hosts 式 `0.0.0.0 domain`、Pi-hole 正则 `(^|\.)ad\.com$`、纯域名列表——全部自动识别）。
-- `"enabled": false` 可临时停用某源；重复 URL 自动去重。
-- 开发文案中列举的规则类别（URL/资源/域名/CSS选择器/脚本注入/隐私/Cookie/白名单/关键
-  字/正则/网络/字体样式/重定向/反指纹/欺诈/钓鱼/滥用/挖矿/垃圾邮件/僵尸网络/地理追踪/音视
-  频广告/社交插件/点击劫持/弹窗/下载劫持等）都是这些语法的组合，由对应上游列表提供，本程序
-  原样保留进 `all.txt`。
+Fork 后 `.github/workflows/update.yml` 自动生效，产出你自己的订阅。
 
-## 合并/去重逻辑
+<details>
+<summary><b>📁 合并/去重算法细节</b></summary>
 
-1. **精确去重** — 文本完全相同的行只保留一条。
-2. **语义等价归并** — `||example.com^` ≡ `example.com` ≡ `0.0.0.0 example.com` ≡
-   `*.example.com` ≡ Pi-hole `(^|\.)example\.com$`，同一域名只输出一条（大小写/尾点归一）。
-3. **修饰符规范化** — 修饰符顺序不同视为同一规则（`$script,image` ≡ `$image,script`）。
-4. **badfilter** — `||ads.com^$badfilter` 使语义相同的 `||ads.com^` 失效，全输出剔除。
-5. **例外保护** — `@@` DNS 相关例外把该域名从 DNS 输出剔除并进白名单；带 `$important`
-   的拦截可压过普通例外（与 AdGuard 仲裁规则一致）；仅浏览器侧的例外（`$elemhide` 等）
-   不影响 DNS 输出。
-6. **子域折叠**（仅 adguard.txt）— 父域已拦截时折叠 `||sub.parent.com^`；hosts/domains
-   为精确匹配语义，保留子域。
-7. **DNS 能力筛选** — `||ads.com^$script` 等浏览器专用规则**不会**混入 DNS/hosts 输出；
-   `$dnsrewrite` / `$dnstype` 等 AdGuard Home 支持的规则保留在 adguard.txt。
-8. **本机条目清除** — `localhost`、`*.arpa`、本机 IP 段不进任何输出。
+1. **精确去重** — 文本相同的行只保留一条
+2. **语义等价归并** — 同一域名的 5 种写法归并为一条
+3. **修饰符规范化** — `$script,image` ≡ `$image,script`
+4. **badfilter** — 命中 `$badfilter` 的规则从全部输出剔除
+5. **例外保护** — DNS 相关 `@@` 例外：域名移出 DNS 输出、进白名单；`$important` 拦截可压过普通例外
+6. **子域折叠**（仅 adguard.txt）— 父域已拦截时折叠子域
+7. **DNS 能力筛选** — AdGuard Home 不支持的修饰符规则不进 DNS 输出
+8. **本机条目清除** — localhost、`*.arpa`、广播地址全部剔除
 
-## 部署到 GitHub（每天自动更新，北京时间）
+</details>
 
-1. 在 GitHub 新建一个 **Public** 仓库（Private 仓库 raw 订阅地址不可用）。
-2. 把本目录全部内容推上去：
+<details>
+<summary><b>🚀 部署说明（每日北京时间 08:00 / 20:00 自动更新）</b></summary>
 
-   ```bash
-   cd 拦截广告
-   git init -b main
-   git add .
-   git commit -m "init: 广告过滤规则合并引擎"
-   git remote add origin https://github.com/<user>/<repo>.git
-   git push -u origin main
-   ```
+- 工作流：`.github/workflows/update.yml`（cron `0 0,12 * * *` UTC = 北京 08:00/20:00，`TZ=Asia/Shanghai`）
+- 流程：73 项测试 → 下载 8 源 → 合并 → 无变化跳过提交，有变化自动 commit + push
+- **GitHub Pages**：workflow 同时部署 `docs/` 订阅中心 + 全部订阅文件到
+  `wansheng8.github.io/LJGZ`。首次使用需到 **Settings → Pages → Source 选 "GitHub Actions"**（一次性设置，已推送后生效）
+- 输出头部含 `! Last Modified: ... (北京时间 UTC+8)` 与 `! Expires: 12 hours`
 
-3. 推送后 `.github/workflows/update.yml` 自动生效：
-   - 触发：每天**北京时间 08:00 与 20:00**、手动 (`workflow_dispatch`)、推送代码。
-   - 流程：先跑完整测试 → 下载/合并 → `output/` 无变化则跳过提交，有变化则自动 commit+push。
-4. 到仓库 **Actions** 页确认第一次运行成功，然后用上面的 raw 链接订阅。
+</details>
 
-> 时间对接：workflow 设 `TZ: Asia/Shanghai`，cron 用 UTC 表达的固定双时点 + 输出文件头
-> 的 `! Last Modified: ... (北京时间 UTC+8)`，规则头部时间即可与北京时间一致。
-
-## 项目结构
+<details>
+<summary><b>🗺 项目结构</b></summary>
 
 ```
-merge_filters.py        # 全部核心: 解析 → 合并 → 下载 → 输出 → CLI (零依赖, 单文件)
-config.json             # 上游列表配置 (DIY 入口)
-tests/                  # 67 项单元/集成测试 (unittest, 无网络)
-  test_parsing.py       #   词法分类: 各家语法逐条覆盖
-  test_merging.py       #   去重/例外/badfilter/子域折叠
-  test_fetch_io.py      #   重试/配置加载/输出文件/北京时间头部
-  test_e2e.py           #   端到端 (假下载器注入)
-.github/workflows/update.yml  # GitHub Actions 每日定时更新
+merge_filters.py               # 核心引擎: 解析 → 合并 → 下载 → 输出 → 徽章 → CLI
+config.json                    # 上游列表配置 (DIY 入口)
+docs/index.html                # 在线订阅中心 (GitHub Pages)
+docs/logo.svg                  # Logo
+tests/  (73 项, 无网络)         # 词法分类 / 合并去重 / 下载重试 / 徽章 / 端到端
+.github/workflows/update.yml   # 每日更新 + Pages 部署
+output/                        # 订阅文件 (CI 自动重新生成)
 ```
 
-## 致谢与许可
+</details>
 
-上游列表版权归各自作者，许可证以各列表头部声明为准（EasyList 系为 GPL-3+ /
-CC-BY-SA 类，AdGuard SDNS 为 LGPL-2.1 等）。再分发 output/ 时请保留来源致谢。
+---
+
+<div align="center">
+
+**⭐ 觉得有用请给个 Star！**
+
+上游列表版权归各作者 · 许可证以各列表头部声明为准（EasyList GPL-3+/CC-BY-SA 类，AdGuard SDNS LGPL-2.1 等）
+
+</div>
