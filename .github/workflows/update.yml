@@ -11,10 +11,13 @@ on:
     paths:
       - "merge_filters.py"
       - "config.json"
+      - "docs/**"
       - ".github/workflows/update.yml"
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: update-rules
@@ -49,3 +52,25 @@ jobs:
             git commit -m "自动更新过滤规则 (北京时间 $(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M'))"
             git push
           fi
+
+  deploy-pages:
+    needs: update
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main                    # 取更新提交后的最新内容
+      - name: 组装站点 (订阅中心 + 全部订阅文件)
+        run: |
+          mkdir -p site
+          cp docs/index.html docs/logo.svg site/
+          cp output/*.txt output/stats.json output/badge-*.json output/badge-*.svg site/
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4
