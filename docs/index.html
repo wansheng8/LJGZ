@@ -62,8 +62,8 @@ footer a{color:var(--acc);text-decoration:none}
 <header>
   <img src="logo.svg" alt="LJGZ"/>
   <h1>LJGZ<span class="dot"> · 广告过滤订阅中心</span></h1>
-  <p class="sub">EasyList / EasyPrivacy / AdGuard SDNS / OISD / anti-AD 等 8 大上游
-    · 自动收集 · 语义去重合并</p>
+  <p class="sub">EasyList 系 · uBO 官方 · AdGuard 官方 · Fanboy · OISD · hagezi · anti-AD · CJX ·
+    URLhaus · Blackbook 等 22 大上游 · 广告/隐私/恶意软件/钓鱼/挖矿全覆盖</p>
   <div class="badges">
     <img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fwansheng8%2FLJGZ%2Fmain%2Foutput%2Fbadge-rules.json" alt="规则总数"/>
     <img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fwansheng8%2FLJGZ%2Fmain%2Foutput%2Fbadge-domains.json" alt="拦截域名"/>
@@ -139,7 +139,7 @@ fetch('stats.json').then(r => r.json()).then(s => {
   el.innerHTML =
     `<span><b>${f(s.domains_unique)}</b>拦截域名</span>` +
     `<span><b>${f(total)}</b>规则总数</span>` +
-    `<span><b>8</b>上游源</span>` +
+    `<span><b>22</b>上游源</span>` +
     `<span><b>2 ×/日</b>北京时间更新</span>`;
 }).catch(() => {});
 </script>

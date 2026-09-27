@@ -1,74 +1,118 @@
 {
   "title": "AdFilter Merge",
-  "output": { "dir": "output" },
+  "output": {
+    "dir": "output"
+  },
   "sources": [
-    { "name": "easylist", "url": "https://easylist.to/easylist/easylist.txt", "enabled": true },
-    { "name": "easylistchina", "url": "https://raw.githubusercontent.com/easylist/easylistchina/master/easylistchina.txt", "enabled": true },
-    { "name": "easyprivacy",  "url": "https://easylist.to/easylist/easyprivacy.txt", "enabled": true },
-    { "name": "adguard-dns-filter", "url": "https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt", "enabled": true },
-    { "name": "oisd-full", "url": "https://big.oisd.nl/domainswild", "enabled": true },
-    { "name": "anti-ad-china", "url": "https://anti-ad.net/easylist.txt", "enabled": true },
-    { "name": "anti-ad-domains", "url": "https://anti-ad.net/domains.txt", "enabled": true },
-    { "name": "stevenblack-hosts", "url": "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts", "enabled": true },
-    { "name": "ADrules Easylist", "url": "https://raw.githubusercontent.com/tickmao/ADrules/master/Easylist.txt", "enabled": true },
-    { "name": "ADrules EasyPrivacy", "url": "https://raw.githubusercontent.com/tickmao/ADrules/master/EasyPrivacy.txt", "enabled": true },
-    { "name": "ADrules EasyListChina", "url": "https://raw.githubusercontent.com/tickmao/ADrules/master/EasyListChina.txt", "enabled": true },
-    { "name": "ADrules anti-AD", "url": "https://raw.githubusercontent.com/tickmao/ADrules/master/anti-AD.txt", "enabled": true },
-    { "name": "ADrules AdRules", "url": "https://raw.githubusercontent.com/tickmao/ADrules/master/AdRules.txt", "enabled": true },
-    { "name": "ADrules ChengFeng", "url": "https://raw.githubusercontent.com/tickmao/ADrules/master/ChengFeng.txt", "enabled": true },
-    { "name": "ADrules I-Dont-Care-About-Cookies", "url": "https://raw.githubusercontent.com/tickmao/ADrules/master/I-Dont-Care-About-Cookies.txt", "enabled": true },
-    { "name": "ADrules Cjx-Annoyance", "url": "https://raw.githubusercontent.com/tickmao/ADrules/master/Cjx-Annoyance.txt", "enabled": true },
-    { "name": "ADrules HalfLife", "url": "https://raw.githubusercontent.com/tickmao/ADrules/master/HalfLife.txt", "enabled": true },
-    { "name": "ADrules DNS", "url": "https://adrules.top/dns.txt", "enabled": true },
-    { "name": "Anti-AD Easylist", "url": "https://anti-ad.net/easylist.txt", "enabled": true },
-    { "name": "Accelerate-Hosts", "url": "https://github.com/Potterli20/file/releases/download/github-hosts/Accelerate-Hosts.txt", "enabled": true },
-    { "name": "AWAvenue-Ads-Rule", "url": "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/AWAvenue-Ads-Rule.txt", "enabled": true },
-    { "name": "10007_auto reward", "url": "https://raw.githubusercontent.com/lingeringsound/10007_auto/master/reward", "enabled": true },
-    { "name": "217heidai adblockdns", "url": "https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/adblockdns.txt", "enabled": true },
-    { "name": "AdGuardSDNSFilter", "url": "https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt", "enabled": true },
-    { "name": "EasyList (ABP)", "url": "https://easylist-downloads.adblockplus.org/easylist.txt", "enabled": true },
-    { "name": "EasyList China (ABP)", "url": "https://easylist-downloads.adblockplus.org/easylistchina.txt", "enabled": true },
-    { "name": "EasyPrivacy (ABP)", "url": "https://easylist-downloads.adblockplus.org/easyprivacy.txt", "enabled": true },
-    { "name": "EasyList (easylist.to)", "url": "https://easylist.to/easylist/easylist.txt", "enabled": true },
-    { "name": "Fanboy Social", "url": "https://easylist.to/easylist/fanboy-social.txt", "enabled": true },
-    { "name": "fqnovel adrules", "url": "https://gh-proxy.com/raw.githubusercontent.com/changzhaoCZ/fqnovel-adrules/refs/heads/main/fqnovel-fxxk_ads", "enabled": true },
-    { "name": "banbendalao ADgk", "url": "https://raw.githubusercontent.com/banbendalao/ADgk/master/ADgk.txt", "enabled": true },
-    { "name": "BlueSkyXN skyrules", "url": "https://raw.githubusercontent.com/BlueSkyXN/AdGuardHomeRules/master/skyrules.txt", "enabled": true },
-    { "name": "cjx-annoyance", "url": "https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt", "enabled": true },
-    { "name": "ScamBlocklist (adguard)", "url": "https://raw.githubusercontent.com/durablenapkin/scamblocklist/master/adguard.txt", "enabled": true },
-    { "name": "Hagezi DNS Light", "url": "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/light.txt", "enabled": true },
-    { "name": "Anti-AD (adguard)", "url": "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-adguard.txt", "enabled": true },
-    { "name": "Anti-AD (easylist)", "url": "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-easylist.txt", "enabled": true },
-    { "name": "StevenBlack Hosts", "url": "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts", "enabled": true },
-    { "name": "217heidai adblockdnslite", "url": "https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/adblockdnslite.txt", "enabled": true },
-    { "name": "Fanboy Annoyance", "url": "https://secure.fanboy.co.nz/fanboy-annoyance.txt", "enabled": true },
-    { "name": "Fanboy CookieMonster", "url": "https://secure.fanboy.co.nz/fanboy-cookiemonster.txt", "enabled": true },
-    { "name": "Peter Lowe's Blocklist", "url": "https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext", "enabled": true },
-    { "name": "Shadowrocket to AdGuardHome", "url": "https://raw.githubusercontent.com/wxglenovo/Shadowrocket-to-AdGuard-Home/refs/heads/main/AdGuardHome.txt", "enabled": true },
-    { "name": "AdAway Hosts", "url": "https://adaway.org/hosts.txt", "enabled": true },
-    { "name": "AWAvenue-Ads-Rule Hosts", "url": "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-hosts.txt", "enabled": true },
-    { "name": "KADhosts", "url": "https://raw.githubusercontent.com/PolishFiltersTeam/KADhosts/master/KADhosts.txt", "enabled": true },
-    { "name": "HalfLife list (jsdelivr)", "url": "https://cdn.jsdelivr.net/gh/sbwml/halflife-list@master/ad.txt", "enabled": true },
-    { "name": "Firebog Easylist Hosts", "url": "https://v.firebog.net/hosts/Easylist.txt", "enabled": true },
-    { "name": "Firebog Easyprivacy Hosts", "url": "https://v.firebog.net/hosts/Easyprivacy.txt", "enabled": true },
-    { "name": "Disconnect Simple Ad", "url": "https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt", "enabled": true },
-    { "name": "Disconnect Simple Tracking", "url": "https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt", "enabled": true },
-    { "name": "Hagezi DNS Pro Plus", "url": "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.plus.txt", "enabled": true },
-    { "name": "Anti-AD Domains", "url": "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-domains.txt", "enabled": true },
-    { "name": "oisd", "url": "https://big.oisd.nl/", "enabled": true },
-    { "name": "ADrules DNS (gp mirror)", "url": "https://gp.adrules.top/dns.txt", "enabled": true },
-    { "name": "uBO filters – Ads", "url": "https://ublockorigin.github.io/uAssets/filters/filters.txt", "enabled": true },
-    { "name": "uBO filters – Badware risks", "url": "https://ublockorigin.github.io/uAssets/filters/badware.txt", "enabled": true },
-    { "name": "uBO filters – Privacy", "url": "https://ublockorigin.github.io/uAssets/filters/privacy.txt", "enabled": true },
-    { "name": "uBO filters – Quick fixes", "url": "https://ublockorigin.github.io/uAssets/filters/quick-fixes.txt", "enabled": true },
-    { "name": "uBO filters – Unbreak", "url": "https://ublockorigin.github.io/uAssets/filters/unbreak.txt", "enabled": true },
-    { "name": "uBO lan-block (Block Outsider Intrusion into LAN)", "url": "https://ublockorigin.github.io/uAssets/filters/lan-block.txt", "enabled": true },
-    { "name": "AdGuard – Ads", "url": "https://filters.adtidy.org/extension/ublock/filters/2.txt", "enabled": true },
-    { "name": "AdGuard – Mobile Ads", "url": "https://filters.adtidy.org/extension/ublock/filters/11.txt", "enabled": true },
-    { "name": "AdGuard/uBO – URL Tracking Protection", "url": "https://ublockorigin.github.io/uAssets/filters/privacy-removeparam.txt", "enabled": true },
-    { "name": "AdGuard – Chinese", "url": "https://filters.adtidy.org/extension/ublock/filters/224.txt", "enabled": true },
-    { "name": "Online Malicious URL Blocklist", "url": "https://malware-filter.gitlab.io/urlhaus-filter/urlhaus-filter-ag-online.txt", "enabled": true },
-    { "name": "Phishing URL Blocklist", "url": "https://malware-filter.gitlab.io/phishing-filter/phishing-filter.txt", "enabled": true },
-    { "name": "Dan Pollock's hosts", "url": "https://someonewhocares.org/hosts/hosts", "enabled": true }
+    {
+      "name": "easylist",
+      "url": "https://easylist.to/easylist/easylist.txt",
+      "enabled": true
+    },
+    {
+      "name": "easylistchina",
+      "url": "https://raw.githubusercontent.com/easylist/easylistchina/master/easylistchina.txt",
+      "enabled": true
+    },
+    {
+      "name": "easyprivacy",
+      "url": "https://easylist.to/easylist/easyprivacy.txt",
+      "enabled": true
+    },
+    {
+      "name": "adguard-dns-filter",
+      "url": "https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt",
+      "enabled": true
+    },
+    {
+      "name": "oisd-full",
+      "url": "https://big.oisd.nl/domainswild",
+      "enabled": true
+    },
+    {
+      "name": "anti-ad-china",
+      "url": "https://anti-ad.net/easylist.txt",
+      "enabled": true
+    },
+    {
+      "name": "anti-ad-domains",
+      "url": "https://anti-ad.net/domains.txt",
+      "enabled": true
+    },
+    {
+      "name": "stevenblack-hosts",
+      "url": "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts",
+      "enabled": true
+    },
+    {
+      "name": "ubo-filters",
+      "url": "https://ublockorigin.github.io/uAssets/filters/filters.txt",
+      "enabled": true
+    },
+    {
+      "name": "ubo-badware",
+      "url": "https://ublockorigin.github.io/uAssets/filters/badware.txt",
+      "enabled": true
+    },
+    {
+      "name": "ubo-privacy",
+      "url": "https://ublockorigin.github.io/uAssets/filters/privacy.txt",
+      "enabled": true
+    },
+    {
+      "name": "ubo-unbreak",
+      "url": "https://ublockorigin.github.io/uAssets/filters/unbreak.txt",
+      "enabled": true
+    },
+    {
+      "name": "ubo-quickfixes",
+      "url": "https://ublockorigin.github.io/uAssets/filters/quick-fixes.txt",
+      "enabled": true
+    },
+    {
+      "name": "adguard-base",
+      "url": "https://filters.adtidy.org/extension/chromium/filters/2.txt",
+      "enabled": true
+    },
+    {
+      "name": "adguard-tracking",
+      "url": "https://filters.adtidy.org/extension/chromium/filters/3.txt",
+      "enabled": true
+    },
+    {
+      "name": "adguard-chinese",
+      "url": "https://filters.adtidy.org/extension/chromium/filters/224.txt",
+      "enabled": true
+    },
+    {
+      "name": "fanboy-annoyance",
+      "url": "https://easylist.to/easylist/fanboy-annoyance.txt",
+      "enabled": true
+    },
+    {
+      "name": "fanboy-social",
+      "url": "https://easylist.to/easylist/fanboy-social.txt",
+      "enabled": true
+    },
+    {
+      "name": "cjx-annoyance",
+      "url": "https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt",
+      "enabled": true
+    },
+    {
+      "name": "urlhaus-malware",
+      "url": "https://urlhaus.abuse.ch/downloads/text/",
+      "enabled": true
+    },
+    {
+      "name": "blackbook-phishing",
+      "url": "https://raw.githubusercontent.com/stamparm/blackbook/master/blackbook.txt",
+      "enabled": true
+    },
+    {
+      "name": "hagezi-pro",
+      "url": "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.txt",
+      "enabled": true
+    }
   ]
 }
