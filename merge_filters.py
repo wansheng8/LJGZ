@@ -635,6 +635,105 @@ def _write(path: str, lines: Iterable[str]) -> None:
         f.write("\n".join(lines).rstrip("\n") + "\n")
 
 
+# ---------------------------------------------------------------------------
+# 5.1 徽章文件: shields.io endpoint JSON + 本地静态 SVG (墙内可见, 不依赖外站)
+# ---------------------------------------------------------------------------
+
+def _fmt_wan(n: int) -> str:
+    """449997 → '45.0万'; 123 → '123' (不足一万显示原数)。"""
+    if n < 10000:
+        return str(n)
+    return f"{n / 10000:.1f}万"
+
+
+def _strip_tz_bjt(now: str) -> str:
+    """"2026-09-27 02:41:00 +0800" → "2026-09-27 02:41"。"""
+    return now.split("+")[0].strip()[:16]
+
+
+def _text_w(s: str, fs: int = 11) -> int:
+    """估算文本像素宽 (CJK 全宽, 其余按比例)。"""
+    import unicodedata
+    w = 0.0
+    for ch in s:
+        if unicodedata.east_asian_width(ch) in ("W", "F"):
+            w += fs
+        elif ch == " ":
+            w += fs * 0.36
+        elif ch in "·|-–/:.":
+            w += fs * 0.40
+        elif ch.isdigit() or ch.isupper():
+            w += fs * 0.66
+        else:
+            w += fs * 0.55
+    return int(round(w))
+
+
+def _svg_badge(label: str, message: str, color: str) -> str:
+    """生成 shields 风格的静态 SVG 徽章 (双段圆角矩形)。color 为无 # 的 hex。"""
+    fs, pad, H = 11, 11, 20
+    lw = _text_w(label, fs) + pad * 2
+    mw = _text_w(message, fs) + pad * 2
+    W = lw + mw
+    AMP = chr(38); LT = chr(60); GT = chr(62); QUOT = chr(34)
+    def esc(s: str) -> str:
+        return (s.replace(AMP, AMP + "amp;").replace(LT, AMP + "lt;")
+                .replace(GT, AMP + "gt;").replace(QUOT, AMP + "quot;"))
+    font = ("Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, "
+            "Helvetica, Arial, sans-serif")
+    return (
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" '
+        f'role="img" aria-label="{esc(label)}: {esc(message)}">'
+        f'<title>{esc(label)}: {esc(message)}</title>'
+        f'<clipPath id="c"><rect width="{W}" height="{H}" rx="6"/></clipPath>'
+        f'<g clip-path="url(#c)">'
+        f'<rect width="{lw}" height="{H}" fill="#24292f"/>'
+        f'<rect x="{lw}" width="{mw}" height="{H}" fill="#{color}"/>'
+        f'<text x="{pad}" y="14.5" font-family="{font}" font-size="{fs}" '
+        f'font-weight="600" fill="#ffffff">{esc(label)}</text>'
+        f'<text x="{lw + pad}" y="14.5" font-family="{font}" font-size="{fs}" '
+        f'font-weight="700" fill="#ffffff">{esc(message)}</text>'
+        f'</g></svg>'
+    )
+
+
+def write_badge_files(outdir: str, stats: dict, now: str) -> Dict[str, str]:
+    """生成 output/badge-*.json (shields endpoint) 与 badge-*.svg (README 直用)。"""
+    import json as _json
+
+    os.makedirs(outdir, exist_ok=True)
+    domains = stats.get("domains_unique", 0)
+    rules = sum(stats.get(k, 0) for k in
+                ("domains_unique", "network_unique",
+                 "cosmetic_unique", "exceptions_unique"))
+    updated = _strip_tz_bjt(now)
+    specs = [
+        ("rules",   "规则总数",     _fmt_wan(rules),   "10b981"),
+        ("domains", "拦截域名",     _fmt_wan(domains), "3b82f6"),
+        ("updated", "北京时间更新", updated,           "f59e0b"),
+    ]
+    paths: Dict[str, str] = {}
+    for key, label, message, color in specs:
+        endpoint = {"schemaVersion": 1, "label": label, "message": message,
+                    "color": color, "cacheSeconds": 3600}
+        jpath = os.path.join(outdir, f"badge-{key}.json")
+        with open(jpath, "w", encoding="utf-8", newline="\n") as f:
+            _json.dump(endpoint, f, ensure_ascii=False)
+        paths[f"badge-{key}"] = jpath
+        spath = os.path.join(outdir, f"badge-{key}.svg")
+        with open(spath, "w", encoding="utf-8", newline="\n") as f:
+            f.write(_svg_badge(label, message, color))
+    # 固定信息徽章 (无数据依赖)
+    for key, label, message, color in [
+        ("cadence", "更新节奏", "每日 08:00 / 20:00", "8b5cf6"),
+        ("compat",  "兼容",     "ABP · uBO · AdGuard · AGH · Pi-hole", "0891b2"),
+    ]:
+        with open(os.path.join(outdir, f"badge-{key}.svg"), "w",
+                  encoding="utf-8", newline="\n") as f:
+            f.write(_svg_badge(label, message, color))
+    return paths
+
+
 def write_outputs(res: MergeResult, outdir: str, *, title: str,
                   now: Optional[str] = None) -> Dict[str, str]:
     """把 MergeResult 写出为 6 个文件, 返回 {用途: 路径} 映射。"""
@@ -679,6 +778,8 @@ def write_outputs(res: MergeResult, outdir: str, *, title: str,
     import json as _json
     with open(paths["stats"], "w", encoding="utf-8") as f:
         _json.dump(res.stats, f, ensure_ascii=False, indent=2, sort_keys=True)
+
+    paths.update(write_badge_files(outdir, res.stats, now))
 
     return paths
 
