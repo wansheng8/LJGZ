@@ -6,8 +6,9 @@
 
 **一键订阅 · 每日北京时间自动更新 · 兼容主流拦截软件**
 
-EasyList / EasyList China / EasyPrivacy / AdGuard SDNS / OISD / anti-AD / StevenBlack
-—— 8 大上游自动收集 · 语义去重 · 合并输出
+EasyList 系 / uBO 官方 / AdGuard 官方 / Fanboy / OISD / hagezi / anti-AD / CJX
+StevenBlack / URLhaus / Blackbook —— **22 个上游**自动收集 · 语义去重 · 合并输出
+涵盖：广告 · 隐私追踪 · 恶意软件 · 钓鱼网站 · 挖矿 · 烦恼元素 · 中文专项
 
 <img src="https://wansheng8.github.io/LJGZ/badge-rules.svg" alt="规则总数"/>
 <img src="https://wansheng8.github.io/LJGZ/badge-domains.svg" alt="拦截域名"/>
