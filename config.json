@@ -2,6 +2,14 @@
   "title": "AdFilter Merge",
   "output": { "dir": "output" },
   "sources": [
+    { "name": "easylist", "url": "https://easylist.to/easylist/easylist.txt", "enabled": true },
+    { "name": "easylistchina", "url": "https://raw.githubusercontent.com/easylist/easylistchina/master/easylistchina.txt", "enabled": true },
+    { "name": "easyprivacy",  "url": "https://easylist.to/easylist/easyprivacy.txt", "enabled": true },
+    { "name": "adguard-dns-filter", "url": "https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt", "enabled": true },
+    { "name": "oisd-full", "url": "https://big.oisd.nl/domainswild", "enabled": true },
+    { "name": "anti-ad-china", "url": "https://anti-ad.net/easylist.txt", "enabled": true },
+    { "name": "anti-ad-domains", "url": "https://anti-ad.net/domains.txt", "enabled": true },
+    { "name": "stevenblack-hosts", "url": "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts", "enabled": true }
     { "name": "ADrules Easylist", "url": "https://raw.githubusercontent.com/tickmao/ADrules/master/Easylist.txt", "enabled": true },
     { "name": "ADrules EasyPrivacy", "url": "https://raw.githubusercontent.com/tickmao/ADrules/master/EasyPrivacy.txt", "enabled": true },
     { "name": "ADrules EasyListChina", "url": "https://raw.githubusercontent.com/tickmao/ADrules/master/EasyListChina.txt", "enabled": true },
