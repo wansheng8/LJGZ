@@ -2,10 +2,10 @@
 # Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — hosts 格式
 # Homepage: https://github.com/wansheng8/LJGZ
 # Licence: 各上游列表许可证的并集, 见 README 致谢部分
-# Version: 2026-09-28 11:01:26 +0800
-# Last Modified: 2026-09-28 11:01:26 +0800 (北京时间 UTC+8)
+# Version: 2026-09-28 11:06:27 +0800
+# Last Modified: 2026-09-28 11:06:27 +0800 (北京时间 UTC+8)
 # Expires: 12 hours
-# Rules: 577500
+# Rules: 577502
 
 0.0.0.0 0--4.com
 0.0.0.0 0--d.com
@@ -154570,6 +154570,7 @@
 0.0.0.0 dqcw.lapeyre.fr
 0.0.0.0 dqd5t8xfxmhi7.cloudfront.net
 0.0.0.0 dqdifcoeiohsu.online
+0.0.0.0 dqdjrweahltcw.website
 0.0.0.0 dqdsnemauijvc.online
 0.0.0.0 dqdtshdifbwm.xyz
 0.0.0.0 dqdwbo.ellamila.com
@@ -333606,6 +333607,7 @@
 0.0.0.0 oilylimit.com
 0.0.0.0 oilzero.nl
 0.0.0.0 oilzero.org
+0.0.0.0 oim.doganltd.com.tr
 0.0.0.0 oimagea2.ydstatic.com
 0.0.0.0 oimechirps.qpon
 0.0.0.0 oimg.login.cnbc.com
