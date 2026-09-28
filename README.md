@@ -28,13 +28,13 @@ StevenBlack / URLhaus / Blackbook —— **22 个上游**自动收集 · 语义�
 
 | 场景 | 推荐 (国内 CDN)† | GitHub Pages | 备用 (raw) |
 |---|---|---|---|
-| 🧩 **浏览器扩展**<br><sub>uBlock Origin · AdGuard · Adblock Plus</sub> | — | [**all.txt**](https://wansheng8.github.io/LJGZ/all.txt) | [all.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/all.txt) |
+| 🧩 **浏览器扩展**<br><sub>uBlock Origin · AdGuard · Adblock Plus</sub> | [分卷1](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/all-part-01.txt) + [分卷2](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/all-part-02.txt) | [**all.txt**](https://wansheng8.github.io/LJGZ/all.txt) | [all.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/all.txt) |
 | 🏠 **AdGuard Home**<br><sub>AdGuard Home · AdGuard DNS</sub> | [adguard.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/adguard.txt) | [adguard.txt](https://wansheng8.github.io/LJGZ/adguard.txt) | [adguard.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/adguard.txt) |
 | 🕳 **Pi-hole / hosts**<br><sub>Pi-hole · SwitchHosts · 路由器</sub> | [hosts.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/hosts.txt) | [hosts.txt](https://wansheng8.github.io/LJGZ/hosts.txt) | [hosts.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/hosts.txt) |
 | 📃 **纯域名列表**<br><sub>Cloudflare Gateway · NextDNS</sub> | [domains.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/domains.txt) | [domains.txt](https://wansheng8.github.io/LJGZ/domains.txt) | [domains.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/domains.txt) |
 | ✅ **DNS 白名单**<br><sub>误拦截放行 · 例外列表</sub> | [whitelist.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/whitelist.txt) | [whitelist.txt](https://wansheng8.github.io/LJGZ/whitelist.txt) | [whitelist.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/whitelist.txt) |
 
-> † **jsDelivr 单文件上限 20MB**，`all.txt` 已超限（约 27MB）无法走 CDN，浏览器扩展请用 Pages 列。
+> † **jsDelivr 单文件上限 20MB**，`all.txt` 完整版超限；国内用户请订阅 CDN **分卷 1 + 分卷 2**（两个都加，效果 = 完整版，每卷 <18MB）。
 > 💡 浏览器扩展用户：uBO → 设置 → 过滤器列表 → 导入；AdGuard → 设置 → 内容拦截 → 添加。
 
 ## ⚙️ 引擎特性

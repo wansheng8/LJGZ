@@ -86,8 +86,9 @@ const RAW  = 'https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/';
 const P = [
  {i:'🧩', n:'浏览器扩展', a:'uBlock Origin · AdGuard · Adblock Plus', f:'all.txt',
   d:'网络规则 + 元素隐藏 + 脚本注入 + 例外，全格式订阅。',
-  u:[['推荐', PAGES+'all.txt'], ['备用', RAW+'all.txt']],
-  t:'uBO：设置 → 过滤器列表 → 导入；AdGuard：设置 → 内容拦截 → 添加过滤器 · 该文件 >20MB，超出 jsDelivr 上限，故用 Pages/raw'},
+  u:[['推荐 (CDN 分卷 1)', CDN+'all-part-01.txt'], ['推荐 (CDN 分卷 2)', CDN+'all-part-02.txt'],
+     ['完整版', PAGES+'all.txt'], ['备用', RAW+'all.txt']],
+  t:'⭐ 国内网络推荐订阅「CDN 分卷 1 + 分卷 2」两个都加，效果 = 完整版；完整版 >20MB 无法走 jsDelivr'},
  {i:'🏠', n:'AdGuard Home', a:'AdGuard Home · AdGuard DNS · 私人 DNS', f:'adguard.txt',
   d:'子域折叠后的 DNS 拦截规则 + $dnsrewrite 规则 + DNS 白名单。',
   u:[['CDN 推荐', CDN+'adguard.txt'], ['最短', PAGES+'adguard.txt'], ['备用', RAW+'adguard.txt']],

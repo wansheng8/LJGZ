@@ -63,10 +63,12 @@ class TestExceptionProtection(unittest.TestCase):
         self.assertIn("@@||ads.com^$document", res.whitelist)
         self.assertIn("@@||ads.com^$document", res.all_exceptions)
 
-    def test_exception_still_in_all_output(self):
-        """all 输出同时保留拦截与例外 (浏览器端自行仲裁)。"""
+    def test_dns_exception_domain_removed_from_browser_block(self):
+        """被 @@ DNS 例外解锁的域名不进浏览器拦截输出 (拦了解=空操作,
+        且防止用户在 uBO 里看到'又拦又解'的困惑)。"""
         res = merge("||ads.com^", "@@||ads.com^")
-        self.assertIn("||ads.com^", res.all_blocks)
+        self.assertEqual(res.all_blocks, [])
+        # 例外本身仍在 all 输出
         self.assertIn("@@||ads.com^", res.all_exceptions)
 
     def test_important_block_beats_normal_exception(self):

@@ -454,7 +454,6 @@ class Merger:
             if canon in bad:                    # 被 badfilter 击中 → 全输出剔除
                 continue
             items.append((d, imp, canon))
-        res.all_blocks = [c for _, _, c in items]
 
         # DNS 输出裁决: 例外赢, 除非 拦截带important 且 例外不带
         survive = []
@@ -462,6 +461,19 @@ class Merger:
             if d in exc_imp and not (imp and not exc_imp[d]):
                 continue
             survive.append((d, imp, canon))
+
+        # 浏览器输出 (all_blocks): 剔除被 @@ DNS 例外解锁的域名 (防止拦了又解),
+        # 纯域名规则超过阈值时截断 — 大量 ||d^ 来自 DNS 列表, 对浏览器价值低且
+        # 会让订阅体积膨胀到加载失败 (即"订阅了但无拦截"的根因)。
+        BROWSER_DOMAIN_CAP = 150_000
+        browser_items = [(d, imp, canon) for d, imp, canon in survive
+                         if not (d in exc_imp and not (imp and not exc_imp[d]))]
+        if len(browser_items) > BROWSER_DOMAIN_CAP:
+            # 保留顺序: $important 优先, 其余按域名稳定序
+            browser_items.sort(key=lambda t: (not t[1], t[0]))
+            browser_items = browser_items[:BROWSER_DOMAIN_CAP]
+            browser_items.sort(key=lambda t: t[2])     # 输出仍按规则文本排序
+        res.all_blocks = [c for _, _, c in browser_items]
 
         # hosts / domains: 精确匹配语义, 保留子域, 排序
         res.domains = [d for d, _, _ in survive]
@@ -610,14 +622,19 @@ def load_sources(path: str) -> List[dict]:
 # 北京时间 (开发文案: "时间对接北京时间")
 BJT = timezone(timedelta(hours=8))
 
+# ABP 兼容客户端 (Adblock Plus 等) 严格要求的首行语法声明
+ABP_HEADER = "[Adblock Plus 2.0]"
+
 
 def now_bjt() -> str:
     return datetime.now(BJT).strftime("%Y-%m-%d %H:%M:%S +0800")
 
 
-def _header_lines(title: str, now: str, count: int, kind: str) -> List[str]:
+def _header_lines(title: str, now: str, count: int, kind: str,
+                  abp: bool = False) -> List[str]:
     title = title or "AdFilter Merge Base"   # 空 → 默认; 非空不作二次包装
-    return [
+    head = [ABP_HEADER] if abp else []       # ABP/uBO/AdGuard 认首行语法声明
+    return head + [
         f"! Title: {title} · {kind}",
         f"! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — {kind} 格式",
         "! Homepage: https://github.com/wansheng8/LJGZ",
@@ -633,6 +650,21 @@ def _header_lines(title: str, now: str, count: int, kind: str) -> List[str]:
 def _write(path: str, lines: Iterable[str]) -> None:
     with open(path, "w", encoding="utf-8", newline="\n") as f:
         f.write("\n".join(lines).rstrip("\n") + "\n")
+
+
+def _chunk_by_bytes(lines: List[str], *, max_bytes: int) -> List[List[str]]:
+    """把行列表切成若干卷, 每卷字节数 (含换行) ≤ max_bytes; 保持行序。"""
+    chunks, cur, cur_bytes = [], [], 0
+    for ln in lines:
+        cost = len(ln.encode("utf-8")) + 1
+        if cur and cur_bytes + cost > max_bytes:
+            chunks.append(cur)
+            cur, cur_bytes = [], 0
+        cur.append(ln)
+        cur_bytes += cost
+    if cur:
+        chunks.append(cur)
+    return chunks
 
 
 # ---------------------------------------------------------------------------
@@ -735,8 +767,14 @@ def write_badge_files(outdir: str, stats: dict, now: str) -> Dict[str, str]:
 
 
 def write_outputs(res: MergeResult, outdir: str, *, title: str,
-                  now: Optional[str] = None) -> Dict[str, str]:
-    """把 MergeResult 写出为 6 个文件, 返回 {用途: 路径} 映射。"""
+                  now: Optional[str] = None,
+                  max_part_bytes: int = 18_000_000) -> Dict[str, str]:
+    """把 MergeResult 写出为 6 个文件, 返回 {用途: 路径} 映射。
+
+    all-part-*.txt: 把 all.txt 正文按 max_part_bytes 切卷, 每卷自带完整头部
+    (含 [Adblock Plus 2.0] 首行), 多卷全部订阅 == 完整 all.txt;
+    用于绕过 jsDelivr 20MB 单文件上限。
+    """
     os.makedirs(outdir, exist_ok=True)
     now = now or now_bjt()
 
@@ -748,14 +786,26 @@ def write_outputs(res: MergeResult, outdir: str, *, title: str,
 
     paths = {}
 
+    all_body = res.all_blocks + res.all_network + res.all_cosmetic + res.all_exceptions
     paths["all"] = os.path.join(outdir, "all.txt")
     _write(paths["all"],
-           _header_lines(title, now, n_all, "全格式")
-           + res.all_blocks + res.all_network + res.all_cosmetic + res.all_exceptions)
+           _header_lines(title, now, n_all, "全格式", abp=True) + all_body)
+
+    # CDN 分卷 (jsDelivr 单文件 <20MB)
+    all_path_size = os.path.getsize(paths["all"])
+    if all_path_size > max_part_bytes:
+        chunks = _chunk_by_bytes(all_body, max_bytes=max_part_bytes - 4096)
+        for ix, chunk in enumerate(chunks, 1):
+            key = f"all-part-{ix:02d}"
+            paths[key] = os.path.join(outdir, key + ".txt")
+            _write(paths[key],
+                   _header_lines(title, now, len(chunk),
+                                 f"全格式 分卷 {ix}/{len(chunks)}", abp=True)
+                   + chunk)
 
     paths["adguard"] = os.path.join(outdir, "adguard.txt")
     _write(paths["adguard"],
-           _header_lines(title, now, n_dns, "AdGuard Home DNS")
+           _header_lines(title, now, n_dns, "AdGuard Home DNS", abp=True)
            + res.adguard_dns)
 
     paths["hosts"] = os.path.join(outdir, "hosts.txt")
