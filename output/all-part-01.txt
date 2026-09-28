@@ -3,10 +3,10 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 1/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-09-28 13:36:14 +0800
-! Last Modified: 2026-09-28 13:36:14 +0800 (北京时间 UTC+8)
+! Version: 2026-09-28 13:47:38 +0800
+! Last Modified: 2026-09-28 13:47:38 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 529324
+! Rules: 529325
 
 ||0--4.com^
 ||0--d.com^
@@ -357555,7 +357555,6 @@ http://103.101.102.121:54675/bin.sh
 http://103.101.102.121:54675/i
 http://103.101.81.142:1281/.i
 http://103.101.81.142:1281/Mozi.m
-http://103.101.81.142:1281/i
 http://103.101.85.165:8080/part/setup.pdf
 http://103.101.85.165:8080/parts/IT-Job-Interview-Preparation-Guide.pdf.lnk
 http://103.101.85.173:8080/part/setup.pdf
@@ -359732,6 +359731,7 @@ http://103.20.213.34:8080/Uploads/Uploads/Aryacorp%20Mumbai/Scan%20documents/bio
 http://103.20.213.34:8080/Uploads/Uploads/Aryacorp%20Mumbai/Scan%20documents/info.zip
 http://103.20.213.34:8080/Uploads/Uploads/Aryacorp%20Mumbai/Scan%20documents/scan%20doc/ALAKNANDA%20%20CSE/info.zip
 http://103.20.213.34:8080/Uploads/Uploads/Aryacorp%20Mumbai/Scan%20documents/scan%20doc/BPL%20BILL/info.zip
+http://103.20.213.34:8080/Uploads/Uploads/Aryacorp%20Mumbai/Scan%20documents/scan%20doc/CINGLER%20SHIPPING%20BACKGROUND%20DTD%206%20NOV%2008/info.zip
 http://103.20.213.34:8080/Uploads/Uploads/Aryacorp%20Mumbai/Scan%20documents/scan%20doc/CITI%20BANK%20CARD%20PAYMENT/info.zip
 http://103.20.213.34:8080/Uploads/Uploads/Aryacorp%20Mumbai/Scan%20documents/scan%20doc/COAL%20MARKETS/info.zip
 http://103.20.213.34:8080/Uploads/Uploads/Aryacorp%20Mumbai/Scan%20documents/scan%20doc/China-India%20Iron%20ore%20Summit%20beijing%202008/Name%20list%20of%20attendees%20for%20%20CIIOS/info.zip
@@ -360007,6 +360007,7 @@ http://103.20.213.34:8080/Uploads/Uploads/Aryacorp%20Singapore%20Operations/Char
 http://103.20.213.34:8080/Uploads/Uploads/Aryacorp%20Singapore%20Operations/Charterparties_Misc_Docs/2013/234_MANDARIN%20HANTONG/info.zip
 http://103.20.213.34:8080/Uploads/Uploads/Aryacorp%20Singapore%20Operations/Charterparties_Misc_Docs/2013/235_heilan%20brothers/info.zip
 http://103.20.213.34:8080/Uploads/Uploads/Aryacorp%20Singapore%20Operations/Charterparties_Misc_Docs/2013/236_CINZIA%20D%20AMATO/info.zip
+http://103.20.213.34:8080/Uploads/Uploads/Aryacorp%20Singapore%20Operations/Charterparties_Misc_Docs/2013/237_KINDA/237_KINDA/info.zip
 http://103.20.213.34:8080/Uploads/Uploads/Aryacorp%20Singapore%20Operations/Charterparties_Misc_Docs/2013/237_KINDA/info.zip
 http://103.20.213.34:8080/Uploads/Uploads/Aryacorp%20Singapore%20Operations/Charterparties_Misc_Docs/2013/238_HONG%20YU/info.zip
 http://103.20.213.34:8080/Uploads/Uploads/Aryacorp%20Singapore%20Operations/Charterparties_Misc_Docs/2013/239_ILIA/info.zip
@@ -360407,7 +360408,6 @@ http://103.240.211.121/AV.scr
 http://103.240.211.121/Photo.lnk
 http://103.240.211.121/Photo.scr
 http://103.240.211.121/Video.lnk
-http://103.240.211.121/Video.scr
 http://103.240.211.121/info.zip
 http://103.245.10.51:56156/.i
 http://103.245.10.51:56156/Mozi.m
@@ -361228,6 +361228,8 @@ http://105.225.94.37:56343/i
 http://105.226.6.169:40695/i
 http://105.97.186.183:56235/bin.sh
 http://105.97.186.183:56235/i
+http://105.97.188.214:33576/bin.sh
+http://105.97.188.214:33576/i
 http://106.1.9.225:50153/bin.sh
 http://106.110.208.117:38610/bin.sh
 http://106.110.208.117:38610/i
@@ -366162,6 +366164,7 @@ http://115.63.48.165:35036/i
 http://115.63.48.241:55931/bin.sh
 http://115.63.48.241:55931/i
 http://115.63.48.4:36577/bin.sh
+http://115.63.48.4:36577/i
 http://115.63.49.184:52595/bin.sh
 http://115.63.49.184:52595/i
 http://115.63.49.95:58696/bin.sh
@@ -366820,6 +366823,7 @@ http://117.26.225.169:40468/bin.sh
 http://117.26.225.169:40468/i
 http://117.26.226.163:59859/bin.sh
 http://117.26.226.163:59859/i
+http://117.26.226.224:39073/bin.sh
 http://117.26.226.42:41542/bin.sh
 http://117.26.226.42:41542/i
 http://117.26.226.51:41542/bin.sh
@@ -366891,6 +366895,7 @@ http://118.174.152.119:48439/i
 http://118.178.133.241:65500/help.scr
 http://118.178.144.41:6601/linux
 http://118.179.121.235:1123/Mozi.m
+http://118.179.121.235:1123/i
 http://118.179.144.202:28133/i
 http://118.179.203.50:40889/Mozi.m
 http://118.179.203.50:40889/i
@@ -370594,6 +370599,7 @@ http://125.46.169.94:58614/bin.sh
 http://125.46.169.94:58614/i
 http://125.46.196.234:52942/bin.sh
 http://125.46.196.234:52942/i
+http://125.46.197.178:53041/i
 http://125.46.197.246:47139/bin.sh
 http://125.46.197.246:47139/i
 http://125.46.197.44:36703/bin.sh
@@ -370692,6 +370698,7 @@ http://125.47.34.218:35283/bin.sh
 http://125.47.34.218:35283/i
 http://125.47.34.226:50997/bin.sh
 http://125.47.34.226:50997/i
+http://125.47.48.247:55497/bin.sh
 http://125.47.54.47:46909/bin.sh
 http://125.47.54.47:46909/i
 http://125.47.57.139:42573/bin.sh
@@ -371624,6 +371631,7 @@ http://139.198.15.223:8080/PingInfoView.exe
 http://139.198.15.223:8080/ScanPort.exe
 http://139.95.24.51:8081/?h=139.95.24.51&p=8081&t=tcp&a=w64&stage=true
 http://139.99.209.90/a/wget
+http://14-0-204-188.static.pccw-hkt.com/sshd
 http://14.0.131.161:38465/bin.sh
 http://14.0.131.161:38465/i
 http://14.0.131.161:51651/i
@@ -376309,6 +376317,7 @@ http://177.70.102.232:8070/TmpFTP/01/Cancelamento/2022-08-12/info.zip
 http://177.70.102.232:8070/TmpFTP/01/Cancelamento/2022-08-17/info.zip
 http://177.70.102.232:8070/TmpFTP/01/Cancelamento/2022-08-18/info.zip
 http://177.70.102.232:8070/TmpFTP/01/Cancelamento/2022-08-24/info.zip
+http://177.70.102.232:8070/TmpFTP/01/Cancelamento/2022-08-25/info.zip
 http://177.70.102.232:8070/TmpFTP/01/Cancelamento/2022-09-06/info.zip
 http://177.70.102.232:8070/TmpFTP/01/Cancelamento/2022-09-09/info.zip
 http://177.70.102.232:8070/TmpFTP/01/Cancelamento/2022-09-29/info.zip
@@ -376399,6 +376408,7 @@ http://177.70.102.232:8070/TmpFTP/01/Carta%20de%20Corre%C3%A7%C3%A3o/2022-04-27/
 http://177.70.102.232:8070/TmpFTP/01/Carta%20de%20Corre%C3%A7%C3%A3o/2022-05-11/info.zip
 http://177.70.102.232:8070/TmpFTP/01/Carta%20de%20Corre%C3%A7%C3%A3o/2022-05-17/info.zip
 http://177.70.102.232:8070/TmpFTP/01/Carta%20de%20Corre%C3%A7%C3%A3o/2022-06-08/info.zip
+http://177.70.102.232:8070/TmpFTP/01/Carta%20de%20Corre%C3%A7%C3%A3o/2022-08-03/info.zip
 http://177.70.102.232:8070/TmpFTP/01/Carta%20de%20Corre%C3%A7%C3%A3o/2022-08-05/info.zip
 http://177.70.102.232:8070/TmpFTP/01/Carta%20de%20Corre%C3%A7%C3%A3o/2022-08-18/info.zip
 http://177.70.102.232:8070/TmpFTP/01/Carta%20de%20Corre%C3%A7%C3%A3o/2022-08-25/info.zip
@@ -376502,6 +376512,7 @@ http://177.70.102.232:8070/TmpFTP/01/Consulta/2022-09-08/info.zip
 http://177.70.102.232:8070/TmpFTP/01/Consulta/2022-11-08/info.zip
 http://177.70.102.232:8070/TmpFTP/01/Consulta/2022-12-27/info.zip
 http://177.70.102.232:8070/TmpFTP/01/Consulta/2023-02-08/info.zip
+http://177.70.102.232:8070/TmpFTP/01/Consulta/2023-03-07/info.zip
 http://177.70.102.232:8070/TmpFTP/01/Consulta/2023-04-24/info.zip
 http://177.70.102.232:8070/TmpFTP/01/Consulta/2023-07-17/info.zip
 http://177.70.102.232:8070/TmpFTP/01/Consulta/2023-10-17/info.zip
@@ -376645,6 +376656,7 @@ http://177.70.102.232:8070/TmpFTP/01/Recep%C3%A7%C3%A3o/2020-04-20/info.zip
 http://177.70.102.232:8070/TmpFTP/01/Recep%C3%A7%C3%A3o/2020-04-22/info.zip
 http://177.70.102.232:8070/TmpFTP/01/Recep%C3%A7%C3%A3o/2020-04-23/info.zip
 http://177.70.102.232:8070/TmpFTP/01/Recep%C3%A7%C3%A3o/2020-04-24/info.zip
+http://177.70.102.232:8070/TmpFTP/01/Recep%C3%A7%C3%A3o/2020-04-29/info.zip
 http://177.70.102.232:8070/TmpFTP/01/Recep%C3%A7%C3%A3o/2020-05-06/info.zip
 http://177.70.102.232:8070/TmpFTP/01/Recep%C3%A7%C3%A3o/2020-05-07/info.zip
 http://177.70.102.232:8070/TmpFTP/01/Recep%C3%A7%C3%A3o/2020-05-09/info.zip
@@ -377038,7 +377050,6 @@ http://178.16.54.109/loader_domain.exe
 http://178.16.54.109/locopoco
 http://178.16.54.109/main.exe
 http://178.16.54.109/molakc
-http://178.16.54.109/n.exe
 http://178.16.54.109/newtpp.exe
 http://178.16.54.109/nm.exe
 http://178.16.54.109/nmm.exe
@@ -377513,7 +377524,6 @@ http://180.93.116.41/x86
 http://180.93.116.41/x86_64
 http://181.129.100.123:30581/i
 http://181.129.182.138:50370/
-http://181.129.182.138:50370/i
 http://181.143.114.106:61394/Mozi.m
 http://181.174.231.21:34154/i
 http://181.174.231.21:45689/bin.sh
@@ -379658,6 +379668,7 @@ http://182.245.28.97:40240/i
 http://182.253.115.155:59323/.i
 http://182.253.115.155:59323/i
 http://182.253.115.156:59323/.i
+http://182.253.115.156:59323/Mozi.m
 http://182.253.115.156:59323/i
 http://182.34.56.255:59959/bin.sh
 http://182.34.56.255:59959/i
@@ -380143,6 +380154,7 @@ http://188.44.110.215:60566/i
 http://188.56.204.166:46431/i
 http://188.59.39.97:33000/i
 http://188.72.6.218:43597/.i
+http://188.72.6.218:43597/Mozi.m
 http://188.72.6.218:43597/i
 http://188.82.127.68/AV.lnk
 http://188.82.127.68/AV.scr
@@ -380740,7 +380752,6 @@ http://195.103.203.106/Photo.scr
 http://195.123.4.249/bbc
 http://195.137.245.219/systemd
 http://195.158.90.40:52094/.i
-http://195.158.90.40:52094/i
 http://195.177.94.103/img_144346.png
 http://195.177.94.103/img_160700.png
 http://195.177.94.139/Xloadfile/bin.exe
@@ -381355,7 +381366,6 @@ http://2.187.38.183:45336/i
 http://2.187.39.131:39653/i
 http://2.187.98.47:58030/i
 http://2.194.144.193:58687/i
-http://2.26.124.132/gg2
 http://2.26.124.67:889/agustin51
 http://2.26.136.128/a
 http://2.26.136.128/d.sh
@@ -382174,6 +382184,7 @@ http://202.1.26.70:41574/bin.sh
 http://202.1.26.70:41574/i
 http://202.1.26.70:47005/i
 http://202.1.26.70:59283/bin.sh
+http://202.105.196.30:52286/Mozi.m
 http://202.107.0.250:55295/bin.sh
 http://202.107.0.250:55295/i
 http://202.107.5.110:52110/bin.sh
@@ -382261,7 +382272,6 @@ http://202.4.101.78:36786/
 http://202.4.101.78:36786/i
 http://202.40.178.201:26818/i
 http://202.47.46.183:34873/Mozi.m
-http://202.5.50.108:15808/.i
 http://202.5.50.108:15808/Mozi.m
 http://202.5.50.108:15808/i
 http://202.53.164.46:35803/.i
@@ -382918,7 +382928,6 @@ http://211.158.220.45:58929/bin.sh
 http://211.158.220.45:58929/i
 http://211.158.34.201:51581/bin.sh
 http://211.158.34.201:51581/i
-http://211.186.82.229:13753/.i
 http://211.186.82.229:13753/i
 http://211.194.20.7:11550/.i
 http://211.194.20.7:11550/i
@@ -382928,8 +382937,10 @@ http://211.204.100.20:1234/InfectSocks64_SQL_AntiVirus.vmp.dll
 http://211.204.100.20:1234/NdisInstaller3.2.32.1.exe
 http://211.204.100.20:1234/ShadowForce2008_64_Add.vmp.dll
 http://211.204.100.20:1234/iland.dat
+http://211.204.100.20:1234/mport.exe
 http://211.204.100.20:1234/upm2008.exe
 http://211.204.100.20:1234/winsetaccess64.exe
+http://211.204.100.20:1234/writedat.exe
 http://211.219.49.173:4089/i
 http://211.229.127.206:53013/i
 http://211.47.121.143:4501/Mozi.m
@@ -387559,7 +387570,6 @@ http://37.232.128.5:58602/i
 http://37.232.219.81:58602/i
 http://37.233.63.185:33423/Mozi.m
 http://37.233.63.185:33423/i
-http://37.252.66.188:12165/.i
 http://37.252.66.188:12165/Mozi.m
 http://37.252.66.188:12165/i
 http://37.252.69.10:58829/
@@ -391743,7 +391753,6 @@ http://46.236.65.43:54957/i
 http://46.247.108.225/bins.sh
 http://46.247.108.225/release/x86
 http://46.247.108.225/release/x86_64
-http://46.250.54.75:83/sshd
 http://46.250.54.75:84//sshd
 http://46.252.33.253:37189/bin.sh
 http://46.252.33.253:37189/i
@@ -395449,7 +395458,6 @@ http://69.46.43.35/pty1
 http://69.46.43.35/pty10
 http://69.46.43.35/pty2
 http://69.46.43.35/pty3
-http://69.46.43.35/pty5
 http://69.48.143.20/
 http://69.75.168.226:8007//sshd
 http://69.75.168.226:8007/sshd
@@ -395611,6 +395619,7 @@ http://77.172.14.72/info.zip
 http://77.211.28.150/AV.scr
 http://77.211.28.150/Photo.scr
 http://77.211.28.150/Video.scr
+http://77.211.28.150/info.zip
 http://77.225.115.53:59140/i
 http://77.225.115.53:59763/i
 http://77.226.241.197:5003/tftp
@@ -396080,7 +396089,6 @@ http://82.114.178.6:60161/bin.sh
 http://82.114.181.233:33360/i
 http://82.114.181.233:44817/i
 http://82.114.200.50:48416/
-http://82.114.200.50:48416/.i
 http://82.114.200.50:48416/i
 http://82.139.95.202:2000/
 http://82.144.86.37:40445/bin.sh
@@ -397470,11 +397478,48 @@ http://91.92.40.15/zero.powerpc
 http://91.92.40.15/zero.sh4
 http://91.92.40.15/zero.sparc
 http://91.92.40.15/zero.x86
+http://91.92.40.165/bins/dlr.arm
 http://91.92.40.165/bins/dlr.arm5
+http://91.92.40.165/bins/dlr.arm6
+http://91.92.40.165/bins/dlr.arm7
 http://91.92.40.165/bins/dlr.m68k
+http://91.92.40.165/bins/dlr.mips
 http://91.92.40.165/bins/dlr.mpsl
 http://91.92.40.165/bins/dlr.ppc
 http://91.92.40.165/bins/dlr.spc
+http://91.92.40.165/bins/dlr.x86
+http://91.92.40.165/bins/loader
+http://91.92.40.165/bins/sh_1947.arm
+http://91.92.40.165/bins/sh_1947.arm5
+http://91.92.40.165/bins/sh_1947.arm6
+http://91.92.40.165/bins/sh_1947.arm7
+http://91.92.40.165/bins/sh_1947.m68k
+http://91.92.40.165/bins/sh_1947.mips
+http://91.92.40.165/bins/sh_1947.mpsl
+http://91.92.40.165/bins/sh_1947.ppc
+http://91.92.40.165/bins/sh_1947.sh4
+http://91.92.40.165/bins/sh_1947.spc
+http://91.92.40.165/bins/sh_1947.x86
+http://91.92.40.165/bins/sh_1947.x86_64
+http://91.92.40.165/release/DS.arm
+http://91.92.40.165/release/DS.arm5n
+http://91.92.40.165/release/DS.arm6
+http://91.92.40.165/release/DS.arm7
+http://91.92.40.165/release/DS.i486
+http://91.92.40.165/release/DS.i686
+http://91.92.40.165/release/DS.m68k
+http://91.92.40.165/release/DS.mips
+http://91.92.40.165/release/DS.mips64
+http://91.92.40.165/release/DS.mpsl
+http://91.92.40.165/release/DS.ppc
+http://91.92.40.165/release/DS.ppc440fp
+http://91.92.40.165/release/DS.sh4
+http://91.92.40.165/release/DS.spc
+http://91.92.40.165/release/DS.x86
+http://91.92.40.165/release/DS.x86_64
+http://91.92.40.165/release/cnc
+http://91.92.40.165/release/loader
+http://91.92.40.165/release/scanner
 http://91.92.40.17/qtm.arm
 http://91.92.40.17/qtm.arm5
 http://91.92.40.17/qtm.arm6
@@ -400325,7 +400370,6 @@ http://95.165.187.102:52854/bin.sh
 http://95.165.187.102:52854/i
 http://95.165.187.102:54251/i
 http://95.170.116.28:21086/i
-http://95.170.119.57:1271/.i
 http://95.170.119.57:1271/Mozi.m
 http://95.170.119.57:1271/i
 http://95.179.224.131:8080/pty10
@@ -401047,7 +401091,6 @@ http://download.caihong.com/gamewd/yhdl.exe
 http://download.doumaibiji.cn/doumai/fmt/v1.0.1.11/fmt_01.exe
 http://download.doumaibiji.cn/doumai/news2/v1.0.7.01/news2_01.exe
 http://download.doumaibiji.cn/doumai/tips/v1.0.1.11/tips_01.exe
-http://download.haozip.com/haozip.convertimg.exe
 http://download.haozip.com/uniondown/haozip_tiny.201805.exe
 http://download.kaobeitu.com/kaobeitu/mini/v1.0.7.16/mini_04.exe
 http://download.kaobeitu.com/kaobeitu/news/v1.0.7.31/news_01.exe
@@ -405438,7 +405481,6 @@ https://directdownloadl.ink/f/aca7ebab32cd.bat
 https://djaczx9h.btyek.online/?ublib=c4993d64-c456-4f4f-aca9-b1e039bcffb1
 https://djqiyxyx.calirayalake.com/a44ffab3-a516-40d3-b374-99a4528e5dd3
 https://dkkmrjmb.signalfrontier.top/c5d8fa07-c85e-46ce-877d-11e16e3166c1
-https://dl.2345.com/haozip/haozip_v6.5.2.11245.exe
 https://dl.dropboxusercontent.com/scl/fi/fokz7nq2fsq5eno3me0kr/update.bin?rlkey=ew1j6qqw9bpl5i99yesrvya3o&dl=1
 https://dl.dropboxusercontent.com/scl/fi/rtn5r2ig6gqvsv2vasqbx/krypton-1.21.1-v15.jar?rlkey=q48p4pfjgt1ygsmd0moc6ihnv&st=qlzqzgsy
 https://dl.proxiespool.wiki/0.zip
@@ -467373,6 +467415,7 @@ zonedirector.avadacom.com$image
 ||waust.at^$third-party
 ||wawacity.*/bypass
 ||wawel-service.pl/checkleadforvisitor
+||way-to-ai.com^$all
 ||way2traffic.com^$third-party
 ||waybig.com/*.gif$image
 ||wayfair.com/a/campaign_management/tag/get_tracking_tags
@@ -529290,45 +529333,3 @@ dailymail.co.uk##.puff_pastel
 dailymail.co.uk##.socialContainer-1Yly1
 dailymail.co.uk##.vjs-social-controls
 dailymail.co.uk##[data-is-sponsored="true"]
-dailymail.co.uk##div[data-mol-fe-xpmodule-commerce-articles]
-dailymail.co.uk##div[id^="sky-"][id$="container"]
-dailymail.co.uk##li[data-is-sponsored="true"]
-dailymail.co.uk#@#.article-advert
-dailymail.co.uk,dailymail.com##.newsletter-sign-up_2K2O1Qev
-dailymail.co.uk,fundrazr.com,gizmodo.com,modernagejournal.com,nymag.com,thisismoney.co.uk,zapimoveis.com.br##.share-link
-dailymail.co.uk,namesecure.com#@#.adHolder
-dailymail.co.uk,oogtv.nl##.whatsapp
-dailymail.co.uk,thisismoney.co.uk###dms-txt
-dailymail.co.uk,thisismoney.co.uk###sky-left-container
-dailymail.co.uk,thisismoney.co.uk###sky-right-container
-dailymail.co.uk,thisismoney.co.uk##.connatix-wrapper
-dailymail.co.uk,thisismoney.co.uk##.share-email
-dailymail.co.uk,thisismoney.co.uk##.share-facebook-long
-dailymail.co.uk,thisismoney.co.uk##.share-fbmessenger
-dailymail.co.uk,thisismoney.co.uk##.share-flipboard
-dailymail.co.uk,thisismoney.co.uk##.share-twitter
-dailymail.co.uk,thisismoney.co.uk##.share-whatsapp
-dailymail.co.uk,thisismoney.co.uk##.watermark
-dailymail.co.uk,thisismoney.co.uk##ul[class^="linksHolder-"]
-dailymail.co.uk,thisismoney.co.uk#@#.article-advert
-dailymail.com###next-story
-dailymail.com###swipeIndicator
-dailymail.com##.billboard-container
-dailymail.com##.mol-products-module
-dailymail.com##.prevNextButton-VWXta
-dailymail.com##.share-snapchat
-dailymail.com##.socialShareContainer
-dailymail.com##.swipe-tutorial
-dailymaverick.co.za###in-article-action-1
-dailymaverick.co.za###post-article-footer
-dailymaverick.co.za###ribbon-container
-dailymaverick.co.za##+js(nostif, t(), 0)
-dailymaverick.co.za##.top_stories
-dailymemphian.com###offer-wrapper
-dailymemphian.com,thekitchn.com##.EmailSignup
-dailymotion.com##.AppPromotion__appPromotion___28-_Y
-dailymotion.com##.CookiePopup__desktopContainer___ZCIMO
-dailymotion.com##.dmp_VideoView-ad-slot
-dailymotion.com##[data-testid="app-promotion-test-id"]
-dailymotion.com##div[class^="AdBanner"]
-dailymotion.com##div[class^="AdWatchingRight__container"]

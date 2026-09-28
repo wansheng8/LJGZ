@@ -3,11 +3,53 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-09-28 13:36:14 +0800
-! Last Modified: 2026-09-28 13:36:14 +0800 (北京时间 UTC+8)
+! Version: 2026-09-28 13:47:38 +0800
+! Last Modified: 2026-09-28 13:47:38 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 72218
+! Rules: 72260
 
+dailymail.co.uk##div[data-mol-fe-xpmodule-commerce-articles]
+dailymail.co.uk##div[id^="sky-"][id$="container"]
+dailymail.co.uk##li[data-is-sponsored="true"]
+dailymail.co.uk#@#.article-advert
+dailymail.co.uk,dailymail.com##.newsletter-sign-up_2K2O1Qev
+dailymail.co.uk,fundrazr.com,gizmodo.com,modernagejournal.com,nymag.com,thisismoney.co.uk,zapimoveis.com.br##.share-link
+dailymail.co.uk,namesecure.com#@#.adHolder
+dailymail.co.uk,oogtv.nl##.whatsapp
+dailymail.co.uk,thisismoney.co.uk###dms-txt
+dailymail.co.uk,thisismoney.co.uk###sky-left-container
+dailymail.co.uk,thisismoney.co.uk###sky-right-container
+dailymail.co.uk,thisismoney.co.uk##.connatix-wrapper
+dailymail.co.uk,thisismoney.co.uk##.share-email
+dailymail.co.uk,thisismoney.co.uk##.share-facebook-long
+dailymail.co.uk,thisismoney.co.uk##.share-fbmessenger
+dailymail.co.uk,thisismoney.co.uk##.share-flipboard
+dailymail.co.uk,thisismoney.co.uk##.share-twitter
+dailymail.co.uk,thisismoney.co.uk##.share-whatsapp
+dailymail.co.uk,thisismoney.co.uk##.watermark
+dailymail.co.uk,thisismoney.co.uk##ul[class^="linksHolder-"]
+dailymail.co.uk,thisismoney.co.uk#@#.article-advert
+dailymail.com###next-story
+dailymail.com###swipeIndicator
+dailymail.com##.billboard-container
+dailymail.com##.mol-products-module
+dailymail.com##.prevNextButton-VWXta
+dailymail.com##.share-snapchat
+dailymail.com##.socialShareContainer
+dailymail.com##.swipe-tutorial
+dailymaverick.co.za###in-article-action-1
+dailymaverick.co.za###post-article-footer
+dailymaverick.co.za###ribbon-container
+dailymaverick.co.za##+js(nostif, t(), 0)
+dailymaverick.co.za##.top_stories
+dailymemphian.com###offer-wrapper
+dailymemphian.com,thekitchn.com##.EmailSignup
+dailymotion.com##.AppPromotion__appPromotion___28-_Y
+dailymotion.com##.CookiePopup__desktopContainer___ZCIMO
+dailymotion.com##.dmp_VideoView-ad-slot
+dailymotion.com##[data-testid="app-promotion-test-id"]
+dailymotion.com##div[class^="AdBanner"]
+dailymotion.com##div[class^="AdWatchingRight__container"]
 dailymotion.com##div[class^="DisplayAd"]
 dailymotion.com##div[class^="NewWatchingDiscovery__adSection"]
 dailymotion.com##div[class^="VideoInfo__videoInfoAdContainer"]
