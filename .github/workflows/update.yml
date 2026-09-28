@@ -21,13 +21,14 @@ permissions:
 
 concurrency:
   group: update-rules
-  cancel-in-progress: true
+  cancel-in-progress: false        # 不取消排队中的更新 — 推送竞态曾是真实故障源
 
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     env:
-      TZ: Asia/Shanghai          # 作业内所有时间戳走北京时间
+      TZ: Asia/Shanghai            # 作业内所有时间戳走北京时间
     steps:
       - uses: actions/checkout@v4
 
@@ -41,28 +42,52 @@ jobs:
       - name: 下载并合并规则
         run: python merge_filters.py --config config.json --outdir output
 
-      - name: 提交并推送
+      - name: 提交并推送 (带重试, 防非快进竞态)
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add output/
           if git diff --cached --quiet; then
             echo "规则无变化, 跳过提交"
+            echo "changed=false" >> "$GITHUB_STATE" || true
           else
             git commit -m "自动更新过滤规则 (北京时间 $(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M'))"
-            git push
+            # 远端被并发移动时 (另一 run/人工/API 推送) rebase 重试, 最多 3 次
+            for i in 1 2 3; do
+              if git push; then
+                echo "推送成功 (尝试 $i)"; break
+              fi
+              echo "推送被拒 (尝试 $i), rebase 后重试…"
+              git fetch origin main
+              git rebase origin/main
+              if [ "$i" = "3" ]; then
+                echo "::warning::推送 3 次被拒 — 请检查是否有并发推送冲突"
+                exit 1
+              fi
+            done
           fi
+
+
+      - name: 记录本次提交 SHA (供 Pages 部署使用)
+        id: sha
+        run: echo "commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+    outputs:
+      commit: ${{ steps.sha.outputs.commit }}
 
   deploy-pages:
     needs: update
+    if: always() && needs.update.result == 'success'   # 即使"无变化跳过"也部署 (保证 Pages 与 main 一致)
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      # 锁定本次更新产生的确切提交 — main 若被后续提交移动, 部署的仍是刚验证过的内容
       - uses: actions/checkout@v4
         with:
-          ref: main                    # 取更新提交后的最新内容
+          ref: ${{ needs.update.outputs.commit }}
       - name: 组装站点 (订阅中心 + 全部订阅文件)
         run: |
           mkdir -p site

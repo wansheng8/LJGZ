@@ -51,7 +51,7 @@ StevenBlack / URLhaus / Blackbook —— **22 个上游**自动收集 · 语义�
 git clone https://github.com/wansheng8/LJGZ.git
 cd LJGZ
 python merge_filters.py --test              # 冒烟自检
-python -m unittest discover -s tests         # 73 项测试
+python -m unittest discover -s tests         # 88 项测试
 python merge_filters.py                      # 下载合并 → ./output/
 ```
 
@@ -81,7 +81,7 @@ Fork 后 `.github/workflows/update.yml` 自动生效，产出你自己的订阅�
 <summary><b>🚀 部署说明（每日北京时间 08:00 / 20:00 自动更新）</b></summary>
 
 - 工作流：`.github/workflows/update.yml`（cron `0 0,12 * * *` UTC = 北京 08:00/20:00，`TZ=Asia/Shanghai`）
-- 流程：73 项测试 → 下载 8 源 → 合并 → 无变化跳过提交，有变化自动 commit + push → 部署 Pages
+- 流程：88 项测试 → 下载 22 源 → 合并 → 无变化跳过提交，有变化自动 commit + push → 部署 Pages
 - **GitHub Pages**：`wansheng8.github.io/LJGZ` 托管订阅中心 + 全部订阅文件（Settings → Pages → Source 已设为 GitHub Actions）
 - 输出头部含 `! Last Modified: ... (北京时间 UTC+8)` 与 `! Expires: 12 hours`
 - 徽章 SVG 由引擎每次运行自动重新生成（`output/badge-*.svg`），数字始终与最新一次合并一致
@@ -96,7 +96,7 @@ merge_filters.py               # 核心引擎: 解析 → 合并 → 下载 → 
 config.json                    # 上游列表配置 (DIY 入口)
 docs/index.html                # 在线订阅中心 (GitHub Pages)
 docs/logo.svg                  # Logo
-tests/  (73 项, 无网络)         # 词法分类 / 合并去重 / 下载重试 / 徽章 / 端到端
+tests/  (88 项, 无网络)         # 词法分类 / 合并去重 / 下载重试 / 徽章 / 端到端
 .github/workflows/update.yml   # 每日更新 + Pages 部署
 output/                        # 订阅文件 (CI 自动重新生成)
 ```

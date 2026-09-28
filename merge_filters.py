@@ -495,7 +495,7 @@ class Merger:
 
         res.all_cosmetic = sorted(self._cosmetic)
         res.stats = {
-            "domains_unique": len(items),
+            "domains_unique": len(res.domains),   # 与 DNS 输出一致 (例外已剔除)
             "network_unique": len(res.all_network),
             "cosmetic_unique": len(res.all_cosmetic),
             "exceptions_unique": len(res.all_exceptions),
