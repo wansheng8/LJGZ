@@ -185,6 +185,7 @@ def split_mod_tokens(mods: str):
 
 
 def _mods_subset_of(mods: str, allowed) -> bool:
+    """空/纯空白修饰符视为无修饰符。"""
     return set(split_mod_tokens(mods.lower())) <= allowed
 
 
@@ -285,6 +286,10 @@ def _parse_single_token(s: str, source: str = "") -> Rule:
         if _is_domain(d):
             return Rule(raw=s, kind=K_DOMAIN, domains=(d,), domain=d, source=source)
 
+    # 裸 IP 行 (hosts 文件脏数据): 无域名可拦, 丢弃而非当成子串网络规则
+    if not mods and (_IPV4_RE.match(s) or (":" in s and _IPV6ISH_RE.match(s))):
+        return Rule(raw=s, kind=K_INVALID, dropped=True, source=source)
+
     # 裸域名 (无任何修饰符/通配符/锚点); 允许 FQDN 尾点, 先规范化再校验
     if not mods:
         d = norm_domain(s)
@@ -350,8 +355,15 @@ def parse_line(line: str, source: str = "") -> Rule:
         if cut > 0 and _is_host(s[:cut].strip().split("/")[0]):
             return Rule(raw=s, kind=K_COSMETIC, source=source)
 
-    # 含空白 → hosts 式 / 杂行
+    # 含空白 → 判定是「hosts 式/杂行」还是「修饰符值含空格的规则」:
+    # 规则形态 = 第一个空白前的部分含 "$" 或以 "@@"/"||" 开头 (如 $csp=script-src 'none',
+    # $dnsrewrite=NOERROR;MX;32 example.mail, $header=/foo\, bar$/) → 按单 token 规则解析;
+    # hosts 形态 = 空白前是 IP/裸域名 (如 "0.0.0.0 a.com") → hosts 扫描。
     if any(ch.isspace() for ch in s):
+        first_tok = s.split(None, 1)[0]
+        if ("$" in first_tok or first_tok.startswith("||")
+                or first_tok.startswith("@@") or first_tok.startswith("|")):
+            return _parse_single_token(s, source)
         return _parse_tokens(s, source)
 
     # 单 token 规则
@@ -778,6 +790,11 @@ def write_outputs(res: MergeResult, outdir: str, *, title: str,
     os.makedirs(outdir, exist_ok=True)
     now = now or now_bjt()
 
+    # 清理上一轮的旧分卷 (规则数减少时卷数变少, 残留旧卷会被继续订阅)
+    for stale in os.listdir(outdir):
+        if stale.startswith("all-part-") and stale.endswith(".txt"):
+            os.remove(os.path.join(outdir, stale))
+
     n_all = (len(res.all_blocks) + len(res.all_network) +
              len(res.all_cosmetic) + len(res.all_exceptions))
     n_dns = len(res.adguard_dns)
@@ -864,6 +881,10 @@ def run(config_path: str, *, outdir: str, transport=None,
         raise FetchError("所有上游源均下载失败, 拒绝生成空列表")
 
     res = merger.finalize()
+    # 源统计并入 stats.json (订阅中心/徽章动态化数据源)
+    res.stats["sources_total"] = len(sources)
+    res.stats["sources_ok"] = len(ok)
+    res.stats["sources_failed"] = len(failed)
     paths = write_outputs(res, outdir, title="AdFilter Merge")
 
     return {

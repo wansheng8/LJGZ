@@ -63,7 +63,7 @@ footer a{color:var(--acc);text-decoration:none}
   <img src="logo.svg" alt="LJGZ"/>
   <h1>LJGZ<span class="dot"> · 广告过滤订阅中心</span></h1>
   <p class="sub">EasyList 系 · uBO 官方 · AdGuard 官方 · Fanboy · OISD · hagezi · anti-AD · CJX ·
-    URLhaus · Blackbook 等 22 大上游 · 广告/隐私/恶意软件/钓鱼/挖矿全覆盖</p>
+    URLhaus · Blackbook 等 20+ 大上游 · 广告/隐私/恶意软件/钓鱼/挖矿全覆盖</p>
   <div class="badges">
     <img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fwansheng8%2FLJGZ%2Fmain%2Foutput%2Fbadge-rules.json" alt="规则总数"/>
     <img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fwansheng8%2FLJGZ%2Fmain%2Foutput%2Fbadge-domains.json" alt="拦截域名"/>
@@ -86,9 +86,9 @@ const RAW  = 'https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/';
 const P = [
  {i:'🧩', n:'浏览器扩展', a:'uBlock Origin · AdGuard · Adblock Plus', f:'all.txt',
   d:'网络规则 + 元素隐藏 + 脚本注入 + 例外，全格式订阅。',
-  u:[['推荐 (CDN 分卷 1)', CDN+'all-part-01.txt'], ['推荐 (CDN 分卷 2)', CDN+'all-part-02.txt'],
-     ['完整版', PAGES+'all.txt'], ['备用', RAW+'all.txt']],
-  t:'⭐ 国内网络推荐订阅「CDN 分卷 1 + 分卷 2」两个都加，效果 = 完整版；完整版 >20MB 无法走 jsDelivr'},
+  u:[['完整版', PAGES+'all.txt'], ['备用', RAW+'all.txt']],
+  dynamic:'parts',
+  t:'⭐ 国内网络推荐订阅下方自动发现的「CDN 分卷」(全部加上 = 完整版)；完整版 >20MB 无法走 jsDelivr'},
  {i:'🏠', n:'AdGuard Home', a:'AdGuard Home · AdGuard DNS · 私人 DNS', f:'adguard.txt',
   d:'子域折叠后的 DNS 拦截规则 + $dnsrewrite 规则 + DNS 白名单。',
   u:[['CDN 推荐', CDN+'adguard.txt'], ['最短', PAGES+'adguard.txt'], ['备用', RAW+'adguard.txt']],
@@ -117,7 +117,7 @@ for (const p of P) {
   });
   c.innerHTML = `<h2><span class="ico">${p.i}</span>${p.n}</h2>` +
     `<div class="apps">${p.a}</div>` +
-    `<div class="url">${rows}</div>` +
+    `<div class="url" ${p.dynamic ? 'data-dynamic="'+p.dynamic+'"' : ''}>${rows}</div>` +
     `<div class="tip">${p.d}<br>📌 ${p.t}</div>`;
   grid.appendChild(c);
 }
@@ -132,6 +132,28 @@ grid.addEventListener('click', async e => {
   b.textContent = '✓ 已复制'; b.classList.add('ok');
   setTimeout(() => { b.textContent = '复制'; b.classList.remove('ok'); }, 1400);
 });
+// 动态发现 CDN 分卷 (HEAD 探测 01..05, 存在即插入链接行)
+(function discoverParts() {
+  const box = document.querySelector('[data-dynamic="parts"]');
+  if (!box) return;
+  let found = 0;
+  for (let i = 1; i <= 5; i++) {
+    const nn = String(i).padStart(2, '0');
+    fetch(CDN + 'all-part-' + nn + '.txt', {method: 'HEAD'})
+      .then(r => { if (r.ok) {
+        found++;
+        const row = document.createElement('div');
+        row.className = 'row';
+        row.innerHTML = `<span class="tag">CDN 分卷 ${found}</span>` +
+          `<span class="addr">${CDN}all-part-${nn}.txt</span>` +
+          `<button data-u="${CDN}all-part-${nn}.txt">复制</button>`;
+        box.insertBefore(row, box.firstChild.nextSibling || box.firstChild);
+        // 分卷数可能 >2, 提示文案同步
+      } })
+      .catch(() => {});
+  }
+})();
+
 fetch('stats.json').then(r => r.json()).then(s => {
   const el = document.getElementById('stats'); el.hidden = false;
   const f = n => n >= 10000 ? (n / 10000).toFixed(1) + '万' : String(n);
@@ -140,7 +162,7 @@ fetch('stats.json').then(r => r.json()).then(s => {
   el.innerHTML =
     `<span><b>${f(s.domains_unique)}</b>拦截域名</span>` +
     `<span><b>${f(total)}</b>规则总数</span>` +
-    `<span><b>22</b>上游源</span>` +
+    `<span><b>${s.sources_total || '…'}</b>上游源</span>` +
     `<span><b>2 ×/日</b>北京时间更新</span>`;
 }).catch(() => {});
 </script>

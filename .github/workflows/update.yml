@@ -12,6 +12,7 @@ on:
       - "merge_filters.py"
       - "config.json"
       - "docs/**"
+      - "tests/**"
       - ".github/workflows/update.yml"
 
 permissions:

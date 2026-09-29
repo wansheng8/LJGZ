@@ -109,5 +109,30 @@ class TestRunEndToEnd(unittest.TestCase):
         self.assertEqual(files["hosts"].count("0.0.0.0 doubleclick.net"), 1)
 
 
+
+class TestStatsJsonIncludesSources(unittest.TestCase):
+    def test_stats_json_has_sources(self):
+        import json as _json
+        t = _FakeTransport({
+            "https://x/easylist.txt": EASYLIST,
+            # hosts.txt 404 → failed
+        })
+        with tempfile.TemporaryDirectory() as td:
+            cfg = os.path.join(td, "config.json")
+            with open(cfg, "w", encoding="utf-8") as f:
+                _json_write = _json  # noqa
+                f.write(_json.dumps({"sources": [
+                    {"name": "easylist", "url": "https://x/easylist.txt"},
+                    {"name": "hosts", "url": "https://x/hosts.txt"},
+                ]}))
+            outdir = os.path.join(td, "out")
+            report = mf.run(cfg, outdir=outdir, transport=t)
+            with open(os.path.join(outdir, "stats.json"), encoding="utf-8") as f:
+                stats = _json.load(f)
+        self.assertEqual(stats["sources_ok"], 1)
+        self.assertEqual(stats["sources_failed"], 1)
+        self.assertEqual(stats["sources_total"], 2)
+
+
 if __name__ == "__main__":
     unittest.main()
