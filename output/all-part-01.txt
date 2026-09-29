@@ -3,10 +3,10 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 1/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-09-29 10:40:46 +0800
-! Last Modified: 2026-09-29 10:40:46 +0800 (北京时间 UTC+8)
+! Version: 2026-09-29 10:46:39 +0800
+! Last Modified: 2026-09-29 10:46:39 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 532686
+! Rules: 532685
 
 ||0--4.com^
 ||0--d.com^
@@ -363168,7 +363168,6 @@ http://115.57.253.17:53774/bin.sh
 http://115.57.253.17:53774/i
 http://115.57.253.223:59731/i
 http://115.57.253.89:52552/i
-http://115.57.254.117:54013/bin.sh
 http://115.57.254.136:42278/bin.sh
 http://115.57.254.136:42278/i
 http://115.57.254.177:40779/bin.sh
@@ -364575,7 +364574,6 @@ http://119.116.20.47:46175/bin.sh
 http://119.116.20.47:46175/i
 http://119.116.237.187:35441/bin.sh
 http://119.116.237.187:35441/i
-http://119.116.237.200:35093/bin.sh
 http://119.116.237.200:35093/i
 http://119.116.238.55:57598/bin.sh
 http://119.116.238.55:57598/i
@@ -532694,3 +532692,4 @@ fabocompany.com,polipc.hu##.mysticky-welcomebar-fixed-wrap
 fabriziovanmarciano.com,liber-net.org##.brx-popup
 fabrykacukiernika.pl#@#.rodo-popup
 facciabuco.com##.bannerpost
+facciabuco.com#%#//scriptlet('prevent-fetch', '/pagead2\.googlesyndication\.com|secure\.quantserve\.com/')
