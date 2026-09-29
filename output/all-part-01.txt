@@ -3,8 +3,8 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 1/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-09-29 10:38:11 +0800
-! Last Modified: 2026-09-29 10:38:11 +0800 (北京时间 UTC+8)
+! Version: 2026-09-29 10:40:46 +0800
+! Last Modified: 2026-09-29 10:40:46 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
 ! Rules: 532686
 
@@ -357848,7 +357848,6 @@ http://103.206.139.61/Photo.scr
 http://103.206.139.61/Video.lnk
 http://103.206.139.61/Video.scr
 http://103.206.139.61/info.zip
-http://103.209.184.118:9257/.i
 http://103.209.184.118:9257/Mozi.m
 http://103.209.184.118:9257/i
 http://103.209.184.121:9257/.i
@@ -359229,7 +359228,6 @@ http://110.36.2.23:41553/bin.sh
 http://110.36.2.23:41553/i
 http://110.36.2.23:45384/bin.sh
 http://110.36.2.23:45384/i
-http://110.36.2.23:57677/i
 http://110.36.2.240:60096/bin.sh
 http://110.36.20.227:35555/bin.sh
 http://110.36.20.227:35555/i
@@ -374530,7 +374528,6 @@ http://177.86.229.115:54758/bin.sh
 http://177.86.229.115:54758/i
 http://177.86.229.12:35799/bin.sh
 http://177.86.229.12:35799/i
-http://177.86.229.12:36888/bin.sh
 http://177.86.229.12:36888/i
 http://177.86.229.12:53455/bin.sh
 http://177.86.229.12:53455/i
@@ -380726,6 +380723,7 @@ http://216.126.86.252:35767/i
 http://216.126.86.26:36797/i
 http://216.126.86.52:50663/bin.sh
 http://216.126.86.52:50663/i
+http://216.126.86.5:39261/i
 http://216.126.86.68:40753/bin.sh
 http://216.126.86.68:40753/i
 http://216.126.86.69:43335/bin.sh
@@ -391163,6 +391161,7 @@ http://59.180.168.190:45133/i
 http://59.180.169.61:40673/i
 http://59.180.170.37:53154/i
 http://59.180.171.2:44274/bin.sh
+http://59.180.172.227:39562/bin.sh
 http://59.180.174.220:58136/bin.sh
 http://59.180.174.220:58136/i
 http://59.180.185.87:53154/bin.sh
@@ -391240,6 +391239,7 @@ http://59.96.137.7:44269/bin.sh
 http://59.96.137.7:44269/i
 http://59.96.137.87:43770/bin.sh
 http://59.96.137.87:43770/i
+http://59.96.138.120:51616/bin.sh
 http://59.96.138.13:60044/i
 http://59.96.138.143:60598/bin.sh
 http://59.96.138.172:53425/bin.sh
@@ -393408,6 +393408,7 @@ http://77.39.107.229:31816/bin.sh
 http://77.39.107.229:31816/i
 http://77.46.170.18:53326/.i
 http://77.46.170.18:53326/Mozi.m
+http://77.46.170.18:53326/i
 http://77.53.231.107:47326/i
 http://77.53.43.110:47947/bin.sh
 http://77.53.43.110:47947/i
@@ -407128,7 +407129,6 @@ https://nightmare-download.pw/NMLoader%20v%204.2.1.zip
 https://nimblenumbers.screenconnect.com/Bin/ScreenConnect.ClientSetup.exe
 https://nintvncm.rayegan.net/a1c028f4-684c-4094-bf0d-e5d812fe16b2
 https://nisosznd.jadoobet.club/50c0143e-5692-4bb5-87b0-c58591c2abda
-https://njb2hl8n.betobord.live/?ublib=0a20a0d5-4331-49e3-aff0-2fc0f9827e5f
 https://njgpeig.onjabet.casino/51513efa-204c-4f4b-af74-1949847e293d
 https://njointmeetinponts.highfivedecore.com/hjs/jojo.tmp
 https://nkqj.behtarin-site-shartbandi-football.com/56455686-a6fc-454f-bbb1-109ce77de960
