@@ -3,22 +3,11 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-09-30 13:05:15 +0800
-! Last Modified: 2026-09-30 13:05:15 +0800 (北京时间 UTC+8)
+! Version: 2026-09-30 13:18:00 +0800
+! Last Modified: 2026-09-30 13:18:00 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 66469
+! Rules: 66458
 
-famasocial.site,jobsheel.com,dwert.co.kr,itdmusicy.com,itdmusics.com,evspec.in,bradola.com,paradoxscans.com,hispajav.com,sub69.online,itdmusicy.com,janammusic.in.net##body > div[id][class*=" "]:has(div.adblock_subtitle)
-famemingles.com,newsfront.xyz,crimejasoos.in,vacancyforjob.in###gcont
-family-fuck.net##.plink
-familydoctor.com.cn##.adExtra
-familydoctor.com.cn##.global-top-links-wrap
-familyeducation.com##section[id*="googlead"]
-familyhandyman.com###ads-container-single
-familyhandyman.com##.ad
-familyhandyman.com##.ad-container-wrapper
-familyhandyman.com##.advertisement
-familyhandyman.com##.cm-ad-unit-section
 familyhandyman.com##.rd_mediakit
 familyhandyman.com##.widget_taboola_widget
 familyminded.com##.inline-video-wrapper-featured
@@ -52322,6 +52311,7 @@ you-porn.com,youporn.*,youporngay.com##+js(set, page_params.holiday_promo, true)
 you-porn.com,youporn.*,youporngay.com##.ad-bottom-text
 you-porn.com,youporn.*,youporngay.com##.adLinkText
 you-porn.com,youporn.*,youporngay.com##.adsbytrafficjunky
+you-porn.com,youporn.com##.js_paidTab:has(> .js_tracking-link)
 you-porn.com,youporngay.com###pb_template
 you-porn.com,youporngay.com###videoContainer > #pb_template
 you-porn.com,youporngay.com##.playWrapper > #videoWrapper + aside.clearfix
@@ -52424,7 +52414,6 @@ youperv.com##li.catmen2:has(> a[href^="https://theporndude.com/"])
 youporn.*##.ad-remove + .responsiveIframe
 youporn.*##a[href][data-tracking="track-close-btn-ad"]
 youporn.com##.footer-element-container
-youporn.com##.js_paidTab:has(> .js_tracking-link)
 youporn.com##.playWrapper > div[class][id] div[class] > img[src^="data:image"]
 youporn.com##aside:has(a.ad-remove)
 youporn.com#%#//scriptlet('remove-node-text', 'script', '/window\.[\s\S]*?_zone_[\s\S]*?{"zone_id":/')
