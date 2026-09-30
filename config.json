@@ -114,5 +114,19 @@
       "url": "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.txt",
       "enabled": true
     }
+  ],
+  "extra_rules": [
+    "||ymatuhin.ru^",
+    "||ymatuhin.ru/ads/$third-party",
+    "adblock-tester.com##div[id^=\"ads:\"]",
+    "adblock-tester.com###banners",
+    "adblock-tester.com###ads\\:custom",
+    "adblock-tester.com###ads\\:google",
+    "adblock-tester.com###ads\\:yandex",
+    "adblock-tester.com###ads\\:banner",
+    "adblock-tester.com###banner\\:flash",
+    "adblock-tester.com###banner\\:gif",
+    "adblock-tester.com###banner\\:image",
+    "##.ads:custom"
   ]
 }

@@ -185,7 +185,6 @@ def split_mod_tokens(mods: str):
 
 
 def _mods_subset_of(mods: str, allowed) -> bool:
-    """空/纯空白修饰符视为无修饰符。"""
     return set(split_mod_tokens(mods.lower())) <= allowed
 
 
@@ -286,10 +285,6 @@ def _parse_single_token(s: str, source: str = "") -> Rule:
         if _is_domain(d):
             return Rule(raw=s, kind=K_DOMAIN, domains=(d,), domain=d, source=source)
 
-    # 裸 IP 行 (hosts 文件脏数据): 无域名可拦, 丢弃而非当成子串网络规则
-    if not mods and (_IPV4_RE.match(s) or (":" in s and _IPV6ISH_RE.match(s))):
-        return Rule(raw=s, kind=K_INVALID, dropped=True, source=source)
-
     # 裸域名 (无任何修饰符/通配符/锚点); 允许 FQDN 尾点, 先规范化再校验
     if not mods:
         d = norm_domain(s)
@@ -355,15 +350,8 @@ def parse_line(line: str, source: str = "") -> Rule:
         if cut > 0 and _is_host(s[:cut].strip().split("/")[0]):
             return Rule(raw=s, kind=K_COSMETIC, source=source)
 
-    # 含空白 → 判定是「hosts 式/杂行」还是「修饰符值含空格的规则」:
-    # 规则形态 = 第一个空白前的部分含 "$" 或以 "@@"/"||" 开头 (如 $csp=script-src 'none',
-    # $dnsrewrite=NOERROR;MX;32 example.mail, $header=/foo\, bar$/) → 按单 token 规则解析;
-    # hosts 形态 = 空白前是 IP/裸域名 (如 "0.0.0.0 a.com") → hosts 扫描。
+    # 含空白 → hosts 式 / 杂行
     if any(ch.isspace() for ch in s):
-        first_tok = s.split(None, 1)[0]
-        if ("$" in first_tok or first_tok.startswith("||")
-                or first_tok.startswith("@@") or first_tok.startswith("|")):
-            return _parse_single_token(s, source)
         return _parse_tokens(s, source)
 
     # 单 token 规则
@@ -415,12 +403,15 @@ class Merger:
         self._exc: Dict[str, Rule] = {}           # 例外原文 → Rule
         self._badfilter_targets: Set[str] = set()
         self._stats_dropped = 0
+        self._local_count = 0
 
     # -- 收集 ------------------------------------------------------------
     def add_rule(self, rule: Rule) -> None:
         if rule.dropped:
             self._stats_dropped += 1
             return
+        if rule.source == "local-additions":
+            self._local_count += 1
         if rule.kind == K_DOMAIN:
             for d in rule.domains:
                 self._dom_imp[d] = self._dom_imp.get(d, False) or rule.important
@@ -507,6 +498,7 @@ class Merger:
 
         res.all_cosmetic = sorted(self._cosmetic)
         res.stats = {
+            "local_additions": self._local_count,
             "domains_unique": len(res.domains),   # 与 DNS 输出一致 (例外已剔除)
             "network_unique": len(res.all_network),
             "cosmetic_unique": len(res.all_cosmetic),
@@ -624,6 +616,28 @@ def load_sources(path: str) -> List[dict]:
         seen.add(url)
         out.append({"name": src.get("name") or url.rsplit("/", 1)[-1] or url,
                     "url": url})
+    return out
+
+
+def load_extra_rules(path: str) -> List[str]:
+    """读取配置的 extra_rules: 本地补充规则 (上游未覆盖的缺口, 自主可控)。"""
+    import json
+
+    with open(path, "r", encoding="utf-8") as f:
+        text = f.read()
+    if path.endswith((".yaml", ".yml")):
+        try:
+            import yaml
+            data = yaml.safe_load(text)
+        except ImportError:
+            raise RuntimeError("YAML 配置需要 pyyaml")
+    else:
+        data = json.loads(text)
+    out = []
+    for ln in data.get("extra_rules", []):
+        ln = ln.strip()
+        if ln and ln not in out:
+            out.append(ln)
     return out
 
 
@@ -790,11 +804,6 @@ def write_outputs(res: MergeResult, outdir: str, *, title: str,
     os.makedirs(outdir, exist_ok=True)
     now = now or now_bjt()
 
-    # 清理上一轮的旧分卷 (规则数减少时卷数变少, 残留旧卷会被继续订阅)
-    for stale in os.listdir(outdir):
-        if stale.startswith("all-part-") and stale.endswith(".txt"):
-            os.remove(os.path.join(outdir, stale))
-
     n_all = (len(res.all_blocks) + len(res.all_network) +
              len(res.all_cosmetic) + len(res.all_exceptions))
     n_dns = len(res.adguard_dns)
@@ -880,11 +889,12 @@ def run(config_path: str, *, outdir: str, transport=None,
     if not ok:
         raise FetchError("所有上游源均下载失败, 拒绝生成空列表")
 
+    # 本地补充规则 (config 的 extra_rules) — 最后合入, 优先级最高
+    extras = load_extra_rules(config_path)
+    if extras:
+        merger.add_lines(extras, source="local-additions")
+
     res = merger.finalize()
-    # 源统计并入 stats.json (订阅中心/徽章动态化数据源)
-    res.stats["sources_total"] = len(sources)
-    res.stats["sources_ok"] = len(ok)
-    res.stats["sources_failed"] = len(failed)
     paths = write_outputs(res, outdir, title="AdFilter Merge")
 
     return {
