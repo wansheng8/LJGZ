@@ -1,10 +1,13 @@
 {
-  "badfilter_targets": 295,
+  "badfilter_targets": 297,
   "cosmetic_unique": 118596,
-  "domains_unique": 572370,
-  "dropped": 44094,
+  "domains_unique": 572366,
+  "dropped": 43947,
   "exceptions_unique": 13024,
   "local_additions": 12,
-  "network_unique": 316932,
+  "network_unique": 317110,
+  "sources_failed": 0,
+  "sources_ok": 22,
+  "sources_total": 22,
   "whitelist_unique": 186
 }
