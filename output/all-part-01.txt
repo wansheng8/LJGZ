@@ -3,10 +3,10 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 1/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-10-02 01:41:43 +0800
-! Last Modified: 2026-10-02 01:41:43 +0800 (北京时间 UTC+8)
+! Version: 2026-10-02 01:46:16 +0800
+! Last Modified: 2026-10-02 01:46:16 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 532190
+! Rules: 532191
 
 ||0--4.com^
 ||0--d.com^
@@ -360166,6 +360166,7 @@ http://111.59.254.165:8084/20250713/Photo.scr
 http://111.59.254.165:8084/20250713/Video.lnk
 http://111.59.254.165:8084/20250713/Video.scr
 http://111.59.254.165:8084/20250721/AV.lnk
+http://111.59.254.165:8084/20250721/AV.scr
 http://111.59.254.165:8084/20250721/Photo.lnk
 http://111.59.254.165:8084/20250721/Photo.scr
 http://111.59.254.165:8084/20250721/Video.lnk
@@ -371703,6 +371704,7 @@ http://176.193.95.152:54903/bin.sh
 http://176.193.95.152:54903/i
 http://176.214.121.253:29937/bin.sh
 http://176.214.121.253:29937/i
+http://176.221.111.222:2282/Mozi.m
 http://176.239.101.112:53850/i
 http://176.65.132.103/bins/arm5
 http://176.65.132.103/bins/arm6
@@ -376381,7 +376383,6 @@ http://182.245.28.97:40240/bin.sh
 http://182.245.28.97:40240/i
 http://182.253.115.155:59323/.i
 http://182.253.115.155:59323/Mozi.m
-http://182.253.115.156:59323/.i
 http://182.253.115.156:59323/Mozi.m
 http://182.34.56.255:59959/bin.sh
 http://182.34.56.255:59959/i
@@ -384311,6 +384312,7 @@ http://36.92.110.187:8089/sshd
 http://36.92.24.250:29829/i
 http://36.92.68.241:27066/Mozi.m
 http://36.92.68.241:27066/i
+http://36.95.137.155:1876/i
 http://36.97.200.35:34241/bin.sh
 http://36.97.200.35:34241/i
 http://36.97.200.35:49887/Mozi.m
@@ -386212,7 +386214,6 @@ http://42.232.231.254:56762/bin.sh
 http://42.232.231.254:56762/i
 http://42.232.231.31:57343/bin.sh
 http://42.232.231.31:57343/i
-http://42.232.233.56:45959/bin.sh
 http://42.232.233.56:45959/i
 http://42.232.234.77:47411/bin.sh
 http://42.232.234.77:47411/i
@@ -392999,6 +393000,7 @@ http://81.4.156.50:63841/i
 http://81.42.249.132:5000/AV.lnk
 http://81.42.249.132:5000/AV.scr
 http://81.42.249.132:5000/Photo.lnk
+http://81.42.249.132:5000/Photo.scr
 http://81.42.249.132:5000/R-02-RADIOLE/AV.scr
 http://81.42.249.132:5000/R-02-RADIOLE/Photo.scr
 http://81.42.249.132:5000/R-02-RADIOLE/Video.scr
@@ -397196,6 +397198,7 @@ http://94.27.153.78:37216/i
 http://94.28.39.38:34375/bin.sh
 http://94.28.39.38:34375/i
 http://94.28.39.38:36784/i
+http://94.43.139.153:50379/i
 http://94.43.139.153:50379/mozi.a
 http://94.43.139.153:56656/Mozi.m
 http://94.45.34.166:43430/bin.sh
@@ -397389,6 +397392,7 @@ http://95.255.114.11/Photo.scr
 http://95.43.75.2:19117/.i
 http://95.43.75.2:19117/i
 http://95.43.76.100:43118/.i
+http://95.43.76.100:43118/i
 http://95.47.248.146//sshd
 http://95.47.248.146/sshd
 http://95.54.82.154:29012/bin.sh
@@ -398470,6 +398474,7 @@ http://github.com/user-attachments/files/19831362/alpha.zip
 http://github.com/user-attachments/files/19831450/Solara.zip
 http://github.com/user-attachments/files/19835739/solarus.zip
 http://github.com/v0lt/VirtualDub2/releases/download/2.1.3/VirtualDub2_v2.1.3.667_win32.7z
+http://github.com/vinhuptoday/testbn/raw/refs/heads/main/brbotnet.exe
 http://github.com/xaviertya/.dotfiles/releases/download/v2.0/software.zip
 http://github.com/xmrig/xmrig/releases/download/v6.22.2/xmrig-6.22.2-msvc-win64.zip
 http://give-lawncalm.xyz/avast_update
@@ -402220,7 +402225,6 @@ https://cdn.novoline.top/dropfix
 https://ceayo90m.jadoou.xyz/?ublib=36675b49-9aef-464d-b4ef-fe27adb7c757
 https://cehamilton.com/when-ill-start-earn-money.exe
 https://celebratingseniors.net/oste.zip
-https://celebratingseniors.net/rate.zip
 https://celebratingseniors.net/rats.zip
 https://centrodolce.screenconnect.com/Bin/ScreenConnect.ClientSetup.msi?e=Access&y=Guest
 https://ceohdvj.bonos.promo/07c568e7-e51d-4d15-b60a-725fc9cc4001
@@ -402522,7 +402526,6 @@ https://directdownloadl.ink/f/a7118141be1f.exe
 https://directdownloadl.ink/f/aca7ebab32cd.bat
 https://djqiyxyx.calirayalake.com/a44ffab3-a516-40d3-b374-99a4528e5dd3
 https://dkkmrjmb.signalfrontier.top/c5d8fa07-c85e-46ce-877d-11e16e3166c1
-https://dl.2345.com/haozip/haozip_v6.5.2.11245.exe
 https://dl.dropboxusercontent.com/scl/fi/fokz7nq2fsq5eno3me0kr/update.bin?rlkey=ew1j6qqw9bpl5i99yesrvya3o&dl=1
 https://dl.dropboxusercontent.com/scl/fi/rtn5r2ig6gqvsv2vasqbx/krypton-1.21.1-v15.jar?rlkey=q48p4pfjgt1ygsmd0moc6ihnv&st=qlzqzgsy
 https://dl.ijinshan.com/safe/setup_smart.exe
@@ -532196,5 +532199,3 @@ facebook.com,messenger.com#@#div[data-testid="cookie-policy-banner"]
 facebookblueprint.com,kalenderwoche.at,kalenderwoche.de,lemon-school.sk,mmtop200.com,numerodesemaine.fr,podconsultsbutik.dk,skillshop.exceedlms.com,thornburg.com,ugenr.dk,ukenr.no,veckonr.se###gdpr-consent
 facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion#%#new MutationObserver(function(){var t=["?fbclid","%3Ffbclid","&fbclid","%26fbclid","&__tn__","%__26tn__","%3Futm","?utm","&fbc=","%26fbc%3D","?share=","%3Fshare%3D","%3F__twitter_impression%3D","?__twitter_impression=","?wtmc=","%3Fwtmc%3D","?originalReferrer=","%3ForiginalReferrer%3D","?wtrid=","%3Fwtrid%3D","?trbo=","%3Ftrbo%3D","?GEPC=","%3FGEPC%3D","?whatsapp=","%3Fwhatsapp%3D","?fbc=","%3Ffbc%3D","?dmcid=","%3Fdmcid%3D"];document.querySelectorAll('a[target="_blank"]').forEach(function(e){for(i=0;i<t.length;i++){var r;e.href.includes(t[i])&&(r=(r=(r=e.href.split("#!")[1])||e.href.split("%23%21")[1])||"",e.href.includes("#!")&&(r="#!"+r),e.href.includes("%23%21")&&(r="%23%21"+r),r=(r=(r=e.href.split("&feature=share&")[1])||e.href.split("%26feature%3Dshare%26")[1])||"",e.href.includes("&feature=share&")&&(r="?"+r),e.href.includes("%26feature%3Dshare%26")&&(r="%3F"+r),r=(r=(r=e.href.split("&h=")[1])||e.href.split("%26h%3D")[1])||"",e.href.includes("&h=")&&(r="&h="+r),e.href.includes("%26h%3D")&&(r="%26h%3D"+r),e.setAttribute("href",e.href.split(t[i])[0]+r))}})}).observe(document,{childList:!0,subtree:!0});
 faceitanalyser.com##a[href^="https://t.csgofast.cash/"]
-faceitstats.com###app > div[style*="margin-top"] > div[style*="height: 250px"]
-faceitstats.com#?##app > div[style] > div[style]:has(> div.vm-placement)
