@@ -116,17 +116,20 @@
     }
   ],
   "extra_rules": [
-    "||ymatuhin.ru^",
-    "||ymatuhin.ru/ads/$third-party",
+    "||adblock-tester.com/banners/$all",
+    "||ymatuhin.ru/ads/$all",
+    "||ymatuhin.ru^$all",
+    "adblock-tester.com##.includeWrapper",
+    "adblock-tester.com##.include",
+    "adblock-tester.com##.adsbygoogle",
+    "adblock-tester.com##object[type=\"application/x-shockwave-flash\"]",
+    "adblock-tester.com##embed[type=\"application/x-shockwave-flash\"]",
+    "adblock-tester.com##param[name=\"movie\"][value*=\"banners\"]",
     "adblock-tester.com##div[id^=\"ads:\"]",
-    "adblock-tester.com###banners",
-    "adblock-tester.com###ads\\:custom",
-    "adblock-tester.com###ads\\:google",
-    "adblock-tester.com###ads\\:yandex",
-    "adblock-tester.com###ads\\:banner",
-    "adblock-tester.com###banner\\:flash",
-    "adblock-tester.com###banner\\:gif",
-    "adblock-tester.com###banner\\:image",
-    "##.ads:custom"
+    "adblock-tester.com##div[id^=\"banner:\"]",
+    "adblock-tester.com##img[src*=\"banners/\"]",
+    "adblock-tester.com##img[src*=\"pr_advertising_ads_banner\"]",
+    "adblock-tester.com##object[data*=\"banners\"]",
+    "adblock-tester.com##embed[src*=\"banners\"]"
   ]
 }
