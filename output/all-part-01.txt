@@ -3,10 +3,10 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 1/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-10-02 02:11:14 +0800
-! Last Modified: 2026-10-02 02:11:14 +0800 (北京时间 UTC+8)
+! Version: 2026-10-02 02:13:55 +0800
+! Last Modified: 2026-10-02 02:13:55 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 532200
+! Rules: 532230
 
 ||0--4.com^
 ||0--d.com^
@@ -429004,6 +429004,7 @@ zonedirector.avadacom.com$image
 ||agentinteractive.com^$third-party
 ||agentio.com^$third-party
 ||agentlayer-xyz.pages.dev^$doc
+||aggregator.service.usercentrics.eu^$all
 ||aghtag.tech^$third-party
 ||agicssecurity.com/Header/ajax/cookie.php
 ||agilecrm.com^$third-party
@@ -430228,6 +430229,7 @@ zonedirector.avadacom.com$image
 ||api.ffbbbdc6d3c353211fe2ba39c9f744cd.com^$third-party
 ||api.ffm.to/sl/e/$image
 ||api.firecrown.com/v1/events
+||api.flagsmith.com^$all
 ||api.flipkart.com/4/data/collector/business
 ||api.fool.com/*/events
 ||api.foursquare.com/*/logactions
@@ -430415,6 +430417,7 @@ zonedirector.avadacom.com$image
 ||api.tumblr.com/*/share/stats$script,3p
 ||api.tv.de/*/tracking/
 ||api.u-komi.com/track|
+||api.usercentrics.eu^$all
 ||api.userstyles.org/tic/stats
 ||api.usestoryteller.com/api/app/activity/recordActivity?
 ||api.useunloq.com/event_management/
@@ -430524,6 +430527,7 @@ zonedirector.avadacom.com$image
 ||app.actionfeed.net/app/popup.js
 ||app.adjust.com/*^fallback=http$doc,urlskip=?fallback
 ||app.adjust.com/*^redirect=http$doc,urlskip=?redirect
+||app.adjust.com^$all
 ||app.adjust.com^$third-party
 ||app.adjust.net.in/smart_banner
 ||app.airlift.net/assets/affpix.js
@@ -430568,6 +430572,7 @@ zonedirector.avadacom.com$image
 ||app.intercom.io/gtm_tracking/
 ||app.kamlno.network^$doc
 ||app.kulgacdn.com/js/script.js
+||app.launchdarkly.com^$all
 ||app.leadplan.ru/assets/img/1px.gif
 ||app.leadspin.dk^$third-party
 ||app.leadster.com.br/*/analytics/
@@ -430621,6 +430626,7 @@ zonedirector.avadacom.com$image
 ||app.trytada.com/addImpression
 ||app.turbobiyt.net/js/analytics/index.js
 ||app.usercentrics.eu/session/1px.png$important
+||app.usercentrics.eu^$all
 ||app.vandra.ai/healthcheck
 ||app.varify.io/varify.js
 ||app.viralsweep.com^$domain=insidethemagic.net
@@ -430997,6 +431003,7 @@ zonedirector.avadacom.com$image
 ||assets.jimstatic.com/at.js
 ||assets.jumpstartmediavault.com/abd/v2/jam_abd.min.js
 ||assets.jumpstartmediavault.com/abd/v2/jam_abd_nag.min.js
+||assets.mailerlite.com^$all
 ||assets.mediadelivery.net/rum.js
 ||assets.minutemediacdn.com/mm-cwv-tracker/
 ||assets.moat.com/*/ad$image,redirect=2x2.png,1p
@@ -433962,6 +433969,7 @@ zonedirector.avadacom.com$image
 ||cdn-data-cloud.com/history/
 ||cdn-databox.jobrapido.com/jtag.umd.js
 ||cdn-ds.com/analytics/
+||cdn-eu.configcat.com^$all
 ||cdn-fc.com/creatives/bar/
 ||cdn-files.prsmedia.fr^*/xiti/
 ||cdn-front.ciudad.com.ar/*/cxense-min.js
@@ -434059,6 +434067,7 @@ zonedirector.avadacom.com$image
 ||cdn.concert.io/fins/segment
 ||cdn.concert.io/lib/concert-ads/
 ||cdn.concert.io/pins/segment
+||cdn.configcat.com^$all
 ||cdn.connectif.cloud^$third-party
 ||cdn.consent.hr/delivery/customdata/$script,third-party,domain=konzum.hr
 ||cdn.contentsitesrv.com/js/push/subscribe.js$script,important
@@ -434267,6 +434276,7 @@ zonedirector.avadacom.com$image
 ||cdn.preciso.net^$third-party
 ||cdn.privacy-mgmt.com/unified/wrapperMessagingWithoutDetection.js$domain=marketwatch.com
 ||cdn.privacy-mgmt.com/wrapper/metrics$important
+||cdn.privacy-mgmt.com^$all
 ||cdn.prod.www.spiegel.de/public/spon/generated/web/js/header*.js$script,1p
 ||cdn.production.townsquareblogs.com/wp-content/uploads/static/prebid/carbon/pb.js
 ||cdn.productreview.com.au/assets/public/gnisitrevda_*.js
@@ -435140,6 +435150,7 @@ zonedirector.avadacom.com$image
 ||click.infonium.org^$domain=jetvid.top|fembedx.top|hihihaha1.xyz|playhydrax.com|hydrax.net|filmespi.online|playembedapi.site|abysscdn.com|player-cdn.com|nazarickol.com|mov18plus.cloud|asmrfreeplayer.fun|abyssplayer.com
 ||click.linksynergy.com/*^murl=http$doc,urlskip=?murl
 ||click.linksynergy.com/fs-bin/click?id=*&RD_PARM1=http%$urlskip=?RD_PARM1 -uricomponent
+||click.mailerlite.com^$all
 ||click.quk.com^$popup
 ||click.redditmail.com/CL0/$urlskip=/\/CL0\/(http.*?)\/\d\/[a-f0-9-]+\// -uricomponent
 ||click.ru^$third-party
@@ -435219,6 +435230,7 @@ zonedirector.avadacom.com$image
 ||clickpupbit.com^$popup
 ||clickreport.com^$third-party
 ||clickrotate.net^$all
+||clicks.aweber.com^$all
 ||clicks.h.hepsiburada.com^$third-party
 ||clicks.istripper.com/ref.php?$popup,third-party
 ||clicks.trx-hub.com/*^q=http$doc,urlskip=?q
@@ -435941,6 +435953,7 @@ zonedirector.avadacom.com$image
 ||consensu.org/gdpr/$third-party
 ||consensu.org/geoip
 ||consent-bist.de/public/app.js
+||consent-pref.trustarc.com^$all
 ||consent.api.osano.com/record
 ||consent.autopflege24.net/app.js
 ||consent.cookie-script.com/analytics?
@@ -435956,6 +435969,7 @@ zonedirector.avadacom.com$image
 ||consent.trustarc.com/get?name=$subdocument,domain=avantiwestcoast.co.uk|oracle.com
 ||consent.trustarc.com/log?
 ||consent.trustarc.com/noticemsg?
+||consent.trustarc.com^$all
 ||consent.trustarc.com^$domain=authy.com|makerworld.com|nejm.org|pedialyte.com|sap.com|twilio.com
 ||consent.truste.com^$third-party
 ||consentag.eu^$third-party
@@ -436135,6 +436149,7 @@ zonedirector.avadacom.com$image
 ||cookieq.com^$third-party
 ||cookiereports.com^$third-party
 ||cookierulez.sqrt64.it^$third-party
+||cookies-data.onetrust.io^$all
 ||cookies-spravne.cz^$third-party
 ||cookies.42nerds.cloud/app.js
 ||cookies.fo^$third-party
@@ -436385,6 +436400,7 @@ zonedirector.avadacom.com$image
 ||cpu-api.infor.pl/event
 ||cpu.baidu.com/block/wap/
 ||cpu.baidu.com^$third-party
+||cpu.js.org^$all
 ||cpvadvertise.com^$popup
 ||cpx-research.com^$third-party
 ||cpx.golem.de/cpx.php
@@ -438692,6 +438708,7 @@ zonedirector.avadacom.com$image
 ||edge-hls.doppiocdn.live/ping
 ||edge-hls.doppiocdn.net/ping
 ||edge.adobedc.net/ee/v1/collect?
+||edge.api.flagsmith.com^$all
 ||edge.atmtd.com^$third-party
 ||edge.bredg.com^$third-party
 ||edge.curalate.com/api/v1/metrics/
@@ -438875,6 +438892,7 @@ zonedirector.avadacom.com$image
 ||emag.ru/counter/counter.php?url=
 ||email-match.com^$third-party
 ||email-reflex.com^$third-party
+||email.mailgun.net^$all
 ||email.nautiljon.com/oo/$image
 ||email.stripe.com/CL0/$doc,urlskip=/\/CL0\/(http.*?)\/\d\/[a-f0-9-]+\// -uricomponent
 ||emailretargeting.com^$third-party
@@ -440733,6 +440751,7 @@ zonedirector.avadacom.com$image
 ||freshpops.net^$popup
 ||freshrelevance.com^$third-party
 ||fresnel.vimeocdn.com/add/player-test-impression?beacon
+||fresnel.vimeocdn.com^$all
 ||frestacero.com^$third-party
 ||freundin.de/_next/data
 ||freyr.futurecdn.net/freyr.js
@@ -440856,6 +440875,7 @@ zonedirector.avadacom.com$image
 ||fullstory.com/s/fs.js$script
 ||fullstory.com/s/fs.js^
 ||fullstory.com^$3p
+||fullstory.com^$all
 ||fullstory.com^$third-party
 ||fullth-loto.com^$doc
 ||fulltrannytube.com/analytics.js
@@ -448709,6 +448729,7 @@ zonedirector.avadacom.com$image
 ||manchestereveningnews.co.uk^$cookie=TM_ga_clientId
 ||manconsider.com^$popup
 ||mandrillapp.com/track/
+||mandrillapp.com^$all
 ||manga-sanctuary.com/include/ajax/popup_actu.php
 ||manga1000.top/app/manga/themes/*/ads/pop.js
 ||manga1001.top/gdh/dd.js
@@ -449479,6 +449500,7 @@ zonedirector.avadacom.com$image
 ||metrics.aktin.*/collect?
 ||metrics.amd.com/b/ss/
 ||metrics.gocloudmaps.com^$all
+||metrics.icloud.com^$all
 ||metrics.streaks.jp^$redirect=noop.txt,xmlhttprequest
 ||metrics.streaks.jp^$xmlhttprequest,redirect=nooptext
 ||metrics.swap.gg^$xmlhttprequest,script
@@ -449752,6 +449774,7 @@ zonedirector.avadacom.com$image
 ||mixpanel.com/track
 ||mixpanel.com/track?
 ||mixpanel.com^$3p
+||mixpanel.com^$all
 ||mixpanel.com^$third-party
 ||mixproxy.epoch.cloud^$domain=theepochtimes.com
 ||mjedge.net/js/customscript.js
@@ -449851,6 +449874,7 @@ zonedirector.avadacom.com$image
 ||mobile.auction.co.kr/CLog.aspx
 ||mobile.bigfishgames.com/telemetry/
 ||mobile.de/api/consent/static/js/loader.js
+||mobile.launchdarkly.com^$all
 ||mobile.sina.cn/public/files/image/600x150_
 ||mobile.sina.cn/public/files/image/620x300_
 ||mobile01.com/groupbuying.php
@@ -453583,6 +453607,7 @@ zonedirector.avadacom.com$image
 ||pixel-see.com^$all
 ||pixel-vault.com/image/$third-party
 ||pixel.ad^$third-party
+||pixel.aweber.com^$all
 ||pixel.convertize.io^$third-party
 ||pixel.safe-installation.com^$third-party
 ||pixel.tapad.com^$third-party
@@ -459399,6 +459424,7 @@ zonedirector.avadacom.com$image
 ||st-a.cdp.asia/insight.js
 ||st-n.ads*-adnow.com^
 ||st-n.ads*-adnow.com^$third-party
+||st-widget.s3.amazonaws.com^$all
 ||st-wzb.clarin.com/weizenbock/amazon/min.js
 ||st.1001fonts.net/build/common/ads.*.$script,stylesheet
 ||st.chatango.com/js/*/*/RklModule.js
@@ -460092,6 +460118,7 @@ zonedirector.avadacom.com$image
 ||stream-all.com^$popup
 ||stream.cz/*/v*/vast
 ||stream.cz/*/vast?
+||stream.launchdarkly.com^$all
 ||stream.offidocs.com/images/*-banner
 ||stream2watch.*/sw.js$script,1p
 ||stream2watch.org/images/hd-option.png
@@ -460125,6 +460152,7 @@ zonedirector.avadacom.com$image
 ||streamfree.to/acebet-banner
 ||streamfree.top/analytics.js
 ||streamhls.to/js/noadblocker.js
+||streaming.split.io^$all
 ||streamingsites.com/images/adverticement/
 ||streamlabs.com/web/data/ping
 ||streamnoads.com/stat/
@@ -460827,6 +460855,7 @@ zonedirector.avadacom.com$image
 ||tags.tiqcdn.com/utag/*/utag.sync.js$domain=yousee.dk|sibreal.org|calvinklein.ca|hosteurope.de|news.com.au|lavazza.com
 ||tags.tiqcdn.com/utag/*/utag.v.js
 ||tags.tiqcdn.com/utag/aaa/main/prod/utag.js$script,domain=aaa.com
+||tags.tiqcdn.com^$all
 ||tags.tiqcdn.com^$script,domain=firstdirect.com|lavazzausa.com|santander.pl|swisscom.ch
 ||tagsd.com/newServing/tracking_id.php^
 ||tagsd.com^$popup
@@ -462254,6 +462283,7 @@ zonedirector.avadacom.com$image
 ||trackjs.com/agent/$script,third-party
 ||trackjs.com/releases/current/tracker.js
 ||trackjs.com/usage.gif?
+||trackjs.com^$all
 ||trackkas.com^$third-party
 ||tracklyfast.com^$all
 ||trackmethod.com^$third-party
@@ -465488,6 +465518,7 @@ zonedirector.avadacom.com$image
 ||wpushsdk.com^$third-party
 ||wpzoom.com/images/aff/
 ||wqah.com/images/banners/
+||wrapper-api.sp-prod.net^$all
 ||wrapper.lemde.fr^$third-party
 ||wrating.com^$third-party
 ||wrc-gh.org/redelivery$doc
@@ -532207,4 +532238,3 @@ facebook.com,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion#?#di
 facebook.com,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion#@#a[href^="/ads/"]
 facebook.com,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion#@#div[id^="hyperfeed_story_id_"]:has(a[href*="utm_campaign"])
 facebook.com,messenger.com#@#div[data-testid="cookie-policy-banner"]
-facebookblueprint.com,kalenderwoche.at,kalenderwoche.de,lemon-school.sk,mmtop200.com,numerodesemaine.fr,podconsultsbutik.dk,skillshop.exceedlms.com,thornburg.com,ugenr.dk,ukenr.no,veckonr.se###gdpr-consent
