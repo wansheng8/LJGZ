@@ -3,8 +3,8 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 1/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-10-02 01:40:15 +0800
-! Last Modified: 2026-10-02 01:40:15 +0800 (北京时间 UTC+8)
+! Version: 2026-10-02 01:41:43 +0800
+! Last Modified: 2026-10-02 01:41:43 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
 ! Rules: 532190
 
@@ -466425,7 +466425,6 @@ zonedirector.avadacom.com$image
 ||yldr.io^$third-party
 ||ylih6ftygq7.com^$popup
 ||yllix.com^$third-party
-||ymatuhin.ru/ads/$all
 ||ymatuhin.ru^$all
 ||ymetrica.com^$third-party
 ||ymetrica1.com^$third-party
@@ -512544,8 +512543,8 @@ adamtheautomator.com,laurelberninteriors.com,mediaite.com,packhacker.com,packins
 adblock-tester.com##.adsbygoogle
 adblock-tester.com##.include
 adblock-tester.com##.includeWrapper
-adblock-tester.com##div[id^="ads:"]
-adblock-tester.com##div[id^="banner:"]
+adblock-tester.com##div[data-ads=""]
+adblock-tester.com##div[id^="yandex_rtb_"]
 adblock-tester.com##embed[src*="banners"]
 adblock-tester.com##embed[type="application/x-shockwave-flash"]
 adblock-tester.com##embed[width="240"]
@@ -532198,3 +532197,4 @@ facebookblueprint.com,kalenderwoche.at,kalenderwoche.de,lemon-school.sk,mmtop200
 facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion#%#new MutationObserver(function(){var t=["?fbclid","%3Ffbclid","&fbclid","%26fbclid","&__tn__","%__26tn__","%3Futm","?utm","&fbc=","%26fbc%3D","?share=","%3Fshare%3D","%3F__twitter_impression%3D","?__twitter_impression=","?wtmc=","%3Fwtmc%3D","?originalReferrer=","%3ForiginalReferrer%3D","?wtrid=","%3Fwtrid%3D","?trbo=","%3Ftrbo%3D","?GEPC=","%3FGEPC%3D","?whatsapp=","%3Fwhatsapp%3D","?fbc=","%3Ffbc%3D","?dmcid=","%3Fdmcid%3D"];document.querySelectorAll('a[target="_blank"]').forEach(function(e){for(i=0;i<t.length;i++){var r;e.href.includes(t[i])&&(r=(r=(r=e.href.split("#!")[1])||e.href.split("%23%21")[1])||"",e.href.includes("#!")&&(r="#!"+r),e.href.includes("%23%21")&&(r="%23%21"+r),r=(r=(r=e.href.split("&feature=share&")[1])||e.href.split("%26feature%3Dshare%26")[1])||"",e.href.includes("&feature=share&")&&(r="?"+r),e.href.includes("%26feature%3Dshare%26")&&(r="%3F"+r),r=(r=(r=e.href.split("&h=")[1])||e.href.split("%26h%3D")[1])||"",e.href.includes("&h=")&&(r="&h="+r),e.href.includes("%26h%3D")&&(r="%26h%3D"+r),e.setAttribute("href",e.href.split(t[i])[0]+r))}})}).observe(document,{childList:!0,subtree:!0});
 faceitanalyser.com##a[href^="https://t.csgofast.cash/"]
 faceitstats.com###app > div[style*="margin-top"] > div[style*="height: 250px"]
+faceitstats.com#?##app > div[style] > div[style]:has(> div.vm-placement)
