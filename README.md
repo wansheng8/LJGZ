@@ -26,15 +26,17 @@ StevenBlack / URLhaus / Blackbook —— **22 个上游**自动收集 · 语义�
 
 ## 📥 一键订阅
 
-| 场景 | 推荐 (国内 CDN)† | GitHub Pages | 备用 (raw) |
+| 场景 | 首选 (GitHub Pages) | 备选 (jsDelivr) | 备用 (raw) |
 |---|---|---|---|
-| 🧩 **浏览器扩展**<br><sub>uBlock Origin · AdGuard · Adblock Plus</sub> | [分卷1](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/all-part-01.txt) + [分卷2](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/all-part-02.txt) | [**all.txt**](https://wansheng8.github.io/LJGZ/all.txt) | [all.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/all.txt) |
-| 🏠 **AdGuard Home**<br><sub>AdGuard Home · AdGuard DNS</sub> | [adguard.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/adguard.txt) | [adguard.txt](https://wansheng8.github.io/LJGZ/adguard.txt) | [adguard.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/adguard.txt) |
-| 🕳 **Pi-hole / hosts**<br><sub>Pi-hole · SwitchHosts · 路由器</sub> | [hosts.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/hosts.txt) | [hosts.txt](https://wansheng8.github.io/LJGZ/hosts.txt) | [hosts.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/hosts.txt) |
-| 📃 **纯域名列表**<br><sub>Cloudflare Gateway · NextDNS</sub> | [domains.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/domains.txt) | [domains.txt](https://wansheng8.github.io/LJGZ/domains.txt) | [domains.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/domains.txt) |
-| ✅ **DNS 白名单**<br><sub>误拦截放行 · 例外列表</sub> | [whitelist.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/whitelist.txt) | [whitelist.txt](https://wansheng8.github.io/LJGZ/whitelist.txt) | [whitelist.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/whitelist.txt) |
+| 🧩 **浏览器扩展**<br><sub>uBlock Origin · AdGuard · Adblock Plus</sub> | [**all.txt**](https://wansheng8.github.io/LJGZ/all.txt) | [分卷1](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/all-part-01.txt) + [分卷2](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/all-part-02.txt) † | [all.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/all.txt) |
+| 🏠 **AdGuard Home**<br><sub>AdGuard Home · AdGuard DNS</sub> | [adguard.txt](https://wansheng8.github.io/LJGZ/adguard.txt) | [adguard.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/adguard.txt) | [adguard.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/adguard.txt) |
+| 🕳 **Pi-hole / hosts**<br><sub>Pi-hole · SwitchHosts · 路由器</sub> | [hosts.txt](https://wansheng8.github.io/LJGZ/hosts.txt) | [hosts.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/hosts.txt) | [hosts.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/hosts.txt) |
+| 📃 **纯域名列表**<br><sub>Cloudflare Gateway · NextDNS</sub> | [domains.txt](https://wansheng8.github.io/LJGZ/domains.txt) | [domains.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/domains.txt) | [domains.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/domains.txt) |
+| ✅ **DNS 白名单**<br><sub>误拦截放行 · 例外列表</sub> | [whitelist.txt](https://wansheng8.github.io/LJGZ/whitelist.txt) | [whitelist.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/whitelist.txt) | [whitelist.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/whitelist.txt) |
 
-> † **jsDelivr 单文件上限 20MB**，`all.txt` 完整版超限；国内用户请订阅 CDN **分卷 1 + 分卷 2**（两个都加，效果 = 完整版，每卷 <18MB）。
+> **⚠️ 请优先用 GitHub Pages 那一列。** jsDelivr 有 20MB 单文件上限，分卷卡在 18MB 边缘，实测出现过 `Failed to fetch ... from GitHub.`（返回 48 字节错误文本）。若浏览器扩展报"下载失败"或规则数明显偏少，先删掉 jsDelivr 分卷、只留 Pages 的 `all.txt`。
+>
+> † **jsDelivr 单文件上限 20MB**，`all.txt` 完整版 22MB 超限，只能用分卷 1 + 分卷 2（两个都加，效果 = 完整版）。
 > 💡 浏览器扩展用户：uBO → 设置 → 过滤器列表 → 导入；AdGuard → 设置 → 内容拦截 → 添加。
 
 ## ⚙️ 引擎特性
@@ -51,7 +53,7 @@ StevenBlack / URLhaus / Blackbook —— **22 个上游**自动收集 · 语义�
 git clone https://github.com/wansheng8/LJGZ.git
 cd LJGZ
 python merge_filters.py --test              # 冒烟自检
-python -m unittest discover -s tests         # 97 项测试
+python -m unittest discover -s tests         # 117 项测试
 python merge_filters.py                      # 下载合并 → ./output/
 ```
 
@@ -81,7 +83,7 @@ Fork 后 `.github/workflows/update.yml` 自动生效，产出你自己的订阅�
 <summary><b>🚀 部署说明（每日北京时间 08:00 / 20:00 自动更新）</b></summary>
 
 - 工作流：`.github/workflows/update.yml`（cron `0 0,12 * * *` UTC = 北京 08:00/20:00，`TZ=Asia/Shanghai`）
-- 流程：97 项测试 → 下载 22 源 → 合并 → 无变化跳过提交，有变化自动 commit + push → 部署 Pages
+- 流程：117 项测试 → 下载 22 源 → 合并 → 无变化跳过提交，有变化自动 commit + push → 部署 Pages
 - **GitHub Pages**：`wansheng8.github.io/LJGZ` 托管订阅中心 + 全部订阅文件（Settings → Pages → Source 已设为 GitHub Actions）
 - 输出头部含 `! Last Modified: ... (北京时间 UTC+8)` 与 `! Expires: 12 hours`
 - 徽章 SVG 由引擎每次运行自动重新生成（`output/badge-*.svg`），数字始终与最新一次合并一致
@@ -96,7 +98,7 @@ merge_filters.py               # 核心引擎: 解析 → 合并 → 下载 → 
 config.json                    # 上游列表配置 (DIY 入口)
 docs/index.html                # 在线订阅中心 (GitHub Pages)
 docs/logo.svg                  # Logo
-tests/  (97 项, 无网络)         # 词法分类 / 合并去重 / 下载重试 / 徽章 / 端到端
+tests/  (117 项, 无网络)         # 词法分类 / 合并去重 / 下载重试 / 徽章 / 端到端 / adblock-tester 回归
 .github/workflows/update.yml   # 每日更新 + Pages 部署
 output/                        # 订阅文件 (CI 自动重新生成)
 ```
