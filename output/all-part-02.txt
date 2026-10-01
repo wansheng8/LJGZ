@@ -3,10 +3,10 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-10-01 01:10:33 +0800
-! Last Modified: 2026-10-01 01:10:33 +0800 (北京时间 UTC+8)
+! Version: 2026-10-01 12:52:18 +0800
+! Last Modified: 2026-10-01 12:52:18 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 66451
+! Rules: 66459
 
 fandango.com#%#(()=>{if(window!==window.top)return;const e=[1e3,3e3,5e3,8e3,12e3,16e3,2e4,25e3,3e4,35e3,4e4,45e3],t=e=>new Promise(t=>window.setTimeout(t,e)),n=e=>Array.isArray(e)?e[0]:e,r=e=>{if("string"!=typeof e)return null;const t=e.indexOf("{"),n=e.indexOf("["),r=-1!==t&&-1!==n?Math.min(t,n):Math.max(t,n);if(-1===r)return null;const s=Math.max(e.lastIndexOf("}"),e.lastIndexOf("]"));if(s<r)return null;try{return{prefix:e.slice(0,r),suffix:e.slice(s+1),value:JSON.parse(e.slice(r,s+1))}}catch{return null}},s=e=>e.prefix+JSON.stringify(e.value)+e.suffix,a=(e,t)=>{const n=new URLSearchParams;for(const[e,r]of Object.entries(t))null!=r&&n.set(e,String(r));const r=new URLSearchParams;return r.set("contentType",e||"application/x-vudu-url-note"),r.set("query",n.toString()),r.toString()},o=(e,t)=>e>=200&&e<300&&(!t||"object"!=typeof t||"error"!==n(t._type)),i=e=>e&&"object"==typeof e&&/too soon to stop/i.test(String(n(e.text)||"")),c=window.XMLHttpRequest,l=c.prototype,d=l.open,p=l.send,u=Object.getOwnPropertyDescriptor(l,"responseText");if(!u?.get)return;const f=u.get,y=new WeakSet,h=new WeakMap,S=new WeakMap,g=(e,t,n,s,i)=>new Promise(l=>{const u={_type:s,accountId:i.accountId,advertContentId:i.advertContentId,advertStreamingSessionId:i.advertStreamingSessionId,claimedAppId:n.claimedAppId||"winWeb",contentEncoding:n.contentEncoding||"gzip",format:n.format||"application/json",noCache:n.noCache||"true",sessionKey:n.sessionKey};"advertStreamingSessionStop"===s&&(u.playbackSeconds="0");const h=new c;y.add(h),Reflect.apply(d,h,["POST",e,!0]),h.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8"),h.onreadystatechange=()=>{if(h.readyState!==c.DONE)return;let e="";try{e=Reflect.apply(f,h,[])}catch{}const t=r(e)?.value??e;l({success:o(h.status,t),response:t})},h.onerror=()=>l({success:!1,response:null}),Reflect.apply(p,h,[a(t,u)])}),m=e=>{Object.prototype.hasOwnProperty.call(e,"midRollSpotSecond")&&(e.midRollSpotSecond=[])},w=async(e,r,s,a)=>{const o={accountId:n(s.accountId)||r.accountId,advertContentId:n(s.advertContentId),advertStreamingSessionId:n(s.advertStreamingSessionId)};if(!(await g(e.url,e.parsedRequest.contentType,r,"advertStreamingSessionStart",o)).success)return!1;const c=performance.now();for(const n of a){const s=n-(performance.now()-c);s>0&&await t(s);const a=await g(e.url,e.parsedRequest.contentType,r,"advertStreamingSessionStop",o);if(a.success)return!0;if(!i(a.response))return!1}return!1},R=async(t,a)=>{const o=(e=>{const t=r(e);if(!t||"advertContentResponse"!==n(t.value?._type))return null;const s=n(t.value.advertContent);if(!s)return null;const a=n(s.advertStreamingSessions);return{parsed:t,advertContent:s,prerolls:(Array.isArray(a?.advertStreamingSession)?a.advertStreamingSession:[]).filter(e=>"preRoll"===n(e.advertType))}})(a);if(!o)return a;const{parsed:i,advertContent:c,prerolls:l}=o,d=t.parsedRequest.query;if(0===l.length||!d.sessionKey)return m(c),s(i);const p=(t=>{const r=new Set(e);for(const e of t){const t=Number(n(n(e.advert)?.lengthSeconds));Number.isFinite(t)&&t>0&&(r.add(Math.max(1e3,1e3*(t-1))),r.add(1e3*t),r.add(1e3*(t+2)))}return[...r].sort((e,t)=>e-t)})(l);for(const e of l)if(!await w(t,d,e,p))return m(c),s(i);return delete c.advertStreamingSessions,m(c),s(i)};l.open=function(e,t,...n){return y.has(this)||h.set(this,{url:t,parsedRequest:null,holding:!1,released:!1}),Reflect.apply(d,this,[e,t,...n])},l.send=function(e){if(y.has(this))return Reflect.apply(p,this,[e]);const t=h.get(this)??{url:"",holding:!1,released:!1},n=(e=>{if("string"!=typeof e)return null;try{const t=new URLSearchParams(e),n=t.get("query");return n?{contentType:t.get("contentType"),query:Object.fromEntries(new URLSearchParams(n))}:null}catch{return null}})(e);if(t.parsedRequest=n,"advertContentRequest"===n?.query?._type){const e=this.onreadystatechange;"function"==typeof e&&(this.onreadystatechange=n=>{if(this.readyState!==c.DONE)return Reflect.apply(e,this,[n]);if(t.released||t.holding)return;let r;t.holding=!0;try{r=Reflect.apply(f,this,[])}catch{return t.released=!0,Reflect.apply(e,this,[n])}R(t,r).then(r=>{S.set(this,r),t.released=!0,t.holding=!1,Reflect.apply(e,this,[n])}).catch(()=>{S.delete(this),t.released=!0,t.holding=!1,Reflect.apply(e,this,[n])})}),h.set(this,t)}return Reflect.apply(p,this,[e])},Object.defineProperty(l,"responseText",{configurable:u.configurable,enumerable:u.enumerable,get(){return y.has(this)?Reflect.apply(f,this,[]):S.has(this)?S.get(this):Reflect.apply(f,this,[])},set:u.set})})();
 fandango.com,ogfap.com##.ad-placement
@@ -7763,6 +7763,8 @@ hentaimama.io,underhentai.net,watchhentai.net###overlay
 hentaimama.tv##.script_manager_video_master
 hentaimama.tv,hentaihaven.online,hentaihaven.com#%#//scriptlet('prevent-fetch', '/\/www\/delivery\/.*vast/')
 hentaimoe.me##.videoad
+hentaini.com##[href="https://discord.gg/PPkkEuRfyz"]
+hentaini.com##[href="https://x.com/realHentaini"]
 hentaiocean.com###avc
 hentaiocean.com##body > div#fx0
 hentaiocean.com##section.section ~ div[style="max-width:100%;overflow-x:auto;"]
@@ -11574,6 +11576,7 @@ inyminy.com##.menu-menu4_home-container
 inyourarea.co.uk##.style_advertisementMark_1Jki4
 inyourarea.co.uk##.style_cardWrapper_ycKf8
 inyourarea.co.uk##.styles_DesktopBottomBarSubscriptionForm_21C_s
+inz.org.il###privacyPrompt
 inzeratyzadarmo.sk##.pd10-ing
 inzynieria.com##.karta-art-qs
 io.help.yahoo.com##.ad-style
@@ -12071,7 +12074,6 @@ ispreview.co.uk##div[style="width:100%;clear:both;"]
 ispreview.co.uk##div[style^="clear:both;border-radius:8px;"]
 ispunlock.*,tpb.*##+js(aopr, pace)
 isqua.org##.copyright
-israel-extreme.com,la-bama.co.il,paz-merkavim.co.il###tp-cookie-consent
 israelhayom.com##.jeg_button_1
 israellycool.com##.mail-chimp
 israelnationalnews.com###banner-sticky
@@ -13767,6 +13769,7 @@ kalporn.com,xv-ru.com###video-right
 kalvin.cn##.fell_advertisement_box
 kalvo.com##div[class^="klvad"]
 kamanet.pl##.sh-page-notice
+kamazeole.co.il##div[aria-label="הודעת שימוש בקבצי Cookie"]
 kambly.com##.terms-cond
 kamkabel.ru##.panel_152_wp
 kampanya.peugeot.com.tr,talep.peugeot.com.tr##.ihm-popup
@@ -14834,7 +14837,6 @@ kp.ru##.seti
 kpanews.co.kr#@#.ad_top
 kpbs.org##.PromoNewsletter
 kpbs.org,wmar2news.com##.ActionBar-items
-kpd122.com,ssp28.pw##.index-owl-carousel
 kpkforge.com##.footer_middle
 kpliker.net#?#center > p:contains(Advertisement)
 kpopflac.xyz#%#//scriptlet('prevent-element-src-loading', 'script', 'adsbygoogle')
@@ -18210,7 +18212,6 @@ makc.ru##.bottom-notification
 makeitmeme.com##div[class^="_adContainer_"]
 makeitmeme.com##div[class^="_leftBanner_"]
 makeitmeme.com##div[class^="_rightBanner_"]
-makeitmeme.com,tibiopedia.pl,gazeta.pl,edziecko.pl,sport.pl,moto.pl,plotek.pl#%#//scriptlet('trusted-replace-argument', 'Function', '1', 'replace:/^([A-Za-z_$][\w$]*\(\);)(?=[\s\S]*report\.error-report\.com)(?=[\s\S]*html-load\.com)[\s\S]*$/$1/')
 makeitmeme.com,tibiopedia.pl,gazeta.pl,edziecko.pl,sport.pl,moto.pl,plotek.pl,fandom.com,gry-online.pl#%#(()=>{const t=/^\(\s*\.\.\.\s*([A-Za-z_$][\w$]*)\s*\)\s*=>\s*[A-Za-z_$][\w$]*\s*\.\s*apply\s*\(\s*this\s*,\s*\1\s*\)\s*$/,e=["requestAnimationFrame","requestIdleCallback","setInterval","setTimeout"],r={apply:Reflect.apply,construct:Reflect.construct,filter:Array.prototype.filter,every:Array.prototype.every,some:Array.prototype.some,isArray:Array.isArray,getOwnPropertyDescriptor:Object.getOwnPropertyDescriptor,includes:String.prototype.includes,regexTest:RegExp.prototype.test,functionToString:Function.prototype.toString,queueMicrotask:window.queueMicrotask},o=new Set,p={construct:(t,e,p)=>{let n=!1;try{const[t,o]=e,p=o&&"object"==typeof o?r.getOwnPropertyDescriptor(o,"type")?.value:void 0;("application/javascript"===p||"text/javascript"===p)&&r.isArray(t)&&r.apply(r.every,t,[t=>"string"==typeof t])&&r.apply(r.some,t,[t=>r.apply(r.includes,t,["adshield"])])&&(e[0]=["(function(){})();"],n=!0)}catch(t){}const s=r.construct(t,e,p);if(n)try{(()=>{const t={};r.apply(r.queueMicrotask,window,[()=>o.delete(t)]),o.add(t)})()}catch(t){}return s}};window.Blob=new Proxy(window.Blob,p);const n={apply:(e,p,n)=>{const s=o.values().next().value;o.delete(s);try{const[e,o]=n;if(s&&"number"==typeof o&&o>=4900&&o<5100){const o="function"==typeof e?r.apply(r.functionToString,e,[]):"string"==typeof e?e:"";(r.apply(r.includes,o,["new Error"])||"function"==typeof e&&r.apply(r.regexTest,t,[o]))&&(n[0]=()=>{})}}catch(t){}return r.apply(e,p,n)}};window.setTimeout=new Proxy(window.setTimeout,n);const s={apply:(t,o,p)=>{try{"function"==typeof p[0]&&r.isArray(o)&&o.length===e.length&&r.apply(r.every,e,[(t,e)=>o[e]===t])&&(o=r.apply(r.filter,o,[t=>"setTimeout"!==t]))}catch(t){}return r.apply(t,o,p)}};window.Array.prototype.filter=new Proxy(window.Array.prototype.filter,s)})();
 makelaarsland.nl#@#.m-cookie-notice
 makemytrip.*##.listingRowOuter:has(.pc__sponsored)
@@ -18302,6 +18303,7 @@ mamamia.com.au#$#.header-main-container { top: 0 !important; }
 mamamia.com.au#$#.top-leaderboard-ad-container { display: none !important; }
 mamanoko.jp###js-actamDownloadModal
 mamastar.jp##.personalInfo__area
+mamastar.jp,uppercutmma.com,oxfordlearnersdictionaries.com,weatherzone.com,cyclingnews.com,9gag.com,automobile-catalog.com,hb-nippon.com,worldjournal.com,nikkansports.com,robbreport.com,rollingstone.com,gloria.hr,deadline.com,vibe.com,goldderby.com,artnews.com,gearjunkie.com,urldecoder.org,base64decode.org,index.hr,willyweather.com.au,fandom.com,euronews.com#%#//scriptlet('remove-attr', 'onerror', 'script[id][onerror]')
 mamazone.pl#?#.row div[class][style*="border-bottom"][style*="max-height:"] > div[style]:contains(REKLAM):upward(1)
 mamba.ru###closeCookieBanner
 mambiznes.pl##.a-zone
@@ -25862,6 +25864,7 @@ omnitalk.com##tr[bgcolor="ffffc8"]
 omnivorescookbook.com##.lh-subscribe
 omoi.com##azuki-google-ad
 omoi.com#%#(()=>{const t={apply:(t,e,o)=>{try{const t=o[0];t?.matches?.("azuki-reader")&&!0===t?.showAd&&Object.defineProperty(o[0],"showAd",{value:!1})}catch(t){}return Reflect.apply(t,e,o)}};window.Function.prototype.bind=new Proxy(window.Function.prototype.bind,t)})();
+omomflavours.co.il###pl-acg-bar
 omonoia24.com##a[href*="window.open(window.clickTag)"]
 omonoia24.com##div[id^="omono-"]
 omroepbrabant.nl##[class^="shares_shares_"]
@@ -26821,7 +26824,6 @@ oxfordamerican.org##.gen-popup
 oxfordamerican.org##.shareLinkContainer
 oxforddictionaries.com#$#@media (min-width: 1024px) { .main-content > div.container > aside[class="sidebar extend"] { margin: 0 0 20px -300px!important; } }
 oxfordlearnersdictionaries.com###topslot_container
-oxfordlearnersdictionaries.com,weatherzone.com,cyclingnews.com,9gag.com,automobile-catalog.com,hb-nippon.com,worldjournal.com,nikkansports.com,robbreport.com,rollingstone.com,gloria.hr,deadline.com,vibe.com,goldderby.com,artnews.com,gearjunkie.com,urldecoder.org,base64decode.org,index.hr,willyweather.com.au,fandom.com,euronews.com#%#//scriptlet('remove-attr', 'onerror', 'script[id][onerror]')
 oxfordshire.gov.uk###modal-container
 oxu.az##.right-bnr
 oxy.cloud,oxy.st#%#//scriptlet("abort-current-inline-script", "$", "divdownload")
@@ -44466,6 +44468,12 @@ traderie.com##div[height="90px"]
 traderjoes.com##.CookiesAlert_cookiesAlert__3qSl1
 tradersarea.pl##.g-single > a[target="_blank"] > img
 traderscasa.com##[class^="overlay-"]:has(> .af-both-cont)
+tradersunion.com##.banner-v3--horizontal
+tradersunion.com##.horizontal-banner
+tradersunion.com##.js-clone-1
+tradersunion.com##.news-page__terra
+tradersunion.com##.subscribe-news
+tradersunion.com##.video-popup
 tradetrucks.com.au##.middle-banner-list
 trading212.com#@#.cookies-consent-popup
 tradingref.com##div.sidebar:has(> div.ad-unit)
@@ -46571,6 +46579,7 @@ upornia.tube##.video-right-top
 upornia.tube##.voiscscttnn
 uporno.xxx##+js(aopr, document.dispatchEvent)
 uporno.xxx##.banner
+uppercutmma.com,makeitmeme.com,tibiopedia.pl,gazeta.pl,edziecko.pl,sport.pl,moto.pl,plotek.pl#%#//scriptlet('trusted-replace-argument', 'Function', '1', 'replace:/^([A-Za-z_$][\w$]*\(\);)(?=[\s\S]*report\.error-report\.com)(?=[\s\S]*html-load\.com)[\s\S]*$/$1/')
 uppit.com###catfish
 uppit.com#%#//scriptlet("adjust-setTimeout", "#countdown", "", "0.02")
 upplinks.net,upfion.com,upfiles.app,upfiles-urls.com,falpus.com,fooak.com#@#.ad-inner
@@ -53414,7 +53423,6 @@ zzzyk.com###Tinfo
 ~laifeng.youku.com,youku.com##a[href^="http://cps.laifeng.com/"] + .bg + img
 ~leynwell.top##body > [style^="display: block; width: 100%; height:"]:empty
 ~leynwell.top##body > [style^="display: block; width: 100%; height:"]:empty ~ :not(div)[style^="display: block; z-index: "]
-~mgtv.com##a[target="_blank"] > img[src*="hitv.com"]
 ~poczta.wp.pl,~poczta.o2.pl,so-magazyn.pl,o2.pl,pudelek.pl,wp.pl##[class^="css-"]:not(.css-adv)
 ~sinaimg.cn##a > img[src*=".sinaimg."][src$=".gif"][style*="width:960"]
 ~sinaimg.cn##a > img[width="960"][src*=".sinaimg."]
@@ -53438,6 +53446,7 @@ zzzyk.com###Tinfo
 @@$popup,domain=datanodes.to,third-party
 @@$subdocument,third-party,stealth=referrer,domain=sport.starsites.fun
 @@$subdocument,xmlhttprequest,stealth=referrer|flash,domain=pichive.online
+@@&_=1$domain=intercelestial.com
 @@&ad_type=$domain=ultimate-guitar.com
 @@&autoPlay=$subdocument,stealth=referrer,domain=aniwaves.ru|hianimes.ru|guts.to
 @@&http_referer=$domain=chaopx.com
@@ -60689,7 +60698,6 @@ zzzyk.com###Tinfo
 @@||integrations.fitanalytics.com/shop/modivo/pdp.js$domain=modivo.*
 @@||intelcorporationproductione*.org.coveo.com/rest/search/$stealth=3p-auth
 @@||intelyvale.com.mx/ads/images/$domain=valesdegasolina.mx
-@@||intercelestial.com/*/ads/$image,domain=intercelestial.com
 @@||intercelestial.com^$generichide
 @@||interia.hit.gemius.pl/hitredir/$domain=interia.pl
 @@||interia.hit.gemius.pl/redot.gif?$domain=m.interia.pl
