@@ -92,7 +92,7 @@ jobs:
   deploy-pages:
     needs: update
     if: |
-      !inputs.cleanup_only
+      inputs.cleanup_only != 'true'
       && always()
       && needs.update.result == 'success'
     runs-on: ubuntu-24.04
