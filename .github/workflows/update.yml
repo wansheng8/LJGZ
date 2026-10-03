@@ -39,6 +39,12 @@ jobs:
   # 2026-10 GitHub 官方将 ubuntu-latest 迁移到 26.04, 先锁定 24.04
 
   update:
+    # 只在"正常更新"触发源下跑: 00/12 定时 / 普通 dispatch / 任意 push。
+    # 06/18 定时与 cleanup_only dispatch 是纯清理, 若这里也跑 update, 会同一 run
+    # 里 "git push + 部署 + 删历史 run" 互相叠加; 排除它们即消除该冲突。
+    if: |
+      !(github.event_name == 'schedule' && (github.event.cron == '0 6 * * *' || github.event.cron == '0 18 * * *'))
+      && !(github.event_name == 'workflow_dispatch' && inputs.cleanup_only == 'true')
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     env:
@@ -137,36 +143,44 @@ jobs:
           KEEP=3
           page=1
           total=0
-          # 分页收集所有 run id (API 默认最新在前)
+          # 分页收集 run (每行 "<id>\t<status>", API 默认最新在前 = 保留顺序)
           while :; do
             resp=$(curl -sS -H "Authorization: Bearer $TOKEN" -H "Accept: application/vnd.github+json" \
                    "https://api.github.com/repos/$REPO/actions/runs?per_page=100&page=$page")
-            batch=$(printf '%s' "$resp" | grep -o '"id": *[0-9]*' | cut -d' ' -f2)
-            cnt=$(printf '%s\n' $batch | grep -c . || true)
+            rows=$(printf '%s' "$resp" | jq -r '.workflow_runs[] | "\(.id)\t\(.status)"')
+            cnt=$(printf '%s\n' "$rows" | grep -c . || true)
             total=$((total+cnt))
-            printf '%s\n' $batch >> /tmp/run_ids.txt || true
+            printf '%s\n' "$rows" >> /tmp/runs.tsv || true
             [ "$cnt" -lt 100 ] && break
             page=$((page+1))
           done
           echo "共读到 $total 条历史 run, 保留最新 $KEEP 条"
-          if [ ! -f /tmp/run_ids.txt ]; then exit 0; fi
-          # API 默认最新在前: 保留前 KEEP 条, 删其余
-          to_delete=$(tail -n +$((KEEP+1)) /tmp/run_ids.txt || true)
-          n=$(printf '%s\n' $to_delete | grep -c . || echo 0)
-          echo "待删 $n 条"
-          deleted=0
-          while IFS= read -r id; do
+          [ -f /tmp/runs.tsv ] || exit 0
+          # 前 KEEP 行(最新)一律保留; 其余仅删"已完成"的, 不碰 in_progress/queued,
+          # 也不删自身 (自身可能仍是 in_progress/queued, 已被 KEEP 覆盖)
+          deleted=0 skipped=0
+          lineno=0
+          while IFS=$'\t' read -r id status; do
+            lineno=$((lineno+1))
             [ -z "$id" ] && continue
-            # 不删自己 (DELETE 在途 run 会 409, 这里显式跳过更稳)
+            [ "$lineno" -le "$KEEP" ] && continue
             [ "$id" = "${{ github.run_id }}" ] && { echo "跳过自身 $id"; continue; }
-            code=$(curl -sS -o /dev/null -w '%{http_code}' -X DELETE \
-                   -H "Authorization: Bearer $TOKEN" -H "Accept: application/vnd.github+json" \
-                   "https://api.github.com/repos/$REPO/actions/runs/$id")
-            if [ "$code" = "200" ] || [ "$code" = "204" ]; then
-              deleted=$((deleted+1))
-            else
-              echo "  run $id 删除失败 (HTTP $code)"
-            fi
+            case "$status" in
+              completed)
+                code=$(curl -sS -o /dev/null -w '%{http_code}' -X DELETE \
+                       -H "Authorization: Bearer $TOKEN" -H "Accept: application/vnd.github+json" \
+                       "https://api.github.com/repos/$REPO/actions/runs/$id")
+                if [ "$code" = "200" ] || [ "$code" = "204" ]; then
+                  deleted=$((deleted+1))
+                else
+                  echo "  run $id 删除失败 (HTTP $code)"
+                fi
+                ;;
+              *)
+                # 在途/排队 — 跳过, 等它结束下轮再清
+                skipped=$((skipped+1))
+                ;;
+            esac
             sleep 0.3
-          done <<< "$to_delete"
-          echo "本次删除 $deleted 条, 保留最新 $KEEP 条"
+          done < /tmp/runs.tsv
+          echo "本次删除 $deleted 条已完成 run, 跳过 $skipped 条在途/排队, 保留最新 $KEEP 条"
