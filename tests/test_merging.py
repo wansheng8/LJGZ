@@ -63,16 +63,28 @@ class TestExceptionProtection(unittest.TestCase):
         self.assertIn("@@||ads.com^$document", res.whitelist)
         self.assertIn("@@||ads.com^$document", res.all_exceptions)
 
-    def test_dns_exception_domain_removed_from_browser_block(self):
-        """被 @@ DNS 例外解锁的域名不进浏览器拦截输出 (拦了解=空操作,
-        且防止用户在 uBO 里看到'又拦又解'的困惑)。"""
+    def test_bare_dns_exception_dropped_but_domain_blocked(self):
+        """无修饰符的整域 @@ 例外会被丢弃 (它会在浏览器端架空同域拦截),
+        因此对应域名继续出现在拦截输出里 — 这是与旧行为的有意变更。
+        见 test_bare_exception_arbitration 及 stats.dropped_bare_exceptions。"""
         res = merge("||ads.com^", "@@||ads.com^")
-        self.assertEqual(res.all_blocks, [])
-        # 例外本身仍在 all 输出
-        self.assertIn("@@||ads.com^", res.all_exceptions)
+        self.assertIn("||ads.com^", res.all_blocks)
+        self.assertEqual(res.dropped_bare_exceptions, 1)
+        self.assertEqual(res.all_exceptions, [])
+
+    def test_modified_dns_exception_still_removes_domain(self):
+        """带修饰符的例外 (如 $document / $domain=x) 语义明确, 仍按旧逻辑
+        把该域从拦截输出剔除并进白名单。"""
+        res = merge("||ads.com^", "@@||ads.com^$document")
+        self.assertEqual(res.domains, [])
+        self.assertEqual(res.hosts, [])
+        self.assertEqual(res.adguard_blocks, [])
+        self.assertIn("@@||ads.com^$document", res.whitelist)
 
     def test_important_block_beats_normal_exception(self):
-        res = merge("||ads.com^$important", "@@||ads.com^")
+        """$important 拦截压过普通例外 (上游设计保留): 带 $document 修饰符的
+        例外仍会被 important 拦截盖住, 域名留在拦截输出。"""
+        res = merge("||ads.com^$important", "@@||ads.com^$document")
         self.assertIn("||ads.com^$important", res.adguard_blocks)
         self.assertEqual(res.domains, ["ads.com"])
 

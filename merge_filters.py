@@ -93,8 +93,8 @@ _DOMAIN_RE = re.compile(rf"^{_LABEL}(?:\.{_LABEL})*\.{_TLD}$")
 _IPV4_RE = re.compile(r"^\d{1,3}(?:\.\d{1,3}){3}$")
 _IPV6ISH_RE = re.compile(r"^[0-9a-f:.%]+$")
 
-# ||domain^ 或 ||domain — 纯域名锚点形式
-_ANCHOR_RE = re.compile(r"^\|\|([a-z0-9.-]+?)(\^?)$", re.IGNORECASE)
+# ||domain^ 或 ||domain — 纯域名锚点形式 (含 AdGuard 的 ||domain^|)
+_ANCHOR_RE = re.compile(r"^\|\|([a-z0-9.-]+?)(\^|\|\^)?\|?$", re.IGNORECASE)
 # *.domain
 _WILD_PREFIX_RE = re.compile(r"^\*\.([a-z0-9.-]+?)(\^?)$", re.IGNORECASE)
 # Pi-hole 常见正则形状: (^|\.)a\.b$  →  a.b
@@ -403,6 +403,7 @@ class MergeResult:
     domains: List[str] = field(default_factory=list)         # 纯域名
     whitelist: List[str] = field(default_factory=list)       # DNS 白名单 (@@ 原文)
     stats: dict = field(default_factory=dict)
+    dropped_bare_exceptions: int = 0       # 被丢弃的裸整域无条件例外数
 
 
 class Merger:
@@ -453,7 +454,16 @@ class Merger:
         # 网络规则: 去除被 badfilter 击中的
         res.all_network = sorted(raw for key, raw in self._net.items() if key not in bad)
 
-        # 例外: DNS 相关白名单 + 每域名 important 标记
+        # 例外: DNS 相关白名单 + 每域名 important 标记。
+        # 丢弃"裸整域无条件例外" (无修饰符的 @@||d^): 它们会全盘架空对应域的
+        # 拦截, 且常来自上游"放行合法点击链接"的误判 (实测 314 条中 25 个域
+        # 的全部拦截被打穿, 是"订阅了却拦不住"的根因)。带修饰符/带路径的
+        # 例外语义明确, 原样保留。
+        bare_whole_domain = 0
+        for r in list(self._exc.values()):
+            if r.dns_relevant and not r.important and not r.modifiers.strip():
+                del self._exc[r.raw]
+                bare_whole_domain += 1
         exc_imp: Dict[str, bool] = {}
         for r in self._exc.values():
             if r.dns_relevant:
@@ -461,6 +471,7 @@ class Merger:
         res.whitelist = sorted({r.raw for r in self._exc.values()
                                 if r.dns_relevant and r.domain})
         res.all_exceptions = sorted(self._exc)
+        res.dropped_bare_exceptions = bare_whole_domain
 
         # 域名条目: (domain, important, canonical)
         items = []
@@ -519,6 +530,7 @@ class Merger:
             "whitelist_unique": len(res.whitelist),
             "badfilter_targets": len(bad),
             "dropped": self._stats_dropped,
+            "dropped_bare_exceptions": bare_whole_domain,
         }
         return res
 
