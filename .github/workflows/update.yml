@@ -3,9 +3,18 @@ name: 更新过滤规则
 # 每天北京时间 08:00 / 20:00 各更新一次 (= UTC 00:00 / 12:00)
 on:
   schedule:
+    # 每天北京时间 08:00 / 20:00 更新 (UTC 00:00 / 12:00)
     - cron: "0 0 * * *"
     - cron: "0 12 * * *"
+    # 每 6 小时清一次 Actions 历史 (06:00 / 18:00 UTC, 北京时间 14:00 / 02:00)
+    - cron: "0 6 * * *"
+    - cron: "0 18 * * *"
   workflow_dispatch:
+    inputs:
+      cleanup_only:
+        description: "仅清理 Actions 历史 (保留最新 3 条)"
+        required: false
+        default: false
   push:
     branches: [ main ]
     paths:
@@ -19,6 +28,8 @@ permissions:
   contents: write
   pages: write
   id-token: write
+  # 删除历史 Actions run 需要
+  actions: write
 
 concurrency:
   group: update-rules
@@ -80,14 +91,16 @@ jobs:
 
   deploy-pages:
     needs: update
-    if: always() && needs.update.result == 'success'   # 即使"无变化跳过"也部署 (保证 Pages 与 main 一致)
+    if: |
+      !inputs.cleanup_only
+      && always()
+      && needs.update.result == 'success'
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      # 锁定本次更新产生的确切提交 — main 若被后续提交移动, 部署的仍是刚验证过的内容
       - uses: actions/checkout@v4.4.0
         with:
           ref: ${{ needs.update.outputs.commit }}
@@ -102,3 +115,58 @@ jobs:
           path: site
       - id: deployment
         uses: actions/deploy-pages@v4.0.0
+
+  # 定时清理 Actions 历史: 保留最新 3 条, 删除更早的 (防 run 列表无限膨胀)
+  cleanup-actions:
+    # 仅在: 定时 06:00/18:00 UTC + 手动勾选 cleanup_only
+    if: |
+      (github.event_name == 'schedule' && github.event.cron == '0 6 * * *')
+      || (github.event_name == 'schedule' && github.event.cron == '0 18 * * *')
+      || (github.event_name == 'workflow_dispatch' && inputs.cleanup_only == 'true')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    concurrency:
+      group: cleanup-actions
+      cancel-in-progress: false
+    steps:
+      - name: 删除旧 run (保留最新 3 条)
+        run: |
+          set -u
+          TOKEN="${{ github.token }}"
+          REPO="${{ github.repository }}"
+          KEEP=3
+          page=1
+          total=0
+          # 分页收集所有 run id (API 默认最新在前)
+          while :; do
+            resp=$(curl -sS -H "Authorization: Bearer $TOKEN" -H "Accept: application/vnd.github+json" \
+                   "https://api.github.com/repos/$REPO/actions/runs?per_page=100&page=$page")
+            batch=$(printf '%s' "$resp" | grep -o '"id": *[0-9]*' | cut -d' ' -f2)
+            cnt=$(printf '%s\n' $batch | grep -c . || true)
+            total=$((total+cnt))
+            printf '%s\n' $batch >> /tmp/run_ids.txt || true
+            [ "$cnt" -lt 100 ] && break
+            page=$((page+1))
+          done
+          echo "共读到 $total 条历史 run, 保留最新 $KEEP 条"
+          if [ ! -f /tmp/run_ids.txt ]; then exit 0; fi
+          # API 默认最新在前: 保留前 KEEP 条, 删其余
+          to_delete=$(tail -n +$((KEEP+1)) /tmp/run_ids.txt || true)
+          n=$(printf '%s\n' $to_delete | grep -c . || echo 0)
+          echo "待删 $n 条"
+          deleted=0
+          while IFS= read -r id; do
+            [ -z "$id" ] && continue
+            # 不删自己 (DELETE 在途 run 会 409, 这里显式跳过更稳)
+            [ "$id" = "${{ github.run_id }}" ] && { echo "跳过自身 $id"; continue; }
+            code=$(curl -sS -o /dev/null -w '%{http_code}' -X DELETE \
+                   -H "Authorization: Bearer $TOKEN" -H "Accept: application/vnd.github+json" \
+                   "https://api.github.com/repos/$REPO/actions/runs/$id")
+            if [ "$code" = "200" ] || [ "$code" = "204" ]; then
+              deleted=$((deleted+1))
+            else
+              echo "  run $id 删除失败 (HTTP $code)"
+            fi
+            sleep 0.3
+          done <<< "$to_delete"
+          echo "本次删除 $deleted 条, 保留最新 $KEEP 条"
