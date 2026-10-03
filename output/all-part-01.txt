@@ -3,10 +3,10 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 1/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-10-04 00:29:43 +0800
-! Last Modified: 2026-10-04 00:29:43 +0800 (北京时间 UTC+8)
+! Version: 2026-10-04 00:33:40 +0800
+! Last Modified: 2026-10-04 00:33:40 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 532401
+! Rules: 532402
 
 ||0--4.com^
 ||0--d.com^
@@ -373805,6 +373805,7 @@ http://177.22.88.133:8080/.x/pax.txt
 http://177.22.88.133:8080/.x/sys_users
 http://177.223.57.224:55211/bin.sh
 http://177.223.57.224:55211/i
+http://177.247.2.226:48894/i
 http://177.3.42.41:8001/poc-linux.xml
 http://177.36.24.216:41046/bin.sh
 http://177.36.24.216:41046/i
