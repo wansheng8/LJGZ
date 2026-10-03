@@ -25,15 +25,17 @@ concurrency:
   cancel-in-progress: false        # 不取消排队中的更新 — 推送竞态曾是真实故障源
 
 jobs:
+  # 2026-10 GitHub 官方将 ubuntu-latest 迁移到 26.04, 先锁定 24.04
+
   update:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     env:
       TZ: Asia/Shanghai            # 作业内所有时间戳走北京时间
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4.4.0
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5.6.0
         with:
           python-version: "3.11"
 
@@ -79,14 +81,14 @@ jobs:
   deploy-pages:
     needs: update
     if: always() && needs.update.result == 'success'   # 即使"无变化跳过"也部署 (保证 Pages 与 main 一致)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       # 锁定本次更新产生的确切提交 — main 若被后续提交移动, 部署的仍是刚验证过的内容
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4.4.0
         with:
           ref: ${{ needs.update.outputs.commit }}
       - name: 组装站点 (订阅中心 + 全部订阅文件)
@@ -94,9 +96,9 @@ jobs:
           mkdir -p site
           cp docs/index.html docs/logo.svg site/
           cp output/*.txt output/stats.json output/badge-*.json output/badge-*.svg site/
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/configure-pages@v5.0.0
+      - uses: actions/upload-pages-artifact@v3.0.0
         with:
           path: site
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v4.0.0
