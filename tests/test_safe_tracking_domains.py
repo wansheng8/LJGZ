@@ -53,10 +53,10 @@ EXPECTED_SAFE = {
 
 
 def _domains_in(rules):
-    """从 ||domain^ 形式规则里取出被拦截的域名集合。"""
+    """从 ||domain^ 形式规则里取出被拦截的域名集合 (允许 $ 修饰符)。"""
     out = set()
     for r in rules:
-        m = re.match(r"^\|\|([^\^$/]+(?:\.[^\^$/]+)*)\^", r)
+        m = re.match(r"^\|\|([a-z0-9.-]+)\^(?:\$.*)?$", r, re.I)
         if m:
             out.add(m.group(1).lower())
     return out
@@ -89,13 +89,15 @@ class SafeTrackingDomainsTest(unittest.TestCase):
             self.assertTrue(why and len(why) > 5,
                             "域名 %s 缺少不拦截原因说明" % d)
 
-    def test_tracking_rules_are_unconditional(self):
-        """追踪域必须用 $all —— 依赖默认修饰符会在某些实现里不生效。"""
+    def test_tracking_rules_are_important(self):
+        """追踪域必须用 $important — 上游列表里可能有无条件 @@ 例外,
+        只有 $important 能压过它 (普通 $all 会被例外盖住)。"""
         for r in self.rules:
-            m = re.match(r"^\|\|([^\^]+)\^(\$.*)?$", r)
-            if not m or m.group(1) not in EXPECTED_SAFE:
+            m = re.match(r"^\|\|([a-z0-9.-]+)\^(?:\$.*)?$", r, re.I)
+            if not m or m.group(1).lower() not in EXPECTED_SAFE:
                 continue
-            self.assertIn("$all", r, "追踪规则 %r 缺 $all" % r)
+            self.assertIn("$important", r,
+                          "追踪规则 %r 必须带 $important, 否则会被上游例外架空" % r)
 
     def test_no_third_party_only_rules(self):
         """$third-party / $~third-party 不适用于同域或无 referer 场景。"""
