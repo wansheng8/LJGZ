@@ -2,10 +2,10 @@
 # Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — hosts 格式
 # Homepage: https://github.com/wansheng8/LJGZ
 # Licence: 各上游列表许可证的并集, 见 README 致谢部分
-# Version: 2026-10-03 22:59:29 +0800
-# Last Modified: 2026-10-03 22:59:29 +0800 (北京时间 UTC+8)
+# Version: 2026-10-03 23:09:01 +0800
+# Last Modified: 2026-10-03 23:09:01 +0800 (北京时间 UTC+8)
 # Expires: 12 hours
-# Rules: 567909
+# Rules: 567924
 
 0.0.0.0 0--4.com
 0.0.0.0 0--d.com
@@ -6341,10 +6341,6 @@
 0.0.0.0 1x-betua.com
 0.0.0.0 1x-casino.fr
 0.0.0.0 1x-ibet3.com
-0.0.0.0 1x-pari-fr.fr
-0.0.0.0 1x-pari-france.fr
-0.0.0.0 1x-pari.fr
-0.0.0.0 1x-parifr.fr
 0.0.0.0 1x-slot.site
 0.0.0.0 1x-slots.site
 0.0.0.0 1x.biz
@@ -6420,11 +6416,6 @@
 0.0.0.0 1xmanila.com
 0.0.0.0 1xmyanmar.net
 0.0.0.0 1xncok3.weebly.com
-0.0.0.0 1xpari-fr.fr
-0.0.0.0 1xpari-france.fr
-0.0.0.0 1xpari.fr
-0.0.0.0 1xpari1.fr
-0.0.0.0 1xparifr.fr
 0.0.0.0 1xptem.jik.thetreecentre.com
 0.0.0.0 1xroom.com
 0.0.0.0 1xsinga.com
@@ -41820,6 +41811,7 @@
 0.0.0.0 aggregationabsorption.com
 0.0.0.0 aggregationdestructoppression.com
 0.0.0.0 aggregationmodest.com
+0.0.0.0 aggregator.service.usercentrics.eu
 0.0.0.0 aggressivecomfort.pro
 0.0.0.0 aggressivestruggle.com
 0.0.0.0 aggrooldst.click
@@ -62259,6 +62251,7 @@
 0.0.0.0 api.fiodeminastricot.com.br
 0.0.0.0 api.firwinds.site
 0.0.0.0 api.fitzeus.com
+0.0.0.0 api.flagsmith.com
 0.0.0.0 api.flatroninformatica.com.br
 0.0.0.0 api.flocktory.com
 0.0.0.0 api.flordelizdesignfloral.com.br
@@ -63129,6 +63122,7 @@
 0.0.0.0 api.usebepro.com.br
 0.0.0.0 api.usebutton.com
 0.0.0.0 api.useinsider.com
+0.0.0.0 api.usercentrics.eu
 0.0.0.0 api.userleap.com
 0.0.0.0 api.userstyles.org
 0.0.0.0 api.useshuris.com.br
@@ -64644,6 +64638,7 @@
 0.0.0.0 app.lamy-liaisons.fr
 0.0.0.0 app.lark.com
 0.0.0.0 app.latrobehealth.com.au
+0.0.0.0 app.launchdarkly.com
 0.0.0.0 app.lawnlove.com
 0.0.0.0 app.leadership.kenblanchard.com
 0.0.0.0 app.leadspin.dk
@@ -65150,6 +65145,7 @@
 0.0.0.0 app.usajaguars.com
 0.0.0.0 app.usctrojans.com
 0.0.0.0 app.usdtoreros.com
+0.0.0.0 app.usercentrics.eu
 0.0.0.0 app.usnh.edu
 0.0.0.0 app.utahstateaggies.com
 0.0.0.0 app.utahtechtickets.com
@@ -69409,6 +69405,7 @@
 0.0.0.0 assets.kuhlmann-software.at
 0.0.0.0 assets.locuslabs.com
 0.0.0.0 assets.loomia.com
+0.0.0.0 assets.mailerlite.com
 0.0.0.0 assets.mantisadnetwork.com
 0.0.0.0 assets.mediahostingcdn.com
 0.0.0.0 assets.micpn.com
@@ -70547,7 +70544,6 @@
 0.0.0.0 atousoft.com
 0.0.0.0 atout-energie-69.com
 0.0.0.0 atout-precocite.fr
-0.0.0.0 atoutlet.fr
 0.0.0.0 atoxicscorserbolding.qpon
 0.0.0.0 atozmanuals.com
 0.0.0.0 atoztechnotricks.com
@@ -104915,6 +104911,7 @@
 0.0.0.0 cdn-embed.wiinvent.tv
 0.0.0.0 cdn-engagement.inmarket.com
 0.0.0.0 cdn-eu.clickdimensions.com
+0.0.0.0 cdn-eu.configcat.com
 0.0.0.0 cdn-eu.dynamicyield.com
 0.0.0.0 cdn-eu.usefathom.com
 0.0.0.0 cdn-eu.voida.pl
@@ -105281,6 +105278,7 @@
 0.0.0.0 cdn.comedia.coccoc.com
 0.0.0.0 cdn.concert.io
 0.0.0.0 cdn.confiant-integrations.net
+0.0.0.0 cdn.configcat.com
 0.0.0.0 cdn.connatix.com
 0.0.0.0 cdn.connectad.io
 0.0.0.0 cdn.connectif.cloud
@@ -105771,6 +105769,7 @@
 0.0.0.0 cdn.pranmcpkx.com
 0.0.0.0 cdn.prdn.nl
 0.0.0.0 cdn.preciso.net
+0.0.0.0 cdn.privacy-mgmt.com
 0.0.0.0 cdn.proadscdn.com
 0.0.0.0 cdn.prod.adskit.juno.alexa.amazon.dev
 0.0.0.0 cdn.prod.euid.eu
@@ -113043,6 +113042,7 @@
 0.0.0.0 click.mail.salesforce.com
 0.0.0.0 click.mail.thecarousell.com
 0.0.0.0 click.mail.theknot.com
+0.0.0.0 click.mailerlite.com
 0.0.0.0 click.mailing.ticketmaster.com
 0.0.0.0 click.mainexclkdir.com
 0.0.0.0 click.mainexdircllk.com
@@ -113369,6 +113369,7 @@
 0.0.0.0 clicks.about.com
 0.0.0.0 clicks.adultplex.com
 0.0.0.0 clicks.affstrack.com
+0.0.0.0 clicks.aweber.com
 0.0.0.0 clicks.beap.bc.yahoo.com
 0.0.0.0 clicks.burgerking.co.uk
 0.0.0.0 clicks.checkatrade.com
@@ -120801,6 +120802,7 @@
 0.0.0.0 consensuscapitalholdings.com
 0.0.0.0 consent-manager-events.ogury.io
 0.0.0.0 consent-manager.thenextweb.com
+0.0.0.0 consent-pref.trustarc.com
 0.0.0.0 consent-st.truste.com
 0.0.0.0 consent-wrapper.jameda.de
 0.0.0.0 consent.23g.io
@@ -120846,6 +120848,7 @@
 0.0.0.0 consent.thegreatoutdoorsmag.com
 0.0.0.0 consent.themeteocompany.com
 0.0.0.0 consent.triad.sk
+0.0.0.0 consent.trustarc.com
 0.0.0.0 consent.truste.com
 0.0.0.0 consent.wegotthiscovered.com
 0.0.0.0 consent.werner-mertz.de
@@ -122040,6 +122043,7 @@
 0.0.0.0 cookies-adobe.kbc.com
 0.0.0.0 cookies-adobe.kbclease.lu
 0.0.0.0 cookies-casino.fr
+0.0.0.0 cookies-data.onetrust.io
 0.0.0.0 cookies-sfs.siemens.com
 0.0.0.0 cookies-spravne.cz
 0.0.0.0 cookies.ae-webdesign.com
@@ -125424,6 +125428,7 @@
 0.0.0.0 cpu-baidu-com-block.cdn.bcebos.com
 0.0.0.0 cpu-z.fr
 0.0.0.0 cpu.baidu.com
+0.0.0.0 cpu.js.org
 0.0.0.0 cpu.samsungelectronics.com
 0.0.0.0 cpu2you.com
 0.0.0.0 cpucdn.baidu.com
@@ -160014,6 +160019,7 @@
 0.0.0.0 edge.allpointbd.com
 0.0.0.0 edge.amplific.ai
 0.0.0.0 edge.analytics.brightedge.com
+0.0.0.0 edge.api.flagsmith.com
 0.0.0.0 edge.artemis-sport.gr
 0.0.0.0 edge.atmtd.com
 0.0.0.0 edge.audhdpsychiatry.co.uk
@@ -163767,6 +163773,7 @@
 0.0.0.0 email.luminpdf.com
 0.0.0.0 email.mail.floatme.io
 0.0.0.0 email.mail.iteratehq.com
+0.0.0.0 email.mailgun.net
 0.0.0.0 email.member.theknot.com
 0.0.0.0 email.mg.everyonesocial.com
 0.0.0.0 email.mg.exlyapp.com
@@ -183838,7 +183845,6 @@
 0.0.0.0 fokusfinanz.com
 0.0.0.0 fokuslighting.com
 0.0.0.0 fol.dermals.org
-0.0.0.0 fol9.com
 0.0.0.0 folacinamylome.help
 0.0.0.0 folamsan.kovo.vn
 0.0.0.0 folberry.com
@@ -187577,6 +187583,7 @@
 0.0.0.0 freshzz00.duckdns.org
 0.0.0.0 freslona.shop
 0.0.0.0 fresnel-events.vimeocdn.com
+0.0.0.0 fresnel.vimeocdn.com
 0.0.0.0 fresnocovid411.com
 0.0.0.0 fresnocovidaid.com
 0.0.0.0 fresnodepositionreporters.com
@@ -188933,6 +188940,7 @@
 0.0.0.0 fullspeeddownload.com
 0.0.0.0 fullstackinvestmentgroup.com
 0.0.0.0 fullstacknir.com
+0.0.0.0 fullstory.com
 0.0.0.0 fulltab.com
 0.0.0.0 fulltaxrelief.com
 0.0.0.0 fulltermsservicefr.firebaseapp.com
@@ -283418,6 +283426,7 @@
 0.0.0.0 mandrill.castingcollective.net
 0.0.0.0 mandrill.hamptonbeach.live
 0.0.0.0 mandrill.yellowfruit.co
+0.0.0.0 mandrillapp.com
 0.0.0.0 mandrillapp.zola.com
 0.0.0.0 mandriva.com
 0.0.0.0 mandselectricalcontractors.co.za
@@ -295677,7 +295686,6 @@
 0.0.0.0 mesquitepoint.pro
 0.0.0.0 mesqwrte.net
 0.0.0.0 message-alert.info
-0.0.0.0 message-banque.fr
 0.0.0.0 message-hotels-cloudbeds-chat.bolt.host
 0.0.0.0 message-hub-svc.usw2.cordial.com
 0.0.0.0 message-voice.weebly.com
@@ -303662,6 +303670,7 @@
 0.0.0.0 mixpanel-proxy.coingecko.com
 0.0.0.0 mixpanel-proxy.ted.com
 0.0.0.0 mixpanel.cdn.viber.com
+0.0.0.0 mixpanel.com
 0.0.0.0 mixpanel.tigocloud.net
 0.0.0.0 mixpanel.tourscanner.com
 0.0.0.0 mixpaneldata.com
@@ -305152,6 +305161,7 @@
 0.0.0.0 mobile.isoshu.com
 0.0.0.0 mobile.juicyads.com
 0.0.0.0 mobile.kukuplay.com
+0.0.0.0 mobile.launchdarkly.com
 0.0.0.0 mobile.locumprime.co.uk
 0.0.0.0 mobile.log.hunantv.com
 0.0.0.0 mobile.log.kukuplay.com
@@ -347574,6 +347584,7 @@
 0.0.0.0 pixel.augsburger-allgemeine.de
 0.0.0.0 pixel.autoads.asia
 0.0.0.0 pixel.automateapollo.com
+0.0.0.0 pixel.aweber.com
 0.0.0.0 pixel.aws.pfnetwork.net
 0.0.0.0 pixel.azshopp.com
 0.0.0.0 pixel.babbu.com.bd
@@ -405131,7 +405142,6 @@
 0.0.0.0 sexfg.com
 0.0.0.0 sexfilms.ru
 0.0.0.0 sexflirtbook.com
-0.0.0.0 sexgouv.fr
 0.0.0.0 sexgramm.ru
 0.0.0.0 sexiba.com
 0.0.0.0 sexicats.com
@@ -442752,6 +442762,7 @@
 0.0.0.0 st-sentinel.vivo.com.cn
 0.0.0.0 st-ssp.anthill.vn
 0.0.0.0 st-vcdn.anthill.vn
+0.0.0.0 st-widget.s3.amazonaws.com
 0.0.0.0 st-wps.com.cn
 0.0.0.0 st.11st.co.kr
 0.0.0.0 st.7figureofferformula.com
@@ -454619,6 +454630,7 @@
 0.0.0.0 stream.expressportables.au
 0.0.0.0 stream.expressportables.com.au
 0.0.0.0 stream.kolorowey.com
+0.0.0.0 stream.launchdarkly.com
 0.0.0.0 stream.neonail.cz
 0.0.0.0 stream.neonail.de
 0.0.0.0 stream.neonail.nl
@@ -454697,6 +454709,7 @@
 0.0.0.0 streaming-bill.info
 0.0.0.0 streaming-shop.com
 0.0.0.0 streaming.leightonbroadcasting.com
+0.0.0.0 streaming.split.io
 0.0.0.0 streamingace.com
 0.0.0.0 streamingerror.rtl.de
 0.0.0.0 streamingfilm.club
@@ -463489,6 +463502,7 @@
 0.0.0.0 tags.tiq.rbcinsurance.com
 0.0.0.0 tags.tiq.rbcprivateinsurance.com
 0.0.0.0 tags.tiq.worldprotect.com
+0.0.0.0 tags.tiqcdn.com
 0.0.0.0 tags.toitpourtoi.fr
 0.0.0.0 tags.tommy.com
 0.0.0.0 tags.tommy.com.greylabeldelivery.com
@@ -485461,6 +485475,7 @@
 0.0.0.0 trackity.tiki.vn
 0.0.0.0 trackivy.com
 0.0.0.0 trackjourneyh.live
+0.0.0.0 trackjs.com
 0.0.0.0 trackk2biz.pro
 0.0.0.0 trackk8er.pro
 0.0.0.0 trackkantrexcap.digital
@@ -522788,7 +522803,6 @@
 0.0.0.0 winsilio.com
 0.0.0.0 winsimpleprizes.life
 0.0.0.0 winslinks.com
-0.0.0.0 winsmachance.fr
 0.0.0.0 winsoftware.com
 0.0.0.0 winsomeshoppes.com
 0.0.0.0 winspark-1.fr
@@ -523168,7 +523182,6 @@
 0.0.0.0 witchetofter.com
 0.0.0.0 witcobber.com
 0.0.0.0 witeanerly.com
-0.0.0.0 witgoednu.nl
 0.0.0.0 witgoedvandaag.nl
 0.0.0.0 with-anbo.com
 0.0.0.0 with-corona.blog
@@ -525396,6 +525409,7 @@
 0.0.0.0 wrapmobility.com
 0.0.0.0 wrapn.net
 0.0.0.0 wrapper-analytics.on3.com
+0.0.0.0 wrapper-api.sp-prod.net
 0.0.0.0 wrapper-vast.adsafeprotected.com
 0.0.0.0 wrapper.bracdn.online
 0.0.0.0 wrapper.fileplanet.com
@@ -558992,6 +559006,7 @@
 0.0.0.0 ymams.cf
 0.0.0.0 ymapiatm.xyz
 0.0.0.0 ymapp.com
+0.0.0.0 ymatuhin.ru
 0.0.0.0 ymazkrkieaujq.online
 0.0.0.0 ymcakir.com
 0.0.0.0 ymcaminya.org

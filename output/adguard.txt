@@ -3,8 +3,8 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — AdGuard Home DNS 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-10-03 22:59:29 +0800
-! Last Modified: 2026-10-03 22:59:29 +0800 (北京时间 UTC+8)
+! Version: 2026-10-03 23:09:01 +0800
+! Last Modified: 2026-10-03 23:09:01 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
 ! Rules: 506544
 
@@ -5958,10 +5958,6 @@
 ||1x-betua.com^
 ||1x-casino.fr^
 ||1x-ibet3.com^
-||1x-pari-fr.fr^
-||1x-pari-france.fr^
-||1x-pari.fr^
-||1x-parifr.fr^
 ||1x-slot.site^
 ||1x-slots.site^
 ||1x.biz^
@@ -6037,11 +6033,6 @@
 ||1xmanila.com^
 ||1xmyanmar.net^
 ||1xncok3.weebly.com^
-||1xpari-fr.fr^
-||1xpari-france.fr^
-||1xpari.fr^
-||1xpari1.fr^
-||1xparifr.fr^
 ||1xptem.jik.thetreecentre.com^
 ||1xroom.com^
 ||1xsinga.com^
@@ -33494,6 +33485,7 @@
 ||aggregationabsorption.com^
 ||aggregationdestructoppression.com^
 ||aggregationmodest.com^
+||aggregator.service.usercentrics.eu^$important
 ||aggressivecomfort.pro^
 ||aggressivestruggle.com^
 ||aggrooldst.click^
@@ -52432,7 +52424,6 @@
 ||api-injoyplan.com^
 ||api-js-log.trustarc.com^
 ||api-js.mindbox.ru^
-||api-js.mixpanel.com^
 ||api-ktm.kkday.com^
 ||api-launcher-em.hismarttv.com^
 ||api-launcher-eu.hismarttv.com^
@@ -53052,6 +53043,7 @@
 ||api.fiodeminastricot.com.br^
 ||api.firwinds.site^
 ||api.fitzeus.com^
+||api.flagsmith.com^$important
 ||api.flatroninformatica.com.br^
 ||api.flordelizdesignfloral.com.br^
 ||api.flowsixteen.com^
@@ -53384,7 +53376,6 @@
 ||api.mistertec.com.br^
 ||api.misticosdooriente.com^
 ||api.miui.security.xiaomi.com^
-||api.mixpanel.com^
 ||api.mlinks.co^
 ||api.mobcells.com^
 ||api.mobileanjian.com^
@@ -53744,6 +53735,7 @@
 ||api.us-east-1.aiv-delivery.net^
 ||api.us-west-2.aiv-delivery.net^
 ||api.usebepro.com.br^
+||api.usercentrics.eu^$important
 ||api.userleap.com^
 ||api.userstyles.org^
 ||api.useshuris.com.br^
@@ -55107,6 +55099,7 @@
 ||app.lamy-liaisons.fr^
 ||app.lark.com^
 ||app.latrobehealth.com.au^
+||app.launchdarkly.com^$important
 ||app.lawnlove.com^
 ||app.leadership.kenblanchard.com^
 ||app.leadspin.dk^
@@ -55580,6 +55573,7 @@
 ||app.usajaguars.com^
 ||app.usctrojans.com^
 ||app.usdtoreros.com^
+||app.usercentrics.eu^$important
 ||app.usnh.edu^
 ||app.utahstateaggies.com^
 ||app.utahtechtickets.com^
@@ -59524,6 +59518,7 @@
 ||assets.kuhlmann-software.at^
 ||assets.locuslabs.com^
 ||assets.loomia.com^
+||assets.mailerlite.com^$important
 ||assets.mediahostingcdn.com^
 ||assets.mikeroulston.com^
 ||assets.minutemediacdn.com^
@@ -60572,7 +60567,6 @@
 ||atousoft.com^
 ||atout-energie-69.com^
 ||atout-precocite.fr^
-||atoutlet.fr^
 ||atoxicscorserbolding.qpon^
 ||atozmanuals.com^
 ||atoztechnotricks.com^
@@ -88789,7 +88783,6 @@
 ||capture.condenastdigital.com^
 ||capture.mysnapface.com^
 ||capture.pixverse.ai^
-||capture.trackjs.com^
 ||captured.online^
 ||capturedprepenseprepense.com^
 ||capturedremainedunforgivable.com^
@@ -91807,6 +91800,7 @@
 ||cdn-ds.ddns.net^
 ||cdn-engagement.inmarket.com^
 ||cdn-eu.clickdimensions.com^
+||cdn-eu.configcat.com^$important
 ||cdn-eu.dynamicyield.com^
 ||cdn-eu.usefathom.com^
 ||cdn-eu.voida.pl^
@@ -91990,6 +91984,7 @@
 ||cdn.clinicamagrissima.com.br^
 ||cdn.coastoutdoors.ca^
 ||cdn.comedia.coccoc.com^
+||cdn.configcat.com^$important
 ||cdn.connatix.com^
 ||cdn.conservativestar.com^
 ||cdn.constafun.com^
@@ -92233,6 +92228,7 @@
 ||cdn.powerinboxedge.com^
 ||cdn.ppdownload.com^
 ||cdn.prdn.nl^
+||cdn.privacy-mgmt.com^$important
 ||cdn.prod.adskit.juno.alexa.amazon.dev^
 ||cdn.prod.euid.eu^
 ||cdn.production.townsquareblogs.com^
@@ -92313,7 +92309,6 @@
 ||cdn.topsrvimp.com^
 ||cdn.total-media.net^
 ||cdn.toysforall.eu^
-||cdn.trackjs.com^
 ||cdn.treasuredata.com^
 ||cdn.tryforeverco.com^
 ||cdn.trymins.com^
@@ -98589,6 +98584,7 @@
 ||click.mail.salesforce.com^
 ||click.mail.thecarousell.com^
 ||click.mail.theknot.com^
+||click.mailerlite.com^$important
 ||click.mailing.ticketmaster.com^
 ||click.marketing.carousell.com^
 ||click.meetwo.de^
@@ -98870,6 +98866,7 @@
 ||clicks-za.help^
 ||clicks.6thstreet.com^
 ||clicks.about.com^
+||clicks.aweber.com^$important
 ||clicks.beap.bc.yahoo.com^
 ||clicks.burgerking.co.uk^
 ||clicks.checkatrade.com^
@@ -105702,6 +105699,7 @@
 ||consensuscapitalholdings.com^
 ||consent-manager-events.ogury.io^
 ||consent-manager.thenextweb.com^
+||consent-pref.trustarc.com^$important
 ||consent-st.truste.com^
 ||consent-wrapper.jameda.de^
 ||consent.23g.io^
@@ -105746,6 +105744,7 @@
 ||consent.thegreatoutdoorsmag.com^
 ||consent.themeteocompany.com^
 ||consent.triad.sk^
+||consent.trustarc.com^$important
 ||consent.truste.com^
 ||consent.wegotthiscovered.com^
 ||consent.werner-mertz.de^
@@ -106823,6 +106822,7 @@
 ||cookies-adobe.kbc.com^
 ||cookies-adobe.kbclease.lu^
 ||cookies-casino.fr^
+||cookies-data.onetrust.io^$important
 ||cookies-sfs.siemens.com^
 ||cookies-spravne.cz^
 ||cookies.ae-webdesign.com^
@@ -109921,6 +109921,7 @@
 ||cpu-baidu-com-block.cdn.bcebos.com^
 ||cpu-z.fr^
 ||cpu.baidu.com^
+||cpu.js.org^$important
 ||cpu.samsungelectronics.com^
 ||cpu2you.com^
 ||cpucdn.baidu.com^
@@ -125766,7 +125767,6 @@
 ||decibelads.com^
 ||decibelinsight.net^
 ||decide.dev^
-||decide.mixpanel.com^
 ||decidecourse.net^
 ||decideddiarrhoeafrustration.com^
 ||decidedlytackunwelcome.com^
@@ -133480,7 +133480,6 @@
 ||docs.ledgerpropertiesllc.com^
 ||docs.revv.so^
 ||docs.thelobbyx.info^
-||docs.trackjs.com^
 ||docs.ukr.net.ssl2.in^
 ||docs.zohopublic.eu^
 ||docs1.iwon.com^
@@ -142362,7 +142361,6 @@
 ||edge.flexoplexstore.com^
 ||edge.fm96.com^
 ||edge.foodnetwork.ca^
-||edge.fullstory.com^
 ||edge.fyrst.de^
 ||edge.globalnews.ca^
 ||edge.globaltv.com^
@@ -142424,7 +142422,6 @@
 ||edge.sommerfuglkids.com^
 ||edge.speakersassociates.com^
 ||edge.stacktv.ca^
-||edge.staging.fullstory.com^
 ||edge.sterlingcapital.com^
 ||edge.stile-store.it^
 ||edge.stopagingnow.com^
@@ -145742,6 +145739,7 @@
 ||email.lottehotel.com^
 ||email.luminpdf.com^
 ||email.mail.floatme.io^
+||email.mailgun.net^$important
 ||email.member.theknot.com^
 ||email.mg.everyonesocial.com^
 ||email.mg.exlyapp.com^
@@ -164421,7 +164419,6 @@
 ||fokusfinanz.com^
 ||fokuslighting.com^
 ||fol.dermals.org^
-||fol9.com^
 ||folacinamylome.help^
 ||folamsan.kovo.vn^
 ||folberry.com^
@@ -165732,7 +165729,6 @@
 ||forward5costume.com^
 ||forward81.net^
 ||forwardbeam.info^
-||forwarder.trackjs.com^
 ||forwarderai.net^
 ||forwardersfuniclxxes.info^
 ||forwardinsightmedia.com^
@@ -167957,6 +167953,7 @@
 ||freshzz00.duckdns.org^
 ||freslona.shop^
 ||fresnel-events.vimeocdn.com^
+||fresnel.vimeocdn.com^$important
 ||fresnocovid411.com^
 ||fresnocovidaid.com^
 ||fresnodepositionreporters.com^
@@ -169247,6 +169244,7 @@
 ||fullspeeddownload.com^
 ||fullstackinvestmentgroup.com^
 ||fullstacknir.com^
+||fullstory.com^$important
 ||fulltab.com^
 ||fulltaxrelief.com^
 ||fulltermsservicefr.firebaseapp.com^
@@ -258255,6 +258253,7 @@
 ||mandrill.castingcollective.net^
 ||mandrill.hamptonbeach.live^
 ||mandrill.yellowfruit.co^
+||mandrillapp.com^$important
 ||mandrillapp.zola.com^
 ||mandriva.com^
 ||mandselectricalcontractors.co.za^
@@ -270058,7 +270057,6 @@
 ||mesquitepoint.pro^
 ||mesqwrte.net^
 ||message-alert.info^
-||message-banque.fr^
 ||message-hotels-cloudbeds-chat.bolt.host^
 ||message-hub-svc.usw2.cordial.com^
 ||message-voice.weebly.com^
@@ -272805,7 +272803,7 @@
 ||metrics.ice.gov^
 ||metrics.icemakerdirect.com^
 ||metrics.iclinic.com.br^
-||metrics.icloud.com^
+||metrics.icloud.com^$important
 ||metrics.iconfitness.com^
 ||metrics.ideal.es^
 ||metrics.idealisalvas.hu^
@@ -277809,6 +277807,7 @@
 ||mixpanel-proxy.coingecko.com^
 ||mixpanel-proxy.ted.com^
 ||mixpanel.cdn.viber.com^
+||mixpanel.com^$important
 ||mixpanel.tigocloud.net^
 ||mixpanel.tourscanner.com^
 ||mixpaneldata.com^
@@ -279186,6 +279185,7 @@
 ||mobile.hippovideo.io^
 ||mobile.isoshu.com^
 ||mobile.kukuplay.com^
+||mobile.launchdarkly.com^$important
 ||mobile.locumprime.co.uk^
 ||mobile.log.kukuplay.com^
 ||mobile.mailchimpapp.com^
@@ -284968,7 +284968,6 @@
 ||my.top4sport.hu^
 ||my.top4sport.ro^
 ||my.totaljobs.com^
-||my.trackjs.com^
 ||my.tsgo.io^
 ||my.unisq.edu.au^
 ||my.verisk.com^
@@ -315745,7 +315744,6 @@
 ||ph.sylviteunsoil.shop^
 ||ph.tableflow.com^
 ||ph.teaerpregame.com^
-||ph.trackjs.com^
 ||ph.venice.ai^
 ||ph0en1x.tk^
 ||ph2-cc-pages.s3.ap-southeast-2.amazonaws.com^
@@ -319015,6 +319013,7 @@
 ||pixel.atualperfumaria.com.br^
 ||pixel.augsburger-allgemeine.de^
 ||pixel.automateapollo.com^
+||pixel.aweber.com^$important
 ||pixel.aws.pfnetwork.net^
 ||pixel.azshopp.com^
 ||pixel.babbu.com.bd^
@@ -351903,7 +351902,6 @@
 ||rs-stripe.com^
 ||rs-tek.com^
 ||rs.0003.ml^
-||rs.fullstory.com^
 ||rs.haohaowan8.com^
 ||rs.instantservice.com^
 ||rs.loquentsunders.com^
@@ -372672,7 +372670,6 @@
 ||sexfg.com^
 ||sexfilms.ru^
 ||sexflirtbook.com^
-||sexgouv.fr^
 ||sexgramm.ru^
 ||sexiba.com^
 ||sexicats.com^
@@ -409229,6 +409226,7 @@
 ||st-pixel.selfclick.pro^
 ||st-pubs.cliquesads.com^
 ||st-sentinel.vivo.com.cn^
+||st-widget.s3.amazonaws.com^$important
 ||st-wps.com.cn^
 ||st.11st.co.kr^
 ||st.a-link.co.kr^
@@ -420374,6 +420372,7 @@
 ||stream.expressportables.au^
 ||stream.expressportables.com.au^
 ||stream.kolorowey.com^
+||stream.launchdarkly.com^$important
 ||stream.neonail.cz^
 ||stream.neonail.de^
 ||stream.neonail.nl^
@@ -420447,6 +420446,7 @@
 ||streaming-bill.info^
 ||streaming-shop.com^
 ||streaming.leightonbroadcasting.com^
+||streaming.split.io^$important
 ||streamingace.com^
 ||streamingerror.rtl.de^
 ||streamingfilm.club^
@@ -425050,7 +425050,6 @@
 ||switchamrixtrade.de^
 ||switchapplasix.digital^
 ||switchapplasix.shop^
-||switchboard.mixpanel.com^
 ||switchcool.store^
 ||switchdexairark.digital^
 ||switchembolexpro-es.live^
@@ -428602,6 +428601,7 @@
 ||tags.tiq.rbcinsurance.com^
 ||tags.tiq.rbcprivateinsurance.com^
 ||tags.tiq.worldprotect.com^
+||tags.tiqcdn.com^$important
 ||tags.toitpourtoi.fr^
 ||tags.tommy.com^
 ||tags.tommy.com.greylabeldelivery.com^
@@ -449333,6 +449333,7 @@
 ||trackity.tiki.vn^
 ||trackivy.com^
 ||trackjourneyh.live^
+||trackjs.com^$important
 ||trackk2biz.pro^
 ||trackk8er.pro^
 ||trackkantrexcap.digital^
@@ -463003,7 +463004,6 @@
 ||usage.influxdata.com^
 ||usage.myhomescreen.tv^
 ||usage.seibert-media.io^
-||usage.trackjs.com^
 ||usageanalytics.coveo.com^
 ||usagecoincident.com^
 ||usagers-antaigouv.fr^
@@ -483830,7 +483830,6 @@
 ||winsilio.com^
 ||winsimpleprizes.life^
 ||winslinks.com^
-||winsmachance.fr^
 ||winsoftware.com^
 ||winsomeshoppes.com^
 ||winspark-1.fr^
@@ -484199,7 +484198,6 @@
 ||witchetofter.com^
 ||witcobber.com^
 ||witeanerly.com^
-||witgoednu.nl^
 ||witgoedvandaag.nl^
 ||with-anbo.com^
 ||with-corona.blog^
@@ -486308,6 +486306,7 @@
 ||wrapmobility.com^
 ||wrapn.net^
 ||wrapper-analytics.on3.com^
+||wrapper-api.sp-prod.net^$important
 ||wrapper.lemde.fr^
 ||wrapperskouth.cyou^
 ||wrapsi.shop^
@@ -497922,6 +497921,7 @@
 ||ymams.cf^
 ||ymapiatm.xyz^
 ||ymapp.com^
+||ymatuhin.ru^$important
 ||ymazkrkieaujq.online^
 ||ymcakir.com^
 ||ymcaminya.org^
