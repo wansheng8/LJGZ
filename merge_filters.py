@@ -489,12 +489,11 @@ class Merger:
                 continue
             survive.append((d, imp, canon))
 
-        # 浏览器输出 (all_blocks): 剔除被 @@ DNS 例外解锁的域名 (防止拦了又解),
-        # 纯域名规则超过阈值时截断 — 大量 ||d^ 来自 DNS 列表, 对浏览器价值低且
-        # 会让订阅体积膨胀到加载失败 (即"订阅了但无拦截"的根因)。
+        # 浏览器输出 (all_blocks): survive 已完成"例外仲裁"剔除 (被 @@ 例外的域
+        # 不在此列), 此处直接取同一组; 纯域名规则超过阈值时截断 — 大量 ||d^ 来自
+        # DNS 列表, 对浏览器价值低且会让订阅体积膨胀到加载失败 (即"订阅了但无拦截"的根因)。
         BROWSER_DOMAIN_CAP = 150_000
-        browser_items = [(d, imp, canon) for d, imp, canon in survive
-                         if not (d in exc_imp and not (imp and not exc_imp[d]))]
+        browser_items = list(survive)
         if len(browser_items) > BROWSER_DOMAIN_CAP:
             # 保留顺序: $important 优先, 其余按域名稳定序
             browser_items.sort(key=lambda t: (not t[1], t[0]))
