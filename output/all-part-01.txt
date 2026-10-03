@@ -3,10 +3,10 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 1/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-10-03 23:43:24 +0800
-! Last Modified: 2026-10-03 23:43:24 +0800 (北京时间 UTC+8)
+! Version: 2026-10-03 23:48:27 +0800
+! Last Modified: 2026-10-03 23:48:27 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 532391
+! Rules: 532390
 
 ||0--4.com^
 ||0--d.com^
@@ -364507,7 +364507,6 @@ http://118.25.68.152:91/rasadhlp.dll
 http://118.250.3.143:55215/i
 http://118.253.80.19:35077/bin.sh
 http://118.253.80.19:35077/i
-http://118.253.80.19:46415/bin.sh
 http://118.253.80.19:46415/i
 http://118.34.109.121:32776/bin.sh
 http://118.34.109.121:32776/i
