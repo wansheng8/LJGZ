@@ -3,11 +3,62 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-10-04 20:13:50 +0800
-! Last Modified: 2026-10-04 20:13:50 +0800 (北京时间 UTC+8)
+! Version: 2026-10-05 00:07:05 +0800
+! Last Modified: 2026-10-05 00:07:05 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 66102
+! Rules: 66153
 
+fandom.com#%#//scriptlet('set-constant', 'optimizely.initialized', 'true')
+fandom.com,gamespot.com,metacritic.com##.fandom-ad-wrapper
+fandomwire.com##.g1-injected-unit
+fandomwire.com##div:has(> [data-openweb-ad])
+fandomwire.com##header > div[style^="min-height:"][style$="display: inline-block; text-align: center;"]
+fanex.pl##.Cookies_container__Q_rPy
+fanfox.net###a1
+fanfox.net###a2
+fanfox.net##.ad-reader
+fanfox.net##.detail-main-list-ad
+fanfox.net##body > a[href^="http://mangazoneapp.com/?utm_source="]
+fanfreegames.com###go_to_top
+fang.com###xmlAd
+fang.com##.bannger_inbox
+fang.com,soufun.com##.add1200
+fangoria.com###social-promotion
+fangoria.com##.fang-share
+fangoria.com##.terror-teletype
+fangraphs.com##+js(acs, $, Math.random)
+fangraphs.com##+js(set, ezstandalone.enabled, true)
+fangraphs.com##.catchall728
+fangraphs.com##.fg-ra-desktop
+fangraphs.com##.fg-ra-mobile
+fangraphs.com##.ra-wide
+fangraphs.com##form > div.fg-ra-desktop
+fanipogody.pl###oa_placeholder
+fanipogody.pl##div[id^="oa-360-"][data-dest="placeholder"]
+fanipogody.pl##div[id^="oa_placeholder"]
+fanlesstech.com###HTML2 > .widget-content
+fanlesstech.com###HTML3
+fanlesstech.com###HTML4 > .widget-content
+fanlesstech.com###HTML5 > .widget-content
+fanlesstech.com###HTML6 > .widget-content
+fanlesstech.com###footer-1
+fanpage.it##.adv-wrapper
+fanpage.it##.box-news-banner
+fanpage.it##.ft-icon
+fanpage.it##div[class^="taboola-widget-"]
+fanqiangzhe.com###mobile-bottom-ads
+fanqiangzhe.com###news-include + .text-center
+fanqiangzhe.com###popupModal
+fans-here.com##a[href^="https://satoshidisk.com/"]
+fanseriesthaisub.com##.margin-banner
+fanseriesthaisub.com##.top-right-iframe
+fanseriesthaisub.com##div[style="margin-top:15px;"]
+fanseriesthaisub.com#$#.ftco-navbar-light { background: #000 !important; }
+fanseriesthaisub.com#$#.ftco-navbar-light.scrolled { background: #fff !important; }
+fansided.com,lastnighton.com,netflixlife.com,stormininnorman.com,winteriscoming.net##.sub-footer-container
+fansided.com,si.com###static-top-ad-placeholder_1
+fansided.com,thenewdaily.com.au##.min-h-\[280px\]
+fansonlinehub.com,teralink.me,teraearn.com,terashare.me,hotmediahub.com###adsense > div[id^="ad-box-"]
 fansonlinehub.com,teralink.me,teraearn.com,terashare.me,hotmediahub.com,terabox.fun#$#body { overflow: auto !important; }
 fansonlinehub.com,teralink.me,teraearn.com,terashare.me,hotmediahub.com,terabox.fun#%#//scriptlet("json-prune", "web_share_ads_adsterra_config wap_short_link_middle_page_ad wap_short_link_middle_page_show_time data.ads_cpm_info")
 fansonlinehub.com,teralink.me,teraearn.com,terashare.me,hotmediahub.com,terabox.fun#?##app div.overlay:has(> div.modal > div.dialog-ad-box)
