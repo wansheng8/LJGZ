@@ -3,11 +3,13 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-10-05 00:07:05 +0800
-! Last Modified: 2026-10-05 00:07:05 +0800 (北京时间 UTC+8)
+! Version: 2026-10-05 04:49:22 +0800
+! Last Modified: 2026-10-05 04:49:22 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 66153
+! Rules: 66157
 
+fandom.com#%#//scriptlet('json-prune', 'sponsored')
+fandom.com#%#//scriptlet('set-constant', 'optimizely', 'emptyObj')
 fandom.com#%#//scriptlet('set-constant', 'optimizely.initialized', 'true')
 fandom.com,gamespot.com,metacritic.com##.fandom-ad-wrapper
 fandomwire.com##.g1-injected-unit
@@ -4226,6 +4228,7 @@ gazzetta.gr##.sticky-inside .cosmotetv-heading + .tab-parent
 gazzetta.gr##a[href^="https://rt.novibet.partners/"] > img
 gazzetta.gr##a[rel^="sponsored"]
 gazzetta.gr##div#right_sidebar .ad
+gazzetta.gr##section.mb-0-mobile > div.mb-48 > div.is-hidden-touch:has(> a[href*="?utm_source"])
 gazzetta.gr#%#//scriptlet('set-constant', 'Adman', 'emptyObj')
 gazzetta.gr#?#.sticky-inside > h3:contains(CASINO)
 gazzetta.it###rcsad_Bacheca1
@@ -16317,6 +16320,7 @@ lifo.gr##.adv
 lift.co.za###cookiesBanner
 ligainsider.de##+js(acs, $, MutationObserver)
 ligainsider.de##+js(aopr, LIDetector)
+ligainsider.de##+js(rmnt, script, ProbeError)
 ligainsider.de##.mb-md.float-start:has(#ad-rectangle2)
 ligainsider.de##.new_add
 liget.ro###jscookiemodal
