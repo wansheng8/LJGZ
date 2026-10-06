@@ -892,29 +892,48 @@ def write_outputs(res: MergeResult, outdir: str, *, title: str,
 # ---------------------------------------------------------------------------
 
 def run(config_path: str, *, outdir: str, transport=None,
-        retries: int = 3, retry_delay: float = 2.0) -> dict:
-    """下载全部源 → 解析合并 → 写出输出。返回运行报告 dict。"""
-    sources = load_sources(config_path)
-    merger = Merger()
-    ok, failed = [], []
+        retries: int = 3, retry_delay: float = 2.0,
+        max_workers: int = 6) -> dict:
+    """下载全部源 → 解析合并 → 写出输出。返回运行报告 dict。
 
-    for src in sources:
-        try:
-            text = fetch_text(src["url"], transport=transport,
-                              retries=retries, retry_delay=retry_delay)
-        except FetchError as e:
-            failed.append({"name": src["name"], "error": str(e)})
-            print(f"[warn] 源下载失败, 跳过: {src['name']} — {e}", file=sys.stderr)
+    下载阶段并行 (ThreadPoolExecutor, 默认 6 worker): 串行时 22 源 × 最坏
+    94s/源 ≈ 35 分钟, 会顶爆 CI 的 job timeout (30min) 被取消 (2026-10-05
+    schedule run 实测 15min cancelled 即此类); 并行 6 路后最坏 ≈ 7 分钟。
+    合并阶段仍串行 (Merger 非线程安全), 按源序保序填充报告。
+    """
+    import concurrent.futures
+
+    sources = load_sources(config_path)
+    texts: Dict[str, str] = {}       # url → 下载文本
+    failed = []
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as pool:
+        futs = {pool.submit(fetch_text, src["url"], transport=transport,
+                            retries=retries, retry_delay=retry_delay): src
+                for src in sources}
+        for fut in concurrent.futures.as_completed(futs):
+            src = futs[fut]
+            try:
+                texts[src["url"]] = fut.result()
+            except FetchError as e:
+                failed.append({"name": src["name"], "error": str(e)})
+                print(f"[warn] 源下载失败, 跳过: {src['name']} — {e}",
+                      file=sys.stderr)
+
+    if not texts:
+        raise FetchError("所有上游源均下载失败, 拒绝生成空列表")
+
+    merger = Merger()
+    ok = []
+    for src in sources:                          # 按源序合并, 报告保序
+        if src["url"] not in texts:
             continue
         n_before = len(merger._dom_imp) + len(merger._net) + \
             len(merger._cosmetic) + len(merger._exc)
-        merger.add_lines(text.splitlines(), source=src["name"])
+        merger.add_lines(texts[src["url"]].splitlines(), source=src["name"])
         n_after = len(merger._dom_imp) + len(merger._net) + \
             len(merger._cosmetic) + len(merger._exc)
         ok.append({"name": src["name"], "rules_added": n_after - n_before})
-
-    if not ok:
-        raise FetchError("所有上游源均下载失败, 拒绝生成空列表")
 
     # 本地补充规则 (config 的 extra_rules) — 最后合入, 优先级最高
     extras = load_extra_rules(config_path)
