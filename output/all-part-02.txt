@@ -3,12 +3,11 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-10-07 01:34:43 +0800
-! Last Modified: 2026-10-07 01:34:43 +0800 (北京时间 UTC+8)
+! Version: 2026-10-07 06:14:29 +0800
+! Last Modified: 2026-10-07 06:14:29 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 88190
+! Rules: 88192
 
-2-spyware.com,novirus.uk,faravirus.ro,uirusu.jp,virusi.hr,wubingdu.cn,avirus.hu,odstranitvirus.cz,tanpavirus.web.id,utanvirus.se,virukset.fi,losvirus.es,virusler.info.tr,semvirus.pt,lesvirus.fr,senzavirus.it,dieviren.de,viruset.no,usunwirusa.pl,zondervirus.nl,bedynet.ru,virusai.lt,virusi.bg,viirused.ee,udenvirus.dk##.sidebar_download_inner > :not(.voting-box):not(.colorbg-grey)
 2-spyware.com,novirus.uk,faravirus.ro,uirusu.jp,virusi.hr,wubingdu.cn,avirus.hu,odstranitvirus.cz,tanpavirus.web.id,utanvirus.se,virukset.fi,losvirus.es,virusler.info.tr,semvirus.pt,lesvirus.fr,senzavirus.it,dieviren.de,viruset.no,usunwirusa.pl,zondervirus.nl,bedynet.ru,virusai.lt,virusi.bg,viirused.ee,udenvirus.dk##.ui-content > .win
 2-spyware.com,novirus.uk,faravirus.ro,uirusu.jp,virusi.hr,wubingdu.cn,avirus.hu,odstranitvirus.cz,tanpavirus.web.id,utanvirus.se,virukset.fi,losvirus.es,virusler.info.tr,semvirus.pt,lesvirus.fr,senzavirus.it,dieviren.de,viruset.no,usunwirusa.pl,zondervirus.nl,bedynet.ru,virusai.lt,virusi.bg,viirused.ee,udenvirus.dk##a:has-text(Reimage)
 2-spyware.com,novirus.uk,faravirus.ro,uirusu.jp,virusi.hr,wubingdu.cn,avirus.hu,odstranitvirus.cz,tanpavirus.web.id,utanvirus.se,virukset.fi,losvirus.es,virusler.info.tr,semvirus.pt,lesvirus.fr,senzavirus.it,dieviren.de,viruset.no,usunwirusa.pl,zondervirus.nl,bedynet.ru,virusai.lt,virusi.bg,viirused.ee,udenvirus.dk##a:has-text(SpyHunter)
@@ -14254,6 +14253,7 @@ comiko.net##.ob-widget-items-container
 comingsoon.it###tal
 comingsoon.it##.ffiPopCorn
 comingsoon.net##.entry-content > div.wp-block-buttons
+comingsoon.net,superherohype.com#%#//scriptlet('trusted-suppress-native-method', 'HTMLScriptElement.prototype.setAttribute', '"data-sdk"', 'abort', 'inlineScript')
 comix.*,comix.ws,animekai.*,animekai.la,animekai.gs,animekai.fo,animekai.fi,comix.to,anikai.to##body > a[target="_blank"][style^="position:"][style*="z-index:"]
 comix.to##.text-center > a[href*="?utm_source"]
 comix.to,anikai.to#%#//scriptlet('prevent-setInterval', '/\+3e4>.*<0\)\){var/', '3000')
@@ -26687,6 +26687,7 @@ ggrecon.com##.mainVenatusBannerContainer
 ggrecon.com##.venatus-block
 ggwp.id##.sticky-footer
 ggwp.id##a[href^="https://www.threads.net/"]
+gh-proxy.com##section.z-10 > div.w-full:has(> a[rel*="sponsored"])
 ghacks.net###snhb-snhb_ghacks_bottom-0
 ghacks.net###the-day-in-history
 ghacks.net##.box-banner
@@ -83092,6 +83093,7 @@ zzzyk.com###Tinfo
 @@||liveadexchanger.com/a/display.php$script,domain=prem.link
 @@||liveadexchanger.com/a/display.php^$domain=prem.link
 @@||liveapi.cleverpush.com/websocket$websocket,domain=heise.de
+@@||liveapi.yext.com^$domain=answers.business.lloydsbank.com
 @@||liveindex.org/wp-content/plugins/imedia-basic/*.js
 @@||liveinternet.ru/code$generichide,genericblock,domain=liveinternet.ru
 @@||livejasmin.com/en/promotion/get?noRedirect=*&streamType=$domain=pt.protoawe.com
