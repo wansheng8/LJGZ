@@ -3,10 +3,10 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 1/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-10-06 09:55:58 +0800
-! Last Modified: 2026-10-06 09:55:58 +0800 (北京时间 UTC+8)
+! Version: 2026-10-06 09:58:43 +0800
+! Last Modified: 2026-10-06 09:58:43 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 533117
+! Rules: 533115
 
 ||0--4.com^
 ||0--d.com^
@@ -358444,7 +358444,6 @@ http://105.184.74.46:44527/i
 http://105.184.76.93:35765/Mozi.a
 http://105.184.76.93:35765/bin.sh
 http://105.184.76.93:35765/i
-http://105.184.76.93:57607/bin.sh
 http://105.184.76.93:57607/i
 http://105.184.78.209:47661/bin.sh
 http://105.184.78.209:47661/i
@@ -382756,7 +382755,6 @@ http://222.137.93.216:45563/i
 http://222.137.93.50:33652/bin.sh
 http://222.137.93.50:33652/i
 http://222.137.94.15:51257/i
-http://222.137.95.232:58447/i
 http://222.138.101.120:47464/bin.sh
 http://222.138.101.120:47464/i
 http://222.138.101.202:34684/bin.sh
@@ -393695,6 +393693,7 @@ http://77.39.107.229:31816/bin.sh
 http://77.39.107.229:31816/i
 http://77.46.170.18:53326/.i
 http://77.46.170.18:53326/Mozi.m
+http://77.46.170.18:53326/i
 http://77.53.231.107:47326/i
 http://77.53.43.110:47947/bin.sh
 http://77.53.43.110:47947/i
@@ -398850,7 +398849,6 @@ http://download.doumaibiji.cn/doumai/fmt/v1.0.1.11/fmt_01.exe
 http://download.doumaibiji.cn/doumai/news2/v1.0.7.01/news2_01.exe
 http://download.doumaibiji.cn/doumai/tips/v1.0.1.11/tips_01.exe
 http://download.haozip.com/haozip.100021.exe
-http://download.haozip.com/haozip.convertimg.exe
 http://download.haozip.com/uniondown/haozip_tiny.201805.exe
 http://download.kaobeitu.com/kaobeitu/mini/v1.0.7.16/mini_04.exe
 http://download.kaobeitu.com/kaobeitu/news/v1.0.7.31/news_01.exe
