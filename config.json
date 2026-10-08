@@ -160,6 +160,9 @@
     "||pixel.aweber.com^$important",
     "||email.mailgun.net^$important",
     "||mandrillapp.com^$important",
-    "||fresnel.vimeocdn.com^$important"
+    "||fresnel.vimeocdn.com^$important",
+    "*.swf",
+    "##embed[src*='.swf']",
+    "##object[type='application/x-shockwave-flash']"
   ]
 }
