@@ -3,10 +3,10 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 1/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-10-08 11:56:45 +0800
-! Last Modified: 2026-10-08 11:56:45 +0800 (北京时间 UTC+8)
+! Version: 2026-10-08 13:10:29 +0800
+! Last Modified: 2026-10-08 13:10:29 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 524915
+! Rules: 524941
 
 ||0--4.com^
 ||0--d.com^
@@ -24931,6 +24931,7 @@
 ||abvbclaoycooz.website^
 ||abvbg-104926.weeblysite.com^
 ||abvdkeat.com^
+||abvexu.shop^
 ||abvfq.44pro.com^
 ||abvgajszy.in^
 ||abvghl.udn.com^
@@ -43354,6 +43355,7 @@
 ||aleoro.com^
 ||aleoth.com^
 ||aleperfumeria.pl^
+||alephbartsia.qpon^
 ||alephd.com^
 ||alephsheenlysarkine.cyou^
 ||aleplpro.digital^
@@ -89128,6 +89130,7 @@
 ||bumaga1.site^
 ||bumaga5.site^
 ||bumaikr.com^
+||bumaro.shop^
 ||bumashana.com^
 ||bumashana.rodevdesign.com^
 ||bumbalu-israel.com^
@@ -143580,6 +143583,7 @@
 ||doregeneracji.pl^
 ||doreinvestenca.net^
 ||doreinvexus-software.com^
+||doreku.shop^
 ||dorelix.shop^
 ||dorelliquevauntriel.net^
 ||doremido.com^
@@ -147240,6 +147244,7 @@
 ||dulyhagglermounting.com^
 ||dulytink.qpon^
 ||dumanlioglu.com^
+||dumavi.shop^
 ||dumay.site^
 ||dumb1.com^
 ||dumbduck.com^
@@ -149984,11 +149989,6 @@
 ||eagernessprawn.com^
 ||eagks.painfulpleasures.com^
 ||eagkyvmet.com^
-||eagle-insight.com^
-||eagle-tex.cn^
-||eagle.actonservice.com^
-||eagle.adsame.com^
-||eagle.aon.com^
 ||edge.api.flagsmith.com^$important
 ||email.mailgun.net^$important
 ||fresnel.vimeocdn.com^$important
@@ -150512,7 +150512,6 @@ $cookie=yoc_visxuid,domain=wp.pl
 $cookie=yotpo_pixel
 $csp=child-src 'none'; frame-src 'self' *; worker-src 'none',domain=fileone.tv|theappguruz.com
 $csp=child-src 'none'; frame-src *; worker-src 'none',domain=thepiratebay.org|vidoza.net
-$csp=script-src 'self' * 'unsafe-inline',domain=156xsbb.com|ltbook.net|shuhaige.net|ygshu.com|kbook8.com|yemancomic.com|erciyan.com|feiguaks.com|iqmxs.cc|hshfm.com|xbiqige.cc|1qxs.com|xddxsw.net|bisowu.net|zyywenxue.com|xiakezw.com|biqul.com|biqugeks.org|girlsoncam.net|japonfilmleri.com|minaeast.net|shumi.la|59xs.com|biqugen.com|8181zw.vip|biqugequ.org|69shumi.com|fxxs3.com|efuxs.com|i3book.com|genbiquge.com|quanbiqu.com|pinshu.org|13xsw.com|bbiquge.cc|taobiquge.com|haijiaobooksw.top|zlobin.net|piaotianxiaoshuo.com|jvbiquge.com|vipbiquge.com|jpbqg7.com|zuizhong.net|oldtimeswx.org|5book.cc|softtechsolution.org|product44.com|snxsw.com|xiexinde.net|m.6666xsw.com|m.niupizhi.net|jmshuwu.net|wodexiaoshuoh.com|tetservices.net|haitangsoshu.org|4hrz.net|x33yq.org|56xiaoshuo.net|novelser.com|ykxs.cc|biqudd.com|diyibanzhu44444.com|dbrxs.org|kaixindu.net|1ingatlan.net|gaofuwu.org|yushuwu.cloud|yswxs.com|biquge2345.com|dingdian911.com|bqug8.com|xianguke.net|kunnu.com|yourbiquge.com|biquge345.com|666biquge.com|biquwx.cc|aidu123.com|biquluo.info|bqgh.com|maxshuku.com|shukuge.com|sthuojia.net|tvyun07.com|zk01.net
 $csp=script-src 'self' * 'unsafe-inline',domain=156xsbb.com|ltbook.net|shuhaige.net|ygshu.com|kbook8.com|yemancomic.com|erciyan.com|feiguaks.com|iqmxs.cc|hshfm.com|xbiqige.cc|1qxs.com|xddxsw.net|bisowu.net|zyywenxue.com|xiakezw.com|biqul.com|biqugeks.org|shumi.la|59xs.com|biqugen.com|8181zw.vip|biqugequ.org|69shumi.com|fxxs3.com|efuxs.com|i3book.com|genbiquge.com|quanbiqu.com|pinshu.org|13xsw.com|bbiquge.cc|taobiquge.com|haijiaobooksw.top|zlobin.net|piaotianxiaoshuo.com|jvbiquge.com|vipbiquge.com|jpbqg7.com|zuizhong.net|oldtimeswx.org|5book.cc|softtechsolution.org|product44.com|snxsw.com|xiexinde.net|m.6666xsw.com|m.niupizhi.net|jmshuwu.net|wodexiaoshuoh.com|tetservices.net|haitangsoshu.org|4hrz.net|x33yq.org|56xiaoshuo.net|novelser.com|ykxs.cc|biqudd.com|diyibanzhu44444.com|dbrxs.org|kaixindu.net|1ingatlan.net|gaofuwu.org|yushuwu.cloud|yswxs.com|biquge2345.com|dingdian911.com|bqug8.com|xianguke.net|kunnu.com|yourbiquge.com|biquge345.com|666biquge.com|biquwx.cc|aidu123.com|biquluo.info|bqgh.com|maxshuku.com|shukuge.com|sthuojia.net|tvyun07.com|zk01.net
 $csp=script-src 'self' * 'unsafe-inline',domain=bijiyd.com|7zhens.com|wamuku.cc|scmmxs.com|jinduxs.com|buhesw.com|luenbook.cc|zahubook.com|heciwk.com|quhesw.com|erzuwk.com|bowoxs.com|guashuge.com|mudanxs.com|mzbook.cc|haduks.com|caimozw.com|zaaizw.com|bogeks.com|haxu8.com|pucixs.com|tuqisw.com|xueyisw.com|zuye8.com|yawoxs.com|guwoxs.com|jiufuzw.com|beianxs.com|shuying6.com|mafusw.com|cule9.com|xingksw.com|enbusw.com|ruyisw.com|zuxiku.com|jinmusb.com|hunshuge.com|puyewk.com|kaaiwk.com|hadu520.com|qubosw.com|meisibook.com|cuaizw.cc|boxue8.cc|cipubook.com|ququsk.cc|yiyezao.com|jiutusw.com|chahuax.com|hanziwen.com|haduzw.com|modaoshu.com|nipubook.com|puquz.com|wuwusk.com
 $csp=script-src 'self' * 'unsafe-inline',domain=smsonline.cloud
@@ -358233,6 +358232,7 @@ http://103.89.37.70:35393/bin.sh
 http://103.89.37.70:53361/bin.sh
 http://103.89.37.70:53361/i
 http://103.90.161.224:8080/iot
+http://103.90.206.87:4419/i
 http://103.90.207.13:25925/Mozi.m
 http://103.90.207.13:25925/i
 http://103.90.207.234:55903/Mozi.m
@@ -358650,6 +358650,7 @@ http://105.186.250.56:38301/bin.sh
 http://105.186.250.56:38301/i
 http://105.186.250.69:60237/bin.sh
 http://105.186.250.69:60237/i
+http://105.186.254.58:39211/i
 http://105.186.64.210:55183/i
 http://105.186.64.236:52293/bin.sh
 http://105.186.64.236:52293/i
@@ -362332,6 +362333,7 @@ http://115.51.111.87:51413/bin.sh
 http://115.51.111.87:51413/i
 http://115.51.120.187:45478/bin.sh
 http://115.51.120.187:45478/i
+http://115.51.121.113:51347/i
 http://115.51.121.117:33014/i
 http://115.51.123.229:51347/bin.sh
 http://115.51.123.229:51347/i
@@ -364568,6 +364570,8 @@ http://117.223.141.118:49088/bin.sh
 http://117.223.141.118:49088/i
 http://117.223.141.189:43389/bin.sh
 http://117.223.141.189:43389/i
+http://117.223.141.211:50577/bin.sh
+http://117.223.141.211:50577/i
 http://117.223.141.255:45093/bin.sh
 http://117.223.141.255:45093/i
 http://117.223.142.140:54850/i
@@ -365884,6 +365888,7 @@ http://121.234.156.10:48875/bin.sh
 http://121.234.156.10:48875/i
 http://121.234.172.138:55963/bin.sh
 http://121.234.172.138:55963/i
+http://121.234.248.185:52442/bin.sh
 http://121.234.248.185:52442/i
 http://121.236.121.212:56911/bin.sh
 http://121.236.121.212:56911/i
@@ -366313,6 +366318,7 @@ http://123.12.227.243:60537/bin.sh
 http://123.12.227.243:60537/i
 http://123.12.228.184:40454/bin.sh
 http://123.12.228.184:40454/i
+http://123.12.229.137:57325/bin.sh
 http://123.12.229.156:58436/bin.sh
 http://123.12.229.156:58436/i
 http://123.12.229.234:36096/bin.sh
@@ -366533,6 +366539,7 @@ http://123.13.82.251:58053/bin.sh
 http://123.13.82.251:58053/i
 http://123.13.83.90:41636/bin.sh
 http://123.13.83.90:41636/i
+http://123.13.85.107:44397/bin.sh
 http://123.13.85.107:44397/i
 http://123.13.85.38:59187/i
 http://123.13.86.22:42036/bin.sh
@@ -367172,6 +367179,8 @@ http://123.4.40.181:47310/bin.sh
 http://123.4.40.181:47310/i
 http://123.4.49.203:40713/bin.sh
 http://123.4.49.203:40713/i
+http://123.5.118.27:59112/bin.sh
+http://123.5.118.27:59112/i
 http://123.5.124.165:52379/i
 http://123.5.124.47:46095/bin.sh
 http://123.5.124.47:46095/i
@@ -367538,6 +367547,7 @@ http://123.97.89.239:48639/i
 http://123.97.94.72:56444/bin.sh
 http://123.ywxww.net:820/svchost.exe
 http://124.123.123.15/AV.lnk
+http://124.123.123.15/AV.scr
 http://124.123.123.15/Photo.lnk
 http://124.123.123.15/Photo.scr
 http://124.123.123.15/Video.lnk
@@ -370200,8 +370210,11 @@ http://151.233.167.24:46740/i
 http://151.233.179.226:35297/Mozi.7
 http://151.233.193.84:34458/i
 http://151.235.31.133:39816/i
+http://151.236.247.230:19193/.i
 http://151.236.247.230:19193/Mozi.m
 http://151.236.247.230:19193/i
+http://151.237.4.20:46151/
+http://151.237.4.20:46151/.i
 http://151.240.151.7/bins.sh
 http://151.240.151.7/bins/bins.sh
 http://151.240.151.7/bins/mirai.arm
@@ -370990,6 +371003,7 @@ http://163.142.94.15:56422/i
 http://163.142.94.183:60512/bin.sh
 http://163.142.94.207:43902/bin.sh
 http://163.142.94.207:43902/i
+http://163.142.94.209:34992/bin.sh
 http://163.142.94.209:34992/i
 http://163.142.94.220:54475/i
 http://163.142.94.229:45721/bin.sh
@@ -371977,6 +371991,7 @@ http://175.165.80.174:39631/i
 http://175.165.80.213:39974/bin.sh
 http://175.165.80.213:39974/i
 http://175.165.80.59:51637/i
+http://175.165.80.95:54394/bin.sh
 http://175.165.80.95:54394/i
 http://175.165.81.113:56865/i
 http://175.165.81.126:43423/i
@@ -376654,6 +376669,8 @@ http://182.121.59.52:33634/i
 http://182.121.66.162:41960/i
 http://182.121.67.105:59916/bin.sh
 http://182.121.67.105:59916/i
+http://182.121.67.84:57266/bin.sh
+http://182.121.67.84:57266/i
 http://182.121.69.80:48513/bin.sh
 http://182.121.69.80:48513/i
 http://182.121.70.96:45574/i
@@ -377875,7 +377892,6 @@ http://185.248.15.35:50460/bin.sh
 http://185.248.15.35:50460/i
 http://185.248.15.35:55955/i
 http://185.253.75.188:81/auto.jpg
-http://185.253.75.188:81/cata2.jpg
 http://185.29.10.11/AFrlKy223.bin
 http://185.29.10.11/Menneskevrdige.csv
 http://185.29.10.11/Supersensitizing.hhk
@@ -378726,6 +378742,7 @@ http://195.103.203.106/AV.scr
 http://195.103.203.106/Photo.scr
 http://195.137.245.219/systemd
 http://195.158.90.40:52094/.i
+http://195.158.90.40:52094/i
 http://195.177.94.139/Xloadfile/bin.exe
 http://195.177.94.147/Bin/ScreenConnect.ClientSetup.exe
 http://195.177.94.240/Bin/ScreenConnect.ClientSetup.exe
@@ -378798,6 +378815,8 @@ http://195.34.102.234:8059/sshd
 http://195.34.102.234:8060/sshd
 http://195.34.102.234:8061/sshd
 http://195.34.91.22:61437/.i
+http://195.34.91.22:61437/Mozi.m
+http://195.34.91.22:61437/i
 http://195.64.233.167:36127/bin.sh
 http://195.64.233.167:36127/i
 http://195.64.243.84:46567/bin.sh
@@ -378894,6 +378913,8 @@ http://196.189.198.193:41438/i
 http://196.189.198.193:44465/bin.sh
 http://196.189.198.193:44465/i
 http://196.189.198.193:47796/i
+http://196.189.3.1:33422/bin.sh
+http://196.189.3.1:33422/i
 http://196.189.3.1:35468/bin.sh
 http://196.189.3.1:35468/i
 http://196.189.3.1:42472/bin.sh
@@ -379163,6 +379184,7 @@ http://196.191.104.3:53425/i
 http://196.191.104.3:59963/i
 http://196.191.104.40:34593/bin.sh
 http://196.191.104.40:34593/i
+http://196.191.104.40:48706/i
 http://196.191.104.40:53304/bin.sh
 http://196.191.104.40:53304/i
 http://196.191.104.40:59808/bin.sh
@@ -380218,7 +380240,6 @@ http://202.111.130.108:34417/bin.sh
 http://202.111.130.108:34417/i
 http://202.111.130.33:55998/i
 http://202.129.16.172/chinese.txt
-http://202.131.234.26:51118/
 http://202.131.234.26:51118/Mozi.m
 http://202.131.234.26:51118/i
 http://202.131.244.202:30068/.i
@@ -380268,6 +380289,7 @@ http://202.3.248.179//sshd
 http://202.3.248.179/sshd
 http://202.4.101.78:36786/
 http://202.4.101.78:36786/i
+http://202.40.178.238:53237/i
 http://202.47.46.183:34873/Mozi.m
 http://202.5.50.108:15808/.i
 http://202.5.50.108:15808/Mozi.m
@@ -381115,6 +381137,7 @@ http://213.242.30.74:53676/bin.sh
 http://213.242.30.74:53676/i
 http://213.33.204.186:1292/i
 http://213.5.194.56:43416/.i
+http://213.5.194.56:43416/i
 http://213.6.101.83:1609/i
 http://213.6.196.230:27629/.i
 http://213.6.196.230:27629/i
@@ -381241,7 +381264,6 @@ http://217.115.212.126:8082/AV.scr
 http://217.115.212.126:8082/Photo.scr
 http://217.115.212.126:8082/Video.lnk
 http://217.115.212.126:8082/Video.scr
-http://217.115.212.126:8082/info.zip
 http://217.144.190.175/run.exe
 http://217.144.88.82:49015/bin.sh
 http://217.144.88.82:49015/i
@@ -385922,6 +385944,7 @@ http://37.13.199.103:27056/i
 http://37.142.77.163:8024/sshd
 http://37.142.77.163:8026/sshd
 http://37.143.133.215:46668/
+http://37.143.133.215:46668/.i
 http://37.143.133.215:46668/i
 http://37.156.8.131:31179/.i
 http://37.156.8.131:31179/i
@@ -386438,6 +386461,7 @@ http://39.82.142.95:37937/i
 http://39.84.72.67:39533/i
 http://39.84.95.142:46029/bin.sh
 http://39.84.95.142:46029/i
+http://39.85.13.115:34295/i
 http://39.85.99.152:53887/bin.sh
 http://39.85.99.152:53887/i
 http://39.86.115.129:43919/bin.sh
@@ -393094,6 +393118,7 @@ http://61.52.198.150:58776/i
 http://61.52.2.173:38510/bin.sh
 http://61.52.2.173:38510/i
 http://61.52.2.183:45781/i
+http://61.52.213.183:40640/i
 http://61.52.213.183:50522/bin.sh
 http://61.52.213.183:50522/i
 http://61.52.215.65:33601/bin.sh
@@ -395198,6 +395223,7 @@ http://88.112.33.200:46152/i
 http://88.112.33.200:57942/i
 http://88.115.204.4:45392/bin.sh
 http://88.115.204.4:45392/i
+http://88.116.62.226:52714/.i
 http://88.116.62.226:52714/Mozi.m
 http://88.116.62.226:52714/i
 http://88.119.151.142:10462/
@@ -399439,6 +399465,7 @@ http://download.doumaibiji.cn/doumai/news2/v1.0.7.01/news2_01.exe
 http://download.doumaibiji.cn/doumai/tips/v1.0.1.11/tips_01.exe
 http://download.haozip.com/haozip.100021.exe
 http://download.haozip.com/haozip.convertimg.exe
+http://download.haozip.com/uniondown/haozip_tiny.201805.exe
 http://download.kaobeitu.com/kaobeitu/mini/v1.0.7.16/mini_04.exe
 http://download.kaobeitu.com/kaobeitu/news/v1.0.7.31/news_01.exe
 http://download.pdf00.cn/kszip/mini/v1.0.7.31/mini_04.exe
@@ -400566,7 +400593,6 @@ http://nobleshadebu.pro/iran.sparc
 http://nobleshadebu.pro/iran.x86_64
 http://nodemetrics3379.com/update/exe
 http://noithaticon.vn/DRIVEapplet.exe
-http://northernvirginiaeyeassociates.com/sh4.nn
 http://nossl.segfault.net/ssh-it-deploy.sh
 http://noventis8.com/lxnew.png
 http://nxbv.sabad724.bio/9957f452-10ee-4604-9013-043730dd6937/pf.ch

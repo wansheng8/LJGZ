@@ -3,10 +3,10 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-10-08 11:56:45 +0800
-! Last Modified: 2026-10-08 11:56:45 +0800 (北京时间 UTC+8)
+! Version: 2026-10-08 13:10:29 +0800
+! Last Modified: 2026-10-08 13:10:29 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 88174
+! Rules: 88170
 
 2-spyware.com,novirus.uk,faravirus.ro,uirusu.jp,virusi.hr,wubingdu.cn,avirus.hu,odstranitvirus.cz,tanpavirus.web.id,utanvirus.se,virukset.fi,losvirus.es,virusler.info.tr,semvirus.pt,lesvirus.fr,senzavirus.it,dieviren.de,viruset.no,usunwirusa.pl,zondervirus.nl,bedynet.ru,virusai.lt,virusi.bg,viirused.ee,udenvirus.dk##.automatic_removal_list
 2-spyware.com,novirus.uk,faravirus.ro,uirusu.jp,virusi.hr,wubingdu.cn,avirus.hu,odstranitvirus.cz,tanpavirus.web.id,utanvirus.se,virukset.fi,losvirus.es,virusler.info.tr,semvirus.pt,lesvirus.fr,senzavirus.it,dieviren.de,viruset.no,usunwirusa.pl,zondervirus.nl,bedynet.ru,virusai.lt,virusi.bg,viirused.ee,udenvirus.dk##.automatic_removal_list_w > .ar_block_description
@@ -26861,11 +26861,6 @@ girlsofdesire.org##a[href^="/out"]
 girlsofdesire.org##a[href^="http://refer.ccbill.com/"]
 girlsofdesire.org##div[data-width="600"]
 girlsofdesire.org##div[style="margin: 0 auto;font-size: 0px;  height: 255px;"]
-girlsoncam.net##.x-slots-banner-only
-girlsoncam.net##.x-slots-hero-after
-girlsoncam.net,japonfilmleri.com,minaeast.net###playerdavLayer
-girlsoncam.net,japonfilmleri.com,minaeast.net##.da
-girlsoncam.net,japonfilmleri.com,minaeast.net##div[style^="position: fixed;"]
 girlstyle.com,thecatcity.com,urbanlifehk.com##.desktop-sidebar__block--ad
 girlstyle.com,thecatcity.com,urbanlifehk.com##.pl-main-article__ad-block
 girlswhocode.com##.CookieModal
@@ -39599,6 +39594,7 @@ m.bilibili.com##.openapp-dialog
 m.bilibili.com##div[class*="-openapp"]
 m.biqiugege8.com#%#//scriptlet("set-constant", "lists", "undefined")
 m.biquge12345.com,69shumi.com,biquge543.com,beqg.cc,biquge321.com#%#//scriptlet('prevent-addEventListener', 'touchend', 'window.location.href')
+m.bunjang.co.kr#%#//scriptlet('href-sanitizer', 'a[href^="/products/"]', '?imp_id', 'removeParam')
 m.calciomercato.com###app-download
 m.calciomercato.com##.icon-share
 m.card-gorilla.com,pindirectshop.com,dongbanmall.com#%#//scriptlet("set-constant", "kakaoPixel", "undefined")
