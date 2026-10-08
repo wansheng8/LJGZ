@@ -3,11 +3,15 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-10-08 06:36:15 +0800
-! Last Modified: 2026-10-08 06:36:15 +0800 (北京时间 UTC+8)
+! Version: 2026-10-08 11:53:03 +0800
+! Last Modified: 2026-10-08 11:53:03 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 88183
+! Rules: 88174
 
+2-spyware.com,novirus.uk,faravirus.ro,uirusu.jp,virusi.hr,wubingdu.cn,avirus.hu,odstranitvirus.cz,tanpavirus.web.id,utanvirus.se,virukset.fi,losvirus.es,virusler.info.tr,semvirus.pt,lesvirus.fr,senzavirus.it,dieviren.de,viruset.no,usunwirusa.pl,zondervirus.nl,bedynet.ru,virusai.lt,virusi.bg,viirused.ee,udenvirus.dk##.automatic_removal_list
+2-spyware.com,novirus.uk,faravirus.ro,uirusu.jp,virusi.hr,wubingdu.cn,avirus.hu,odstranitvirus.cz,tanpavirus.web.id,utanvirus.se,virukset.fi,losvirus.es,virusler.info.tr,semvirus.pt,lesvirus.fr,senzavirus.it,dieviren.de,viruset.no,usunwirusa.pl,zondervirus.nl,bedynet.ru,virusai.lt,virusi.bg,viirused.ee,udenvirus.dk##.automatic_removal_list_w > .ar_block_description
+2-spyware.com,novirus.uk,faravirus.ro,uirusu.jp,virusi.hr,wubingdu.cn,avirus.hu,odstranitvirus.cz,tanpavirus.web.id,utanvirus.se,virukset.fi,losvirus.es,virusler.info.tr,semvirus.pt,lesvirus.fr,senzavirus.it,dieviren.de,viruset.no,usunwirusa.pl,zondervirus.nl,bedynet.ru,virusai.lt,virusi.bg,viirused.ee,udenvirus.dk##.js-download_button_offer
+2-spyware.com,novirus.uk,faravirus.ro,uirusu.jp,virusi.hr,wubingdu.cn,avirus.hu,odstranitvirus.cz,tanpavirus.web.id,utanvirus.se,virukset.fi,losvirus.es,virusler.info.tr,semvirus.pt,lesvirus.fr,senzavirus.it,dieviren.de,viruset.no,usunwirusa.pl,zondervirus.nl,bedynet.ru,virusai.lt,virusi.bg,viirused.ee,udenvirus.dk##.nfc-bottom-right:has-text(Reimage)
 2-spyware.com,novirus.uk,faravirus.ro,uirusu.jp,virusi.hr,wubingdu.cn,avirus.hu,odstranitvirus.cz,tanpavirus.web.id,utanvirus.se,virukset.fi,losvirus.es,virusler.info.tr,semvirus.pt,lesvirus.fr,senzavirus.it,dieviren.de,viruset.no,usunwirusa.pl,zondervirus.nl,bedynet.ru,virusai.lt,virusi.bg,viirused.ee,udenvirus.dk##.primary_download
 2-spyware.com,novirus.uk,faravirus.ro,uirusu.jp,virusi.hr,wubingdu.cn,avirus.hu,odstranitvirus.cz,tanpavirus.web.id,utanvirus.se,virukset.fi,losvirus.es,virusler.info.tr,semvirus.pt,lesvirus.fr,senzavirus.it,dieviren.de,viruset.no,usunwirusa.pl,zondervirus.nl,bedynet.ru,virusai.lt,virusi.bg,viirused.ee,udenvirus.dk##.quick-download-button-placeholder
 2-spyware.com,novirus.uk,faravirus.ro,uirusu.jp,virusi.hr,wubingdu.cn,avirus.hu,odstranitvirus.cz,tanpavirus.web.id,utanvirus.se,virukset.fi,losvirus.es,virusler.info.tr,semvirus.pt,lesvirus.fr,senzavirus.it,dieviren.de,viruset.no,usunwirusa.pl,zondervirus.nl,bedynet.ru,virusai.lt,virusi.bg,viirused.ee,udenvirus.dk##.quick-download-button-text
@@ -16502,8 +16506,8 @@ dataspin.net###div_th_cookies_informativa
 datasystem.ru##.specialAlert
 dataunlocker.com##+js(rmnt, script, /^Function\(\"/)
 dataunlocker.com##^script:has-text(/^Function\(\"/)
-dataunlocker.com,androidacy.com,bolighub.dk##+js(set, _hjSettings, undefined)
-dataunlocker.com,androidacy.com,bolighub.dk##+js(set, google_tag_manager, undefined)
+dataunlocker.com,bolighub.dk##+js(set, _hjSettings, undefined)
+dataunlocker.com,bolighub.dk##+js(set, google_tag_manager, undefined)
 datavaults.co#$##dummy { display: none !important; }
 datavaults.co#$##original { display: block !important; }
 datavaults.co#%#//scriptlet('set-constant', 'clicked', '2')
@@ -33403,7 +33407,6 @@ investgyaan.com,odiadjsong.in,hypicapk.co.in,ugmodzz.blogspot.com,schemepro.org,
 investigativepost.org###backtoTop
 investigativepost.org##.nl-small-cta
 investing.com###Digioh_Billboard
-investing.com###__next > .fixed
 investing.com###__next > div[class^="md:relative"] > .hidden:has(> div[data-test="ad-slot-visible"])
 investing.com###comments_new > .border-t > .items-center:has(> div[data-test="ad-slot-visible"])
 investing.com###comments_new > div:not([class], [id]) > .border-t:has(> .border-b:only-child > div[data-test="ad-slot-visible"])
@@ -33412,12 +33415,9 @@ investing.com###generalOverlay
 investing.com###promo-strip
 investing.com###sideNotificationZone
 investing.com###video
-investing.com##+js(no-fetch-if, ads)
-investing.com##+js(set, adNotificationDetected, false)
 investing.com##+js(trusted-set-cookie, inudid, , 0, , domain, .investing.com)
 investing.com##+js(trusted-set-cookie, smd, , 0, , domain, .investing.com)
 investing.com##+js(trusted-set-cookie, udid, , 0, , domain, .investing.com)
-investing.com##.border-b:has(> .box-content[data-test="ad-slot-visible"])
 investing.com##.boxItemAdd
 investing.com##.dfpAdUnitContainer
 investing.com##.dfpVideo
@@ -33428,23 +33428,15 @@ investing.com##.mainPopUpBannerDIV
 investing.com##.midHeader
 investing.com##.preloaded_lightbox
 investing.com##.promo-strip-wrapper
-investing.com##[class*="adBlock"]
-investing.com##[class*="notification_notification"]
-investing.com##[class*="overlay_overlay"]
-investing.com##[class^="ad-notification"]
-investing.com##[class^="outbrain_outbrain-wrapper"]
 investing.com##[data-ad-label="Advertisement"]
 investing.com##[data-article-pro-hook="CTA button"]
-investing.com##[id^="adNotification"]
 investing.com##body .tradeNowRightColumn
-investing.com##body:style(overflow: auto !important)
 investing.com##div.text-\[\#5b616e\]
 investing.com##div[advertisementtext]
 investing.com##div[class*="AdBillboard_"]
 investing.com##div[class*="adBlock"]
 investing.com##div[class*="ad_"]
 investing.com##div[class*="overlay_overlay"]
-investing.com##div[class]:has(> :is(.ad-blockers-section, [class*="adNotification"]))
 investing.com##div[class^="article_"] > div > div.mt-3:has(> u > a[id^="article-ad-disclosure-"])
 investing.com##div[class^="outbrain_outbrain-wrapper_"]
 investing.com##div[data-test="ad-slot-visible"]
@@ -86380,7 +86372,6 @@ zzzyk.com###Tinfo
 @@||stats.g.doubleclick.net/dc.js$domain=softkey.ru|softkey.ua
 @@||stats.g.doubleclick.net/dc.js$script,domain=chintaistyle.jp|gyutoro.com
 @@||stats.g.doubleclick.net/dc.js$script,domain=ticketfly.com
-@@||stats.g.doubleclick.net/g/$xhr,domain=androidacy.com
 @@||stats.gleague.nba.com/templates/angular/tables/events/shots.html$~third-party
 @@||stats.jtvnw.net/crossdomain.xml
 @@||stats.pusher.com/timeline/$script,domain=bringatrailer.com
