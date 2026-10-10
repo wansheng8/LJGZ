@@ -446,6 +446,42 @@ class Merger:
         for ln in lines:
             self.add_rule(parse_line(ln, source))
 
+    @staticmethod
+    def _has_numeric_label(d: str) -> bool:
+        """域名是否含"全数字 label 段"。IP 段 (9.9.9.9 / 10.0.0.1) 在 AdBlock
+        语义里有歧义, 且数字段域名罕见 — 一律不折叠 (保守保护)。"""
+        return any(re.fullmatch(r"\d+", seg) for seg in d.split(".") if seg)
+
+    def _fold_redundant(self, items):
+        """子域折叠 + important 提升标记。
+
+        items: [(domain, important, canon)] (finalize 的 survive 列表)。
+        返回 (kept, folded_parents):
+          kept — 未被折叠的条目 (IP 数字 label 保护, 不折叠; 折叠关闭时全保留)
+          folded_parents — {被 important 子域折叠所覆盖的祖先域}。这些父域
+                           若原为裸 ||d^, 输出时须提升为 $important — 否则
+                           被折叠子域的 important 优先级静默丢失 (会被上游
+                           带修饰符的 @@ 例外反杀)。
+        """
+        enabled = self.collapse
+        blocked = {d for d, _, _ in items}
+        kept = []
+        folded_parents: Set[str] = set()
+        for d, imp, canon in items:
+            if enabled and not self._has_numeric_label(d):
+                parts = d.split(".")
+                for k in range(1, len(parts)):
+                    anc = ".".join(parts[k:])
+                    if anc in blocked:
+                        if imp:                     # important 子域折叠 → 提升父域
+                            folded_parents.add(anc)
+                        break
+                else:                                # 无祖先被拦 → 保留
+                    kept.append((d, imp, canon))
+                continue
+            kept.append((d, imp, canon))
+        return kept, folded_parents
+
     # -- 收敛 ------------------------------------------------------------
     def finalize(self) -> MergeResult:
         res = MergeResult()
@@ -489,11 +525,31 @@ class Merger:
                 continue
             survive.append((d, imp, canon))
 
-        # 浏览器输出 (all_blocks): survive 已完成"例外仲裁"剔除 (被 @@ 例外的域
-        # 不在此列), 此处直接取同一组; 纯域名规则超过阈值时截断 — 大量 ||d^ 来自
-        # DNS 列表, 对浏览器价值低且会让订阅体积膨胀到加载失败 (即"订阅了但无拦截"的根因)。
+        # 子域折叠 + important 提升 (all_blocks 与 adguard_blocks 共用):
+        # ||d^ 含子域语义 — 被祖先已拦的子域是冗余的, 折叠掉; 当 important 子域
+        # 被折叠进裸父域时, 父域须提升为 $important, 否则 important 优先级静默
+        # 丢失 (会被上游带修饰符的 @@ 例外反杀)。数字 label (IP 段) 不折叠。
+        kept, folded_parents = self._fold_redundant(survive)
+        # important 提升须沿祖先链传播: 被折叠的父域自身可能也被折叠, 一路找
+        # 到仍留在 kept 里的最近祖先, 把它提升为 $important。
+        kept_map = {d: i for i, (d, _, _) in enumerate(kept)}
+        for p in folded_parents:
+            d = p
+            while d:
+                if d in kept_map:
+                    i = kept_map[d]
+                    kd, kimp, kcanon = kept[i]
+                    if not kimp:
+                        kcanon = kcanon + "$important"
+                        kept[i] = (kd, True, kcanon)
+                    break
+                d = d.split(".", 1)[1] if "." in d else ""
+
+        # 浏览器输出 (all_blocks): 用折叠结果; 域名规则超过阈值时截断 — 大量
+        # ||d^ 来自 DNS 列表, 对浏览器价值低且会让订阅体积膨胀到加载失败
+        # (即"订阅了但无拦截"的根因)。
         BROWSER_DOMAIN_CAP = 150_000
-        browser_items = list(survive)
+        browser_items = list(kept)
         if len(browser_items) > BROWSER_DOMAIN_CAP:
             # 保留顺序: $important 优先, 其余按域名稳定序
             browser_items.sort(key=lambda t: (not t[1], t[0]))
@@ -501,19 +557,12 @@ class Merger:
             browser_items.sort(key=lambda t: t[2])     # 输出仍按规则文本排序
         res.all_blocks = [c for _, _, c in browser_items]
 
-        # hosts / domains: 精确匹配语义, 保留子域, 排序
+        # hosts / domains: 精确匹配语义, 保留子域 (不折叠), 排序
         res.domains = [d for d, _, _ in survive]
         res.hosts = ["0.0.0.0 " + d for d, _, _ in survive]
 
-        # adguard_blocks: ||d^ 含子域语义 → 可折叠被父域覆盖的子域
-        blocked = {d for d, _, _ in survive}
-        res.adguard_blocks = []
-        for d, imp, canon in survive:
-            if self.collapse:
-                parts = d.split(".")
-                if any(".".join(parts[k:]) in blocked for k in range(1, len(parts))):
-                    continue
-            res.adguard_blocks.append(canon)
+        # adguard_blocks: 与 all_blocks 同一折叠结果 (||d^ 含子域语义)
+        res.adguard_blocks = [c for _, _, c in kept]
 
         # AGH 完整订阅: blocks + DNS 可兑现网络规则 + DNS 白名单
         dns_net = self._dns_capable_network(bad)

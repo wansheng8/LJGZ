@@ -152,6 +152,55 @@ class TestSubdomainCollapse(unittest.TestCase):
         self.assertIn("||sub.example.com^", res.adguard_blocks)
 
 
+class TestBrowserSubdomainCollapse(unittest.TestCase):
+    """浏览器 all.txt 也做子域折叠 + $important 保护 (2026-10 优化)。
+
+    动机: 折叠原先只作用于 adguard 输出, 浏览器 all_blocks 仍保留 ~9.5k 条
+    "父域已覆盖"的冗余子域规则, 订阅体积虚高。折叠语义不变 (||d^ 本就拦
+    子域), 拦截能力 0 损失 (不变量: 折叠前后 domains/hosts 精确域集合相同)。
+    顺带修 bug: important 子域折叠进裸父域时, 父域须提升 $important,
+    否则 important 优先级静默丢失。数字 label (IP 段) 保守不折叠。
+    """
+
+    def test_all_blocks_collapse_subdomains(self):
+        res = merge("||example.com^", "||sub.example.com^")
+        self.assertEqual(res.all_blocks, ["||example.com^"])
+        self.assertEqual(res.adguard_blocks, ["||example.com^"])
+        # hosts/domains 精确匹配语义, 子域保留
+        self.assertEqual(sorted(res.domains), ["example.com", "sub.example.com"])
+        self.assertEqual(sorted(res.hosts),
+                         ["0.0.0.0 example.com", "0.0.0.0 sub.example.com"])
+
+    def test_important_child_promotes_bare_parent(self):
+        """important 子域折叠 → 父域提升 $important (不能静默降级)。"""
+        res = merge("||example.com^", "||sub.example.com^$important")
+        self.assertEqual(res.all_blocks, ["||example.com^$important"])
+        self.assertEqual(res.adguard_blocks, ["||example.com^$important"])
+
+    def test_chained_important_promotion(self):
+        """链式: a.b.c$important 折叠 → b.c 提升 → c.com 提升。"""
+        res = merge("||c.com^", "||b.c.com^", "||a.b.c.com^$important")
+        self.assertEqual(res.all_blocks, ["||c.com^$important"])
+
+    def test_numeric_label_not_collapsed(self):
+        """数字 label 子域 (0.ackzany.com) 保守保留, 不折叠。"""
+        res = merge("||ackzany.com^", "||0.ackzany.com^")
+        self.assertIn("||0.ackzany.com^", res.all_blocks)
+        self.assertIn("||0.ackzany.com^", res.adguard_blocks)
+
+    def test_collapse_preserves_dns_set_invariant(self):
+        """不变量: 折叠前后 domains/hosts 精确域集合完全相同 (0 拦截损失)。"""
+        lines = ["||big.com^"] + [f"||sub{i}.big.com^" for i in range(5)]
+        m1 = mf.Merger()
+        m1.add_lines(lines)
+        r1 = m1.finalize()
+        m2 = mf.Merger(collapse_subdomains=False)
+        m2.add_lines(lines)
+        r2 = m2.finalize()
+        self.assertEqual(sorted(r1.domains), sorted(r2.domains))
+        self.assertEqual(sorted(r1.hosts), sorted(r2.hosts))
+
+
 class TestStats(unittest.TestCase):
     def test_stats_counts(self):
         res = merge(
