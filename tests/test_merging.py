@@ -201,6 +201,84 @@ class TestBrowserSubdomainCollapse(unittest.TestCase):
         self.assertEqual(sorted(r1.hosts), sorted(r2.hosts))
 
 
+class TestTypeRuleSubsumption(unittest.TestCase):
+    """同域纯 type 网络规则消解 (2026-10 优化)。
+
+    高效拦截红线: 某域已被"全请求类型"拦截 (all_blocks 里有 ||d^ / ||d^$important)
+    时, 同域"纯请求类型"窄规则 (||d^$script 等) 是严格子集 — 删掉不改变任何
+    拦截结果, 只省体积。凡带独立语义的窄规则 (redirect/rewrite/=值/~否定/$all/
+    $important/denyallow) 一律保留, 数字 label (IP 段) 跳过, 被 all_blocks 截断
+    掉的域 (裸规则已不在 all.txt) 的窄规则也保留 (避免漏拦)。
+    消解只作用于浏览器 all_network; adguard_dns 独立读 _net, 保留全量。
+    """
+
+    def test_bare_domain_covers_sametype_rule(self):
+        res = merge("||ads.com^", "||ads.com^$script")
+        self.assertEqual(res.all_network, [])
+
+    def test_multiple_types_all_subsumed(self):
+        res = merge("||ads.com^", "||ads.com^$image",
+                    "||ads.com^$script", "||ads.com^$object")
+        self.assertEqual(res.all_network, [])
+
+    def test_important_parent_covers_type_rule(self):
+        res = merge("||ads.com^$important", "||ads.com^$script")
+        self.assertEqual(res.all_network, [])
+
+    def test_no_bare_domain_keeps_type_rule(self):
+        res = merge("||ads.com^$script")
+        self.assertEqual(res.all_network, ["||ads.com^$script"])
+
+    def test_functional_modifier_preserved(self):
+        """redirect / =值 / ~否定 有独立语义, 保留。"""
+        res = merge("||ads.com^",
+                    "||ads.com^$script,redirect=blank.html",
+                    "||ads.com^$domain=site.org",
+                    "||ads.com^$~third-party")
+        for keep in ("||ads.com^$script,redirect=blank.html",
+                     "||ads.com^$domain=site.org",
+                     "||ads.com^$~third-party"):
+            self.assertIn(keep, res.all_network, "%s 应保留" % keep)
+        self.assertEqual(len(res.all_network), 3)
+
+    def test_important_narrow_rule_preserved(self):
+        """$important 窄规则有优先级语义, 保留 (删了会被上游例外反杀)。"""
+        res = merge("||ads.com^", "||ads.com^$script,important")
+        self.assertEqual(res.all_network, ["||ads.com^$script,important"])
+
+    def test_all_modifier_preserved(self):
+        """$all 平台修饰符 (含 adguard) 不匹配裸 ||d^ 语义, 保留。"""
+        res = merge("||ads.com^", "||ads.com^$all")
+        self.assertEqual(res.all_network, ["||ads.com^$all"])
+
+    def test_numeric_label_skipped(self):
+        """数字 label 窄规则保守保留, 不消解。"""
+        res = merge("||ackzany.com^", "||0.ackzany.com^$script")
+        self.assertEqual(res.all_network, ["||0.ackzany.com^$script"])
+
+    def test_disabled_option(self):
+        m = mf.Merger(subsume_type_rules=False)
+        m.add_lines(["||ads.com^", "||ads.com^$script"])
+        res = m.finalize()
+        self.assertEqual(res.all_network, ["||ads.com^$script"])
+
+    def test_stats_records_subsumed_count(self):
+        m = mf.Merger()
+        m.add_lines(["||ads.com^", "||ads.com^$script", "||ads.com^$image"])
+        res = m.finalize()
+        self.assertEqual(res.stats["subsumed_type_rules"], 2)
+
+    def test_adguard_dns_keeps_full_network(self):
+        """消解只瘦身浏览器 all_network; adguard_dns 的 DNS 网络规则独立全量。"""
+        m = mf.Merger()
+        m.add_lines(["||ads.com^", "||ads.com^$dnsrewrite=NOERROR"])
+        res = m.finalize()
+        # dnsrewrite 规则不属于 _SUBSUME_OK_MODS, 保留在 all_network
+        self.assertIn("||ads.com^$dnsrewrite=NOERROR", res.all_network)
+        # 且也进 adguard_dns (AGH 可兑现)
+        self.assertIn("||ads.com^$dnsrewrite=NOERROR", res.adguard_dns)
+
+
 class TestStats(unittest.TestCase):
     def test_stats_counts(self):
         res = merge(

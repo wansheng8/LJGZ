@@ -76,13 +76,18 @@ class TestRunEndToEnd(unittest.TestCase):
         self.assertNotIn("localhost", files["hosts"])
         # all 输出含 browsers 语法
         self.assertIn("example.com##.advert", files["all"])
-        self.assertIn("||ads.example.com^$script", files["all"])
+        # ads.example.com 经 hosts 列表整域拦截 (裸 ||ads.example.com^) → 同域
+        # 纯 type 窄规则 ||ads.example.com^$script 被消解 (严格子集), 裸域保留。
+        # 拦截结果不变: 该域所有请求仍被 ||ads.example.com^ 覆盖。
+        self.assertIn("||ads.example.com^", files["all"])
+        self.assertNotIn("||ads.example.com^$script", files["all"])
         self.assertIn("@@||good.example.com^$document", files["all"])
         # adguard 输出: 纯 ||d^ + 白名单, dnsrewrite 网络规则
         self.assertIn("||doubleclick.net^", files["adguard"])
         self.assertIn("@@||good.example.com^$document", files["adguard"])
         self.assertNotIn("||ads.example.com^$script", files["adguard"])
-        # 网络规则 ||ads.example.com^$script 不能进 hosts/domains
+        # 裸域进 hosts (DNS 精确域语义保留), 消解的窄规则不泄漏
+        self.assertIn("0.0.0.0 ads.example.com", files["hosts"])
         self.assertNotIn("||ads.example.com^$script", files["hosts"])
         # 报告含每源统计
         self.assertEqual(report["sources_ok"], 3)

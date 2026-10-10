@@ -378,6 +378,19 @@ def parse_line(line: str, source: str = "") -> Rule:
 # AdGuard Home 可兑现的网络修饰符 (语法文档 §8) — 用于筛选可进 DNS 输出的网络规则
 _DNS_NET_MODS = {"dnsrewrite", "dnstype", "client", "ctag", "important", "denyallow"}
 
+# 可被"裸域名块 ||d^"完全覆盖的纯请求类型/上下文修饰符。
+# 这些标签只是收窄"拦哪种资源", 而裸 ||d^ 已拦该域所有请求 → 同域窄规则冗余。
+# 凡含 =值(domain=/to=)、~否定、redirect/rewrite、$all、$important、denyallow
+# 的规则都不在此集内 → 一律保留 (各有独立语义, 误删会漏拦)。
+_SUBSUME_OK_MODS = {
+    "script", "image", "stylesheet", "object", "subdocument",
+    "xmlhttprequest", "ximage-request", "websocket", "webrtc",
+    "ping", "beacon", "other", "doc", "document", "iframe", "font",
+    "3p", "third-party", "1p", "first-party",
+}
+# 网络规则正文形如 ||d^ (纯域锚点, 无路径/通配) 才可参与同域消解
+_TYPERULE_RE = re.compile(r"^\|\|([a-z0-9.-]+)\^$", re.I)
+
 
 def _canon_key(pattern: str, mod_tokens) -> str:
     """规则语义键: pattern + 规范化(排序)修饰符。修饰符顺序无关 → 同键去重。"""
@@ -409,8 +422,10 @@ class MergeResult:
 class Merger:
     """规则汇合器: 精确+语义去重, badfilter, 例外保护, 子域折叠。"""
 
-    def __init__(self, collapse_subdomains: bool = True):
+    def __init__(self, collapse_subdomains: bool = True,
+                 subsume_type_rules: bool = True):
         self.collapse = collapse_subdomains
+        self.subsume_types = subsume_type_rules
         self._dom_imp: Dict[str, bool] = {}      # 域名 → 是否 $important
         self._net: Dict[str, str] = {}           # 语义键 → 原文
         self._cosmetic: Dict[str, str] = {}
@@ -418,6 +433,7 @@ class Merger:
         self._badfilter_targets: Set[str] = set()
         self._stats_dropped = 0
         self._local_count = 0
+        self._subsumed_count = 0
 
     # -- 收集 ------------------------------------------------------------
     def add_rule(self, rule: Rule) -> None:
@@ -482,13 +498,50 @@ class Merger:
             kept.append((d, imp, canon))
         return kept, folded_parents
 
+    def _subsume_type_rules(self, candidates: List[str],
+                            browser_items: List[Tuple[str, bool, str]]) -> List[str]:
+        """同域纯 type 网络规则消解。
+
+        candidates: all_network 候选 (已去 badfilter)。
+        browser_items: 截断后的浏览器域名块 (domain, important, canon)。
+
+        若某域 d 已进 all_blocks (即 ||d^ 全请求类型拦截), 则同域"纯 type"
+        窄规则 (||d^$script 等) 是严格子集 → 删除 (拦截结果不变, 省体积)。
+        红线: 含 =值 / ~ / redirect / rewrite / $all / $important / denyallow
+        的窄规则一律保留; 数字 label (IP 段) 跳过; 被截断掉的域的窄规则也
+        保留 (裸规则不在 all.txt, 删了会漏拦)。
+        """
+        if not self.subsume_types:
+            return candidates
+        covered = {d for d, _, _ in browser_items}
+        keep = []
+        removed = 0
+        for raw in candidates:
+            pattern, mods = _split_modifiers(raw)
+            m = _TYPERULE_RE.match(pattern)
+            can_drop = False
+            if m:
+                d = m.group(1).lower().rstrip(".")
+                if d in covered and not self._has_numeric_label(d):
+                    tok = [t.lower() for t in split_mod_tokens(mods)]
+                    # 必须全部是纯 type/上下文标签, 且非空
+                    if tok and all(t in _SUBSUME_OK_MODS for t in tok):
+                        can_drop = True
+            if can_drop:
+                removed += 1
+            else:
+                keep.append(raw)
+        self._subsumed_count = removed
+        return keep
+
     # -- 收敛 ------------------------------------------------------------
     def finalize(self) -> MergeResult:
         res = MergeResult()
         bad = self._badfilter_targets
 
-        # 网络规则: 去除被 badfilter 击中的
-        res.all_network = sorted(raw for key, raw in self._net.items() if key not in bad)
+        # 网络规则候选: 去除被 badfilter 击中的 (同域 type 消解在 all_blocks
+        # 截断后统一做, 需要 browser_items 的覆盖集合, 见下)。
+        net_candidates = sorted(raw for key, raw in self._net.items() if key not in bad)
 
         # 例外: DNS 相关白名单 + 每域名 important 标记。
         # 丢弃"裸整域无条件例外" (无修饰符的 @@||d^): 它们会全盘架空对应域的
@@ -557,6 +610,19 @@ class Merger:
             browser_items.sort(key=lambda t: t[2])     # 输出仍按规则文本排序
         res.all_blocks = [c for _, _, c in browser_items]
 
+        # 同域 type 消解 (高效拦截 + 省体积): 若域名 d 已被"全请求类型"拦截
+        # (browser_items 里有 ||d^ / ||d^$important), 则同域纯类型窄规则
+        # ||d^$script / ||d^$image 等是严格子集 — 裸规则已拦 d 的所有请求,
+        # 删窄规则不改变任何拦截结果, 只省体积。保守红线:
+        #   · 仅当所有修饰符都是纯"请求类型/上下文"标签才删 (SUBSUME_OK)
+        #   · 含 =值(domain=/to=) / ~否定 / redirect / rewrite / $all /
+        #     $important / denyallow 的一律保留 (有独立语义, 误删会漏拦)
+        #   · 数字 label (IP 段) 跳过
+        #   · 覆盖集用截断后的 browser_items: 被截断的域 (裸规则已不在 all.txt)
+        #     的窄规则不会误删, 拦截能力 0 损失。
+        res.all_network = self._subsume_type_rules(net_candidates,
+                                                   browser_items)
+
         # hosts / domains: 精确匹配语义, 保留子域 (不折叠), 排序
         res.domains = [d for d, _, _ in survive]
         res.hosts = ["0.0.0.0 " + d for d, _, _ in survive]
@@ -579,6 +645,7 @@ class Merger:
             "badfilter_targets": len(bad),
             "dropped": self._stats_dropped,
             "dropped_bare_exceptions": bare_whole_domain,
+            "subsumed_type_rules": self._subsumed_count,
         }
         return res
 
