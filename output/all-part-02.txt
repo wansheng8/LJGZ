@@ -3,11 +3,64 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-10-10 06:10:59 +0800
-! Last Modified: 2026-10-10 06:10:59 +0800 (北京时间 UTC+8)
+! Version: 2026-10-10 12:58:26 +0800
+! Last Modified: 2026-10-10 12:58:26 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 100875
+! Rules: 100933
 
+##.js-accept-terms-holder
+##.js-acceptCookieDiv
+##.js-acceptUseCookie
+##.js-ad
+##.js-ad-banner-container
+##.js-ad-buttons
+##.js-ad-container
+##.js-ad-dynamic
+##.js-ad-frame
+##.js-ad-home
+##.js-ad-loader-bottom
+##.js-ad-slot
+##.js-ad-static
+##.js-ad-unit
+##.js-ad-unit-bottom
+##.js-ad-wrapper
+##.js-ad_iframe
+##.js-adfliction-iframe
+##.js-adfliction-standard
+##.js-ads
+##.js-ads-carousel
+##.js-advert
+##.js-advert-container
+##.js-adzone
+##.js-alert-cookie
+##.js-allow-cookie-banner
+##.js-allow-cookies
+##.js-anchor-ad
+##.js-attention-we-use-cookies
+##.js-back-to-top
+##.js-back-to-top-story
+##.js-backToTop
+##.js-badge-cookie-msg
+##.js-banner-cookie
+##.js-bannerLGPD
+##.js-basic_features-cookiemessage
+##.js-bcookie--box-info
+##.js-bengor-cookies
+##.js-billboard-advert
+##.js-bottom-notif-msg-cookie
+##.js-bottom-notif-msg-privacy
+##.js-box-termo-lgpd
+##.js-button-totop
+##.js-c-cookies-notification-banner
+##.js-captation-email-bottom
+##.js-cbc-cookie-notice
+##.js-cc-announcement
+##.js-cmp-cookiesBar
+##.js-consent-banner
+##.js-consent-bar
+##.js-consent-notice
+##.js-consent-panel
+##.js-consent-popup
 ##.js-consent-react-root
 ##.js-coockie
 ##.js-cook.page-cook
@@ -10825,6 +10878,7 @@
 ##a[href^="/archives/"] > .post-card > .blog-background[style*="gif;base64"]
 ##a[href^="/dasp.php?a="]
 ##a[href^="/hy-"][ontouchstart]
+##a[href^="/link-index-aid-"] > img[src*=".wnimg2.cfd"]
 ##a[href^="fb-messenger://share/?"]
 ##a[href^="fb-messenger://share?link="]
 ##a[href^="http"][onclick^="setCookie"][style^="width:100%;height:100"]
@@ -12060,7 +12114,7 @@
 100ksw.com###ad_move_sg
 100percentfedup.com##.pre-announcement
 100percentfedup.com##.z-ad-display
-100percentfedup.com,academicful.com,addapinch.com,aiarticlespinner.co,allaboutfpl.com,alltechnerd.com,americanmilitarynews.com,americansongwriter.com,androidsage.com,animatedtimes.com,anoopcnair.com,askpython.com,australiangeographic.com.au,autodaily.com.au,bakeitwithlove.com,bioinformant.com,bohemian.com,borncity.com,boxingnews24.com,browserhow.com,celtsarehere.com,chillinghistory.com,chromeunboxed.com,circuitbasics.com,cjr.org,coincodecap.com,conservativebrief.com,conservativefiringline.com,corrosionhour.com,cricfy.net,crimereads.com,cryptobriefing.com,cryptointelligence.co.uk,cryptopotato.com,cryptoreporter.info,cryptoslate.com,cryptotimes.io,dafontfree.io,dailynewshungary.com,digitalreg.net,dorohedoro.online,dramacool.com.my,ecoportal.net,ecoticias.com,emobilityplus.com,engineering-designer.com,epicdope.com,eurweb.com,fandomwire.com,firstcuriosity.com,firstsportz.com,flashbak.com,flickeringmyth.com,flowmountainbike.com,flyingmag.com,freemagazines.top,gadgetinsiders.com,gamebyte.com,gameinfinitus.com,gamertweak.com,gamingdeputy.com,gatewayhispanic.com,gatewaynews.co.za,geekdashboard.com,geekzag.com,glassalmanac.com,goodyfeed.com,greekreporter.com,hard-drive.net,harrowonline.org,haxmac.cc,healthinfo.healthengine.com.au,helihub.com,hollywoodinsider.com,hollywoodunlocked.com,hotcelebshome.com,ifoodreal.com,indianhealthyrecipes.com,inspiredtaste.net,iotwreport.com,jardineriaon.com,jessicagavin.com,jojolandsmanga.com,journeybytes.com,journeyjunket.com,libertyunlocked.com,linuxfordevices.com,lithub.com,londonlovesbusiness.com,mangaread.org,mb.com.ph,meaningfulspaces.com,medicotopics.com,medievalists.net,mpost.io,mycariboonow.com,mymodernmet.com,mymotherlode.com,nationalfile.com,nexdrive.lol,nexusgames.to,nintendoeverything.com,noahreport.com,nokiapoweruser.com,notalwaysright.com,nxbrew.com,organicfacts.net,orlandoweekly.com,patriotfetch.com,pcoptimizedsettings.com,politizoom.com,premiumtimesng.com,protrumpnews.com,psu.com,pureinfotech.com,redrightvideos.com,reneweconomy.com.au,reptilesmagazine.com,rightwingnews.com,roadaheadonline.co.za,rok.guide,romsworlds.com,saabplanet.com,sacurrent.com,sciencenotes.org,simscommunity.info,slaynews.com,small-screen.co.uk,snipercentral.com,snowbrains.com,statisticsbyjim.com,storypick.com,streamingbetter.com,suggest.com,superwatchman.com,talkandroid.com,talkers.com,tech-latest.com,techaeris.com,techpp.com,techrounder.com,techviral.net,the-gadgeteer.com,thebeaverton.com,theblueoceansgroup.com,thecinemaholic.com,thecricketlounge.com,thedailysight.com,thedriven.io,thegamehaus.com,thegatewaypundit.com,thegeekpage.com,thelibertydaily.com,thenipslip.com,theoilrig.ca,thepeoplesvoice.tv,theprint.in,thewincentral.com,thisquality.com,trendingpoliticsnews.com,troypoint.com,tvtonight.com.au,twistedvoxel.com,vice.com,walletinvestor.com,washingtonblade.com,waves4you.com,wbiw.com,welovetrump.com,wepc.com,whynow.co.uk,win.gg,windowslatest.com,wisden.com,wltreport.com,wnd.com,wrestlingheadlines.com,wrestlingnews.co,wtmj.com,zerohanger.com,ziperto.com##.code-block
+100percentfedup.com,academicful.com,addapinch.com,aiarticlespinner.co,allaboutfpl.com,alltechnerd.com,americanmilitarynews.com,americansongwriter.com,androidsage.com,animatedtimes.com,anoopcnair.com,askpython.com,australiangeographic.com.au,autodaily.com.au,bakeitwithlove.com,bioinformant.com,bohemian.com,borncity.com,boxingnews24.com,browserhow.com,celtsarehere.com,chillinghistory.com,chromeunboxed.com,circuitbasics.com,cjr.org,coincodecap.com,conservativebrief.com,conservativefiringline.com,corrosionhour.com,cricfy.net,crimereads.com,cryptobriefing.com,cryptointelligence.co.uk,cryptopotato.com,cryptoreporter.info,cryptoslate.com,cryptotimes.io,dafontfree.io,dailynewshungary.com,digitalreg.net,dorohedoro.online,dramacool.com.my,ecoportal.net,ecoticias.com,emobilityplus.com,engineering-designer.com,epicdope.com,eurweb.com,fandomwire.com,firstcuriosity.com,firstsportz.com,flashbak.com,flickeringmyth.com,flowmountainbike.com,flyingmag.com,freemagazines.top,gadgetinsiders.com,gamebyte.com,gameinfinitus.com,gamertweak.com,gamingdeputy.com,gatewayhispanic.com,gatewaynews.co.za,geekdashboard.com,geekzag.com,glassalmanac.com,goodyfeed.com,greekreporter.com,hard-drive.net,harrowonline.org,haxmac.cc,healthinfo.healthengine.com.au,helihub.com,hollywoodinsider.com,hollywoodunlocked.com,hotcelebshome.com,ifoodreal.com,indianhealthyrecipes.com,inspiredtaste.net,iotwreport.com,jardineriaon.com,jessicagavin.com,jojolandsmanga.com,journeybytes.com,journeyjunket.com,libertyunlocked.com,linuxfordevices.com,lithub.com,londonlovesbusiness.com,mangaread.org,mb.com.ph,meaningfulspaces.com,medicotopics.com,medievalists.net,mpost.io,mycariboonow.com,mymodernmet.com,mymotherlode.com,nationalfile.com,nexdrive.lol,nexusgames.to,nintendoeverything.com,noahreport.com,nokiapoweruser.com,notalwaysright.com,nxbrew.com,organicfacts.net,orlandoweekly.com,patriotfetch.com,pcoptimizedsettings.com,politizoom.com,premiumtimesng.com,protrumpnews.com,psu.com,pureinfotech.com,redrightvideos.com,reneweconomy.com.au,reptilesmagazine.com,rightwingnews.com,roadaheadonline.co.za,rok.guide,romsworlds.com,saabplanet.com,sacurrent.com,sciencenotes.org,simscommunity.info,slaynews.com,small-screen.co.uk,snipercentral.com,snowbrains.com,statisticsbyjim.com,storypick.com,streamingbetter.com,suggest.com,superwatchman.com,talkandroid.com,talkers.com,tech-latest.com,techaeris.com,technobaboy.com,techpp.com,techrounder.com,techviral.net,the-gadgeteer.com,thebeaverton.com,theblueoceansgroup.com,thecinemaholic.com,thecricketlounge.com,thedailysight.com,thedriven.io,thegamehaus.com,thegatewaypundit.com,thegeekpage.com,thelibertydaily.com,thenipslip.com,theoilrig.ca,thepeoplesvoice.tv,theprint.in,thewincentral.com,thisquality.com,trendingpoliticsnews.com,troypoint.com,tvtonight.com.au,twistedvoxel.com,vice.com,walletinvestor.com,washingtonblade.com,waves4you.com,wbiw.com,welovetrump.com,wepc.com,whynow.co.uk,win.gg,windowslatest.com,wisden.com,wltreport.com,wnd.com,wrestlingheadlines.com,wrestlingnews.co,wtmj.com,zerohanger.com,ziperto.com##.code-block
 1010dy3.com##.text-center[style]
 1010dy3.com##a[href^="/go"]
 1010jiajiao.com###daan_recommend + .xiti
@@ -12973,6 +13027,7 @@
 25xz.com##div[style*="1002px;"]
 25xz.com##div[style*="724px;"]
 263y.com##.view_abc
+270towin.com##.pm-banner
 27ka.cn##a[href*="/go/"]
 27ka.cn,sunnylife.tw###custom_html-5
 280blocker.net,biglobe.ne.jp###page-top
@@ -22732,6 +22787,8 @@ boxingscene.com#$##fixed-ad { display: none !important; }
 boxingscene.com#$#.header { top: 0 !important; }
 boxingscene.com#$#body > .sticky.top-0[class*="@media_"] { display: none !important; }
 boxingscene.com#$#main > div.sticky[class*="top-"][class*="@media"] { top: 0 !important; }
+boxlifemagazine.com##.boxli-entity-placement
+boxlifemagazine.com,crazyforcrust.com,easypeasyfoodie.com,thetinylife.com##.cb-box__wrapper-center_modal
 boxofficemojo.com##.mojo-fb-logo
 boxofficemojo.com##.mojo-tw-logo
 boxofficemojo.com,imdb.com##.slot_wrapper
@@ -27749,7 +27806,6 @@ crazy-factory.com#@#.cookie_banner
 crazyblog.in,studyuo.com##div[id*="_"][style^="min-width"]
 crazyforcrust.com##.block-about__right
 crazyforcrust.com##.block-newsletter-cta-sidebar
-crazyforcrust.com,easypeasyfoodie.com,thetinylife.com##.cb-box__wrapper-center_modal
 crazygames.*##[class*="MpuContainer_"]
 crazygames.*##[class*="_leaderboardContainer_"]
 crazygames.*##div[class*="GameInfo_leaderboard"]
@@ -30035,7 +30091,7 @@ dfiles.eu,downsub.com,j.gs,macserial.com,microify.com,minecraft-forum.net,onmovi
 dfir.training##.moduleid-307
 dfir.training##.moduleid-347
 dfir.training##.moduleid-358
-dfm.ru,hitfm.ru,maximum.ru,montecarlo.ru,rusradio.ru##div[data-sentry-component="CookiesWindow"]
+dfm.ru,maximum.ru##div[data-sentry-component="CookiesWindow"]
 dgardiner.com###dga-newsletter-cta
 dgav17.com,eporner2.top,chuanghongjituan.com##.streamer-container2
 dgb.lol#%#//scriptlet('prevent-element-src-loading', 'script', '/adlightning\.com|cloudfront\.net\/publishers\/|pagead2\.googlesyndication\.com/')
@@ -36032,7 +36088,7 @@ firstsportz.com##div[style*="min-height: 450px;"]
 firstsportz.com#?#.code-block:has(> :not(.share-container))
 firstthings.com##.widget_support_work
 firstthings.com#?#div:not([class^="leaderboard"]):has(> div[id^="div-gpt-ad"])
-firstvds.ru,libre-media.com,nationalsewingcircle.com,pharmacyclub.net,upad.hr,zonaprop.com.ar###cookies-policy
+firstvds.ru,libre-media.com,medvestnik.ru,nationalsewingcircle.com,pharmacyclub.net,upad.hr,zonaprop.com.ar###cookies-policy
 fiscalitatea.ro,portalinvatamant.ro,portalprotectiadatelor.ro###terms
 fishermap.org,ittelo.ru,xn--90aivcdt6dxbc.xn--p1ai##.cookie-window
 fishlore.com##div[class*="fontadsmall"]
@@ -42926,6 +42982,7 @@ hitbullseye.com##a[href*="&utm_medium="]
 hitc.com##.from-the-web
 hitc.com,dualshockers.com#%#//scriptlet("set-constant", "pbjs.setConfig", "noopFunc")
 hitdiscount.by#@#.content-cookie
+hitfm.ru,montecarlo.ru,rusradio.ru##.fixed:has([href="/page/license-agreement"])
 hitime5.com###gg250
 hitime5.com###gg730
 hitkino.org#?#td[valign="top"] > table.white_text > tbody > tr:has(> td[background] > b:contains(Статистика))
@@ -48757,7 +48814,7 @@ kecapku.com,facetoshi.live,kdramasmaza.com.pk,fc-lc.xyz,encurtandourl.com,codesn
 kecapku.com,panel.play.hosting,1090ys2.com,techmody.io,link1s.com,cazzette.com,restorbio.com,staaker.com,thegoneapp.com,nousdecor.com,gainbtc.click,tecnotutoshd.net,7misr4day.com,anig.me,porn300.com,share1223.com,asiatv.cc,whatsaero.com,ebookdz.com,imintweb.com,9docu.org,6tek.org#%#//scriptlet("abort-on-property-read", "adBlockDetected")
 keekass.com##.content > div.related-videos:has(> span#KA-Nat-vip)
 keekass.com##.video-holder > div.p-ig:has(> a[href^="https://landing.transangelsnetwork.com"])
-keenetic.ru###cc-banner
+keenetic.ru,netcraze.ru###cc-banner
 keep.eu##.best-cookies
 keep2porn.net##center > a[href="https://vrpornx.net/"] > img
 keepa.com#@#.socialButtons
@@ -78434,6 +78491,7 @@ tko.pl##div[id^="nol24-"]
 tkt.ge##.styles_acceptCookiesContainer__22cuY
 tl.net###main-content > div[style^="max-width: 740px; height:108px; overflow: hidden; padding:"]
 tl.net###main-right-sidebar > div[style="margin-top: 2px; margin-bottom: 2px; height: 250px"]
+tld-list.com##.pb-2.section:has(img[src^="/images/ads/"])
 tld-list.com##.wrapper > .mx-auto:has(> a[rel*="sponsored"])
 tld-list.com##div.row > .text-center > .ib
 tldr.tech#?#.flex:has(> div.w-full > span.text-white.underline:contains(Sponsored))
