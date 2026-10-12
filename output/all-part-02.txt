@@ -3,151 +3,11 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-10-12 05:25:26 +0800
-! Last Modified: 2026-10-12 05:25:26 +0800 (北京时间 UTC+8)
+! Version: 2026-10-12 13:01:33 +0800
+! Last Modified: 2026-10-12 13:01:33 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 92355
+! Rules: 92215
 
-##.the_champ_sharing_ul
-##.theads
-##.theeclbox
-##.theme1._1oph9f9._3hmsj._1xb7gam
-##.theme_custom_slidebox-ad-below
-##.themonic-ad1
-##.themonic-ad2
-##.themonic-ad3
-##.themonic-ad6
-##.theshare
-##.thesocialbar
-##.thesocialbarform
-##.thesocialbartext
-##.thim-author-social
-##.thim-newlleter-homepage
-##.third-party-ad
-##.thirdShareBox
-##.this_site_uses_cookies
-##.thomann-cookie-consent-overlay
-##.thr-social-share
-##.thread-ad-align
-##.thread-share
-##.thread-share-bar
-##.thread-share-bar-buttons
-##.thread-share__button
-##.thrv_tw_qs
-##.thscookies
-##.thumb-ads
-##.thumb_ad
-##.thumbnailad
-##.thumbs-adv
-##.thumbs-adv-holder
-##.ti_scroll
-##.tibrr-cookie-consent-container
-##.ticker_cookie
-##.tietosuojabox
-##.tile--ad
-##.tile-ad
-##.tile-ad-container
-##.tile-advert
-##.tileAdContainer
-##.tileAdWrap
-##.tileAds
-##.tile_AdBanner
-##.tile_ad
-##.tile_ad_container
-##.tipsy-social-icon-container
-##.title-ad
-##.titleSocial
-##.titre-widget.facebook
-##.titre-widget.twitter
-##.tjads
-##.tjtagmanager[data-ad_id]
-##.tk-Footer-cc
-##.tk-cookie-container
-##.tk-footer-social-icons
-##.tkn-cookie-accept__area
-##.tl-ad-container
-##.tl_share_button
-##.tlc-slide-facebook
-##.tlc-slide-tweet
-##.tm-cookie-banner
-##.tm-cookie-container
-##.tm-cookie-dialog-root
-##.tm-cookies
-##.tm-cookies-consent
-##.tm-editoral-subscription
-##.tm-follow-link
-##.tm-follow-link-site
-##.tm-footer-social
-##.tm-sb-socials
-##.tm-sb-text
-##.tm-scroll-top
-##.tm-share-this
-##.tmCookieBox
-##.tmall_ad_container
-##.tmall_bg15
-##.tmb-cookie-choice
-##.tmblr-iframe--app-cta-button
-##.tmcookienotice
-##.tmiads
-##.tmo-cookie-melding
-##.tn-cookieInfo-area
-##.tna-cookie-banner
-##.tncls_ad
-##.tncls_ad_250
-##.tncls_ad_300
-##.tnf-cookie
-##.tnp-subscription
-##.tnp-subscription-minimal
-##.tnt-ads
-##.tnt-ads-container
-##.tnt-dmp-reactive
-##.tnw_cookieconsent
-##.tnzcookie_container
-##.to-pagetop
-##.to-the-top
-##.to-top-btn
-##.to-top-link
-##.to4-social
-##.toTheTop
-##.toTopBtn
-##.toTopBtnF
-##.toTopButton
-##.to_the_top
-##.toast--cookies
-##.toast--mod-cookie-desc
-##.toast-block-cookies
-##.toast-cookie
-##.toast-cookie-active
-##.toast-cookie-container
-##.toast-cookies
-##.toast-primary.toast
-##.toast-type-newCookie
-##.toastCookiePolicy
-##.toast[data-dismissable-id="cookieinfo"]
-##.toaster--cookie-policy
-##.toaster-ad
-##.tochka-share
-##.tof-cookies
-##.toggle-share-options
-##.toggleSocialBox
-##.tool-share
-##.toolbar-cookies
-##.toolbar-facebook
-##.toolbar-linkedin
-##.toolbar-share
-##.toolbar-sharing
-##.toolbar-twitter
-##.toolbox-share
-##.toolkit-social-share
-##.tools-share
-##.toolsShare
-##.tools__share--button
-##.toolsbar-share
-##.toolssocial
-##.top-ad
-##.top-ad-728
-##.top-ad-970x90
-##.top-ad-anchor
 ##.top-ad-area
 ##.top-ad-bloc
 ##.top-ad-block
@@ -7029,7 +6889,7 @@ ahentaitv.com#?#.video > div.header:has(> h2:contains(/Hentai Cam Cosplay|AI Por
 ahgame.com,china.com.cn,netbardh.com,pangzitv.com,twoeggz.com###pop
 ahhhhfs.com###ri_home_slider_widget-2
 ahhhhfs.com##.site-addswarp
-ahjucaf.org,apf-francophonie.org,arp.pl,banquedeluxembourg.com,bayonne.port.fr,bourgogne-wines.com,burgundy-tourism.com,campusfrance.org,chablis-wines.com,chartediversite.lu,chequeenergie.gouv.fr,coldwellbanker.fr,competence.lu,cyprus-weather.com,diplomatie.gouv.fr,dupuis.com,emrlocal.com,fgirl.ch,forvia.com,guy-hoquet.com,havas.com,his-izz.be,infogreen.lu,inria.fr,ip-paris.fr,kameleoon.com,klepierre.it,klimabuendnis.lu,lassuranceretraite.fr,lechegaza.com,notre-dame-de-paris.culture.gouv.fr,openedition.org,palais.mc,plazario2.com,pompes-direct.com,portrevel.com,rosenbauer.com,rsf.org,sante.fr,scoop.it,smeg.mc,space-eye.ch,sprecher-automation.com,tenet.ac.za,tuttonatale.it,uclouvain.be###tarteaucitronRoot
+ahjucaf.org,apf-francophonie.org,arp.pl,banquedeluxembourg.com,bayonne.port.fr,bourgogne-wines.com,burgundy-tourism.com,campusfrance.org,chablis-wines.com,chartediversite.lu,chequeenergie.gouv.fr,coldwellbanker.fr,competence.lu,cottagesincanada.com,cyprus-weather.com,diplomatie.gouv.fr,dupuis.com,emrlocal.com,fgirl.ch,forvia.com,guy-hoquet.com,havas.com,his-izz.be,infogreen.lu,inria.fr,ip-paris.fr,kameleoon.com,klepierre.it,klimabuendnis.lu,lassuranceretraite.fr,lechegaza.com,notre-dame-de-paris.culture.gouv.fr,openedition.org,palais.mc,plazario2.com,pompes-direct.com,portrevel.com,rosenbauer.com,rsf.org,sante.fr,scoop.it,smeg.mc,space-eye.ch,sprecher-automation.com,tenet.ac.za,tuttonatale.it,uclouvain.be###tarteaucitronRoot
 ahotu.com##.modal-window
 ahprofi.cz,akros.cz,aspshop.cz,fiskars-shop.cz,mpmshop.eu,rafoshop.cz,relaxin.cz,yatun.cz###wr-c
 ahtv.cn##.l1
@@ -19359,7 +19219,7 @@ crictracker.com##div[id^="div-ad-gpt-"]
 crictracker.com##div[style="min-height:100px"][class^="d-none"]
 crictracker.com#$#.adsbox.doubleclick.ad-placement { display: block !important; }
 crictracker.com#?#.container > div.d-none:has(> div[id^="div-ad-gpt-"])
-cricwatch.io,cricwatch.*,tennisonline.im,tennisonline.*,dartsstreams.me,fbstream.is,fbstream.*,vipleague.vg,vipleague.*,cracktv.me,cracktv.*,strikeout.im,strikeout.*,boxingbox.me,boxingbox.*,rugbybox.me,rugbybox.*,nflbox.sx,nflbox.*,f1live.me,f1live.*,mmabox.me,mmabox.*,nbabox.*,nbabox.co,soccerbox.me,soccerbox.*,worldsports.st,worldsports.*,buffsports.io,olympicweb.me,olympicweb.*,vipbox.fm,vipbox.*,vipstand.*,viprow.is,viprow.*##button[data-openuri*="https://"][data-open="_blank"]
+cricwatch.io,cricwatch.*,tennisonline.im,tennisonline.*,dartsstreams.me,fbstream.is,fbstream.*,vipleague.vg,vipleague.*,cracktv.me,cracktv.*,strikeout.im,strikeout.*,boxingbox.me,boxingbox.*,rugbybox.me,rugbybox.*,nflbox.sx,nflbox.*,f1live.me,f1live.*,mmabox.me,mmabox.*,nbabox.*,nbabox.co,soccerbox.me,soccerbox.*,worldsports.si,worldsports.*,buffsports.io,olympicweb.me,olympicweb.*,vipbox.fm,vipbox.*,vipstand.*,viprow.is,viprow.*##button[data-openuri*="https://"][data-open="_blank"]
 cricwaves.com##.btm728
 cricxtasy.com##.showdefaultbody > div[style^="overflow:hidden; padding-top:"][style*="width:100%"]
 crikey.com.au##.pm-socials-block
@@ -46520,7 +46380,7 @@ missav78.top#%#//scriptlet('remove-attr', 'onerror', 'img[onerror="this.src=\'/s
 missavtv.com#%#//scriptlet('prevent-element-src-loading', 'script', 'adsbygoogle')
 missavtv.com#%#//scriptlet('prevent-fetch', 'www3.doubleclick.net')
 missavtv.com#%#//scriptlet('prevent-xhr', 'pagead2.googlesyndication.com')
-missflight.net,grandemx.org,bembed.sbs,uqload.*,desicinema.se,dramavideo.se,torupload.com,stellar.rip,streame.center,totalsporteki.st,totalsportekhd.st,cricwatch.io,cricwatch.*,tennisonline.im,tennisonline.*,posamari.me,sportfusion.me,nbabox.*,nbabox.co,dartsstreams.me,soccerbox.me,soccerbox.*,thetvapp.plus,fbstream.is,fbstream.*,dollardescent.net,mappl.tv,lightflix.app,mapple.fun,mapple.*,embed.st,executeandship.com,embedindia.st,strikeout.im,strikeout.*,boxingbox.me,boxingbox.*,dlive.sx,rugbybox.me,rugbybox.*,nflbox.sx,nflbox.*,f1live.me,f1live.*,www.viprow.is,viprow.*,ninguno.cc,mmabox.me,mmabox.*,olympicweb.me,olympicweb.*,sportsonlinee.*,sportsonline.*,4k.beer,streamcash.to,anime.uniquestream.net,cine.su,nepu.*,vidzy.cc,fs16.lol,dramavideo.se,porneec.com,asiaflix.in,asiaflix.*,streamtape.com,yts.bz,yts.gg,yts.*,filecrypt.co,strumyk.*,powwideo.*,hornysimp.com,futemax.at,embdmstrplayer.com,pahe.ink,foulembeds.live,smksports.*,fileditchfiles.me,strumyk.cfd,dorawatch.one,streamingworld.xyz,streami.su,streamed.pk,streamed.*,visualnewshub.com,cloudnestra.com,cloudfam.io,thepibay.*,bypass.city,eztvx.to,ext.to,vidsrc.cc,sanet.st,yifysubtitles.ch,vinovo.to,livesporthub.shop,dstelemundo.site,7fractals.icu,epicplayplay.cfd,goalstreamer.shop,streameast7.com,buffztreamz.shop,rippleplay.shop,shd247.click,antenasport.top,gamestrend.net,exposestrat.com,embedsports.top,seir-sanduk.com,embedtv-5.icu,daddylive3.com,sterham.net,animeunity.*,vixcloud.*,buffsports.io,soccerstreams7.com,loadvid.com,telewizjada.top,ogladaj.in,istreameast.app,streamingnow.mov,watchug.to,primewire.tf,worldsports.st,filecrypt.cc,veplay.top,colegialasdeverdad.*,anime4i.com,cuttyy.com,puffytr.com,anizm.*,anizle.*#%#//scriptlet('abort-on-property-read', 'aclib')
+missflight.net,grandemx.org,bembed.sbs,uqload.*,desicinema.se,dramavideo.se,torupload.com,stellar.rip,streame.center,totalsporteki.st,totalsportekhd.st,cricwatch.io,cricwatch.*,tennisonline.im,tennisonline.*,posamari.me,sportfusion.me,nbabox.*,nbabox.co,dartsstreams.me,soccerbox.me,soccerbox.*,thetvapp.plus,fbstream.is,fbstream.*,dollardescent.net,mappl.tv,lightflix.app,mapple.fun,mapple.*,embed.st,executeandship.com,embedindia.st,strikeout.im,strikeout.*,boxingbox.me,boxingbox.*,dlive.sx,rugbybox.me,rugbybox.*,nflbox.sx,nflbox.*,f1live.me,f1live.*,www.viprow.is,viprow.*,ninguno.cc,mmabox.me,mmabox.*,olympicweb.me,olympicweb.*,sportsonlinee.*,sportsonline.*,4k.beer,streamcash.to,anime.uniquestream.net,cine.su,nepu.*,vidzy.cc,fs16.lol,porneec.com,asiaflix.in,asiaflix.*,streamtape.com,yts.bz,yts.gg,yts.*,filecrypt.co,strumyk.*,powwideo.*,hornysimp.com,futemax.at,embdmstrplayer.com,pahe.ink,foulembeds.live,smksports.*,fileditchfiles.me,strumyk.cfd,dorawatch.one,streamingworld.xyz,streami.su,streamed.pk,streamed.*,visualnewshub.com,cloudnestra.com,cloudfam.io,thepibay.*,bypass.city,eztvx.to,ext.to,vidsrc.cc,sanet.st,yifysubtitles.ch,vinovo.to,livesporthub.shop,dstelemundo.site,7fractals.icu,epicplayplay.cfd,goalstreamer.shop,streameast7.com,buffztreamz.shop,rippleplay.shop,shd247.click,antenasport.top,gamestrend.net,exposestrat.com,embedsports.top,seir-sanduk.com,embedtv-5.icu,daddylive3.com,sterham.net,animeunity.*,vixcloud.*,buffsports.io,soccerstreams7.com,loadvid.com,telewizjada.top,ogladaj.in,istreameast.app,streamingnow.mov,watchug.to,primewire.tf,worldsports.si,filecrypt.cc,veplay.top,colegialasdeverdad.*,anime4i.com,cuttyy.com,puffytr.com,anizm.*,anizle.*#%#//scriptlet('abort-on-property-read', 'aclib')
 missingremote.com###top-bar
 missionlocal.org##.np-campaign--donation--staff-photo
 missionlocal.org##.np-campaign--newsletter--mid-post
@@ -47341,7 +47201,7 @@ motofaktor.pl#@#.rodo__container
 motofilm.pl##.jedynka:has(> .adsbygoogle)
 motofocus.pl###placeholder-billboard
 motogp.com###main_footer
-motogpstream.me,tennisonline.im,tennisonline.*,mmabox.me,mmabox.*,sportfusion.me,nbabox.*,nbabox.co,f1live.me,f1live.*,rugbybox.me,rugbybox.*,dartsstreams.me,fbstream.is,fbstream.*,nflbox.sx,nflbox.*,boxingbox.me,boxingbox.*,cracked-games.org,multiup.io,mzansixporn.co.za,pahe.ink,pahe.*,vik1ngfile.site,romsdroid.com,game-repack.site,sterham.net,strikeout.im,strikeout.*,buffsports.io,crystal-launcher.pl,gamespack.net,worldsports.st,worldsports.*,cutynow.com,exnion.com,vikingf1le.us.to,exe-urls.com,evernia.site,vidsrc2.*,www.viprow.is,viprow.*,ijvam.com,olympicweb.me,olympicweb.*,uploadhaven.com,arcjav.com,mc-hacks.net,mycivillinks.com,wonderapk.com,megaup.net,exeo.app,vidsrc.*,cricwatch.io,cricwatch.*,vipleague.vg,vipleague.*,soccerbox.me,soccerbox.*,igg-games.co,cracktv.me,cracktv.*,torrentmac.net,vipboxtv.*,vipbox.fm,vipbox.*,userscloud.com,game3rb.com,soap2day.*,soccerworldcup.me,igg-games.com,miraculous.to,coloredmanga.com,hentaispark.com,send.cm#%#//scriptlet("abort-current-inline-script", "navigator", "FingerprintJS")
+motogpstream.me,tennisonline.im,tennisonline.*,mmabox.me,mmabox.*,sportfusion.me,nbabox.*,nbabox.co,f1live.me,f1live.*,rugbybox.me,rugbybox.*,dartsstreams.me,fbstream.is,fbstream.*,nflbox.sx,nflbox.*,boxingbox.me,boxingbox.*,cracked-games.org,multiup.io,mzansixporn.co.za,pahe.ink,pahe.*,vik1ngfile.site,romsdroid.com,game-repack.site,sterham.net,strikeout.im,strikeout.*,buffsports.io,crystal-launcher.pl,gamespack.net,worldsports.si,worldsports.*,cutynow.com,exnion.com,vikingf1le.us.to,exe-urls.com,evernia.site,vidsrc2.*,www.viprow.is,viprow.*,ijvam.com,olympicweb.me,olympicweb.*,uploadhaven.com,arcjav.com,mc-hacks.net,mycivillinks.com,wonderapk.com,megaup.net,exeo.app,vidsrc.*,cricwatch.io,cricwatch.*,vipleague.vg,vipleague.*,soccerbox.me,soccerbox.*,igg-games.co,cracktv.me,cracktv.*,torrentmac.net,vipboxtv.*,vipbox.fm,vipbox.*,userscloud.com,game3rb.com,soap2day.*,soccerworldcup.me,igg-games.com,miraculous.to,coloredmanga.com,hentaispark.com,send.cm#%#//scriptlet("abort-current-inline-script", "navigator", "FingerprintJS")
 motohigh.pl###custom_html-3
 motohigh.pl###zox-lead-top-wrap
 motohigh.pl##+js(nostif, , 1)
@@ -76646,7 +76506,7 @@ worldsoccertalk.com##[id*="primis_"]
 worldsoccertalk.com##div.article-body__sidebar > aside > section.sidebar-streaming
 worldsoccertalk.com##div[class^="article-banner-"]
 worldsp.me###html7
-worldsports.st,olympicstreams.*,crackstreams.*,soccerworldcup.me,720pstream.me,buffstreams.*,vipboxtv.*,cricstreams.re,viprow.*,socceronline.me,vipleague.*,vipbox.*,strikeout.*#$#.position-absolute { position: absolute !important; left: -3000px !important; }
+worldsports.si,olympicstreams.*,crackstreams.*,soccerworldcup.me,720pstream.me,buffstreams.*,vipboxtv.*,cricstreams.re,viprow.*,socceronline.me,vipleague.*,vipbox.*,strikeout.*#$#.position-absolute { position: absolute !important; left: -3000px !important; }
 worldstar.com##+js(remove-cookie, /ana_client_session_id|wshh_uid/)
 worldstar.com##+js(set, Object.prototype.shouldExpectGoogleCMP, false)
 worldstar.com##div[style*="max-height:250px"]
