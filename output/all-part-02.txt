@@ -3,11 +3,42 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-10-13 04:33:24 +0800
-! Last Modified: 2026-10-13 04:33:24 +0800 (北京时间 UTC+8)
+! Version: 2026-10-13 08:05:17 +0800
+! Last Modified: 2026-10-13 08:05:17 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 113444
+! Rules: 113484
 
+##.adTile
+##.adTileWrap
+##.adTiler
+##.adTip
+##.adTitle
+##.adTitleR
+##.adTop
+##.adTopBk
+##.adTopFloat
+##.adTopHome
+##.adTopLB
+##.adTopLeft
+##.adTopRight
+##.adTopWrapper
+##.adTopboxright
+##.adTwo
+##.adTxt
+##.adType2
+##.adUnderArticle
+##.adUnit
+##.adUnitHorz
+##.adUnitVert
+##.adVertical
+##.adVideo
+##.adVideo2
+##.adVl
+##.adVplaceholder
+##.adWarning
+##.adWebBoard
+##.adWideSkyscraper
+##.adWideSkyscraperRight
 ##.adWidget
 ##.adWidgetBlock
 ##.adWithTab
@@ -25802,6 +25833,11 @@
 3dmgame.com#%#//scriptlet('abort-on-property-write', 'adStart')
 3dnatives.com#?#.widget-title > span:contains(Advertisement)
 3dnews.ru##a[href^="http://metrika.yandex.ru/"]
+3downnation.com###belowVideoAd
+3downnation.com###mvp-content-main > div.code-block[style*="clear: both;"]
+3downnation.com###mvp-more-post-ad
+3downnation.com##.mvp-feat4-sub-ad
+3downnation.com,goonernews.com###snack-sidebar-outer
 3dpchip.com,splashbase.co,ralli.ee,camcam.cc,nsw2u.*,mundovideoshd.com,ayatoon.com,sapphirescan.com,eventiavversinews.it,studybullet.com,studybullet.com#%#//scriptlet('set-constant', 'adbEnableForPage', 'false')
 3dporndude.com##.col-asside > div.title[bis_skin_checked="1"]
 3dporndude.com##.grid-temp > li:has(> script)
@@ -32585,6 +32621,7 @@ ball.com,wanakaapp.nz##app-cookie-notice
 balladofantara.com##.cookie-tips-container
 ballard-inc.com##.consent-footer
 ballon.co.il###twg-cookie-bar
+ballondor.com##.pubstack-ad-slot
 ballroomdancers.com,digitimes.com,pintprice.com###adspace
 balls.ie##.gray-ad-title
 balls.ie##[type="doubleclick"]
@@ -33343,7 +33380,9 @@ benzinga.com##.lazyload-wrapper[style="min-height:170px;width:100%"]
 benzinga.com##.raptive-ad-placement
 benzinga.com##.raptive-header-banner
 benzinga.com##.video-player-wrapper
+benzinga.com##div.ad-reserved
 benzinga.com##div[class^="GoogleAdBlock_"]
+benzinga.com##div[class^="SiteNav-module-"] > div.bg-gradient-to-b:has(> div div.optimizely-top-banner)
 benzinga.com#$#.cUDaEv { margin-top:162px !important; }
 benzinga.com#$#.gZyLpV .mobile-header { margin-top:0 !important; }
 benzinga.com#$#.iOxiqE .mobile-header { margin-top:0 !important; }
@@ -44002,8 +44041,10 @@ drive.com.au##.adSpacing-module-scss-module__5jWT7q__drive-ad-spacing
 drive.com.au##.adSpacing_drive-ad-spacing__HdaBg
 drive.com.au##.gam-ad
 drive.com.au##.gam-ad-wrapper
+drive.com.au##.roofrack-wrapper
 drive.com.au##.subscribe_drive-subscribe-content__wrapper__H5Hu0
 drive.com.au##.subscribe_drive-subscribe-content__wrapper__eL0k9
+drive.com.au##div[class^="adSpacing_drive-ad-spacing"]
 drive.com.au##hr
 drive.google.com,mail.google.com##div[data-is-inner-content-recommendation]
 drive.ru#@#.article-social-container
@@ -52950,7 +52991,6 @@ goonchan.org##iframe[src^="https://creative.mavrtracktor.com/"]
 goonchan.org#%#//scriptlet('prevent-setTimeout', 'adsbygoogle')
 goonchan.org#@#ins.adsbygoogle[data-ad-client]
 goonchan.org#@#ins.adsbygoogle[data-ad-slot]
-goonernews.com###snack-sidebar-outer
 goonernews.com##.a-snack-top
 goonernews.com##.inblog_ad
 goonlinetools.com##.grid + div.ml-4 + a[href][target="_blank"]
@@ -83136,7 +83176,7 @@ shieldsgazette.com###sidebar-newsletter-signup
 shika-kokushi.com###popup__breakaway__prevention
 shika-kokushi.com###popup__scroll
 shika-kokushi.com##.fixed_bottom_banner
-shikotch.in,18jav.tv,batcave.biz,camslib.com,traingon.top,momon-ga.com,nyahentai.*,hentai-moon.com,animefire.io,animefire.*,pxp.farm,pxp.guru,pxp.*,upload18.org,luciferdonghua.in,25img.com,netfapx.com,pornleaks.in,twitchnosub.com,fc2ppv.me,fc2ppv.stream,fc2ppv.*,livecamrips.to,camsrip.com,brazz.org,playmogo.com,thotchicks.com,gelbooru.com,lewdzone.com,r-34.xyz,simply-hentai.com,turbo.cr,upload18.com,luluvids.top,paipancon.com,verhentai.top,muchohentai.com,mangago.me,turbovid.*,javx357.com,animebr.org,celebritydeeplink.com,japaneseholes.com,javlab.net,javmeta.com,vipserije.com,javideo.net,advertape.net,cyberdrop.*,popjav.in,vevocloud.com,x-fetish.tube,myvidplay.com,arigl.com,saint2.*,imgbox.com,mens1069.com,simpcity.*,javfan.one,jmanga.media,javfc2.xyz,nukibooks.com,jpg6.su,luluvid.com,jav.si,javtiful.com,pornslash.com,hentai2w.com,javpas.com,nsfwr34.com,luluvdoo.com,tojav.net,ekasiwap.com,xxgasm.com,javmenu.com,porntin.com,asianporn.li,javfor.tv,shinshi-manga.net,asmr18.fans,b-hentai.com,jav-fun.cc,rawkuma.net,spoilerplus.tv,daftporn.com,thefappeningblog.com,javboys.com,empressleak.biz,ddd-smart.net,rule34.*,archivebate.*,apkhosto.com,jpg5.su,nsfwyoutube.com,thefappening.pro,javhd.*,javhdz.today,fapeza.com,xmalay1.net,animeworld.*,natomanga.com,play.playkrx18.site,missavtv.com,poapan.xyz,nudogram.com,watchadsontape.com,streamtape.com,18comic.vip,18comic-gquu.vip,mitaku.net,hitomi.la,klmanga.app,mangarawjp.tv,javmix.tv,hentai2read.com,sxyprn.com,xmoviesforyou.com,fapfappy.com,jav.direct,syosetu.*,kissjav.li,lovingsiren.com,mesex.pro,xanimeporn.com#%#//scriptlet('abort-current-inline-script', 'WebAssembly', 'atob')
+shikotch.in,18jav.tv,batcave.biz,camslib.com,traingon.top,momon-ga.com,nyahentai.*,hentai-moon.com,animefire.io,animefire.*,pxp.farm,pxp.guru,pxp.*,upload18.org,luciferdonghua.in,25img.com,netfapx.com,pornleaks.in,twitchnosub.com,fc2ppv.me,fc2ppv.stream,fc2ppv.*,livecamrips.to,camsrip.com,brazz.org,playmogo.com,thotchicks.com,gelbooru.com,lewdzone.com,r-34.xyz,simply-hentai.com,turbo.cr,upload18.com,luluvids.top,paipancon.com,verhentai.top,muchohentai.com,mangago.me,turbovid.*,javx357.com,animebr.org,celebritydeeplink.com,japaneseholes.com,javlab.net,javmeta.com,vipserije.com,javideo.net,advertape.net,cyberdrop.*,popjav.in,vevocloud.com,x-fetish.tube,myvidplay.com,arigl.com,saint2.*,imgbox.com,mens1069.com,simpcity.*,javfan.one,ww1.jmanga.media,javfc2.xyz,nukibooks.com,jpg6.su,luluvid.com,jav.si,javtiful.com,pornslash.com,hentai2w.com,javpas.com,nsfwr34.com,luluvdoo.com,tojav.net,ekasiwap.com,xxgasm.com,javmenu.com,porntin.com,asianporn.li,javfor.tv,shinshi-manga.net,asmr18.fans,b-hentai.com,jav-fun.cc,rawkuma.net,spoilerplus.tv,daftporn.com,thefappeningblog.com,javboys.com,empressleak.biz,ddd-smart.net,rule34.*,archivebate.*,apkhosto.com,jpg5.su,nsfwyoutube.com,thefappening.pro,javhd.*,javhdz.today,fapeza.com,xmalay1.net,animeworld.*,natomanga.com,play.playkrx18.site,missavtv.com,poapan.xyz,nudogram.com,watchadsontape.com,streamtape.com,18comic.vip,18comic-gquu.vip,mitaku.net,hitomi.la,klmanga.app,mangarawjp.tv,javmix.tv,hentai2read.com,sxyprn.com,xmoviesforyou.com,fapfappy.com,jav.direct,syosetu.*,kissjav.li,lovingsiren.com,mesex.pro,xanimeporn.com#%#//scriptlet('abort-current-inline-script', 'WebAssembly', 'atob')
 shiksha.com##.DFPRecoWrapper
 shiksha.com##.multiTag_dfps
 shiksha.com##.onSiteDFPReco_new
