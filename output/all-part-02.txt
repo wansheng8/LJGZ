@@ -3,145 +3,11 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-10-17 11:32:46 +0800
-! Last Modified: 2026-10-17 11:32:46 +0800 (北京时间 UTC+8)
+! Version: 2026-10-17 18:31:35 +0800
+! Last Modified: 2026-10-17 18:31:35 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 111606
+! Rules: 111482
 
-##.adtech-wrapper
-##.adtechMobile
-##.adtech_wrapper
-##.adtester-container
-##.adtext-bg
-##.adtext_gray
-##.adtext_horizontal
-##.adtext_onwhite
-##.adtext_vertical
-##.adtext_white
-##.adtextleft
-##.adtextright
-##.adthrive
-##.adthrive-ad
-##.adthrive-content
-##.adthrive-header
-##.adthrive-header-container
-##.adthrive-placeholder-content
-##.adthrive-placeholder-header
-##.adthrive-placeholder-static-sidebar
-##.adthrive-placeholder-video
-##.adthrive-sidebar
-##.adthrive-video-player
-##.adthrive_custom_ad
-##.adtile
-##.adtips
-##.adtips1
-##.adtitle
-##.adtoggle
-##.adtop
-##.adtop-border
-##.adtops
-##.adtower
-##.adtravel
-##.adttl
-##.adtxt
-##.adtxtlinks
-##.adult-adv
-##.adun
-##.adunit
-##.adunit-300-250
-##.adunit-active
-##.adunit-adbridg
-##.adunit-container
-##.adunit-container_sitebar_1
-##.adunit-googleadmanager
-##.adunit-lazy
-##.adunit-middle
-##.adunit-parent
-##.adunit-purch
-##.adunit-side
-##.adunit-title
-##.adunit-top
-##.adunit-wrap
-##.adunit-wrapper
-##.adunit125
-##.adunit160
-##.adunit300x250
-##.adunit468
-##.adunitContainer
-##.adunit_300x250
-##.adunit_728x90
-##.adunit_content
-##.adunit_footer
-##.adunit_leaderboard
-##.adunit_rectangle
-##.adv--300x250
-##.adv--728x90
-##.adv--square
-##.adv-120x600
-##.adv-160
-##.adv-160x600
-##.adv-200-200
-##.adv-250-250
-##.adv-300
-##.adv-300-1
-##.adv-300-250
-##.adv-300-600
-##.adv-300x250
-##.adv-336-280
-##.adv-4
-##.adv-468-60
-##.adv-468x60
-##.adv-6park
-##.adv-700
-##.adv-728
-##.adv-728-90
-##.adv-970
-##.adv-970-250
-##.adv-970-250-2
-##.adv-ad
-##.adv-aside
-##.adv-background
-##.adv-banner
-##.adv-bar
-##.adv-block
-##.adv-block-container
-##.adv-border
-##.adv-bottom
-##.adv-box
-##.adv-box-holder
-##.adv-box-wrapper
-##.adv-carousel
-##.adv-center
-##.adv-click
-##.adv-cont
-##.adv-cont1
-##.adv-conteiner
-##.adv-cookie
-##.adv-couplets
-##.adv-dvb
-##.adv-format-1
-##.adv-full-width
-##.adv-google
-##.adv-gpt-desktop-wrapper
-##.adv-gpt-wrapper-desktop
-##.adv-halfpage
-##.adv-header
-##.adv-holder
-##.adv-in-body
-##.adv-inset
-##.adv-intext
-##.adv-intext-label
-##.adv-key
-##.adv-label
-##.adv-leaderboard
-##.adv-leaderboard-banner
-##.adv-link
-##.adv-link--left
-##.adv-link--right
-##.adv-mobile-wrapper
-##.adv-mpu
-##.adv-outer
-##.adv-p
 ##.adv-right
 ##.adv-right-300
 ##.adv-rotator
@@ -14845,7 +14711,6 @@
 ##.push-subscription-wrapper
 ##.push-top[clickmode="cpt"]
 ##.push-wrap:not(body):not(html)
-##.push-wrapper:not(body):not(html)
 ##.pushDownAd
 ##.pushNotWrap
 ##.pushNotification
@@ -24148,7 +24013,7 @@
 4c.cn##div[id^="top_ad"]
 4camping.cz,khronos.org###cookieConsentForm
 4cc.com.au,ansa.it,cryptopotato.com,dailyartmagazine.com,eff.org,ewn.co.za,fightful.com,hannity.com,jurist.org,lagaceta.com.ec,melmagazine.com,menselijklichaam.nl,miragenews.com,mobilesyrup.com,mole24.it,newhumanist.org.uk,sampdoria.it,thecookscook.com,upcomingvinyl.com,vivercomsaude.site##.share-links
-4cc.com.au,baltic-course.com,domusweb.it,futbol24.com,gatewaynews.co.za,gsmarena.com,gulfnews.com,idealista.com,jetphotos.com,karger.com,maritimejobs.com,newagebd.net,prohaircut.com,railcolornews.com,titter.com,zbani.com##.adv
+4cc.com.au,arenaev.com,baltic-course.com,domusweb.it,futbol24.com,gatewaynews.co.za,gsmarena.com,gulfnews.com,idealista.com,jetphotos.com,karger.com,maritimejobs.com,newagebd.net,prohaircut.com,railcolornews.com,titter.com,zbani.com##.adv
 4chan.org###bd > div[style="text-align:center;margin: 10px 0"]
 4chan.org##.danbo-slot
 4chan.org,4channel.org##.danbo-slot
@@ -26629,7 +26494,7 @@ alibaba.com#?#div[data-search-floor] [data-supplier-card]:has-text(Ad)
 alibabacloud.com###carousel-whois
 alibabacloud.com##.b-alicloud-bottom
 alibabacloud.com##.hmod-alicloud-contact-sales-support
-alibabagroup.com,back.engineering,buildsoftwaresystems.com,car-part.co.il,cloud.huawei.com,confuciusinstitute.ac.uk,construtoraelevacao.com.br,driver61.com,gamsgo.com,hostcay.com,stheadline.com,tenderboard.gov.bh,upv.es,wodify.com##.cookie-box
+alibabagroup.com,back.engineering,buildsoftwaresystems.com,car-part.co.il,cloud.huawei.com,confuciusinstitute.ac.uk,construtoraelevacao.com.br,driver61.com,gamsgo.com,hostcay.com,stheadline.com,tenderboard.gov.bh,upv.es,wodify.com,wowfi.dubaiairports.ae##.cookie-box
 aliciagame.com###block-block-6
 aliexpress.com###voyager-gdpr-2025
 aliexpress.com##.aliexpress-notice
@@ -28728,7 +28593,6 @@ ar15.com##[href^="/forums/transfers.html"]
 ar15.com,armageddonexpo.com,audiforums.com,f1gamesetup.com,ferrarichat.com,ford-trucks.com,hotrodhotline.com,jaguarforums.com,pypi.org,smashingmagazine.com,thebugle.co.za,wbal.com,webtorrent.io##.sponsors
 ara.cat##.ara-newsletter
 ara.cat,europapress.es##.footer-rrss
-arabbank.com.au,color4care.co.uk,color4care.dk,color4care.fi,color4care.no,operon.pl,vardvaskan.se#@#.push-wrapper:not(body):not(html)
 arabiaweather.com##.content-side-ad
 arabiaweather.com##.mpu-card
 arabic-for-nerds.com#%#//scriptlet("prevent-addEventListener", "DOMContentLoaded", "detect")
@@ -35263,7 +35127,7 @@ cda.pl#$#body.fullscreen-overflow { overflow: auto !important; }
 cdaction.pl##.article-prm
 cdaction.pl##.start-prm
 cdecomunicacion.es###ca_banner
-cdek.shopping,hypeddit.com,mangaplanet.com,oponykozak.pl,sourcesecurity.com##.js-cookie-consent
+cdek.shopping,hypeddit.com,mangaplanet.com,my-tempmail.com,oponykozak.pl,sourcesecurity.com##.js-cookie-consent
 cdenv.be#@##cookieconsent-banner
 cdenv.be#@#div.cookieconsent
 cdh.be###comp-jkmod7cm
@@ -37264,6 +37128,8 @@ codeur.com###follow-modal
 codeur.com##.guest-banner
 codeur.com,palestinechronicle.com,snippet.finance,techguide.com.au###custom_html-3
 codevn.net#%#//scriptlet("prevent-setInterval", "['offsetHeight']")
+codex-resets.com##.sponsor-mobile
+codex-resets.com##.sponsor-rail
 codexiu.cn##.blog-twitter:first-child
 codexqr.app###adblocker-warning
 codexworld.com##.SidebarBox ~ div.adsense_widget:not(.adsSt_widget)
@@ -41543,6 +41409,7 @@ doctorofcredit.com#@#.wpdiscuz-subscribe-bar
 doctorpiter.ru,marieclaire.ru,maximonline.ru,mcmaison.ru,parents.ru,starhit.ru,the-day.ru,thegirl.ru,vokrugsveta.ru,woman.ru##.cookiesPopup
 documentaryheaven.com##aside[style^="padding: 17px 0 12px 0!important;"][style*="overflow:hidden;"]
 documentation.insp.gouv.fr##.cookies-management
+docusign.com#@##social-share
 dod.gr###cookies_component
 doda.jp,tubefilter.com#@#.mainAd
 dodi-repacks.site###block-17
@@ -51650,6 +51517,7 @@ gsm1x.xyz##+js(aopw, downloadJSAtOnload)
 gsm1x.xyz##+js(nano-stb, run)
 gsma.com###gsma-app-bottom-bar
 gsmarena.com###all-opinions > div[style="padding-bottom: 24px; min-height: 144px; margin-top: 22px;"]
+gsmarena.com###opt300x250
 gsmarena.com###subHeader2
 gsmarena.com###subHeader3
 gsmarena.com###subHeader:has(> #topAdv)
@@ -61605,6 +61473,8 @@ liberoquotidiano.it##div[style^="margin:6px auto 12px;position:relative;"]
 liberoquotidiano.it##img[id^="social-"]
 libertaddigital.com##.links_social
 libertas.pl##div[style="clear:both;background:#fff;color:#000;padding:10px 3%;margin:0;position:fixed;bottom:0;border-top:1px solid #777;width:94%;"]
+libertycity.net##.lcnet.backgr42
+libertycity.net##[data-umami-event="Difmark Brand Click"]
 libertycity.net,libertycity.ru##.backgr42
 libertycity.net,libertycity.ru##.file_info_ad
 libertycity.net,libertycity.ru##body > div[class] > a[target="_blank"]
@@ -61613,6 +61483,7 @@ libertycity.net,libertycity.ru#$#.downloada { display: block !important; }
 libertycity.net,libertycity.ru#$#body > div[class^="lc-stage-gap-"][style^="height:"]:empty { height: 10px !important; }
 libertycity.net,libertycity.ru,vgtimes.com,vgtimes.ru##.adfshift
 libertycity.net,libertycity.ru,vgtimes.com,vgtimes.ru##.banner_in_news
+libertycity.net,vgtimes.com##.banner_in_news
 libertynation.com###memberZoneFullSub
 libertynation.com##.embedshortcode
 libertystreeteconomics.newyorkfed.org##.email-alert-box
@@ -62471,6 +62342,9 @@ lodzkisport.pl##.vc_column-inner > .wpb_wrapper > a[target="_blank"] > img
 lodzkisport.pl##div[class^="zajawka-"]
 loesdau.de##.lightbox-bg
 loewe.tv##.footerIcons
+lofi-nopixel.com##div[data-testid="ad-anchor"]
+lofi-nopixel.com##div[data-testid="ad-in-feed"]
+lofi-nopixel.com##div[data-testid="ad-rail-tier"]
 lofter.com##.js-promote-itm
 loggly.com##.promotion
 logi.im##body > div[style^="background: black; position: fixed; "][style*="opacity: 0.5; z-index: 1999;"]
@@ -89189,6 +89063,8 @@ tmohentai.com##.advert
 tmohentai.com##div[class^="netloop-ad-banner"]
 tmonews.com##.featured-google
 tmonews.com##.sponsor-dfp
+tmpmailer.com##.ad-anchor
+tmpmailer.com##.tm2-cookie
 tmstor.es#@#.top_social
 tmt-magazine.com##.sitealert
 tmtpost.com##.open-app
@@ -91074,16 +90950,16 @@ tweaktown.com##.adcon
 tweaktown.com##.center-tag-rightad
 tweaktown.com##.footer_bottom
 tweaktown.com##.fusevidad
-tweaktown.com##.gnci
 tweaktown.com##.newsletter-signup-bottom
 tweaktown.com##.outbrainad
-tweaktown.com##.pr-p7.fsvgs
 tweaktown.com##.right_subscribe
 tweaktown.com##.sharedesktop
 tweaktown.com##.tldrad
+tweaktown.com##.tt-daily-inline
 tweaktown.com##.tt-deals
-tweaktown.com##.tt-follow-news
+tweaktown.com##.tt-ibar-tools
 tweaktown.com##.tt-preferred-sources
+tweaktown.com##.tt-rail-daily
 tweaktown.com##center[style*="margin-bottom:"]
 tweaktown.com##center[style*="margin:"]
 tweaktown.com##center[style^="min-height:250px"]
@@ -92740,7 +92616,6 @@ vgst.net##.cookies_containerClasses__UXnwM
 vgt.vn##.avgt-div
 vgtime.com##.vgart_top
 vgtime.com##.vgart_top > img
-vgtimes.com##.banner_in_news
 vgtimes.com##.thisad
 vgtimes.com##.vgt_orig_bg
 vgtv.no###player.pulse-isPauseAdVisible > .jw-overlays
@@ -102871,6 +102746,7 @@ zzzyk.com###Tinfo
 @@||dd.thetrainline.com.first-party-js.datadome.co^$domain=thetrainline.com
 @@||dd.wizzair.com.first-party-js.datadome.co^$domain=wizzair.com
 @@||dd6zx4ibq538k.cloudfront.net/static/images/$domain=tkmaxx.com
+@@||ddbm2.paypal.com.first-party-js.datadome.co^$script,xmlhttprequest,domain=id.venmo.com
 @@||ddzswov1e84sp.cloudfront.net^$script,domain=free-content.pro
 @@||de-api.eco.astro.com.my/feed/api/$stealth=3p-auth,domain=astroawani.com
 @@||de-config.sensic.net/sui-connector.js$script,domain=sportschau.de
