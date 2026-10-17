@@ -3,11 +3,122 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-10-17 18:31:35 +0800
-! Last Modified: 2026-10-17 18:31:35 +0800 (北京时间 UTC+8)
+! Version: 2026-10-17 22:35:34 +0800
+! Last Modified: 2026-10-17 22:35:34 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 111482
+! Rules: 111591
 
+##.adthrive_custom_ad
+##.adtile
+##.adtips
+##.adtips1
+##.adtitle
+##.adtoggle
+##.adtop
+##.adtop-border
+##.adtops
+##.adtower
+##.adtravel
+##.adttl
+##.adtxt
+##.adtxtlinks
+##.adult-adv
+##.adun
+##.adunit
+##.adunit-300-250
+##.adunit-active
+##.adunit-adbridg
+##.adunit-container
+##.adunit-container_sitebar_1
+##.adunit-googleadmanager
+##.adunit-lazy
+##.adunit-middle
+##.adunit-parent
+##.adunit-purch
+##.adunit-side
+##.adunit-title
+##.adunit-top
+##.adunit-wrap
+##.adunit-wrapper
+##.adunit125
+##.adunit160
+##.adunit300x250
+##.adunit468
+##.adunitContainer
+##.adunit_300x250
+##.adunit_728x90
+##.adunit_content
+##.adunit_footer
+##.adunit_leaderboard
+##.adunit_rectangle
+##.adv--300x250
+##.adv--728x90
+##.adv--square
+##.adv-120x600
+##.adv-160
+##.adv-160x600
+##.adv-200-200
+##.adv-250-250
+##.adv-300
+##.adv-300-1
+##.adv-300-250
+##.adv-300-600
+##.adv-300x250
+##.adv-336-280
+##.adv-4
+##.adv-468-60
+##.adv-468x60
+##.adv-6park
+##.adv-700
+##.adv-728
+##.adv-728-90
+##.adv-970
+##.adv-970-250
+##.adv-970-250-2
+##.adv-ad
+##.adv-aside
+##.adv-background
+##.adv-banner
+##.adv-bar
+##.adv-block
+##.adv-block-container
+##.adv-border
+##.adv-bottom
+##.adv-box
+##.adv-box-holder
+##.adv-box-wrapper
+##.adv-carousel
+##.adv-center
+##.adv-click
+##.adv-cont
+##.adv-cont1
+##.adv-conteiner
+##.adv-cookie
+##.adv-couplets
+##.adv-dvb
+##.adv-format-1
+##.adv-full-width
+##.adv-google
+##.adv-gpt-desktop-wrapper
+##.adv-gpt-wrapper-desktop
+##.adv-halfpage
+##.adv-header
+##.adv-holder
+##.adv-in-body
+##.adv-inset
+##.adv-intext
+##.adv-intext-label
+##.adv-key
+##.adv-label
+##.adv-leaderboard
+##.adv-leaderboard-banner
+##.adv-link
+##.adv-link--left
+##.adv-link--right
+##.adv-mobile-wrapper
+##.adv-mpu
+##.adv-outer
+##.adv-p
 ##.adv-right
 ##.adv-right-300
 ##.adv-rotator
@@ -95556,8 +95667,6 @@ wolt.com##[data-test-id="MainDiscoveryContent"] li[draggable]:has(a[aria-label*=
 wolt.com##div[data-test-id="MainDiscoveryContent"] li:has(> div.cb-elevated:has(button[data-test-id="AdvertisingLabel"]))
 wolt.com##div[data-test-id="SearchResultVenueSection"] li:has(> div.cb-elevated button[data-test-id="AdvertisingLabel"])
 wolt.com##ul[data-test-id="VenueVerticalListGrid"] > li:has( > div.cb-elevated button[data-test-id="AdvertisingLabel"])
-wolt.com#?#div[data-test-id="MainDiscoveryContent"] div > div:contains(/Polecane na Wolt|Sponsored|Gesponsert/)
-wolt.com#?#div[data-test-id="MainDiscoveryContent"] div > div:has-text(/Polecane na Wolt|Sponsored|Gesponsert/)
 wolt.com#@#div:has(> div > div > div > div > div > div > p:has-text(Sponsored))
 wolt.com#@#div:has(> div > div > div > div > div > p:has-text(Sponsored))
 wolt.com#@?#div:has(> div > div > div > div > div > div > p:contains(Sponsored))
