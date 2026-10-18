@@ -3,130 +3,11 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-10-18 23:03:19 +0800
-! Last Modified: 2026-10-18 23:03:19 +0800 (北京时间 UTC+8)
+! Version: 2026-10-19 04:00:49 +0800
+! Last Modified: 2026-10-19 04:00:49 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 111627
+! Rules: 111513
 
-##.adthrive-video-player
-##.adthrive_custom_ad
-##.adtile
-##.adtips
-##.adtips1
-##.adtitle
-##.adtoggle
-##.adtop
-##.adtop-border
-##.adtops
-##.adtower
-##.adtravel
-##.adttl
-##.adtxt
-##.adtxtlinks
-##.adult-adv
-##.adun
-##.adunit
-##.adunit-300-250
-##.adunit-active
-##.adunit-adbridg
-##.adunit-container
-##.adunit-container_sitebar_1
-##.adunit-googleadmanager
-##.adunit-lazy
-##.adunit-middle
-##.adunit-parent
-##.adunit-purch
-##.adunit-side
-##.adunit-title
-##.adunit-top
-##.adunit-wrap
-##.adunit-wrapper
-##.adunit125
-##.adunit160
-##.adunit300x250
-##.adunit468
-##.adunitContainer
-##.adunit_300x250
-##.adunit_728x90
-##.adunit_content
-##.adunit_footer
-##.adunit_leaderboard
-##.adunit_rectangle
-##.adv--300x250
-##.adv--728x90
-##.adv--square
-##.adv-120x600
-##.adv-160
-##.adv-160x600
-##.adv-200-200
-##.adv-250-250
-##.adv-300
-##.adv-300-1
-##.adv-300-250
-##.adv-300-600
-##.adv-300x250
-##.adv-336-280
-##.adv-4
-##.adv-468-60
-##.adv-468x60
-##.adv-6park
-##.adv-700
-##.adv-728
-##.adv-728-90
-##.adv-970
-##.adv-970-250
-##.adv-970-250-2
-##.adv-ad
-##.adv-aside
-##.adv-background
-##.adv-banner
-##.adv-bar
-##.adv-block
-##.adv-block-container
-##.adv-border
-##.adv-bottom
-##.adv-box
-##.adv-box-holder
-##.adv-box-wrapper
-##.adv-carousel
-##.adv-center
-##.adv-click
-##.adv-cont
-##.adv-cont1
-##.adv-conteiner
-##.adv-cookie
-##.adv-couplets
-##.adv-dvb
-##.adv-format-1
-##.adv-full-width
-##.adv-google
-##.adv-gpt-desktop-wrapper
-##.adv-gpt-wrapper-desktop
-##.adv-halfpage
-##.adv-header
-##.adv-holder
-##.adv-in-body
-##.adv-inset
-##.adv-intext
-##.adv-intext-label
-##.adv-key
-##.adv-label
-##.adv-leaderboard
-##.adv-leaderboard-banner
-##.adv-link
-##.adv-link--left
-##.adv-link--right
-##.adv-mobile-wrapper
-##.adv-mpu
-##.adv-outer
-##.adv-p
-##.adv-right
-##.adv-right-300
-##.adv-rotator
-##.adv-script-container
-##.adv-sidebar
-##.adv-skin-spacer
-##.adv-slot-container
 ##.adv-social-links
 ##.adv-text
 ##.adv-top
@@ -22674,7 +22555,7 @@
 1000.menu###cookiescript_injected_wrapper
 1000logos.net###ai_widget-4
 1000logos.net##.social_f
-1000logos.net,ambitiouskitchen.com,cookincanuck.com,groovypost.com,jxnl.co,leadingsapiens.com,notthathardtohomeschool.com,passiveincomemd.com,retrogamecoders.com,sallysbakingaddiction.com,sofx.com,sundaysuppermovement.com,theconsciousplantkitchen.com,theroastedroot.net,troypoint.com,wholefully.com,wyseguide.com##.seva-form
+1000logos.net,ambitiouskitchen.com,cookincanuck.com,groovypost.com,jxnl.co,leadingsapiens.com,notthathardtohomeschool.com,passiveincomemd.com,retrogamecoders.com,righto.com,sallysbakingaddiction.com,sofx.com,sundaysuppermovement.com,theconsciousplantkitchen.com,theroastedroot.net,troypoint.com,wholefully.com,wyseguide.com##.seva-form
 10015.io##.dSErOH
 1001fonts.com###adzoneTop
 1001fonts.com##body .adzone-sidebar-wrapper
@@ -48820,6 +48701,7 @@ gadgethacks.com##.whtaph
 gadgethacks.com,reality.news,wonderhowto.com##.whtaph
 gadgethacks.com,virtual.reality.news###sticky-footer--container
 gadgetnews.net#@#img[width="728"][height="90"]
+gadgetreview.com###cls-video-container-RbX8WupV
 gadgetreview.com#?#.wp-container-core-group-is-layout-e964804f:has-text(Join over 150k Readers)
 gadgets.ndtv.com##.__agifstk
 gadgets.ndtv.com##.__wdgt_rhs_kpc
@@ -69741,6 +69623,8 @@ niedziela.pl##.border-dotted-left > div:has(> .sticky-element > .reklama)
 niedziela.pl#@#.article-social-btn
 niemanlab.org##.mailmunch-overlay
 niemanlab.org##.mailmunch-popover
+niemanlab.org##.roscoe-newsletter-box
+niemanlab.org##.rsc-header-subscribe
 niemanlab.org##.s2-bottom-emailpromo
 niemanlab.org##.simple-endofarticleemail
 niemanlab.org##.simple-sidebar-emailsignupbox
@@ -95300,6 +95184,7 @@ wikihow.com##div[id^="rightrail"][style^="height:"][class="rr_container"]
 wikihow.it###sf
 wikijob.co.uk##.mv-video-target
 wikikeep.com##.widget-area
+wikily.gg###right-rail
 wikipedia.org###centralNotice
 wikipedia.org##.ext-quick-survey-panel
 wikipooster.com##noscript + div[id][class*=" "]
@@ -111627,6 +111512,7 @@ zzzyk.com###Tinfo
 @@||zorroplay.xyz/*.php$stealth=referrer
 @@||zpmobi.cn^*/ad.css?$stylesheet
 @@||zqtk.net^$script,domain=wsj.com
+@@||zs.com/scripts/analytics/pageview.js$~third-party
 @@||zsp1.luzdelsur.com.pe/*/fingerprint2/fingerprint2.min.js$~third-party
 @@||zstatic.net^$script,domain=niuyankan.top
 @@||zxc.nyaa-tan.my.id/js/-ads-banner.js$domain=kusonime.com
