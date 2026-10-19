@@ -3,21 +3,11 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-10-20 01:54:50 +0800
-! Last Modified: 2026-10-20 01:54:50 +0800 (北京时间 UTC+8)
+! Version: 2026-10-20 05:57:39 +0800
+! Last Modified: 2026-10-20 05:57:39 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 131161
+! Rules: 131154
 
-###AdBillboard
-###AdBottomLeader
-###AdBottomRight
-###AdBox2
-###AdColumn
-###AdContainerTop
-###AdContent
-###AdDisclaimer
-###AdMiddle
-###AdPopUp
 ###AdRectangleBanner
 ###AdSense1
 ###AdSense2
@@ -82362,6 +82352,7 @@ lucianne.com##table[width="728"][height="119"]
 lucidsamples.com###blocksplash
 luciferdonghua.in###afu-ab
 luciferdonghua.in###sidebar > .widget_text:has(> .custom-html-widget > div[style^="width:350px"])
+luciferdonghua.in###w2p5ortzc
 luciferdonghua.in##.afu-banner
 luciferdonghua.in##.announ
 luciferdonghua.in##div[data-afuhost]
@@ -85273,6 +85264,8 @@ misskey.io###misskey-ga-cookie-accept-bar
 missouriquiltco.com###enjoySomeCookies
 missyuan.com##.spaceborder
 mistercurtain.de###lock
+misterdonghua.in#%#//scriptlet('google-ima3')
+misterdonghua.in#%#//scriptlet('prevent-element-src-loading', 'script', 'imasdk.googleapis.com')
 mistergadget.tech##.box-mail-chimp
 misterhorse.com###cookies-start-modal
 mistertennis.com#@#.banner_cokie
