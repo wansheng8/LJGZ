@@ -3,202 +3,11 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-10-20 05:57:39 +0800
-! Last Modified: 2026-10-20 05:57:39 +0800 (北京时间 UTC+8)
+! Version: 2026-10-20 12:00:46 +0800
+! Last Modified: 2026-10-20 12:00:46 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 131154
+! Rules: 130964
 
-###AdRectangleBanner
-###AdSense1
-###AdSense2
-###AdSense3
-###AdServer
-###AdSkyscraper
-###AdSlot_megabanner
-###AdSpaceLeaderboard
-###AdTop
-###AdTopLeader
-###AdWidgetContainer
-###AdWrapperSuperCA
-###AdZone1
-###AdZone2
-###Ad_BelowContent
-###Ad_Block
-###Ad_TopLeaderboard
-###Adbanner
-###Adlabel
-###AdsBannerTop
-###AdsBillboard
-###AdsBottomContainer
-###AdsContent
-###AdsDiv
-###AdsFrame
-###AdsPubperform
-###AdsRight
-###AdsSky
-###AdsTopContainer
-###AdsWrap
-###Ads_BA_BS
-###Ads_BA_BUT
-###Ads_BA_BUT2
-###Ads_BA_BUT_box
-###Ads_BA_CAD
-###Ads_BA_CAD2
-###Ads_BA_FLB
-###Ads_BA_SKY
-###Ads_BA_VID
-###Ads_TFM_BS
-###Ads_google_bottom_wide
-###Adsense300x250
-###AdsenseBottom
-###AdsenseTop
-###Adsterra
-###Adv10
-###Adv11
-###Adv8
-###Adv9
-###AdvContainer
-###AdvFooter
-###AdvHeader
-###Adv_Footer
-###AdvertMid1
-###AdvertMid2
-###AdvertMpu
-###AdvertPanel
-###AdvertText
-###AdvertiseFrame
-###Advertisement1
-###Advertisement2
-###AdvertisementDiv
-###AdvertisementLeaderboard
-###Advertisements
-###AdvertisingDiv_0
-###Advertorial
-###Advertorials
-###AiraGdprDialog
-###AlertCookie
-###AlertCookieBanner
-###AlertCookies
-###AlertDialogConatiner
-###AlertaCookies
-###AllowCookieContainer
-###AllowCookiesMessage
-###AllowCookiesWrapper
-###AnchorAd
-###AppCookieBar
-###ArrowToTop
-###ArsysCookieAcceptance
-###ArticleContentAd
-###AvisoCOOKIES
-###AvisoCookie
-###AvisoCookies
-###AvisoCookieslaw
-###AvvisoCookie
-###AwCookieConsent
-###BBCookieToolDiv
-###BIPCookies
-###BMODCookieConsentBar
-###BackToTop
-###BandeauCNIL
-###BandeauCookie
-###BandeauCookies
-###BandeauInfoCookie
-###Banner728x90
-###BannerAd
-###BannerAds
-###BannerAdvert
-###BannerAdvertisement
-###BannerBox
-###BannerLGPD
-###Banner_cookie_0
-###Banner_cookie_1
-###BarraCookie
-###BarraCookies
-###BasicCookie
-###BigBoxAd
-###BigboxAdUnit
-###BlkCookies
-###Bloque_EX_Newsletter
-###Bloque_EX_NewsletterTematico
-###BodyAd
-###BodyTopAds
-###Body_Ad8_divAdd
-###BortosCookie
-###BotAd
-###BottomAdContainer
-###BottomRightAdWrapper
-###BottomSocialLinks
-###BoxCookie
-###BsCookie
-###BtmToPageTopArea
-###ButtonAd
-###CCM_popup
-###CCPA-notification
-###CCPABanner
-###CCPANotice
-###CCPA_opt_out
-###CCompliance
-###CCookie
-###CGUCookie
-###CNIL
-###CNIL-cookie
-###CNIL-notice
-###CNILMessage
-###CNIL_message
-###COOKIE-CONSENT-EU
-###COOKIEALERT
-###COOKIEHINWEIS
-###COOKIEMESSAGE
-###COOKIES
-###COOKIEWARNING
-###COOKIE_BANNER
-###COOKIE_HINWEIS
-###COOKIE_MHD_ALERT
-###COOKIE_NOTIF
-###COOKIE_OPT
-###COOKIE_WARNING
-###CWCookie
-###CenturiaCookieMonster
-###CerezUyari
-###ChapterView > .slide-baidu
-###CinemaAcceptCookieBar
-###ConsentBanner
-###ConsentCookie
-###ConsentCookiePopup
-###ConsentLayerWrapper
-###Consentement-cookies
-###ContentAd
-###Content_CA_AD_0_BC
-###Content_CA_AD_1_BC
-###CoockieAlert
-###CoockiesPage
-###Cookie-Consent
-###Cookie-Container
-###Cookie-Overlay
-###Cookie-Popup
-###Cookie-container_outer
-###Cookie-scrolldown
-###CookieAcceptContainer
-###CookieAcceptLayer
-###CookieAcceptance
-###CookieAcknowledgeInfo
-###CookieAkkoord
-###CookieAlarm
-###CookieAlert
-###CookieAlertBox
-###CookieAlertContainer
-###CookieAlerts
-###CookieBG
-###CookieBackground
-###CookieBanner
-###CookieBannerMessageContainer
-###CookieBannerNew
-###CookieBar
-###CookieButton
-###CookieCheck
-###CookieCheck_injected
-###CookieCon
-###CookieConsent
 ###CookieConsentBanner
 ###CookieConsentCheck2
 ###CookieConsentContainer
@@ -43190,7 +42999,6 @@
 2ip.io,2ip.ru#$#.advMenuTab { visibility: hidden !important; }
 2ip.io,2ip.ru#?#.data_table > div.data_item a:contains(/Уточнит|Исправить|Make it plain/)
 2ip.io,2ip.ru#@#.advMenuTab
-2ip.io,shorturl.fm,sarkarijobcorner.com,phras.in,thunderstore.io,afrohouseking.com,chillflix.to,pixground.com,holidify.com,filexstream.sujanbotx.workers.dev,azmovies.to,34-hub.com,ogfap.com,coindesk.com,ohcar2022.co.in,dailyhindiadda.com,fifakitcreator.com,fontscompare.com,sarna.net,theproducenews.com,kaoruhana.com,marinetraffic.live,governmentjobvacancies.com,biharkhabar.co,resizepixel.com,tradingeconomics.com,netronline.com,linuxcapable.com,inc.com,businessday.ng,the-crossword-solver.com,crosswordsolver.com,greatbritishchefs.com,halotracker.com,wowdb.com,futbin.com,foxweather.com,tikmate.app,mixed-news.com,rome2rio.com,ubackup.com,southparkstudios.com,theglobeandmail.com,globalnews.ca,infoworld.com,worldsoccertalk.com,minecraftforum.net,snipboard.io,pics-x.com,recyclingtoday.com,battlefieldtracker.com,destinytracker.com,tracker.network,tracker.gg,jamesbachini.com,grammarbook.com,punchng.com,one-off.email,all3dp.com,mangafarm.com,mangajar.com,deeeep.io,raaaaft.io,trustedreviews.com,obsev.com,gfinityesports.com,reddit.com,reddittorjg6rue252oqsxryoxengawnmo46qy4kyii5wtqnwfj4ooad.onion,dvbtmap.eu,infinityfree.net,ibtimes.co.uk,amp-businessinsider-com.cdn.ampproject.org,deviantart.com,usatoday.com,link.postearn.io##.ad-container:not(#style_important)
 2ip.me##.menu_banner
 2ip.me,2ip.ua#?#.ipblockgradient > div[class]:contains(/Сменить IP-адрес|Змінити IP-адресу|Change IP-address|Changer adresse IP/)
 2ip.ua,2ip.me##a[href^="//proxy-seller.com/"]
@@ -64362,8 +64170,11 @@ ew.com#$?#.mm-ads-gpt-adunit { remove: true; }
 ew.com#?#.comp > strong:has-text(newsletter)
 ew.com,peopleenespanol.com,tripsavvy.com,shape.com,instyle.com,brides.com,byrdie.com,thesprucepets.com,thespruce.com,southernliving.com,realsimple.com,mydomaine.com,dailypaws.com,bhg.com,allrecipes.com,thebalancemoney.com,health.com,verywellfit.com,verywellmind.com,investopedia.com,mamainastitch.com,kurir.rs,interestingengineering.com,stuckonsweet.com,worldhistory.org,thefirearmblog.com,leckerschmecker.me,moin.de,buzzfeed.com,buzzfeednews.com,winfuture.de,parents.com#%#//scriptlet('trusted-suppress-native-method', 'Element.prototype.setAttribute', ' |"error-report.com"')
 ewarszawa.pl##div[class]:has(> div[id^="div-gpt-ad"]:only-child)
+eweek.com##.has-data-empty\:hidden.print\:hidden:has([data-ad-slot])
+eweek.com,2ip.io,shorturl.fm,sarkarijobcorner.com,phras.in,thunderstore.io,afrohouseking.com,chillflix.to,pixground.com,holidify.com,filexstream.sujanbotx.workers.dev,azmovies.to,34-hub.com,ogfap.com,coindesk.com,ohcar2022.co.in,dailyhindiadda.com,fifakitcreator.com,fontscompare.com,sarna.net,theproducenews.com,kaoruhana.com,marinetraffic.live,governmentjobvacancies.com,biharkhabar.co,resizepixel.com,tradingeconomics.com,netronline.com,linuxcapable.com,inc.com,businessday.ng,the-crossword-solver.com,crosswordsolver.com,greatbritishchefs.com,halotracker.com,wowdb.com,futbin.com,foxweather.com,tikmate.app,mixed-news.com,rome2rio.com,ubackup.com,southparkstudios.com,theglobeandmail.com,globalnews.ca,infoworld.com,worldsoccertalk.com,minecraftforum.net,snipboard.io,pics-x.com,recyclingtoday.com,battlefieldtracker.com,destinytracker.com,tracker.network,tracker.gg,jamesbachini.com,grammarbook.com,punchng.com,one-off.email,all3dp.com,mangafarm.com,mangajar.com,deeeep.io,raaaaft.io,trustedreviews.com,obsev.com,gfinityesports.com,reddit.com,reddittorjg6rue252oqsxryoxengawnmo46qy4kyii5wtqnwfj4ooad.onion,dvbtmap.eu,infinityfree.net,ibtimes.co.uk,amp-businessinsider-com.cdn.ampproject.org,deviantart.com,usatoday.com,link.postearn.io##.ad-container:not(#style_important)
 eweek.com,itbusinessedge.com,linuxtoday.com,serverwatch.com,techrepublic.com###bottom-footer-fixed-slot
 eweek.com,itbusinessedge.com,linuxtoday.com,serverwatch.com,techrepublic.com##.ta-campaign-widget
+eweek.com,news.liga.net,pogdesign.co.uk,freebusinessapps.net##div[data-ad-slot]
 eweiqi.com##.guoqing
 ewn.co.za##.bg-surface-03.text-content-secondary.space-y-\[0\.1875rem\].p-spacing-s.flex.flex-col.w-max.mx-auto
 ewn.co.za##.mailer-signup-sidebar
@@ -88592,7 +88403,6 @@ news.keckmedicine.org###ppmodule_socialmedia
 news.lankasri.com##.ds-share-blurb > div.ds-blurb
 news.lankasri.com##.ds-share-blurb > div.ds-blurb + .sponsor
 news.lankasri.com##.mfc-section div.ds-ms-blurb
-news.liga.net,pogdesign.co.uk,freebusinessapps.net##div[data-ad-slot]
 news.lyd.com.cn##table[cellspacing="5"]:nth-child(3)
 news.lyd.com.cn##td[width="300px"] > table[width="300"] > tbody > tr:nth-last-child(n+2)
 news.mail.ru##.tooltip_width_huge
