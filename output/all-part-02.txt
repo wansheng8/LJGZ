@@ -3,60 +3,11 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-10-20 19:23:09 +0800
-! Last Modified: 2026-10-20 19:23:09 +0800 (北京时间 UTC+8)
+! Version: 2026-10-20 23:58:55 +0800
+! Last Modified: 2026-10-20 23:58:55 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 132202
+! Rules: 132154
 
-||xxxadultphoto.com/*.php|
-||xxxbed.cyou/script/
-||xxxbed.cyou/script/superpop1.js
-||xxxblackbook.com^$third-party
-||xxxbox.me/vcrtlrvw
-||xxxbule.com/xb/xb.js
-||xxxbunker.com/ajax/guestlog
-||xxxbunker.com/ajax/viewlog
-||xxxc2c.org^$third-party
-||xxxcounter.com^$third-party
-||xxxdan.com/aa474eaa.js
-||xxxdessert.com/*_fe.js
-||xxxdessert.com/34l329_fe.js
-||xxxdl.net/nothing.aspx?
-||xxxextreme.org/Gfr4jkFh.
-||xxxfatclips.com/func.js
-||xxxfatclips.com/images/undbn.gif
-||xxxfetish24.com/helper/tos.js
-||xxxfiles.com/sw.js
-||xxxjmp.com^$popup
-||xxxmake.com^$doc
-||xxxmatch.com^$popup
-||xxxmatch.com^$third-party
-||xxxmaturevideos.com/ab_bl.php
-||xxxmaturevideos.com/ab_fl.js
-||xxxmoviestream.xyz/wp-content/themes/dooplay/nex1.
-||xxxonxxx.com/a.php|
-||xxxparodyhd.net/wp-content/themes/PsyPlay/billo.
-||xxxpicz.com/2b.jpg
-||xxxshake.com/*pop/|$script,~third-party
-||xxxshake.com/assets/f_load.js
-||xxxshake.com/static/js/script.js
-||xxxtubedot.com/js/24eka64.js
-||xxxtubedot.com/js/skvkl.js
-||xxxtubeset.com/promo
-||xxxvjmp.com^$popup
-||xxxvogue.net/*/external_pop.js
-||xxxvogue.net/_ad
-||xxxwebdlxxx.org/*%*.js|
-||xxxwebdlxxx.org^$csp=script-src 'self' data:
-||xxxwebdlxxx.org^$image,domain=imgdawgknuttz.com
-||xxxx.se/d/$subdocument
-||xxxxsx.com/sw.js
-||xxxxtube-porn.com/helper/tos.js
-||xy58.jp^$doc
-||xygwh.cc/js/p
-||xygwh.cc/js/x
-||xyimg.net^$domain=~xy.com
-||xyj321.com/static/xyj/js/foot_slide_bar_
 ||xyj321.com/static/zx/js/zx-con-jsq_
 ||xys*-jadwal.pages.dev/adblock.js
 ||xywy.com/gk?a=
@@ -51934,6 +51885,7 @@ bellesa.co##img[alt="Deeper Pause Ad"]
 bellesa.co#?#div[class^="Structure-sc"] > div[class^="Structure-sc"]:has(> div[class^="MediaQuery__"] div[data-label="HardX"])
 bellezashot.com#%#//scriptlet('prevent-eval-if', 'pub_300x250 pub_300x250m text-ad textAd text_ad adBanner ad-banner ad_box adbox')
 bellingcat.com##.footer__mailing__right
+bellinghamherald.com,bnd.com,bradenton.com,centredaily.com,charlotteobserver.com,cleaner.com,cults3d.com,dailynewshungary.com,elnuevoherald.com,fresnobee.com,heraldonline.com,heraldsun.com,idahostatesman.com,islandpacket.com,kansas.com,kansascity.com,kentucky.com,ledger-enquirer.com,macon.com,mcclatchydc.com,mercedsunstar.com,miamiherald.com,modbee.com,myrtlebeachonline.com,newsobserver.com,sacbee.com,sanluisobispo.com,star-telegram.com,sunherald.com,thenewstribune.com,theolympian.com,thestate.com,tri-cityherald.com##.zone
 bellinghamherald.com,bnd.com,bradenton.com,centredaily.com,charlotteobserver.com,cleaner.com,cults3d.com,elnuevoherald.com,fresnobee.com,heraldonline.com,heraldsun.com,idahostatesman.com,islandpacket.com,kansas.com,kansascity.com,kentucky.com,ledger-enquirer.com,macon.com,mcclatchydc.com,mercedsunstar.com,miamiherald.com,modbee.com,montrealgazette.com,myrtlebeachonline.com,newsobserver.com,sacbee.com,sanluisobispo.com,star-telegram.com,sunherald.com,thenewstribune.com,theolympian.com,thestate.com,tri-cityherald.com,weekand.com##.zone-el
 bellinghamherald.com,bnd.com,bradenton.com,centredaily.com,charlotteobserver.com,cleaner.com,cults3d.com,elnuevoherald.com,fresnobee.com,heraldonline.com,heraldsun.com,idahostatesman.com,islandpacket.com,kansas.com,kansascity.com,kentucky.com,ledger-enquirer.com,macon.com,mcclatchydc.com,mercedsunstar.com,miamiherald.com,modbee.com,myrtlebeachonline.com,newsobserver.com,sacbee.com,sanluisobispo.com,star-telegram.com,sunherald.com,thenewstribune.com,theolympian.com,thestate.com,tri-cityherald.com##.zone
 bellinghamherald.com,bnd.com,bradenton.com,centredaily.com,charlotteobserver.com,flkeysnews.com,fresnobee.com,heraldonline.com,heraldsun.com,idahostatesman.com,islandpacket.com,kansas.com,kansascity.com,kentucky.com,ledger-enquirer.com,macon.com,mahoningmatters.com,mcclatchydc.com,mercedsunstar.com,miamiherald.com,modbee.com,myrtlebeachonline.com,newsobserver.com,sacbee.com,sanluisobispo.com,star-telegram.com,sunherald.com##^html:not(:has(video)) > head > script:has-text(connatix.com)
@@ -79897,6 +79849,7 @@ katu.com##+js(set-local-storage-item, /^uw-/, $remove$)
 katu.com##div[class^="DisplayAdvert"]
 katu.com##div[class^="StoryPage_storyTopAdContainer"]
 katu.com##div[class^="TaboolaMore"]
+katu.com,komonews.com##div[class*="_taboolaDeeperDive"]
 katv.com##.index-module_adAfterContent__1cww
 katv.com,kfdm.com,komonews.com,ktul.com,wjla.com##.style_medTopAdsWrapper__rd6bz
 katv.com,kfdm.com,komonews.com,ktul.com,wjla.com##[data-ketch-backdrop="true"]
@@ -80658,7 +80611,6 @@ kommersant.uk##.subscription-form
 kommunarka.by##.cookies-start
 kommunisten.lu##.mdc-snackbar
 komonews.com##.index-module_featuredVideosWhiteWrapper__kfND
-komonews.com##div[class*="_taboolaDeeperDive"]
 komonews.com##div[class^="TaboolaVideoReel_"]
 komonews.com##div[data-slot-label^="DisplayAd"]
 komornik.pl##.divModalDialog
@@ -82965,7 +82917,7 @@ lmtribune.com###tncms-region-page_sticky_anchor
 lmtribune.com##.emphasis-h2
 lmtribune.com##.promo-button
 lnbz.la##a[href^="https://austeemsa.com/"]
-lnbz.la,clksz.com,aii.sh,srnky.com#%#//scriptlet('abort-on-property-read', 'atob')
+lnbz.la,clksz.com,aii.sh#%#//scriptlet('abort-on-property-read', 'atob')
 lnbz.la,tei.ai,cutw.in###link-view > a[target="_blank"] > img
 lnc2026.com##.bs-cookies-popup
 lne.es##+js(nostif, ipod)
@@ -87510,6 +87462,8 @@ mrwallpaper.com#@#.ad-enabled
 mrwallpaper.com#@#.ad_marker
 mrwebmaster.it##.advmid
 ms.now###GLOBAL_POPUP__container
+ms.now##.msnow-ad-boxflex
+ms.now##.msnow-ad-topbanner
 ms.now##.opt-out
 ms.now##.video-details__social-share-menu
 ms.now##.wp-block-group p:has(Share this)
@@ -91813,6 +91767,7 @@ omannews.gov.om##.Fiction-FeedBack
 omatomeloanhikaku.com###search-2
 omcar.pl###policy
 omediach.info##.adse-box
+omegascans.org##[aria-label="Sponsored Video"]
 omegascans.org##a[href*="?"][target="_blank"] img
 omegasoft.pl##.ui-widget-content
 omegatheme.com###ot-cookie__banner
@@ -92908,6 +92863,7 @@ pahe.ink##[style="padding-top: 0; padding-bottom: 90px;"]
 pahe.ink#%#//scriptlet('abort-current-inline-script', 'localStorage.getItem', 'adserverDomain')
 pahe.plus##a[href^="https://s0-greate.net/"]
 pahe.plus##form#link-view > a
+pahe.plus#%#//scriptlet('abort-on-property-write', '__aw')
 pahe.plus,uiil.ink,exeygo.com,exe-links.com,mrproblogger.com,cuttyy.com,fc-lc.xyz,link4earn.com,atglinks.com,tii.la,ckk.ai,xpshort.com,rajsayt.xyz,insurglobal.xyz,cutp.in,try2link.com,filmyzilla-in.xyz,samaa-pro.com,earnme.club,adshort.*,adurly.cc,swzz.xyz,crazyblog.in,baominh.tech,seulink.online,ez4short.com,upshrink.com,beingtek.com,link.rota.cc,insuranceblog.xyz,webo.one,linkfly.io,coinadfly.com,ownurl.site,clk.ink,dl.tech-story.net,link.asiaon.top,xfiles.io,upfiles.*,dz-linkk.com,shorterall.com,promo-visits.site,shrink.icu,rshrt.com,tei.ai,exey.*,claimfreebits.com,jameeltips.us,turkdown.com,tui.click,short.food-royal.com,linkpoi.me,galaxy-link.space,finanzas-vida.com,linkebr.com,smoner.com,charexempire.com,forex-trnd.com,linkshorts.*,mycut.me,cuts-url.com,gainbtc.click,st23q.com,hotel.menjelajahi.com,ccurl.net,shrt10.com,shrinkforearn.in,seulink.net,modapk.link,miklpro.com,afly.pro,exe.app,adcorto.xyz,droplink.co,curto.win,linksfire.co,illink.net,ilinks.in,bitfly.io,imagenesderopaparaperros.com,url.namaidani.com,c-ut.com,4cash.me,shrinkme.in,fir3.net,link1s.net,apksvip.com,pkr.pw,shrinke.me,stfly.me,bolssc.com,cutdl.xyz,shortearn.in,linksly.co,link1s.*,tmearn.com,samapro.me,mondainai.moe,pnd.*,popimed.com,tipsforce.com,aii.sh,7r6.com,iir.ai,tii.ai,biroads.com,dz4link.com,linkad.in,fc.lc,rifurl.com,oncehelp.com,shortpaid.com,slink.bid,encurta.eu,leechpremium.link,readnnews.com,gplinks.co,memoo.xyz,linkviet.top,salez.site,caat.site,earnload.com,gplinks.in,stfly.io,eio.io,cutwin.com,uii.io,techbeast.xyz,zoom-link.com,short.pe,myhealthlytips.com,clik.pw,payskip.org,shrinkme.io,ex-foary.com,linkfinal.com,exe.io,liclink.com,adsafelink.com,enrt.eu,suqdz.com,getlink.deadtoonsindia.net,bollyreveal.com,shrtfly.net,mysiterank.org#%#//scriptlet('set-constant', 'app_vars.force_disable_adblock', 'undefined')
 paid4.link##.box > div[align="center"] > div.card
 paid4.link##.box-main > .blog-item
@@ -104560,7 +104516,7 @@ sravni.ru##[sr-portal-container]
 sreality.cz###top-brand
 srnky.com,clksz.com,oii.la,tpi.li,tvi.la,oei.la,tii.la,iir.ai###link-view a[target="_blank"] > img
 srnky.com,clksz.com,payskip.org,oii.la,tpi.li,tvi.la,oei.la,tii.la,cutw.in##.box-main > a[target="_blank"] > img
-srnky.com,pahe.plus#%#//scriptlet('abort-on-property-write', '__aw')
+srnky.com,lnbz.la#%#//scriptlet('abort-on-property-read', 'TextDecoder')
 srnnews.com##.followBox
 srnnews.com,srnonline.com###cipa
 srnovelas.com##.content-page + div[id][class*=" "]
@@ -109118,6 +109074,8 @@ thisisanfield.com##.elementor-widget-wp-widget-ai_widget .code-block > div[style
 thisisanfield.com##.elementor-widget-wp-widget-ai_widget .code-block center > div[style]:not(.newsnow)
 thisiscolossal.com##.ad-code-block
 thisisfutbol.com##+js(aopr, PerformanceLongTaskTiming)
+thisisgamethailand.com##.header-banner
+thisisgamethailand.com##.tigth-ads
 thisismoney.co.uk###fiveDealsWidget
 thisismoney.co.uk##.button-style > [href]
 thisismoney.co.uk##.cnr5
@@ -123011,7 +122969,6 @@ zzzyk.com###Tinfo
 @@||coindice.win^$ghide
 @@||coinlyhub.com^$ghide
 @@||coinlyhub.com^$script,1p
-@@||coinmarketcap.com/static/addetect/$script,~third-party
 @@||coinpayu.com/assets/ads_$domain=coinpayu.com
 @@||coinpayz.xyz/*.js?probe=$script,~third-party
 @@||coinzillatag.com/lib/display.js$script,domain=ad-doge.com
@@ -124017,7 +123974,6 @@ zzzyk.com###Tinfo
 @@||experienceleague.adobe.com^$~third-party
 @@||explainxkcd.com/wiki/images/$image,~third-party
 @@||explore.agilent.com/GlobalOptOut^$frame,1p
-@@||exponential.com^*/tags.js$domain=yellowbridge.com
 @@||exsite24.pl/cdn-cgi/challenge-platform/$stealth=ip
 @@||external.productinformation.abb.com/PisWebApi/$stealth=3p-auth
 @@||extractpics.com^$generichide
@@ -129349,7 +129305,7 @@ zzzyk.com###Tinfo
 @@||s.w.org/wp-content/$stylesheet,domain=wordpress.org
 @@||s.yimg.com/ja/ap/*/jquery.$domain=hk.news.yahoo.com|hk.yahoo.com|tw.news.yahoo.com|tw.stock.yahoo.com|tw.yahoo.com
 @@||s.yimg.com/ss/analytics3.js$domain=sports.yahoo.com
-@@||s.yimg.com/ss/analytics3.js$domain=tw.news.yahoo.com|tw.yahoo.com|tw.stock.yahoo.com|hk.news.yahoo.com|hk.yahoo.com|hk.stock.yahoo.com
+@@||s.yimg.com/ss/analytics3.js$domain=tw.news.yahoo.com|tw.yahoo.com|tw.stock.yahoo.com|hk.news.yahoo.com|hk.yahoo.com|hk.stock.yahoo.com|help.yahoo.com
 @@||s.yimg.jp/images/listing/tool/cv/ytag.js$domain=redstoneonline.jp
 @@||s.yimg.jp/images/listing/tool/cv/ytag.js$domain=redstoneonline.jp|store-jp.nintendo.com
 @@||s.yimg.jp/images/listing/tool/cv/ytag.js$domain=store-jp.nintendo.com
@@ -130431,7 +130387,6 @@ zzzyk.com###Tinfo
 @@||stream1.store^$stealth=referrer
 @@||stream2watch.org/js/advertisement.js
 @@||stream2watch.ws/js/app.js
-@@||stream4free.live^$generichide
 @@||streamadblockplus.com^$frame,domain=streamtape.com
 @@||streamas*.*.json?_ver=*&_ctump=$third-party,xmlhttprequest,stealth=referrer
 @@||streambox*.xyz/cdn/down/$stealth=referrer,domain=ddizi.im
@@ -131223,7 +131178,6 @@ zzzyk.com###Tinfo
 @@||unpkg.com/aos@*/dist/aos.js$domain=xsanime.com
 @@||unpkg.com/vue-recaptcha@*/dist/vue-recaptcha.js$domain=vidoza.net
 @@||unpkg.com^$script,domain=vidsrc.stream
-@@||up-load.io^$generichide
 @@||up4load.com^$generichide
 @@||upaiyun.com/libs/$script,domain=xddxsw.net
 @@||upaiyun.com^*.js$domain=cilimao.co|cilimao.one
@@ -131280,7 +131234,6 @@ zzzyk.com###Tinfo
 @@||usercdn.com^$domain=userscloud.com
 @@||usercdn.com^$frame,domain=userscloud.com
 @@||usercentrics.eu^$script,subdocument,xmlhttprequest,domain=alternate.de|andrewgriffith.cpa|atv.at|bayer04.de|bsr.de|cambio-carsharing.de|casino.psk.hr|dfbplay.tv|douglas.de|dr-beckmann.com|falke.com|festool.at|festool.be|festool.bg|festool.ch|festool.cn|festool.co.kr|festool.co.uk|festool.co.za|festool.com|festool.cz|festool.de|festool.dk|festool.es|festool.fi|festool.fr|festool.hu|festool.ie|festool.it|festool.lt|festool.nl|festool.no|festool.pl|festool.pt|festool.ro|festool.ru|festool.se|festool.sk|festool.ua|festoolcanada.com|festoolusa.com|flaschenpost.de|hamburg-business.com|highsnobiety.com|hornbach.nl|hypofriend.de|immowelt.de|joyn.at|joyn.de|kicker.de|mbusa.com|meubelo.nl|meubles.fr|moebel.de|moebel24.at|moebel24.ch|morenutrition.de|oeamtc.at|paketshop.myhermes.de|personio.com|poco.de|post.ch|postbank.de|prosieben.at|puls4.com|radiobob.de|ran.de|rts.ch|s-pankki.fi|salzburg.info|sat1.at|schlager.radio|sportdeutschland.tv|srf.ch|verivox.de|wetter.com|zalando.*
-@@||userload.co/adpopup.js$script
 @@||userreport.com/*/settings.js$domain=csb.app
 @@||userreport.com/SystemSettings.js$domain=csb.app
 @@||userreport.com/computools/launcher.js$domain=csb.app
@@ -131872,6 +131825,7 @@ zzzyk.com###Tinfo
 @@||www.igorslab.de/wp-admin/admin-ajax.php
 @@||www.igorslab.de/wp-content/plugins/XFWP/assets/js/xfwp-admin.js
 @@||www.igorslab.de/wp-content/plugins/ba-plus-before-after-image-slider/assets/s201-bai.js
+@@||www.igorslab.de/wp-content/plugins/igorslab-advanced-pdf-viewer/assets/viewer.js
 @@||www.igorslab.de/wp-content/plugins/igorslab-ai-seo-performance-suite/assets/js/consent.js
 @@||www.igorslab.de/wp-content/plugins/igorslab-geizhals-auto/assets/ilgha-frontend.js
 @@||www.igorslab.de/wp-content/plugins/igorslab-youtube-latest-shortcode/assets/frontend.js
@@ -132053,7 +132007,6 @@ zzzyk.com###Tinfo
 @@||yandex.ru/watch/$xmlhttprequest,domain=anoncer.net
 @@||yandex.ru/webvisor/$xmlhttprequest,domain=anoncer.net
 @@||yandex.st/swfobject^
-@@||yandexcdn.com/ad/api/popunder.js$script
 @@||yandexcdn.com^$ghide
 @@||yandexcdn.com^$script,1p
 @@||yantuchina.com/gg/tmp/hong.gif
@@ -132082,7 +132035,6 @@ zzzyk.com###Tinfo
 @@||yimg.com/*/css/
 @@||yimg.com/av/gemini-ui/*/advertiser/$domain=gemini.yahoo.com
 @@||yimg.com/bm/lib/fi/common/*/yfi_comscore.js$domain=finance.yahoo.com
-@@||yimg.com/dy/ads/native.js$script,domain=animedao.to
 @@||yimg.com/mi/eu/ywa.js$domain=immowelt.de
 @@||yimg.com/rq/darla/*/g-r-min.js$domain=yahoo.com
 @@||yimg.com/ss/rapid$script,domain=aol.com
