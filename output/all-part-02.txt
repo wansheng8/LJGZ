@@ -3,170 +3,11 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-10-21 05:11:34 +0800
-! Last Modified: 2026-10-21 05:11:34 +0800 (北京时间 UTC+8)
+! Version: 2026-10-21 11:50:23 +0800
+! Last Modified: 2026-10-21 11:50:23 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 138090
+! Rules: 137931
 
-||strumyk.net/assets/z-*.js
-||stsbih.com.ba^$document
-||ststandard.com/adsf
-||ststandard.com/ping
-||stubhub.com/a/icph
-||studeersnel.nl/27m703Hm/init.js
-||student-finance-auth.firebaseapp.com^$all
-||studio-api.prod.suno.com/api/statsig/
-||studio-blender.com^$all
-||studio-obs.net^$all
-||studiogiamberardino.it^$doc
-||studiostack.com^$third-party
-||studiotrackmusic.com^$document
-||studocu.com/27m703Hm/init.js
-||studyguideindia.com/support/images/placead.png
-||stuff.co.nz/static/adnostic/
-||stuff.co.nz/static/stuff-adfliction/
-||stuffedbeforehand.com^$popup
-||stulip.org/static/js/header.js
-||stuttgarter-nachrichten.de/cre-1.0/tracking/device.js
-||stuttgarter-zeitung.de/cms/hitcount
-||stvbiopr.net^$popup
-||stvkr.com^$popup
-||styld-by.com^$third-party
-||stylexlab.ru^$doc
-||stylitics.com/api/engagements
-||styria.hr^*/cookies.min.js
-||stytch.com/sdk/v1/events
-||su-hk.com^$doc
-||su.bdimg.com/static/dspui/js/
-||su.pr/hosted_js$third-party
-||suaurl.com/adblock/js/smarttag.js
-||sub-vod.fr/static/monetag2.js
-||sub.astroline.today^$doc
-||sub2tech.com^$third-party
-||subhd.com/images/ap/
-||subito.it/static/script/subito-adv.*.js
-||submitnet.net^$third-party
-||submityourflicks.com/*/script.js
-||submityourflicks.com/*/sfy.js
-||subnewss*.net^
-||subs.vingd.com^$third-party
-||subscribe.ru/1.gif/$image
-||subscribe.ru/stat/$third-party
-||subscribe.washingtonpost.com/acquisition/views/tracking
-||subscribers.com^$third-party
-||subscriptionprocess.im^$all
-||subscriptions.cbc.ca^$xmlhttprequest
-||subserieshd.com/banner/
-||subserieshd.com/show/ads.js
-||substack.com/api/v1/firehose/batch
-||substack.com^$cookie=visit_idr
-||substrate.office.com/search/api/v1/events
-||subterra.run/probe.js
-||subtitlebank.net/2.gif
-||subtitlecat.com/assets/images/gomakego_ad_*.webp
-||subtitledb.org/js/adblockcheck.js
-||subtitletools.com/images/nord/nordvpn-banner.jpg
-||succeedscene.com/openads/
-||succeedscene.com^$domain=theguardian.com
-||success-bloom.com^$doc
-||success-dream.jp^$doc
-||success.trendmicro.com/jslibrary/*/NetworkTracking.js
-||successfultogether.co.uk^$third-party
-||suche.web.de/click
-||sudokupad.app/api/event
-||sudugu.com/config/v7.js
-||sudukrirga.net^$popup
-||sudupan.com^*.gif
-||sueddeutsche.de/statistics?eventType=
-||suedkurier.de/storage/scr/*_webtrekk.js.js
-||suedtirol.live/slc.js
-||sufile.com/jsa/
-||sugarboxxx.net^$doc
-||suggest.sso.dzen.ru/clck/$image,ping
-||suggestion.ciceksepeti.com/api/v*/events
-||suggestive.com/deals/?cid=$doc
-||sugodeku.com^$third-party
-||suguaitaina.com^$doc
-||suguao.net^$doc
-||suguap.net^$doc
-||sugulove.com^$doc
-||sugulove777.com^$doc
-||sugusagasu.com^$doc
-||sui.ssgcdn.com/ui/ssg/js/affiliate/wiselog_makePCookie.js
-||suibi8.com/aa1.gif
-||suibiankan.co/Runtime/Js/
-||suibianlu.com/zb_users/ad/
-||suibianlu.com/zb_users/theme/tx_fzy/script/zhao.js
-||suissscomee-correo*.codeanyapp.com^$doc
-||suite*.linximpulse.net^
-||suite*.linximpulse.net^$third-party
-||suite-trezor.click^$doc
-||suite.tem3.io^$all
-||suiyishop.cn/zhuangxiu_
-||sukebeisu.com^$doc
-||sukimadate.com^$doc
-||sukkisukki.com/pu.js
-||sukui01.com^$doc
-||sukui02.com^$doc
-||sukui03.com^$doc
-||sukui04.com^$doc
-||sukui05.com^$doc
-||sukuinote.jp^$doc
-||sulasok.cz/00BANNER_UJDVNKOK3U.gif
-||sulia.com/papi/sulia_partner.js/$third-party
-||sultanovic.info/?*%$script
-||sultrytraffic.com^$third-party
-||sumaity.com/js/press/analytics_scroll.js
-||sumaity.com/script/analytics/s_code.js
-||sumatra.ai^$third-party
-||sumatuma.com^$doc
-||summertisaridicu.org^$popup
-||sumo.com/api/event/
-||sumo.com/apps/heatmaps/
-||sumo.com^$3p,domain=~beewits.com|~dante-ri.hr
-||sumo.com^$third-party
-||sumologic.com^$third-party
-||sumologic.com^$third-party,domain=~sumologic.net
-||sumome.com/api/event/?
-||sumome.com/api/load/
-||sumome.com/apps/contentanalytics/
-||sumome.com/apps/heatmaps/
-||sumome.com^$third-party
-||sumotorrent.sx/img/ip_vanish_
-||sums.suning.com^$third-party
-||sumsmsp.info^$doc
-||sumsub.com/api/tunnel/
-||sumsub.com/resources/fevents
-||sumsub.com/stry/
-||sundayobserver.lk/sites/default/files/pictures/COVID19-Flash-1_0.gif
-||sundaysky.com^$third-party
-||sunflowerbright106.io^$popup
-||sunflowerbright109.io/sdk.js
-||sunhome.ru/counter.php$third-party
-||suning.cn/javascript/sn_da/sa.js
-||suning.cn^$domain=qianggou5.com
-||suning.com/cpc/getCpcSearchDatasRev?
-||suning.com/getCpcDatas?
-||sunios.de^$third-party
-||sunnysani.com/lb/$all
-||suno.com/9i3s/
-||suno.com/metrics/
-||suno.com/monitoring
-||suno.com/v1//rgstr
-||sunofbeaches.com/ast/assistant/ad-item/
-||sunofbeaches.com/shop/recommend/
-||sunperp.icu^$doc
-||sunpma.com/other/logo/
-||sunporno.com/*.php$script,1p
-||sunporno.com/*.php$script,~third-party
-||sunporno.com/api/cams/get-spot-js-full-content/
-||sunporno.com/api/spots/
-||sunporno.com/blb.php
-||sunporno.com/sunstatic/frms/
-||sunset.com/tia/
-||suntcontent.se^$third-party
-||sup-idea.com/jquerys.js
-||supabase.co/*/track-visitor
 ||supabase.co/rest/v1/prmos_$domain=eloshapes.com
 ||supabase.co/rest/v1/promos_available
 ||super-traf.ru^$third-party
@@ -49205,7 +49046,7 @@
 10news.com,3newsnow.com,abc15.com,aboutamazon.co.uk,aboutamazon.com,aboutamazon.de,aboutamazon.it,adn40.mx,chronicle.com,denver7.com,deseret.com,fox13now.com,fox17online.com,fox47news.com,fox4now.com,iowapublicradio.org,katc.com,kcur.org,kgun9.com,kivitv.com,kjrh.com,kpax.com,kristv.com,krtv.com,ksby.com,kshb.com,ktnv.com,ktvh.com,ktvq.com,kxlf.com,kxlh.com,kxxv.com,kztv10.com,laist.com,lex18.com,nbc26.com,nepm.org,news5cleveland.com,newschannel5.com,suntimes.com,tampabay28.com,telemundocc.com,tmj4.com,turnto23.com,tv20detroit.com,tvazteca.com,vanidades.com,washingtonexaminer.com,wcpo.com,wgbh.org,wkbw.com,wmar2news.com,wptv.com,wrtv.com,wsfltv.com,wtkr.com,wtvr.com,wtxl.com,wxyz.com##.ActionBar
 10short.com#%#//scriptlet("trusted-replace-node-text", "script", "openLink", "/window.location.href = '.*?';/", "")
 10tv.com,11alive.com,12news.com,12newsnow.com,13newsnow.com,13wmaz.com,5newsonline.com,9news.com,abc10.com,al.com,aol.com,apnews.com,artforum.com,artnews.com,billboard.com,birdsandblooms.com,calgaryherald.com,calgarysun.com,cbs19.tv,cbs8.com,cleveland.com,crooksandliars.com,deadline.com,dpreview.com,driving.ca,edmontonjournal.com,edmontonsun.com,familyhandyman.com,financialpost.com,firstcoastnews.com,fox43.com,fox61.com,futbin.com,goldderby.com,golfdigest.com,gulflive.com,hollywoodreporter.com,indiewire.com,kare11.com,kcentv.com,kens5.com,kgw.com,khou.com,kiiitv.com,king5.com,komonews.com,krem.com,ktvb.com,kvue.com,lehighvalleylive.com,lfpress.com,localmemphis.com,masslive.com,mlive.com,myfoxzone.com,nationalpost.com,nbcsports.com,news.com.au,newscentermaine.com,newswest9.com,nj.com,nydailynews.com,oregonlive.com,ottawacitizen.com,ottawasun.com,rd.com,robbreport.com,rollingstone.com,sherdog.com,sidereel.com,superherohype.com,syracuse.com,tasteofhome.com,techcrunch.com,thehealthy.com,thv11.com,torontosun.com,twinfinite.net,vancouversun.com,variety.com,vibe.com,wbir.com,wcnc.com,weareiowa.com,weather.com,wfaa.com,wfmynews2.com,wgrz.com,whas11.com,windsorstar.com,wkyc.com,wltx.com,wnep.com,wqad.com,wthr.com,wtol.com,wtsp.com,wusa9.com,wwd.com,wwltv.com,wzzm13.com##+js(acs, document.getElementsByTagName, .pubads)
-10tv.com,11alive.com,12news.com,12newsnow.com,13newsnow.com,13wmaz.com,5newsonline.com,9news.com,abc10.com,al.com,aol.com,apnews.com,artforum.com,artnews.com,billboard.com,birdsandblooms.com,calgaryherald.com,calgarysun.com,cbs19.tv,cbs8.com,cleveland.com,crooksandliars.com,deadline.com,dpreview.com,driving.ca,edmontonjournal.com,edmontonsun.com,familyhandyman.com,financialpost.com,firstcoastnews.com,fox43.com,fox61.com,futbin.com,goldderby.com,golfdigest.com,gulflive.com,hollywoodreporter.com,indiewire.com,kare11.com,kcentv.com,kens5.com,kgw.com,khou.com,kiiitv.com,king5.com,komonews.com,krem.com,ktvb.com,kvue.com,lehighvalleylive.com,lfpress.com,localmemphis.com,masslive.com,mlive.com,myfoxzone.com,nationalpost.com,nbcsports.com,news.com.au,newscentermaine.com,newswest9.com,nj.com,oregonlive.com,ottawacitizen.com,ottawasun.com,rd.com,robbreport.com,rollingstone.com,sherdog.com,sidereel.com,superherohype.com,syracuse.com,tasteofhome.com,techcrunch.com,thehealthy.com,thv11.com,torontosun.com,twinfinite.net,vancouversun.com,variety.com,vibe.com,wbir.com,wcnc.com,weareiowa.com,weather.com,wfaa.com,wfmynews2.com,wgrz.com,whas11.com,windsorstar.com,wkyc.com,wltx.com,wnep.com,wqad.com,wthr.com,wtol.com,wtsp.com,wusa9.com,wwd.com,wwltv.com,wzzm13.com#%#//scriptlet('ubo-acs', 'document.getElementsByTagName', '.pubads')
+10tv.com,11alive.com,12news.com,12newsnow.com,13newsnow.com,13wmaz.com,5newsonline.com,9news.com,abc10.com,al.com,aol.com,apnews.com,artforum.com,artnews.com,billboard.com,birdsandblooms.com,calgaryherald.com,calgarysun.com,cbs19.tv,cbs8.com,cleveland.com,crooksandliars.com,deadline.com,dpreview.com,driving.ca,edmontonjournal.com,edmontonsun.com,familyhandyman.com,financialpost.com,firstcoastnews.com,fox43.com,fox61.com,futbin.com,goldderby.com,golfdigest.com,gulflive.com,hollywoodreporter.com,indiewire.com,kare11.com,kcentv.com,kens5.com,kgw.com,khou.com,kiiitv.com,king5.com,komonews.com,krem.com,ktvb.com,kvue.com,lehighvalleylive.com,lfpress.com,localmemphis.com,masslive.com,mlive.com,myfoxzone.com,nationalpost.com,nbcsports.com,news.com.au,newscentermaine.com,newswest9.com,nj.com,nydailynews.com,oregonlive.com,ottawacitizen.com,ottawasun.com,rd.com,robbreport.com,rollingstone.com,sherdog.com,sidereel.com,superherohype.com,syracuse.com,tasteofhome.com,techcrunch.com,thehealthy.com,thv11.com,torontosun.com,twinfinite.net,vancouversun.com,variety.com,vibe.com,wbir.com,wcnc.com,weareiowa.com,weather.com,wfaa.com,wfmynews2.com,wgrz.com,whas11.com,windsorstar.com,wkyc.com,wltx.com,wnep.com,wqad.com,wthr.com,wtol.com,wtsp.com,wusa9.com,wwd.com,wwltv.com,wzzm13.com#%#//scriptlet('ubo-acs', 'document.getElementsByTagName', '.pubads')
 10x.co.za,afpintegra.pe,appmetrica.yandex.com,sook.space##[class^="Cookie_"]
 110km.ru##.km110-cookie-bar
 111.90.150.10#%#//scriptlet('prevent-addEventListener', 'load', 'detectAdBlock')
@@ -60661,7 +60502,6 @@ butterwithasideofbread.com,dirtyship.com,momontimeout.com##.topButton
 butwhytho.net##.bam-topbar-social
 butwhytho.net##.bm-social-sharing
 buy.ccb.com#@##top_ad
-buyactivate.com###adb
 buydifferent.it##div[style^="position: fixed; bottom:"]
 buyee.jp##.sns_list
 buyee.jp,webmasterworld.com##.jump
@@ -66743,6 +66583,7 @@ deliveroo.*##[class^="Carousel"] li[class^="Slide-"]:has(div[style*="d815008c-8a
 deliveroo.*##div[class^="HomeFeedScrollTracker-"]:has(div[data-testid="sponsored-badge"] > p[data-testid="sponsored-tag"])
 deliveroo.*##div[class^="HomeFeedScrollTracker-"]:has(p[data-testid="sponsored-rating-distance"] > span[data-testid="label-prefix"])
 deliveroo.*##li:not(:has(li)):has([data-testid="promotional-sponsor-label"])
+deliveroo.*##li[class^="HomeFeedGrid"]:has([data-testid="sponsored-tag"])
 deliveroo.*##li[class^="Slide-"]:has(div[data-testid="sponsored-tag"] > p[data-testid="label"])
 deliveroo.*##li[class^="Slide-"]:has(div[data-testid="sponsored-tag"] > p[data-testid="sponsored-tag-label"])
 deliveroo.*#?#a[role="button"]:has(p:contains(Sponsored))
