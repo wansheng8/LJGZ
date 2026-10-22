@@ -24,7 +24,7 @@
 
 | 场景 | 首选 (GitHub Pages) | 备选 (jsDelivr / CDN) | 备用 (raw) |
 |---|---|---|---|
-| 🧩 **浏览器扩展**<br><sub>uBlock Origin · AdGuard · Adblock Plus</sub> | [**all.txt**](https://wansheng8.github.io/LJGZ/all.txt)<br><sub>完整版 · 约 28MB</sub> | [statically 镜像](https://cdn.statically.io/gh/wansheng8/LJGZ/main/output/all.txt) | [all.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/all.txt) |
+| 🧩 **浏览器扩展**<br><sub>uBlock Origin · AdGuard · Adblock Plus</sub> | [**all.txt**](https://wansheng8.github.io/LJGZ/all.txt)<br><sub>完整版 · 约 28MB</sub> | [all.txt](https://cdn.statically.io/gh/wansheng8/LJGZ/main/output/all.txt) | [all.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/all.txt) |
 | 🏠 **AdGuard Home**<br><sub>AdGuard Home · AdGuard DNS</sub> | [adguard.txt](https://wansheng8.github.io/LJGZ/adguard.txt) | [adguard.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/adguard.txt) | [adguard.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/adguard.txt) |
 | 🕳 **Pi-hole / hosts**<br><sub>Pi-hole · SwitchHosts · 路由器</sub> | [hosts.txt](https://wansheng8.github.io/LJGZ/hosts.txt) | [hosts.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/hosts.txt) | [hosts.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/hosts.txt) |
 | 📃 **纯域名列表**<br><sub>Cloudflare Gateway · NextDNS</sub> | [domains.txt](https://wansheng8.github.io/LJGZ/domains.txt) | [domains.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/domains.txt) | [domains.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/domains.txt) |
