@@ -16,34 +16,21 @@
 
 **🌐 [在线订阅中心](https://wansheng8.github.io/LJGZ/)** — 点开即复制，无需读文档
 
-[订阅](#订阅) · [规模](#规模) · [架构](#工作原理) · [产物](#产物) · [兼容性](#兼容性) · [DIY](#diy) · [FAQ](#常见问题)
-
 </div>
 
 ---
 
 ## 订阅
 
-| 场景 | 首选 (GitHub Pages) | 备选 (jsDelivr) | 备用 (raw) |
+| 场景 | 首选 (GitHub Pages) | 备选 (jsDelivr / CDN) | 备用 (raw) |
 |---|---|---|---|
-| 🧩 **浏览器扩展**<br><sub>uBlock Origin · AdGuard · Adblock Plus</sub> | [**all.txt**](https://wansheng8.github.io/LJGZ/all.txt)<br><sub>完整版 · 约 28MB</sub> | [分卷1](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/all-part-01.txt) + [分卷2](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/all-part-02.txt) † | [all.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/all.txt) |
+| 🧩 **浏览器扩展**<br><sub>uBlock Origin · AdGuard · Adblock Plus</sub> | [**all.txt**](https://wansheng8.github.io/LJGZ/all.txt)<br><sub>完整版 · 约 28MB</sub> | [statically 镜像](https://cdn.statically.io/gh/wansheng8/LJGZ/main/output/all.txt) | [all.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/all.txt) |
 | 🏠 **AdGuard Home**<br><sub>AdGuard Home · AdGuard DNS</sub> | [adguard.txt](https://wansheng8.github.io/LJGZ/adguard.txt) | [adguard.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/adguard.txt) | [adguard.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/adguard.txt) |
 | 🕳 **Pi-hole / hosts**<br><sub>Pi-hole · SwitchHosts · 路由器</sub> | [hosts.txt](https://wansheng8.github.io/LJGZ/hosts.txt) | [hosts.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/hosts.txt) | [hosts.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/hosts.txt) |
 | 📃 **纯域名列表**<br><sub>Cloudflare Gateway · NextDNS</sub> | [domains.txt](https://wansheng8.github.io/LJGZ/domains.txt) | [domains.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/domains.txt) | [domains.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/domains.txt) |
 | ✅ **DNS 白名单**<br><sub>误拦截放行 · 例外列表</sub> | [whitelist.txt](https://wansheng8.github.io/LJGZ/whitelist.txt) | [whitelist.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/whitelist.txt) | [whitelist.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/whitelist.txt) |
 
-> **⚠️ 浏览器扩展优先用 GitHub Pages 的 `all.txt`（唯一完整单文件）。**
-> 完整版约 28MB，超出 jsDelivr 单文件 20MB 上限，只能拆成两个分卷；**分卷必须两个都加**，只加一个会缺一半规则。分卷偶发返回 48 字节的 `Failed to fetch ... from GitHub.` 错误文本，此时直接换 Pages 地址。
-
-**CDN 单文件镜像（`all.txt`，均已实测返回真实规则内容）：**
-
-| 镜像 | 地址 |
-|---|---|
-| statically.io | `https://cdn.statically.io/gh/wansheng8/LJGZ/main/output/all.txt` |
-| raw.githack | `https://raw.githack.com/wansheng8/LJGZ/main/output/all.txt` |
-| ghproxy | `https://ghproxy.net/https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/all.txt` |
-
-<sub>† 第三方镜像无 SLA，仅作网络受限时的备选；Pages 直出始终是首选。</sub>
+> **浏览器扩展优先用 Pages 的 `all.txt`（唯一完整单文件）。** 完整版 28MB，超出 jsDelivr 单文件 20MB 上限（会返回 `Failed to fetch`），备选改用 statically 单文件镜像。
 
 ## 规模
 
@@ -56,19 +43,6 @@
 | 更新时间 | **每日北京时间 08:00 / 20:00** |
 
 覆盖广告、隐私追踪、恶意软件、钓鱼、挖矿、烦恼元素与中文专项。
-
-<details>
-<summary><b>📚 23 个上游源（点击展开）</b></summary>
-
-| 分类 | 上游 |
-|---|---|
-| EasyList 系 | EasyList、EasyList China、EasyPrivacy、Fanboy's Annoyance、Fanboy's Social、ABP Anti-Adblock |
-| uBlock Origin 官方 | filters、badware、privacy、unbreak、quick-fixes |
-| AdGuard 官方 | DNS filter、Base (2)、Tracking (3)、Chinese (224) |
-| 综合 DNS / hosts | OISD Full、hagezi Pro、StevenBlack、Blackbook |
-| 中文 / 专项 | anti-AD EasyList、anti-AD domains、CJX Annoyance、NoCoin |
-
-</details>
 
 ## 工作原理
 
@@ -91,32 +65,19 @@ flowchart LR
 | ② 解析 | `parse_line()` | 一行分成 7 类：注释 / 预指令 / 表头 / 元素隐藏 / 纯域名 / 网络规则 / `@@` 例外 |
 | ③ 合并 | `Merger` | 精确去重 + 修饰符排序后语义去重，`$badfilter` 失效，`@@` 例外保护 |
 | ④ 仲裁 | `finalize()` | 子域折叠、同域 type 规则消解、`$important` 提升、DNS 能力筛选 |
-| ⑤ 输出 | `write_outputs()` | 5 种格式、超 18MB 自动分卷、stats.json、徽章 SVG |
+| ⑤ 输出 | `write_outputs()` | 5 种格式、stats.json、徽章 SVG |
 | ⑥ 发布 | `update.yml` | 145 项测试 → 合并 → 无变化跳过 → commit/push → 部署 Pages |
 
 ## 产物
 
 | 文件 | 格式 | 适用 | 说明 |
 |---|---|---|---|
-| `all.txt` | ABP / uBO / AdGuard | 浏览器扩展 | 全语法完整版，**不做域名截断**；超 18MB 自动分卷 |
+| `all.txt` | ABP / uBO / AdGuard | 浏览器扩展 | 全语法完整版，**不做域名截断** |
 | `adguard.txt` | AdGuard Home | DNS 服务器 | 子域折叠 + `$dnsrewrite` + 白名单 |
 | `hosts.txt` | hosts | Pi-hole / 路由器 | `0.0.0.0 domain`，精确匹配含子域 |
 | `domains.txt` | 纯域名 | Cloudflare / NextDNS | 一行一域，排序去重 |
 | `whitelist.txt` | `@@` 例外 | 误拦截放行 | 与拦截列表配合订阅 |
-| `all-part-*.txt` | 分卷 | jsDelivr 备选 | 每卷自带完整头部，多卷合并 = `all.txt` |
 | `stats.json` / `badge-*.svg` | 数据 | 站点 / README | 每次运行自动刷新，数字与最新结果一致 |
-
-## 兼容性
-
-| 客户端 / 设备 | 推荐文件 | 导入要点 |
-|---|---|---|
-| uBlock Origin | `all.txt` | 过滤器列表 → 导入，粘贴 URL |
-| AdGuard 浏览器扩展 | `all.txt` | 自定义过滤器 → 添加 |
-| Adblock Plus | `all.txt` | 首行 `[Adblock Plus 2.0]`，直接订阅 |
-| AdGuard Home | `adguard.txt` | DNS 拦截 → 添加过滤器（类型：DNS） |
-| Pi-hole | `hosts.txt` | 作为 hosts 源导入，或直接追加 |
-| Cloudflare Gateway / NextDNS | `domains.txt` | 纯域名列表上传或订阅 |
-| 路由器 / NAS / SwitchHosts | `hosts.txt` | 直接作为 hosts 文件源 |
 
 ## 引擎特性
 
@@ -198,7 +159,7 @@ python merge_filters.py                      # 下载合并 → ./output/
 <details>
 <summary><b>订阅后规则数明显偏少 / 不拦截？</b></summary>
 
-先确认用的是 GitHub Pages 的 `all.txt`。jsDelivr 分卷必须 1 + 2 全部添加；浏览器无法识别分卷时只会加载失败并显示 0 条。旧版订阅需在扩展里手动「立即更新」才会拉取新内容。
+先确认用的是 GitHub Pages 的 `all.txt`。jsDelivr 超 20MB 会返回 `Failed to fetch`，此时改用 statically 镜像。旧版订阅需在扩展里手动「立即更新」才会拉取新内容。
 
 </details>
 
@@ -215,20 +176,6 @@ python merge_filters.py                      # 下载合并 → ./output/
 `all.txt` 会做子域折叠（父域已拦则子域省略）与同域 type 规则消解；hosts / domains 保留精确子域条目。
 
 </details>
-
-<details>
-<summary><b>某个网站被误拦截怎么办？</b></summary>
-
-先确认该域名是否在 `domains.txt` 中，再到 Issues 附「域名 + 复现场景 + 所属上游」；确认后会加入 `extra_rules` 或对应上游的例外，通常下一次更新生效。
-
-</details>
-
-## 参与
-
-- **漏拦 / 误拦** → 开 Issue，附域名与复现场景
-- **新增上游** → 改 `config.json` 提 PR（保持 `enabled: true`）
-- **改代码** → 先跑 `python -m unittest discover -s tests`，145 项必须全绿
-- **不要手改 `output/`** → 每次更新由 CI 全量重新生成
 
 ---
 
