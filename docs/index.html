@@ -63,7 +63,7 @@ footer a{color:var(--acc);text-decoration:none}
   <img src="logo.svg" alt="LJGZ"/>
   <h1>LJGZ<span class="dot"> · 广告过滤订阅中心</span></h1>
   <p class="sub">EasyList 系 · uBO 官方 · AdGuard 官方 · Fanboy · OISD · hagezi · anti-AD · CJX ·
-    URLhaus · Blackbook 等 20+ 大上游 · 广告/隐私/恶意软件/钓鱼/挖矿全覆盖</p>
+    Blackbook 等 23 个上游 · 广告/隐私/恶意软件/钓鱼/挖矿全覆盖</p>
   <div class="badges">
     <img src="badge-rules.svg" alt="规则总数"/>
     <img src="badge-domains.svg" alt="拦截域名"/>
@@ -86,8 +86,12 @@ const RAW  = 'https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/';
 const P = [
  {i:'🧩', n:'浏览器扩展', a:'uBlock Origin · AdGuard · Adblock Plus', f:'all.txt',
   d:'网络规则 + 元素隐藏 + 脚本注入 + 例外，全格式订阅（完整规则）。',
-  u:[['⭐ 首选 完整版', PAGES+'all.txt'], ['备用', RAW+'all.txt']],
-  t:'⭐ 用上面的「完整版」(GitHub Pages 直出，约 28MB 全量规则)。完整版超出 jsDelivr 20MB 单文件上限，18MB 分卷实测会返回 48 字节的 Failed to fetch 错误文本，已停止提供分卷。'},
+  u:[['⭐ 首选 完整版', PAGES+'all.txt'],
+     ['CDN · statically', 'https://cdn.statically.io/gh/wansheng8/LJGZ/main/output/all.txt'],
+     ['CDN · githack', 'https://raw.githack.com/wansheng8/LJGZ/main/output/all.txt'],
+     ['CDN · ghproxy', 'https://ghproxy.net/https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/all.txt'],
+     ['备用', RAW+'all.txt']],
+  t:'⭐ 首选 GitHub Pages 直出（约 28MB 全量规则）。网络受限时用三个 CDN 单文件镜像，均已实测返回真实规则内容；jsDelivr 单文件超出 20MB 上限不可用，只能两张分卷一起加，缺一会少一半规则。'},
  {i:'🏠', n:'AdGuard Home', a:'AdGuard Home · AdGuard DNS · 私人 DNS', f:'adguard.txt',
   d:'子域折叠后的 DNS 拦截规则 + $dnsrewrite 规则 + DNS 白名单。',
   u:[['CDN 备选', CDN+'adguard.txt'], ['最短', PAGES+'adguard.txt'], ['备用', RAW+'adguard.txt']],
