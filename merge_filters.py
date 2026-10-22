@@ -730,6 +730,12 @@ def fetch_text(url: str, *, transport=None, retries: int = 3,
 # 4. 配置加载: load_sources (config.json / config.yaml)
 # ---------------------------------------------------------------------------
 
+def sanitize_url(url: str) -> str:
+    """清洗 URL: 自动剥掉首尾空白、反引号、单/双引号 — 防止 Markdown 格式被误写入配置。"""
+    if not url:
+        return ""
+    return url.strip().strip("`").strip("'").strip('"').strip()
+         
 def load_sources(path: str) -> List[dict]:
     """读取配置文件, 返回启用的 sources 列表 (按 URL 去重, 保序)。"""
     import json
@@ -750,7 +756,12 @@ def load_sources(path: str) -> List[dict]:
     for src in data.get("sources", []):
         if not src.get("enabled", True):
             continue
-        url = src.get("url", "").strip()
+        raw_url = src.get("url", "")
+        url = sanitize_url(raw_url)
+        if url != raw_url.strip():
+            name = src.get("name") or url.rsplit("/", 1)[-1] or url
+            print(f"[config warn] 源 '{name}' 的 URL 含多余字符, 已自动清洗: "
+                  f"{raw_url!r} → {url!r}", file=sys.stderr)
         if not url or url in seen:
             continue
         seen.add(url)
