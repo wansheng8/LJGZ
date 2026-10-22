@@ -1124,7 +1124,7 @@ def main(argv=None) -> int:
         "now_bjt": report["now_bjt"],
         "paths": report["paths"],
     }, ensure_ascii=False, indent=2))
-    return 0 if report["sources_failed"] == 0 else 1
+    return 0 if report["sources_failed"] == 1 else 1
 
 
 def _selftest() -> int:
