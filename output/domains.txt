@@ -2,10 +2,10 @@
 # Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 纯域名 格式
 # Homepage: https://github.com/wansheng8/LJGZ
 # Licence: 各上游列表许可证的并集, 见 README 致谢部分
-# Version: 2026-10-22 19:37:58 +0800
-# Last Modified: 2026-10-22 19:37:58 +0800 (北京时间 UTC+8)
+# Version: 2026-10-22 20:13:58 +0800
+# Last Modified: 2026-10-22 20:13:58 +0800 (北京时间 UTC+8)
 # Expires: 12 hours
-# Rules: 558392
+# Rules: 558631
 
 0--4.com
 0--d.com
@@ -49,6 +49,7 @@
 0-zone.com
 0.0.0.0.creative.hpyrdr.com
 0.0.0.0.hpyrdr.com
+0.0.0.1
 0.07c225f3.online
 0.ackzany.com
 0.athwartwhoafat.com
@@ -2886,6 +2887,8 @@
 102food.com
 102radio.net
 103-parco.com
+103.179.189.35
+103.224.182.210
 103.sub-70-222-213.myvzw.com
 103.sub-75-236-210.myvzw.com
 1030.go2cloud.org
@@ -2978,6 +2981,7 @@
 106b.com
 106dddcb7e.com
 106niuav.com
+107.148.45.21
 107.red-88-31-9.staticip.rima-tde.net
 107008.speead.jp
 10712824.qqc.co
@@ -2993,6 +2997,7 @@
 108-jakarta.com
 108.com
 108.sub-70-210-70.myvzw.com
+1080.x.90
 108000miles.com
 1080872514.rsc.cdn77.org
 1080fhd.com
@@ -3024,6 +3029,7 @@
 108topreviews.com
 108tour.info
 108tribeca.com
+109.123.233.251
 109.red-88-31-32.staticip.rima-tde.net
 109.sub-70-210-113.myvzw.com
 109.sub-70-214-115.myvzw.com
@@ -3246,6 +3252,7 @@
 11.usyahooapis.com
 11.yiqig.cn
 11.yiqig.com
+110.93.143.144
 110.red-88-29-42.staticip.rima-tde.net
 110.sub-70-221-29.myvzw.com
 110.sub-75-199-47.myvzw.com
@@ -3360,6 +3367,7 @@
 112xy.com
 112zyw.com
 113-bca.online
+113.105.248.169
 113.sub-75-196-211.myvzw.com
 113.sub-75-198-160.myvzw.com
 113.sub-75-208-176.myvzw.com
@@ -4766,6 +4774,7 @@
 140proof.com
 140ys.com
 141-24.dedicado.com.uy
+141.98.82.232
 141.red-88-25-142.staticip.rima-tde.net
 1410555.com
 14106.com
@@ -4780,6 +4789,7 @@
 141happy.com
 141j.com
 142-36.asparuhovo.net
+142.91.159
 142.ip-164-132-197.eu
 142.sub-70-213-192.myvzw.com
 142.sub-75-193-253.myvzw.com
@@ -4953,6 +4963,8 @@
 153c349024.com
 153ee57fd4.com
 154-202.trifle.net
+154.199.255.184
+154.7.80.158
 1541651566.com
 15440.com
 15457.com
@@ -4962,6 +4974,7 @@
 155game.com
 155pk.com
 155qk.com
+156.233.32.123
 156.red-88-26-130.staticip.rima-tde.net
 156.sub-70-198-235.myvzw.com
 156.sub-70-221-181.myvzw.com
@@ -4974,10 +4987,12 @@
 156yt.com
 156yue.com
 157-events.olark.com
+157.90.183.248
 157.red-88-31-2.staticip.rima-tde.net
 15705924073.mer.lstest.siquality.com
 15740.com
 1579850.xyz
+158.247.208
 158.sub-75-222-100.myvzw.com
 1582020.com
 1583030.com
@@ -5073,6 +5088,7 @@
 161crew.com
 161feng.com
 161tyesy.vercel.app
+162.252.214.4
 162.red-88-25-156.staticip.rima-tde.net
 162.sub-75-201-193.myvzw.com
 162.sub-75-215-192.myvzw.com
@@ -5126,6 +5142,9 @@
 166pp.com
 166qp.com
 166tyesy.vercel.app
+167.206.10.148
+167.71.252.38
+167.99.31.227
 167.sub-75-203-78.myvzw.com
 167091.com
 167126.engine.mobileapptracking.com
@@ -5248,6 +5267,26 @@
 171starbucks.com
 171t.com
 171tyesy.vercel.app
+172.240.108.68
+172.240.108.76
+172.240.108.84
+172.240.127.234
+172.240.253.132
+172.255.103.118
+172.255.6.135
+172.255.6.137
+172.255.6.139
+172.255.6.140
+172.255.6.150
+172.255.6.152
+172.255.6.199
+172.255.6.2
+172.255.6.217
+172.255.6.228
+172.255.6.248
+172.255.6.252
+172.255.6.254
+172.255.6.59
 17234.com
 17251w.weebly.com
 172769f118.com
@@ -5389,6 +5428,7 @@
 18.sub-75-195-63.myvzw.com
 18.sub-75-210-98.myvzw.com
 18.sub-75-213-24.myvzw.com
+180.76.2.18
 180.sub-70-218-228.myvzw.com
 180.sub-75-214-181.myvzw.com
 180.sub-75-215-130.myvzw.com
@@ -5464,6 +5504,7 @@
 183949.com
 1839gla.top
 183tyesy.vercel.app
+184.106.248.76
 184.sub-70-218-119.myvzw.com
 184.sub-70-220-93.myvzw.com
 184.sub-70-221-28.myvzw.com
@@ -5477,6 +5518,11 @@
 184c4i95p.de
 184tyesy.vercel.app
 185-24-53-218.com
+185.149.120.173
+185.193.38.148
+185.216.143.121
+185.246.188.124
+185.246.188.125
 185.red-88-25-142.staticip.rima-tde.net
 18532.org
 185500.com
@@ -5513,6 +5559,14 @@
 1878kj.com
 187km.com
 187tyesy.vercel.app
+188.42.84.110
+188.42.84.137
+188.42.84.159
+188.42.84.160
+188.42.84.162
+188.42.84.21
+188.42.84.23
+188.72.219.36
 188.red-88-24-250.staticip.rima-tde.net
 188.sub-75-206-176.myvzw.com
 18800999.com
@@ -5687,8 +5741,14 @@
 191bb.com
 191gm.com
 191ii.com
+192.151.218.66
 192.168.112.2o7.net
 192.168.122.2o7.net
+192.243.59.12
+192.243.59.13
+192.243.59.20
+192.243.61.225
+192.243.61.227
 192.sub-70-220-201.myvzw.com
 192.sub-70-223-117.myvzw.com
 192.sub-75-192-44.myvzw.com
@@ -5706,6 +5766,11 @@
 192x.xyz
 192yuanma.com
 192z.xyz
+193.200.64.20
+193.200.64.24
+193.200.64.30
+193.200.64.31
+193.200.65.61
 193.at
 193.red-88-30-29.staticip.rima-tde.net
 193.red-88-31-36.staticip.rima-tde.net
@@ -5715,6 +5780,11 @@
 1934fordcoupe.com
 193808.com
 1939fordcoupe.com
+194.26.232.61
+194.59.220.161
+194.63.140.103
+194.63.143.61
+194.63.143.96
 194192.engine.mobileapptracking.com
 1948hotel.com
 194964.com
@@ -5748,6 +5818,7 @@
 197f058bb4.99ad29e111.com
 197rgkikn2bphow8.cfd
 198-macros.com
+198.23.198.110
 198.sub-75-192-108.myvzw.com
 198.sub-75-217-156.myvzw.com
 198.sub-75-236-202.myvzw.com
@@ -6694,6 +6765,7 @@
 2.21shebao.com
 2.5aigushi.com
 2.66ri.com
+2.87.160.7
 2.92caijing.com
 2.ackzany.com
 2.aili.com
@@ -6738,6 +6810,7 @@
 20.sharedsource.org
 200-34.thezone.bg
 200-rockergod.com
+200.72.40.46
 200.sub-174-237-216.myvzw.com
 200.sub-66-174-30.myvzw.com
 200.sub-70-192-226.myvzw.com
@@ -6959,6 +7032,30 @@
 203-136.thezone.bg
 203-74.pptp.artx.ru
 203.112.dialup.westcall.net
+203.195.121.0
+203.195.121.1
+203.195.121.103
+203.195.121.11
+203.195.121.119
+203.195.121.134
+203.195.121.184
+203.195.121.195
+203.195.121.209
+203.195.121.217
+203.195.121.219
+203.195.121.224
+203.195.121.229
+203.195.121.24
+203.195.121.28
+203.195.121.29
+203.195.121.34
+203.195.121.36
+203.195.121.40
+203.195.121.46
+203.195.121.70
+203.195.121.72
+203.195.121.73
+203.195.121.74
 203.red-88-31-19.staticip.rima-tde.net
 203.sub-70-199-6.myvzw.com
 203.sub-75-236-92.myvzw.com
@@ -6977,12 +7074,14 @@
 2049bbs.xyz
 204ecf5066.2dbfd83dac.com
 205-79.thezone.bg
+205.209.138.102
 205.red-88-24-249.staticip.rima-tde.net
 205.sub-75-203-103.myvzw.com
 205.sub-75-218-5.myvzw.com
 205.sub-75-237-43.myvzw.com
 2055dcda4a.fd4d94c6f7.com
 20585485p.rfihub.com
+206.54.181.250
 206.sub-174-218-125.myvzw.com
 206.sub-72-127-161.myvzw.com
 206.sub-75-207-194.myvzw.com
@@ -6992,6 +7091,7 @@
 206freeze.com
 206solutions.com
 207-87-18-203.wsmg.digex.net
+207.148.44.179
 207.muge.nyrk.nycenycp.dsl.att.net
 207.net
 207.sub-75-219-84.myvzw.com
@@ -7064,6 +7164,13 @@
 211.sub-70-222-47.myvzw.com
 2116844.com
 211740640418593-dot-wetransfer-auth-file-341.appspot.com
+212.117.186.252
+212.117.190.201
+212.117.190.202
+212.117.190.210
+212.117.190.211
+212.117.190.212
+212.117.190.213
 212.red-88-27-160.staticip.rima-tde.net
 212.sub-70-211-255.myvzw.com
 212067224075.public.telering.at
@@ -7306,6 +7413,39 @@
 22z.ru
 22zalo.com
 23-ak-df9fb22a88ad420abf8c365738dd37cb.vip2-iad1.dlvr1.net
+23.109.121.125
+23.109.121.254
+23.109.150.208
+23.109.150.253
+23.109.170.19
+23.109.170.212
+23.109.170.228
+23.109.170.241
+23.109.170.255
+23.109.170.60
+23.109.248.125
+23.109.248.129
+23.109.248.130
+23.109.248.135
+23.109.248.139
+23.109.248.14
+23.109.248.149
+23.109.248.174
+23.109.248.183
+23.109.248.20
+23.109.248.229
+23.109.248.247
+23.109.248.29
+23.109.82
+23.109.87
+23.109.87.123
+23.109.87.170
+23.195.91.195
+23.224.199.74
+23.224.199.96
+23.224.89.2
+23.231.151.252
+23.83.67.164
 23.sub-70-212-233.myvzw.com
 23.sub-70-220-6.myvzw.com
 23.sub-70-223-193.myvzw.com
@@ -8681,6 +8821,7 @@
 30undertennis.com
 30uso.com
 31.128.173.853.zhzy999.net31.128.173.853.zhzy999.net
+31.14.252.148
 31.media.tumblr.com
 310.at
 3100056af7.com
@@ -9211,6 +9352,8 @@
 33win3.com
 33win9.com
 34-new-lambda.net
+34.102.137.201
+34.215.155.61
 34.gs
 34.red-81-47-136.staticip.rima-tde.net
 34.red-88-30-26.staticip.rima-tde.net
@@ -9326,6 +9469,10 @@
 34w1xmik.xyz
 34ys.com
 35-23-4532-34.com
+35.194.26.233
+35.227.234.222
+35.232.188.118
+35.239.57.233
 35.red-81-47-136.staticip.rima-tde.net
 350.com
 3501655.notify6.com
@@ -9662,6 +9809,11 @@
 36scanniointeriors.com
 36ynxfq51xpkmc.cfd
 37-38.asparuhovo.net
+37.1.209.213
+37.1.213.100
+37.220.26.135
+37.220.26.136
+37.220.26.137
 37.net70.skekraft.net
 37.sinawap.com
 37.sub-70-193-2.myvzw.com
@@ -10884,6 +11036,7 @@
 43t53c9e.de
 43y3q8h5mz.com
 44-trk-srv.com
+44.228.85.26
 44.6dec54.tvnetwork.hu
 44.notifysrv.com
 44.red-80-33-46.staticip.rima-tde.net
@@ -10959,6 +11112,9 @@
 44west.net
 44xxdd.com
 45-76-47-204.plesk.page
+45.15.156.210
+45.32.105.134
+45.82.68.79
 45.red-217-126-173.staticip.rima-tde.net
 45.red-88-30-0.staticip.rima-tde.net
 45.sub-70-196-212.myvzw.com
@@ -11760,6 +11916,7 @@
 5.3pohpyurxxirl1mqtzj1mj2p1ftj.cfd
 5.5ppt.net
 5.5tvcz6ovxvxxptj71te9ipl7hggw.cyou
+5.61.55.143
 5.ackzany.com
 5.athwartwhoafat.com
 5.blissfullyzebra.com
@@ -11870,6 +12027,22 @@
 51-iblog.com
 51-lq.com
 51-sports.com
+51.77.227.100
+51.77.227.101
+51.77.227.102
+51.77.227.103
+51.77.227.96
+51.77.227.97
+51.77.227.98
+51.77.227.99
+51.89.187.136
+51.89.187.137
+51.89.187.138
+51.89.187.139
+51.89.187.140
+51.89.187.141
+51.89.187.142
+51.89.187.143
 51.fi
 51.hl.cn
 51.la
@@ -12194,6 +12367,7 @@
 53s.kuk8.com
 53vp8cooel2q7m7biv6bunkbzykciivtv.cfd
 53z8qvgw8894he7znoert74jn3v1t1flji1jhk.cfd
+54.222.186.106
 54.pl
 54.red-80-35-69.staticip.rima-tde.net
 54.sub-75-213-167.myvzw.com
@@ -12586,6 +12760,7 @@
 56wam.com
 56wj96l0x.com
 56yk.com
+57.128.71.215
 57.com.cn
 57.sub-75-193-209.myvzw.com
 570657a8d8.com
@@ -13204,6 +13379,7 @@
 6.sub-70-212-77.myvzw.com
 6.sub-70-222-217.myvzw.com
 6.zupload.com
+60.190.139.164
 60.sub-70-212-64.myvzw.com
 60.sub-70-221-49.myvzw.com
 6000518.com
@@ -13339,6 +13515,8 @@
 61vjr3.close.futureisready.com
 61yes.com
 61zdfj.hero.laxmitech.co.uk
+62.76.25.27
+62.76.25.28
 62.red-88-31-53.staticip.rima-tde.net
 62.sub-75-210-98.myvzw.com
 6200294-dot-oaao-274308.uc.r.appspot.com
@@ -13545,6 +13723,7 @@
 65xps.com
 66-23-193-126.traefik.me
 66-trk-srv.com
+66.228.52.30
 66.8ox.cn
 6604.org
 660729052432344-dot-wetransfer-auth-file-343.appspot.com
@@ -13638,6 +13817,7 @@
 66wina.com
 66winn.com
 66yswz.com
+67.228.151.70
 6700.cn
 670brivis.net
 671.stats.misstrends.com
@@ -14397,6 +14577,7 @@
 73gmail.com
 73vzmvg2bi.com
 73xcl.4zb5xl3twol78b.cfd
+74.55.82.102
 741.com
 741.net
 7412045659-prawnicy.storage.googleapis.com
@@ -14551,6 +14732,8 @@
 76z.nyx46qv9g8qmzjh4n.cyou
 77-casino.fr
 77-club.com
+77.162.125.199
+77.247.178.41
 770-casinos.fr
 7701534.emails.tntdrama.com
 770casino-online.fr
@@ -14670,6 +14853,8 @@
 77zdmt8yq.com
 77zip.com
 77zz7.com
+78.140.134.198
+78.140.149.216
 78.72h1i16uzmbkvpn2e5.cfd
 780232.weebly.com
 781081410579-uspro-s3-telemetry-overflow.s3.us-east-1.amazonaws.com
@@ -14748,6 +14933,7 @@
 78win05.com
 78win07.com
 78winp.com
+79.125.117.123
 79.sk
 79014.com
 791026.com
@@ -15677,7 +15863,11 @@
 87w.info
 87yik.xyz
 88-sms.com
+88.208.46.222
+88.42.84.136
 88.718pk.com
+88.85.75.147
+88.85.77.92
 88.slotbiruserper.com
 8800chrtrtwc.weebly.com
 8805750eae1b1724.main.jp
@@ -16311,6 +16501,8 @@
 90trader.com
 90tsdpml6.com
 91-92-240-45.plesk.page
+91.204.226.224
+91.207.192.31
 91.51rmc.com
 910weixin.com
 911.cc
@@ -16508,6 +16700,7 @@
 93vitoo.com
 93vitui.com
 93y.732lli56e5k2fo3zm3fcfbwpq4two7uj.cyou
+94.130.167.163
 9400fr.weebly.com
 940functions.net
 940haloix.net
@@ -16553,6 +16746,7 @@
 94summary.net
 94vs.adj.st
 94xinzhi.com
+95.211.125.226
 950197453774939.wt-eu02.net
 9505.com
 95090d6fb0.147c1e0584.com
@@ -26693,6 +26887,7 @@ acquaintedpostman.com
 acquaintfy.com
 acquaintjokinglyscoring.com
 acquavivahotel.com
+acqueberai.store
 acquirecardedsullen.com
 acquiredcycle.com
 acquiredeceasedundress.com
@@ -48889,6 +49084,7 @@ analyticcdn.pc161021.com
 analyticcdn.wlmediahub.com
 analyticg.com
 analyticn.com
+analytics-*.aasaam.com
 analytics-1.cavai.com
 analytics-1.umami-view.app
 analytics-1912434643.us-east-1.elb.amazonaws.com
@@ -67888,6 +68084,7 @@ aurora-capital-ai.com
 aurora-capital-digital.pages.dev
 aurora-capital.click
 aurora-capital.digital
+aurora-capital.pro
 aurora-care.com
 aurora-cooked.netlify.app
 aurora-d3.herokuapp.com
@@ -88146,7 +88343,6 @@ bravonitek.net
 bravonitekai.com
 bravontradenex.live
 bravontradenextrade.com
-bravoplay-cassino.fr
 bravoplaycasino.fr
 bravorendagem.digital
 bravorendagem.net
@@ -89760,6 +89956,7 @@ brtnudeisoliso.firebaseapp.com
 brtpocvetolsd.weebly.com
 brtrack.rummypassion.com
 brtsumthree.com
+brttitannias.pro
 brtuigmdbvbjj.site
 brtwlhfmomcng.site
 brtx.translinklogistics.info
@@ -98608,7 +98805,6 @@ casin0ly-1975.com
 casin0x.fr
 casin0xcasino.fr
 casina-casino.fr
-casina-cassino.fr
 casinabetify.fr
 casinacasino.fr
 casinacho-casino.fr
@@ -100296,6 +100492,7 @@ cccpmo.com
 cccrir.com
 cccsales-pl.shop
 cccsport.shop
+cccstores.shop
 cccu.goaserv.com
 cccvbsdfsdf.w8510.com
 cccwwwr.com
@@ -117146,6 +117343,7 @@ content22.citibank.com.sg
 content22.citibankonline.com
 content22.online.citi.com
 content4less.com
+content_tracking.js
 contentabc.com
 contentail.com
 contentapi.celltick.com
@@ -118477,6 +118675,7 @@ cornervenomous.com
 cornfedknitssheep.qpon
 cornflowercigar.com
 cornflowerirregularserpent.com
+cornhuskersffjounciest.pro
 corniercuffed.qpon
 cornificahhtionpeelable.info
 cornrowbygone.shop
@@ -122488,6 +122687,7 @@ crimsonpeakless.top
 crimsonrhyme.com
 crimsonroadproductions.com
 crimsonserene.com
+crimsonwave.live
 crimsonx.shop
 crineportivenza.live
 crineportivenzatrade.com
@@ -122619,6 +122819,7 @@ crjugate.com
 crklu.jottnar.com
 crks.corekees.com
 crktcutlery.com
+crkyencdcmrlf.online
 crl.microsoft.com
 crlcw.link
 crlog-crcn.adobe.com
@@ -144823,6 +145024,7 @@ divertingdates.net
 divertissemnnent.info
 divertnow.com
 divesttreeingtenail.qpon
+divetpsico.store
 divibase.xyz
 dividano.de
 dividedgrandtoll.com
@@ -148683,6 +148885,7 @@ dqaadsxjf.com
 dqagyks.com
 dqajdnjenuvifq.com
 dqbrrsfcx.com
+dqbv9q.odnow-2882.website
 dqcciibtvbsqq.online
 dqciuftqqizon.website
 dqcnhcmiaosjv.online
@@ -155205,6 +155408,7 @@ ebo-shi.com
 ebocornac.com
 eboglvqdtadmz.space
 ebok-002894826.001300498498874582.com
+ebok-01266.00321109849812891.com
 ebok-gkpge-pl.ellectrical.com
 ebok-refundacja-pl.us.stackstaging.com
 eboksx.s3.eu-west-3.amazonaws.com
@@ -155873,6 +156077,7 @@ ecuadorminingnews.com
 ecuadorpresidencial.goaserv.com
 ecuadorpro.replit.app
 ecuanimefundanza.com
+ecuantixai-com.pages.dev
 ecuantixai-digital.pages.dev
 ecuantixai.com
 ecuantixai.digital
@@ -160342,6 +160547,7 @@ emerald-thread.shop
 emerald-tours.com
 emeraldcoalition.org
 emeraldelevator.in
+emeraldpeak.live
 emeraldsep.cfd
 emeraldspa.pro
 emeraldsteroid.com
@@ -175953,6 +176159,12 @@ finseedv.info
 finserveconsulting.com
 finshope.com
 finsightpro.net
+finsy0-eveniet73.sbs
+finsy0-ut44.sbs
+finsy2-suscipit14.sbs
+finsy3-ducimus55.sbs
+finsy6-molestiae18.sbs
+finsy9-pariatur19.sbs
 fintarioso.com
 fintarioso.net
 fintaro.lovable.app
@@ -182531,6 +182743,7 @@ free-hack-tools.com
 free-hairy-pussy.net
 free-hit-counters.net
 free-hit.com
+free-hk-shop.top
 free-indianstream.com
 free-internet.fr
 free-iphone6s.com
@@ -183505,6 +183718,7 @@ frissekapitholm.net
 frist2dskbg.firebaseapp.com
 frist2dskbg.web.app
 fristpolychem.download
+fristreifum.sbs
 frisurideen2019.club
 frisurideenneue.club
 friswaarddijk.com
@@ -195780,7 +195994,6 @@ godsgame.ru
 godvd.cleansimpleeats.com
 godz-casiino.fr
 godz-casino-fr.fr
-godz-cassino.fr
 godz-officiel.fr
 godz.space
 godzcasino-fr.fr
@@ -229454,6 +229667,7 @@ inpost.pl-paymoney.eu.cc
 inpost.pl-paymoney4.eu.cc
 inpost.plpay-protranz.biz
 inpost.poland-corepay3.eu.cc
+inpost.poland-payhub.eu.cc
 inpost.przelew-paycore.biz.id
 inpost.sbs
 inpost.skrpay-pl.rest
@@ -231817,6 +232031,7 @@ iolljrivp.com
 iolostore.com
 iomao.spoonfulofcomfort.com
 iomaparis.cn
+iomara-0028.pages.dev
 iomlsfqgvugaf.space
 iomnqhzj.com
 ioms.bfmio.com
@@ -235282,6 +235497,7 @@ jakfundzen.net
 jakhmeyalpnpio.net
 jakid.xyz
 jakirhasan.com
+jakizyjanaouy.website
 jaknet.my.id
 jako2026.com
 jako2026.live
@@ -238487,6 +238703,7 @@ jobfinder911.com
 jobfreelance.fr
 jobgirl24.ru
 jobhelden.com
+jobi.eu.cc
 jobikdomain.eu.cc
 jobinuk.click
 jobius.com.ua
@@ -247973,6 +248190,7 @@ knrzytcl7npbfz.p1fw1423z44lx17.cyou
 knsgrup.com
 knshe.com
 knsoknmyvyhab.website
+knsveecsvcxxl.online
 kntr.ir
 knucklegourmet.com
 knucklemonthsedifice.com
@@ -248700,6 +248918,7 @@ korvexalin.com
 korvexo.shop
 korviloai-ai.com
 kory.fillyourbooks.com
+korzelio.com
 kos.interseek.si
 kosahafager.com
 kosanahtapwhm.site
@@ -272789,7 +273008,6 @@ luckybets.cc
 luckyblank.info
 luckyblock-casino.fr
 luckyblock-fr.fr
-luckyblock-france.fr
 luckyblock-official.fr
 luckyblockcasino.fr
 luckyboom-1.fr
@@ -274410,6 +274628,7 @@ lynx.inovo.io
 lynx.lumy.network
 lynx.simpleparish.com
 lynxeslentor.shop
+lynxparadox.click
 lynxsustainablesolutions.com
 lyo1dkdbp.com
 lyodsbank.com
@@ -299134,6 +299353,7 @@ moiernonpaid.com
 moigioi.info
 moigv.spartan.com
 moijs.com
+moikyixcwdxjx.site
 moilegrogram.cfd
 moimczcuqzkxc.website
 moin.alqasimbd.com
@@ -310255,7 +310475,6 @@ neuralprofit.net
 neuraltradeai.app
 neuraltradeai.org
 neuralx-ai.live
-neuranorth-ai-software.com
 neuratekperu.com
 neurath.net
 neurblade.info
@@ -319880,6 +320099,7 @@ odngvujguenah.space
 odnlj.snap-affairs.com
 odnowa.makeup
 odnowakonta.com
+odnowienie29231.click
 odnowieniekonta.com
 odnpv.gwhome.com
 odntaztu.com
@@ -319950,6 +320170,7 @@ odysseyfitouts.info
 odyvcahzbdmlx.website
 odzcmuoq.in
 odzfjvbsd.com
+odziiez.sbs
 odzyskajsnapy.blogspot.com
 odzzperikpir.com
 oe.dreyntebon.qpon
@@ -321975,6 +322196,7 @@ ol.uk.at.atwola.com
 ol.verneukcoman.help
 ol1x-onl.a4nccb.cfd
 ol1x-onl.be1wyw.cfd
+ol1x-onl.dostivo.store
 ol1x-onl.hd7vhm.qpon
 ol1x-onl.m5httq.cfd
 ol1x-onl.o2mbpc.cfd
@@ -328953,6 +329175,7 @@ outlook-silk-nine.vercel.app
 outlook-update-109103.weeblysite.com
 outlook.accountantsclaim.com
 outlook.best
+outlook.live.com._6tqjfb_hmyqup_npe6dhc
 outlook.pm
 outlook.tf
 outlook.wf
@@ -337908,6 +338131,7 @@ phikunprogramming.com
 phil-ups.com
 philacct.com
 philadelphia-content.cresa.com
+philadelphia_cbslocal.us.intellitxt.com
 philadelphiagossipapril.com
 philadelphiasporting.com
 philadelphiastrenuousrotund.com
@@ -341763,6 +341987,7 @@ pl.mysafesmartphone.com
 pl.noartmusic.com
 pl.ochnikoutlet.com
 pl.ogame.goasrv.com
+pl.orgseries.org
 pl.paradiesgartenfestival.at
 pl.paradisecity.be
 pl.postboyerick.cyou
@@ -370027,6 +370252,7 @@ rgmam.commercialsitefurnishings.com
 rgmayedyahatevqyuc.com
 rgmbu.incauthority.com
 rgmechanics.org
+rgmechanicsgames.com*vpn.exe
 rgmediawebglobal.com
 rgmhrvwugwlnd.website
 rgmobilegossip.com
@@ -380948,6 +381174,7 @@ salimjoker19911991.ddns.net
 salinanbunga.cyou
 salinaocnelemari.ro
 salinatineola.qpon
+salinesmethodiiist.pro
 salitempbscripple.cfd
 saliyumakan.club
 saljsupport.com
@@ -381303,6 +381530,7 @@ samsonite-promost.shop
 samsonite-shop.us
 samsonite-suomi.com
 samsonite.com.de
+samsonitepromost.shop
 samsonites.fr
 samsonlineservices.co.ke
 samsonov.molvi.ru
@@ -383404,6 +383632,7 @@ scattorendivo.net
 scatylems.com
 scaulgeneva.qpon
 scaupcroaks.cyou
+scavascozz.store
 scawliachimo.qpon
 scawtepee.com
 scaxpnplwrzma.online
@@ -401916,6 +402145,7 @@ shar2345ewater.space
 shar3pointfilehjdcl0udprotect.myportfolio.com
 shara-ai-discord-outh2.vercel.app
 sharanilodge.com
+shardocapp.top
 shardsabvolt.cfd
 share-apple.com
 share-backcountry.onxmaps.com
@@ -405755,6 +405985,7 @@ sincorrabtcv8.pro
 sincorrabtcv85.com
 sincorrabtcv85.org
 sincroniza-netempresarial.idempresas.com
+sindaripul.store
 sindelfingen-haarentfernung.de
 sinder8.com
 sindevil.com
@@ -406502,6 +406733,7 @@ sizeerfashion.shop
 sizeerfree.com
 sizeerhomes.shop
 sizeeroferty-pl.shop
+sizeeroferty.shop
 sizeeroutlets.shop
 sizeerpls.shop
 sizeersales.shop
@@ -435052,6 +435284,7 @@ stackcoalitionmole.com
 stackedcasino.fr
 stackedlaces.shop
 stackims.com
+stackiq.vip
 stackmultiple.com
 stacknheap.com
 stackoverflow.xyz
@@ -439011,6 +439244,7 @@ starman.floorcleanse.co.uk
 starman.info
 starman.usefathom.com
 starmeetonline.com
+starmega.digital
 starmobmedia.com
 starmount.alwayscarebenefits.com
 starmovies.cc
@@ -460112,6 +460346,7 @@ teleoinno.shop
 teleolxsbv.click
 teleolxsbv.help
 teleolxsbv.shop
+teleomlixx.help
 teleonxkxs.help
 teleopeakf.cyou
 teleopeakf.shop
@@ -495426,6 +495661,7 @@ vbkryy.pasonacareer.jp
 vblaejlytzpwh.online
 vbljtmyibtty.com
 vblmjpzxyfghn.online
+vblsqyrh.shop
 vblwixpwrrrjh.site
 vbm1.ru
 vbmdmwww.sampleco.ccrs.biz
@@ -514254,6 +514490,7 @@ wishwin1.fr
 wisig.org
 wisingande.cyou
 wisla-zyskor.org
+wislakurier.com
 wislazyskor-pl.com
 wislazyskorai.com
 wislfondawa.net
@@ -515814,6 +516051,7 @@ workstyle.goasrv.com
 worktemp.xyz
 worktonero.digital
 workupdates.net
+workwear-storage-vip.shop
 workwearwell.com
 workweek-ads-production.imgix.net
 workwithdrones.com
@@ -551608,6 +551846,7 @@ ywums.compensation.help
 ywuymunqudyez.eu
 ywuzuazsjnzto.online
 ywwm.net
+ywwmctudgcdoa.site
 ywww-roblox.com
 ywxc.net
 ywxi.net
