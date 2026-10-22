@@ -85,10 +85,9 @@ const PAGES= 'https://wansheng8.github.io/LJGZ/';
 const RAW  = 'https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/';
 const P = [
  {i:'🧩', n:'浏览器扩展', a:'uBlock Origin · AdGuard · Adblock Plus', f:'all.txt',
-  d:'网络规则 + 元素隐藏 + 脚本注入 + 例外，全格式订阅。',
+  d:'网络规则 + 元素隐藏 + 脚本注入 + 例外，全格式订阅（完整规则）。',
   u:[['⭐ 首选 完整版', PAGES+'all.txt'], ['备用', RAW+'all.txt']],
-  dynamic:'parts',
-  t:'⭐ 首选上面的「完整版」(GitHub Pages 直出)。jsDelivr 分卷卡在 18MB 边缘, 实测会返回 48 字节的 Failed to fetch 错误文本 —— 若下方分卷显示异常, 删掉分卷只留完整版。'},
+  t:'⭐ 用上面的「完整版」(GitHub Pages 直出，约 28MB 全量规则)。完整版超出 jsDelivr 20MB 单文件上限，18MB 分卷实测会返回 48 字节的 Failed to fetch 错误文本，已停止提供分卷。'},
  {i:'🏠', n:'AdGuard Home', a:'AdGuard Home · AdGuard DNS · 私人 DNS', f:'adguard.txt',
   d:'子域折叠后的 DNS 拦截规则 + $dnsrewrite 规则 + DNS 白名单。',
   u:[['CDN 备选', CDN+'adguard.txt'], ['最短', PAGES+'adguard.txt'], ['备用', RAW+'adguard.txt']],
@@ -117,7 +116,7 @@ for (const p of P) {
   });
   c.innerHTML = `<h2><span class="ico">${p.i}</span>${p.n}</h2>` +
     `<div class="apps">${p.a}</div>` +
-    `<div class="url" ${p.dynamic ? 'data-dynamic="'+p.dynamic+'"' : ''}>${rows}</div>` +
+    `<div class="url">${rows}</div>` +
     `<div class="tip">${p.d}<br>📌 ${p.t}</div>`;
   grid.appendChild(c);
 }
@@ -132,28 +131,6 @@ grid.addEventListener('click', async e => {
   b.textContent = '✓ 已复制'; b.classList.add('ok');
   setTimeout(() => { b.textContent = '复制'; b.classList.remove('ok'); }, 1400);
 });
-// 动态发现 CDN 分卷 (HEAD 探测 01..05, 存在即插入链接行)
-(function discoverParts() {
-  const box = document.querySelector('[data-dynamic="parts"]');
-  if (!box) return;
-  let found = 0;
-  for (let i = 1; i <= 5; i++) {
-    const nn = String(i).padStart(2, '0');
-    fetch(CDN + 'all-part-' + nn + '.txt', {method: 'HEAD'})
-      .then(r => { if (r.ok) {
-        found++;
-        const row = document.createElement('div');
-        row.className = 'row';
-        row.innerHTML = `<span class="tag">CDN 分卷 ${found}</span>` +
-          `<span class="addr">${CDN}all-part-${nn}.txt</span>` +
-          `<button data-u="${CDN}all-part-${nn}.txt">复制</button>`;
-        box.insertBefore(row, box.firstChild.nextSibling || box.firstChild);
-        // 分卷数可能 >2, 提示文案同步
-      } })
-      .catch(() => {});
-  }
-})();
-
 fetch('stats.json').then(r => r.json()).then(s => {
   const el = document.getElementById('stats'); el.hidden = false;
   const f = n => n >= 10000 ? (n / 10000).toFixed(1) + '万' : String(n);

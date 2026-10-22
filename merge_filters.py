@@ -598,16 +598,10 @@ class Merger:
                     break
                 d = d.split(".", 1)[1] if "." in d else ""
 
-        # 浏览器输出 (all_blocks): 用折叠结果; 域名规则超过阈值时截断 — 大量
-        # ||d^ 来自 DNS 列表, 对浏览器价值低且会让订阅体积膨胀到加载失败
-        # (即"订阅了但无拦截"的根因)。
-        BROWSER_DOMAIN_CAP = 150_000
+        # 浏览器输出 (all_blocks): 用折叠结果, 不做截断 — 全格式订阅必须包含
+        # 全部规则。此前的 15 万阈值会静默丢掉数十万条 ||d^ (55.8 万域名只剩
+        # 15 万), 订阅端表现为"规则少/内容不全"。
         browser_items = list(kept)
-        if len(browser_items) > BROWSER_DOMAIN_CAP:
-            # 保留顺序: $important 优先, 其余按域名稳定序
-            browser_items.sort(key=lambda t: (not t[1], t[0]))
-            browser_items = browser_items[:BROWSER_DOMAIN_CAP]
-            browser_items.sort(key=lambda t: t[2])     # 输出仍按规则文本排序
         res.all_blocks = [c for _, _, c in browser_items]
 
         # 同域 type 消解 (高效拦截 + 省体积): 若域名 d 已被"全请求类型"拦截
