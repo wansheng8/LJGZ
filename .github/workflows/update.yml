@@ -22,6 +22,9 @@ on:
       - "config.json"
       - "docs/**"
       - "tests/**"
+      - "scriptlets/**"
+      - "benchmarks/**"
+      - "benchmark.py"
       - ".github/workflows/update.yml"
 
 permissions:
@@ -61,6 +64,10 @@ jobs:
 
       - name: 下载并合并规则
         run: python merge_filters.py --config config.json --outdir output
+
+      - name: 离线覆盖率跑分 (非阻断)
+        continue-on-error: true
+        run: python benchmark.py --out output/benchmark.json
 
       - name: 提交并推送 (带重试, 防非快进竞态)
         run: |
@@ -115,6 +122,7 @@ jobs:
           mkdir -p site
           cp docs/index.html docs/logo.svg site/
           cp output/*.txt output/stats.json output/badge-*.json output/badge-*.svg site/
+          cp output/benchmark.json site/ || true
       - uses: actions/configure-pages@v5.0.0
       - uses: actions/upload-pages-artifact@v3.0.0
         with:

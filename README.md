@@ -66,7 +66,7 @@ flowchart LR
 | ③ 合并 | `Merger` | 精确去重 + 修饰符排序后语义去重，`$badfilter` 失效，`@@` 例外保护 |
 | ④ 仲裁 | `finalize()` | 子域折叠、同域 type 规则消解、`$important` 提升、DNS 能力筛选 |
 | ⑤ 输出 | `write_outputs()` | 5 种格式、stats.json、徽章 SVG |
-| ⑥ 发布 | `update.yml` | 145 项测试 → 合并 → 无变化跳过 → commit/push → 部署 Pages |
+| ⑥ 发布 | `update.yml` | 172 项测试 → 合并 → 跑分（非阻断）→ 无变化跳过 → commit/push → 部署 Pages |
 
 ## 产物
 
@@ -107,24 +107,39 @@ flowchart LR
 <summary><b>🚀 自动更新与部署</b></summary>
 
 - 工作流：`.github/workflows/update.yml`（cron `0 0,12 * * *` UTC = 北京 08:00 / 20:00，`TZ=Asia/Shanghai`）
-- 流程：145 项测试 → 下载 23 源 → 合并 → 无变化跳过提交，有变化自动 commit + push → 部署 Pages
+- 流程：172 项测试 → 下载 23 源 → 合并 → 无变化跳过提交，有变化自动 commit + push → 部署 Pages
 - 另有两个纯清理 cron（06:00 / 18:00 UTC），只删旧 Actions 历史，保留最新 3 条
 - 输出头部含 `! Last Modified: ... (北京时间 UTC+8)` 与 `! Expires: 12 hours`
 - 徽章 SVG 由引擎每次运行重新生成，数字始终与最新合并一致
 
 </details>
 
+## 质量与反馈
+
+- **自研 scriptlet** — `scriptlets/custom.txt` 只允许调用客户端内置 scriptlet（订阅无法下发任意 JS）；合并前校验域名、括号与名称，语法错误直接失败
+- **双跑分** — 每次更新后跑离线覆盖率（`benchmark.py` → `benchmark.json`，非阻断）；每周在真实 Chromium 中跑一次页面级跑分（`live-benchmark.yml`）
+- **反馈闭环** — Issue 选「误杀 / 漏拦」表单，机器人对照最新订阅自动初筛并回复、打标签
+
 ## 项目结构
 
 ```
 merge_filters.py               # 核心引擎: 解析 → 合并 → 下载 → 输出 → 徽章 → CLI
+benchmark.py                   # 离线覆盖率跑分 (应拦 / 不应拦 / 漏拦样本)
 config.json                    # 上游列表配置 (DIY 入口)
+scriptlets/custom.txt          # 自研 scriptlet 规则
+benchmarks/expectations.json   # 跑分样本与排除项
+tools/live_benchmark.py        # 真实 Chromium 页面级跑分
+tools/triage_issue.py          # Issue 自动初筛
 docs/index.html                # 在线订阅中心 (GitHub Pages)
 docs/logo.svg                  # Logo
-tests/                         # 145 项测试, 全部无网络
+tests/                         # 172 项测试, 全部无网络
   test_parsing.py              #   词法分类
   test_merging.py              #   合并 / 去重 / 仲裁
   test_browser_profile.py      #   全格式完整性
+  test_scriptlets.py           #   scriptlet 语法与合并
+  test_benchmark.py            #   跑分评分逻辑
+  test_live_benchmark.py       #   浏览器跑分规则匹配
+  test_triage.py               #   Issue 初筛
   test_fetch_io.py             #   下载与重试
   test_badges.py               #   徽章生成
   test_e2e.py                  #   端到端
@@ -132,6 +147,9 @@ tests/                         # 145 项测试, 全部无网络
   test_safe_tracking_domains.py#   追踪域安全边界
   test_bare_exception_arbitration.py
 .github/workflows/update.yml   # 每日更新 + Pages 部署
+.github/workflows/live-benchmark.yml  # 每周真实浏览器跑分 (非阻断)
+.github/workflows/issue-triage.yml    # Issue 自动初筛
+.github/ISSUE_TEMPLATE/        # 误杀 / 漏拦表单
 output/                        # 订阅文件 (CI 自动重新生成)
 ```
 
@@ -142,8 +160,9 @@ git clone https://github.com/wansheng8/LJGZ.git
 cd LJGZ
 
 python merge_filters.py --test              # 冒烟自检
-python -m unittest discover -s tests         # 145 项测试
+python -m unittest discover -s tests         # 172 项测试
 python merge_filters.py                      # 下载合并 → ./output/
+python benchmark.py --out output/benchmark.json   # 离线覆盖率跑分
 ```
 
 增删上游只需编辑 `config.json`（任何 ABP 兼容列表均可）：
@@ -152,7 +171,7 @@ python merge_filters.py                      # 下载合并 → ./output/
 { "name": "我的列表", "url": "https://example.com/filter.txt", "enabled": true }
 ```
 
-`extra_rules` 可补充上游未覆盖的规则，最后合入、优先级最高。Fork 后工作流自动生效，产出你自己的订阅。
+`extra_rules` 可补充上游未覆盖的规则，最后合入、优先级最高；域名级 scriptlet 规则写进 `scriptlets/custom.txt`。Fork 后工作流自动生效，产出你自己的订阅。
 
 ## 常见问题
 

@@ -1,0 +1,24 @@
+{
+  "coverage": {
+    "hit": 27,
+    "missing": [],
+    "rate": 100.0,
+    "total": 27
+  },
+  "proxy_missed": {
+    "hit": 30,
+    "rate": 96.8,
+    "total": 31
+  },
+  "rules": {
+    "exceptions": 28,
+    "modifier_domains": 5856,
+    "pure_domains": 504060
+  },
+  "safety": {
+    "false_positives": [],
+    "rate": 100.0,
+    "total": 33
+  },
+  "score": 99.4
+}

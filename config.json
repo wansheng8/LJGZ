@@ -120,6 +120,7 @@
       "enabled": true
     }
   ],
+  "scriptlet_file": "scriptlets/custom.txt",
   "extra_rules": [
     "||adblock-tester.com/banners/$all",
     "||ymatuhin.ru^$important",

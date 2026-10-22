@@ -1,0 +1,71 @@
+name: Issue Triage
+
+# 误杀/漏拦 Issue 自动初筛: 对照最新 all.txt 回复结论并打标签。
+# 只做初筛, 不修改规则。
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  triage:
+    if: >-
+      contains(github.event.issue.labels.*.name, 'false-positive') ||
+      contains(github.event.issue.labels.*.name, 'missed-ad')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4.2.2
+
+      - uses: actions/setup-python@v5.3.0
+        with:
+          python-version: "3.12"
+
+      - name: 判断反馈类型
+        id: kind
+        env:
+          LABELS: ${{ join(github.event.issue.labels.*.name, ',') }}
+        run: |
+          if [[ "$LABELS" == *"false-positive"* ]]; then
+            echo "kind=false-positive" >> "$GITHUB_OUTPUT"
+          else
+            echo "kind=missed-ad" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: 初筛
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+        run: |
+          python tools/triage_issue.py \
+            --kind "${{ steps.kind.outputs.kind }}" \
+            --comment-out triage-comment.md \
+            --labels-out triage-labels.txt
+
+      - name: 创建标签（不存在时）
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          for label in false-positive missed-ad needs-triage confirmed; do
+            gh label create "$label" --force >/dev/null 2>&1 || true
+          done
+
+      - name: 回复初筛结论
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE: ${{ github.event.issue.number }}
+        run: gh issue comment "$ISSUE" --body-file triage-comment.md
+
+      - name: 打标签
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE: ${{ github.event.issue.number }}
+        run: |
+          while IFS= read -r label; do
+            [ -n "$label" ] && gh issue edit "$ISSUE" --add-label "$label"
+          done < triage-labels.txt

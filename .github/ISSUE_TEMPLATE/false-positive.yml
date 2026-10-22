@@ -1,0 +1,53 @@
+name: 误杀反馈
+description: 正常网站或功能被拦截（整站打不开、图片/脚本加载失败）
+title: "[误杀] "
+labels: ["false-positive"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        提交后机器人会先对照最新订阅做一次初筛并回复结论。
+        请尽量填全域名和页面 URL，否则无法定位。
+  - type: input
+    id: domain
+    attributes:
+      label: 域名
+      description: 被拦截的服务器域名，例如 example.com（不要填完整 URL）
+      placeholder: example.com
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: 页面 URL
+      description: 出现问题的页面完整地址
+      placeholder: https://example.com/some/page
+    validations:
+      required: true
+  - type: dropdown
+    id: client
+    attributes:
+      label: 使用的客户端
+      options:
+        - uBlock Origin
+        - AdGuard 浏览器扩展
+        - AdGuard Home
+        - Pi-hole
+        - 其它
+    validations:
+      required: true
+  - type: textarea
+    id: detail
+    attributes:
+      label: 现象与复现步骤
+      description: 页面哪里坏了、控制台/Network 里被拦的请求、是否换用其它订阅后恢复
+      placeholder: 打开页面后评论框不显示；关闭本订阅后恢复。
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 确认
+      options:
+        - label: 我已在最新订阅（重新更新过滤器后）复现
+          required: true

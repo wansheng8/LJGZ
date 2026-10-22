@@ -1,0 +1,13 @@
+! 自研 scriptlet 规则
+!
+! 说明: 订阅只能调用客户端内置的 scriptlet, 无法下发任意 JS。
+! 语法: <域名>##+js(<内置名>, <参数>)
+! 校验: merge_filters.load_scriptlet_rules() 会检查域名、括号配对和名称,
+!       语法错误会让整份订阅被扩展拒绝加载, 因此 CI 必须在合并前拦住。
+! 收录标准: 只放能说明原因、且失效时不会误伤正常页面功能的规则。
+
+! YouTube: 从播放器响应中剔除广告位数据 (json-prune 为 uBO 内置)
+youtube.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds)
+
+! 新增规则模板 (取消注释并补上原因再提交):
+! example.com##+js(abort-on-property-read, adblockDetector)  ! 站点用该属性判断是否装了拦截器

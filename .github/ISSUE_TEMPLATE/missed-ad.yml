@@ -1,0 +1,60 @@
+name: 漏拦反馈
+description: 广告或追踪请求没有被拦截
+title: "[漏拦] "
+labels: ["missed-ad"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        提交后机器人会先对照最新订阅做一次初筛并回复结论。
+        如果能提供开发者工具里的请求 URL，处理会快很多。
+  - type: input
+    id: domain
+    attributes:
+      label: 域名
+      description: 广告/追踪请求的域名，例如 ads.example.com
+      placeholder: ads.example.com
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: 页面 URL
+      description: 出现广告的页面完整地址
+      placeholder: https://example.com/some/page
+    validations:
+      required: true
+  - type: textarea
+    id: request
+    attributes:
+      label: 广告请求 URL（可选）
+      description: 开发者工具 Network 面板中对应的完整请求地址
+      placeholder: https://ads.example.com/banner.js
+    validations:
+      required: false
+  - type: dropdown
+    id: client
+    attributes:
+      label: 使用的客户端
+      options:
+        - uBlock Origin
+        - AdGuard 浏览器扩展
+        - AdGuard Home
+        - Pi-hole
+        - 其它
+    validations:
+      required: true
+  - type: textarea
+    id: detail
+    attributes:
+      label: 现象
+      description: 广告位置、截图、是否只在特定页面出现
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 确认
+      options:
+        - label: 我已在最新订阅（重新更新过滤器后）复现
+          required: true

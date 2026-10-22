@@ -764,8 +764,7 @@ def load_sources(path: str) -> List[dict]:
     return out
 
 
-def load_extra_rules(path: str) -> List[str]:
-    """读取配置的 extra_rules: 本地补充规则 (上游未覆盖的缺口, 自主可控)。"""
+def _load_config_data(path: str) -> dict:
     import json
 
     with open(path, "r", encoding="utf-8") as f:
@@ -773,17 +772,65 @@ def load_extra_rules(path: str) -> List[str]:
     if path.endswith((".yaml", ".yml")):
         try:
             import yaml
-            data = yaml.safe_load(text)
         except ImportError:
             raise RuntimeError("YAML 配置需要 pyyaml")
-    else:
-        data = json.loads(text)
+        return yaml.safe_load(text) or {}
+    return json.loads(text)
+
+
+def load_extra_rules(path: str) -> List[str]:
+    """读取配置的 extra_rules: 本地补充规则 (上游未覆盖的缺口, 自主可控)。"""
     out = []
-    for ln in data.get("extra_rules", []):
+    for ln in _load_config_data(path).get("extra_rules", []):
         ln = ln.strip()
         if ln and ln not in out:
             out.append(ln)
     return out
+
+
+# 订阅只能调用客户端内置的 scriptlet, 不能下发任意 JS
+SCRIPTLET_MARKERS = ("##+js(", "#%#//scriptlet(")
+_DOMAIN_RE = re.compile(r"^[a-z0-9]([a-z0-9.*_-]*[a-z0-9])?(\.[a-z0-9_-]+)+$", re.I)
+
+
+def load_scriptlet_rules(path: str) -> List[str]:
+    """读取自研 scriptlet 文件 (config 的 scriptlet_file)。
+
+    每行必须是 `<域名>` + `##+js(...)` / `#%#//scriptlet(...)`, 只允许调用
+    客户端内置 scriptlet。语法错误直接抛 ValueError —— 带病规则会让整份
+    订阅被扩展拒绝加载, 必须挡在合并之前。
+    """
+    if not path or not os.path.exists(path):
+        return []
+    out: List[str] = []
+    with open(path, "r", encoding="utf-8") as f:
+        for lineno, raw in enumerate(f, 1):
+            ln = raw.strip()
+            if not ln or ln.startswith("!") or ln.startswith("#"):
+                continue
+            marker = next((m for m in SCRIPTLET_MARKERS if m in ln), None)
+            if marker is None:
+                raise ValueError(f"{path}:{lineno} 不是 scriptlet 规则: {ln!r}")
+            domain = ln.split(marker, 1)[0].strip()
+            if not _DOMAIN_RE.match(domain):
+                raise ValueError(f"{path}:{lineno} 域名不合法: {domain!r}")
+            if ln.count("(") != ln.count(")"):
+                raise ValueError(f"{path}:{lineno} 括号不配对: {ln!r}")
+            if not re.search(re.escape(marker) + r"\s*[a-z0-9-]+", ln, re.I):
+                raise ValueError(f"{path}:{lineno} 缺少 scriptlet 名称: {ln!r}")
+            if ln not in out:
+                out.append(ln)
+    return out
+
+
+def load_scriptlet_file(config_path: str) -> List[str]:
+    """按 config.scriptlet_file 读取, 路径相对配置文件所在目录。"""
+    data = _load_config_data(config_path)
+    rel = str(data.get("scriptlet_file") or "").strip()
+    if not rel:
+        return []
+    base = os.path.dirname(os.path.abspath(config_path))
+    return load_scriptlet_rules(os.path.join(base, rel))
 
 
 # ---------------------------------------------------------------------------
@@ -1060,12 +1107,19 @@ def run(config_path: str, *, outdir: str, transport=None,
     extras = load_extra_rules(config_path)
     if extras:
         merger.add_lines(extras, source="local-additions")
+    # 自研 scriptlet — 优先级也是最高, 放在最后
+    scriptlets = load_scriptlet_file(config_path)
+    if scriptlets:
+        merger.add_lines(scriptlets, source="local-scriptlets")
 
     res = merger.finalize()
     # 源统计并入 stats.json (订阅中心/徽章动态化数据源)
     res.stats["sources_total"] = len(sources)
     res.stats["sources_ok"] = len(ok)
     res.stats["sources_failed"] = len(failed)
+    res.stats["scriptlet_rules"] = sum(
+        1 for ln in res.all_cosmetic
+        if any(m in ln for m in SCRIPTLET_MARKERS))
     paths = write_outputs(res, outdir, title="AdFilter Merge")
 
     return {
