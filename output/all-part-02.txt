@@ -3,11 +3,216 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-10-22 20:13:58 +0800
-! Last Modified: 2026-10-22 20:13:58 +0800 (北京时间 UTC+8)
+! Version: 2026-10-23 00:14:27 +0800
+! Last Modified: 2026-10-23 00:14:27 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 234608
+! Rules: 234830
 
+email.mg3.smeetz.com$image
+email.mg3.thewaterguy.ca$image
+email.mg3.usaccesscapitalpartners.com$image
+email.mg3.viktorium.com$image
+email.mg3.wellnessboost.online$image
+email.mg32.avaclient.ca$image
+email.mg36.avaclient.ca$image
+email.mg38.avaclients.com$image
+email.mg4.boatpassmiami.com$image
+email.mg4.bubbleuphosting.ca$image
+email.mg4.burtonpools.com$image
+email.mg4.graphy.com$image
+email.mg4.infura.io$image
+email.mg4.lensa.com$image
+email.mg4.onlinecrm.marketing$image
+email.mg4.orbisministries.org$image
+email.mg4.outbound.cloud.azimutpos.com$image
+email.mg4.realsuccessevents.com$image
+email.mg4.targetbay.com$image
+email.mg4.thewaterguy.ca$image
+email.mg44.avaclient.ca$image
+email.mg45.avaclient.ca$image
+email.mg5.graphy.com$image
+email.mg50.avaclient.ca$image
+email.mg50.avaclients.com$image
+email.mg54.avaclient.ca$image
+email.mg6.graphy.com$image
+email.mg6.orbisministries.org$image
+email.mg60.avaclient.ca$image
+email.mg7.appoderado.com$image
+email.mg7.avaclient.ca$image
+email.mg7.graphy.com$image
+email.mg7.onlinecrm.marketing$image
+email.mg7.tastebudskitchen.co$image
+email.mg71.avaclients.com$image
+email.mg72.avaclients.com$image
+email.mg75.avaclients.com$image
+email.mg8.avaclient.ca$image
+email.mg87.avaclients.com$image
+email.mg9.apamail.org$image
+email.mg90.avaclients.com$image
+email.mga.akgre.com$image
+email.mga.ansleyre.com$image
+email.mga.foryou.ie$image
+email.mga.rezqreps.com$image
+email.mgacc.icmizer.com$image
+email.mgakama.enpa.org$image
+email.mgakama.lanuovaecologia.it$image
+email.mgapp.fetch.com.cy$image
+email.mgapp.onlinebible.com$image
+email.mgardens.msndr.io$image
+email.mgataxesmail.com$image
+email.mgate.top$image
+email.mgb.ansleyre.com$image
+email.mgb.atproperties.com$image
+email.mgb.betterhelp.co.il$image
+email.mgb.betterhelp.com$image
+email.mgb.betterhelporg.com$image
+email.mgb.betterhelpteens.com$image
+email.mgb.eu.betterhelp.com$image
+email.mgb.faithfulcounseling.com$image
+email.mgb.gunowners.org$image
+email.mgb.icounseling.com$image
+email.mgb.johnrwood.com$image
+email.mgb.lereve-mail.com$image
+email.mgb.modento.io$image
+email.mgb.mytherapist.com$image
+email.mgb.oevfahrplan.ch$image
+email.mgb.pridecounseling.com$image
+email.mgb.regain.us$image
+email.mgb.scalepoint.com$image
+email.mgb.teencounseling.com$image
+email.mgb.terappeuta.com$image
+email.mgbiz.co.uk$image
+email.mgbts.urb2b.com$image
+email.mgc.51theorder.com$image
+email.mgc.aicommerce.co$image
+email.mgc.atagent.com$image
+email.mgc.atproperties.com$image
+email.mgc.ciresocal.com$image
+email.mgc.clecat.org$image
+email.mgc.doggiecircusschool.com$image
+email.mgc.nestrealty.com$image
+email.mgc.td.coach$image
+email.mgc21.centernet.com.au$image
+email.mgc26.in$image
+email.mgcarrelli.it$image
+email.mgcl.leasingtime.de$image
+email.mgclick.zionerp.com.br$image
+email.mgcore.adagio.com$image
+email.mgcp01.squarespace-mail.com$image
+email.mgcp02.squarespace-mail.com$image
+email.mgcp03.squarespace-mail.com$image
+email.mgd.ansleyre.com$image
+email.mgd.atagent.com$image
+email.mgd.atproperties.com$image
+email.mgd.christiesrealestatels.com$image
+email.mgdemo.leresearch.com$image
+email.mgdentalkarthikamn.ghlexamdomain.com$image
+email.mgdev.tryvectorintake.com$image
+email.mgdirectmail.binance.com$image
+email.mgdropsupport.bencor.com$image
+email.mgdynamic1.webpt.com$image
+email.mge.ansleyre.com$image
+email.mge.atagent.com$image
+email.mge.atagents.com$image
+email.mge.atproperties.com$image
+email.mge.atpropertiestx.com$image
+email.mge.greenleafkratom.com$image
+email.mge.promptlyhealth.com$image
+email.mge.urbnpuls.com$image
+email.mgemail.markanyx.ca$image
+email.mgemp.medicapanamericana.com$image
+email.mgemp.medicapanamericana.es$image
+email.mgeraldez.com$image
+email.mgeteam.mgelatam.com$image
+email.mgeu.advitam.fr$image
+email.mgeu.arbtech.co.uk$image
+email.mgeu.atento.me$image
+email.mgeu.bebup.es$image
+email.mgeu.belfasttelegraph.co.uk$image
+email.mgeu.booksusi.com$image
+email.mgeu.bridge4mobility.com$image
+email.mgeu.buddy.hr$image
+email.mgeu.crimeworld.com$image
+email.mgeu.denikn.cz$image
+email.mgeu.dennikn.sk$image
+email.mgeu.euobserver.com$image
+email.mgeu.hiking.sk$image
+email.mgeu.impleo.se$image
+email.mgeu.independent.ie$image
+email.mgeu.matrixreq.com$image
+email.mgeu.outdooractive.com$image
+email.mgeu.pigogo.gr$image
+email.mgeu.podstatus.com$image
+email.mgeu.polly.help$image
+email.mgeu.qapa.fr$image
+email.mgeu.saltoki.com$image
+email.mgeu.scratcher.io$image
+email.mgeu.shop-gag.de$image
+email.mgeu.temporarymanager.info$image
+email.mgeu.vista.hu$image
+email.mgeu.womeninproperty.org.uk$image
+email.mgeu1.flint.media$image
+email.mgf.atagents.com$image
+email.mgfish.skor.ie$image
+email.mgg.mailboxpower.com$image
+email.mgg.thevongroupusa.com$image
+email.mggestion.logicake.com$image
+email.mgh.digitaaldoen.nl$image
+email.mghelpmemarketplease.com$image
+email.mghl-lc.hopesoberliving.com$image
+email.mghl.linkboxnow.com$image
+email.mgi.uber.com$image
+email.mgi2.paymentus.com$image
+email.mgic.alexrenew.com$image
+email.mgic.alpenapower.com$image
+email.mgic.amwasteusa.com$image
+email.mgic.applevalleymn.gov$image
+email.mgic.avondaleaz.gov$image
+email.mgic.azusaca.gov$image
+email.mgic.bardstownky.gov$image
+email.mgic.benbrookwater.com$image
+email.mgic.bluespringsmo.gov$image
+email.mgic.boston.gov$image
+email.mgic.brownsburg.org$image
+email.mgic.carmichaelwd.org$image
+email.mgic.chaskamn.gov$image
+email.mgic.cityofankenyiowa.us$image
+email.mgic.cityofbarberton.com$image
+email.mgic.cityofkingman.gov$image
+email.mgic.cityofmountainhome.com$image
+email.mgic.cityoframseymn.gov$image
+email.mgic.cityofredding.gov$image
+email.mgic.clevelandheights.gov$image
+email.mgic.cliftonwaterdistrict.org$image
+email.mgic.collier.gov$image
+email.mgic.concordiaelectric.com$image
+email.mgic.covb.org$image
+email.mgic.cpins.com$image
+email.mgic.dekalbcountyga.gov$image
+email.mgic.dgsd.org$image
+email.mgic.eastmoline.com$image
+email.mgic.fairhopeal.gov$image
+email.mgic.farmersofmarble.com$image
+email.mgic.farmingtonnm.gov$image
+email.mgic.fcbifund.com$image
+email.mgic.flagstaffaz.gov$image
+email.mgic.gilbertaz.gov$image
+email.mgic.hayward-ca.gov$image
+email.mgic.hendutil.net$image
+email.mgic.highlandcountywater.com$image
+email.mgic.jamestownnybpu.gov$image
+email.mgic.jcsava.gov$image
+email.mgic.jcw.org$image
+email.mgic.junctioncity-ks.gov$image
+email.mgic.kentcountywater.org$image
+email.mgic.lockhartpower.com$image
+email.mgic.lvmwd.gov$image
+email.mgic.lvnwater.org$image
+email.mgic.menomoneefalls.gov$image
+email.mgic.microf.com$image
+email.mgic.mpiua.com$image
+email.mgic.nationalfuel.com$image
+email.mgic.ndgroup.com$image
 email.mgic.newmexicomutual.com$image
 email.mgic.nixa.com$image
 email.mgic.northmankato.com$image
@@ -77468,6 +77673,7 @@ zonedirector.avadacom.com$image
 ||cdn.branch.io^$script
 ||cdn.brevo.com/js/sdk-loader.js
 ||cdn.briefly.co.za/banners/
+||cdn.brita.net/.resources/scripts/gtmEventTracking-*.js
 ||cdn.brownbrothers.io/api/impression
 ||cdn.btmessage.com^$domain=leagueofgraphs.com|mobafire.com|porofessor.gg
 ||cdn.builder.io/api/v1/pixel
@@ -82680,6 +82886,7 @@ zonedirector.avadacom.com$image
 ||ft.com/a.html
 ||ft.com/ingest?
 ||ft.com^$cookie=spoor-id
+||ftbucket.info/*/track.php
 ||ftchinese.com/a.html
 ||ftchinese.com/m/marketing/
 ||ftimg.net/js/log.js?
@@ -85365,6 +85572,7 @@ zonedirector.avadacom.com$image
 ||icepbns.com^$popup,domain=iceporn.com
 ||iceporn.com/player_right_ntv_
 ||iceppsn.com/templates/base_master/js/jquery.shows.min.js
+||iceppsn.com/templates/frontend/iceporn/js/adx_flash.js
 ||icetraff.com^$all
 ||icgirls.com^$popup
 ||icgp.ie/ionic-consent/
@@ -92538,7 +92746,6 @@ zonedirector.avadacom.com$image
 ||pijama.*.elasticbeanstalk.com^
 ||pijper.io/visits/
 ||pik.opendesktop.org/pik.js
-||pikabu.ru/ajax//$xmlhttprequest
 ||pikabu.ru/ajax/analytics.php
 ||pikabu.ru/apps/*/analytics.js
 ||pikabu.ru/stat/
@@ -94289,6 +94496,7 @@ zonedirector.avadacom.com$image
 ||redaffil.com^$popup
 ||redaktionstest.net/cdn/$ping
 ||redbull.com/btnt.js
+||redcapsfillip.com^$popup
 ||redcdn.pl/*/TVN-Adserver/*.mp4$media,redirect=noopmp4-1s,domain=player.pl
 ||redcdn.pl/file/*/vstatic/*.mp4$media,redirect=noopmp3-0.1s,domain=cda.pl
 ||redcdn.pl/file/*/web/tdbc/*/js/redgalaxy-tdbc-*.min.js
@@ -100899,7 +101107,9 @@ zonedirector.avadacom.com$image
 ||wawel-service.pl/checkleadforvisitor
 ||way-to-ai.com^$all
 ||waybig.com/*.gif$image
+||wayfair.com/*/wf_auth/authentication/log_frontend_event_data|
 ||wayfair.com/a/campaign_management/tag/get_tracking_tags
+||wayfair.com/api/observability/v*/log|
 ||wayfair.de/a/
 ||wazzup.me/libs/track.js
 ||wbamedia.com^$popup
@@ -154316,6 +154526,7 @@ bg-gledai.*##.featbox
 bg-gledai.*##.squarebanner
 bg-gledai.*#%#//scriptlet('set-constant', 'chp_adblock_browser', 'noopFunc')
 bg-gledai.co##body > #wrapper > script + div[class][style="display:none;"] + div[id][class*=" "]
+bg-gledai.video###gledai-access-notice
 bg-mania.jp##.section-pr-osusume
 bg3.co###div_top_ads
 bg3.co###interstitial_fade
@@ -162838,6 +163049,7 @@ defence-industry.eu##.die-sidebar-ad
 defence-industry.eu##.die-single-content > p:has(> ins.adsbygoogle)
 defence-industry.eu##.has-small-font-size.has-text-align-center
 defence24.com,defence24.pl,energetyka24.com,infosecurity24.pl##:is(aside, .block) a:is([rel="sponsored"], [href*="utm_campaign"]) > span
+defence24.com,latestly.com,cryptobriefing.com,huskers.com,rule34-videos.com,gifyu.com,topperlearning.com,aap.org,bbcgoodfood.com,gardenersworld.com,historyextra.com,ndtv.com##.ad-banner
 defence24.pl#?#main > section.block:has(> div > a > span > figure > figcaption:contains(Reklama))
 defenceweb.co.za#%#//scriptlet('set-constant', 'td_ad_background_click_link', '')
 defensacentral.com##.group-xs
@@ -172631,22 +172843,22 @@ genshin-center.com##div[class^="units_lb1Wrapper_"]
 genshin-center.com##div[class^="units_mpuWrapper_"]
 genshin-impact-map.appsample.com###pc-br-300x250-gim
 genshin-impact-map.appsample.com###pc-br1-float-gim
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,yamiisoku.com##+js(json-prune, html)
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,yamiisoku.com##+js(no-fetch-if, method:POST)
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,yamiisoku.com##+js(prevent-innerHTML)
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,yamiisoku.com##+js(rmnt, script, /adsby|console|data-ad|modal|requestAnimationFrame|srcdoc|tagName|text\/html|userAgent|visibility|zucks|^[\S\s]{3200\,}$|\\u00|ブロッカ/)
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,yamiisoku.com##+js(trusted-suppress-native-method, DOMParser.prototype.parseFromString, '"/<[Aa]/"')
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,yamiisoku.com##.catalog-content
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,yamiisoku.com##[class*="pdx-"]
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,yamiisoku.com##[href*="aHR0"]
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,yamiisoku.com##[id*="-remote"]
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,yamiisoku.com##[id*="-sale"]
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,yamiisoku.com##^script[id]:not([src], :empty, #wp-emoji-settings)
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,yamiisoku.com##a:has(img[src^="https://m.media-amazon.com" i])
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,yamiisoku.com##a:matches-attr("/^data-/")
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,yamiisoku.com##a:matches-attr("href"="/=[0-9a-f]{32}$/")
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,yamiisoku.com##a:not(.yrss-list__a):matches-attr("href"="/^.{100,}/")
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,yamiisoku.com##a[rel*="sponsored"]:not(.aedr-form__purchase[href="https://amzn.to/4g4yOhg"])
+genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com###yaab-overlay
+genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com##+js(json-prune, html)
+genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com##+js(no-fetch-if, method:POST)
+genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com##+js(prevent-innerHTML)
+genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com##+js(rmnt, script, /adsby|console|data-ad|modal|requestAnimationFrame|srcdoc|tagName|text\/html|userAgent|visibility|zucks|^[\S\s]{3200\,}$|\\u00|ブロッカ/)
+genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com##+js(trusted-suppress-native-method, DOMParser.prototype.parseFromString, '"/<[Aa]/"')
+genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com##.catalog-content
+genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com##[class*="pdx-"]
+genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com##[href*="aHR0"]
+genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com##[id*="-sale"]
+genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com##^script[id]:not([src], :empty, #wp-emoji-settings)
+genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com##a:has(img[src^="https://m.media-amazon.com" i])
+genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com##a:matches-attr("/^data-/")
+genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com##a:matches-attr("href"="/=[0-9a-f]{32}$/")
+genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com##a:not(.yrss-list__a):matches-attr("href"="/^.{100,}/")
+genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com##a[rel*="sponsored"]:not(.aedr-form__purchase[href="https://amzn.to/4g4yOhg"])
 genshin.gg##.wrapper-lb1
 genshin.gg##.wrapper-mpu1
 genshin.honeyhunterworld.com##.ad_sidebar_video
@@ -177635,6 +177847,11 @@ iceporn.com##.video-options > div[style="position:relative;"]
 iceporn.com#%#//scriptlet("abort-on-property-write", "mobileAdvPop")
 iceporn.com#%#//scriptlet("set-cookie", "adv_show", "10")
 iceporn.net##.partner_text_link
+iceporn.net#%#//scriptlet('remove-node-text', 'script', 'TRAFF_TARGETS')
+iceporn.net#?#.video-options > div[style^="padding: 2px"]:contains(Advertising)
+iceporn.net#?#div.main > div.take_place:has(> div.caption > span:contains(Advertising))
+iceporn.net,nuvid.tv,porn4fans.me,porn4fans.com##.ID_live_cam_inner
+iceporn.net,tubeon.com,tubeon.net###spot_video_underplayer_livecams
 iceporn.tv##.JoinChannel
 iceporn.tv##h6[style^="margin:"][style*="color: gray;"]
 icetranny.com,machogaytube.com,machotube.tv,shemaleporntube.tv##.b-randoms-col
@@ -183652,7 +183869,6 @@ latestleaks.co##a[href^="https://k2s.cc/pr/"]
 latestly.com###main_top_ad
 latestly.com##.lhs_adv_970x90_div
 latestly.com##div[style^="min-width: 300px; min-height: 250px;"]
-latestly.com,cryptobriefing.com,huskers.com,rule34-videos.com,gifyu.com,topperlearning.com,aap.org,bbcgoodfood.com,gardenersworld.com,historyextra.com,ndtv.com##.ad-banner
 latestmanga.net#%#//scriptlet("abort-on-property-write", "onClickTrigger")
 latestpornvideo.com##iframe[src^="https://willingcease.com/"]
 latexport.lv###notification
@@ -193395,7 +193611,6 @@ nuvid.com##.rel_right
 nuvid.com##a[class$="_premium_bar"]
 nuvid.com,nuvid.tv##div[style="height:477px; margin-bottom:15px;"]
 nuvid.tv##.footer-live-cam
-nuvid.tv,porn4fans.me,porn4fans.com##.ID_live_cam_inner
 nuxt.com##.space-y-3:has(> div[class] > script[src^="https://cdn.carbonads.com/"])
 nv.ua##.brand_banner
 nv.ua##body.branding > a[href*="/exec/bn/click.php"]
@@ -201391,6 +201606,7 @@ respawn.pl##a[href^="https://ewinner.pl/"] > img
 responsiblestatecraft.org##.google-cta
 responsiblestatecraft.org##.google-cta-infy
 responsiblestatecraft.org##.highlight-wrapper--newsletter
+respublika.lt##div.news_swipable_desktop:has(> iframe.stpd-responsive-iframe)
 restauracjaverona.pl###modal-cookie-overlay
 restaurantguru.com##.up_btn
 restiasuites.gr###advert-once
@@ -209226,6 +209442,9 @@ techtimes.com##.adunit_video
 techtobo.com#%#//scriptlet('abort-current-inline-script', '$', 'adBlockAction')
 techtunes.io##body .tAds_MediumBillboard
 techtunes.io#?#section.grey > .d-flex.justify-content-center > .tAds:upward(1)
+techtutorialshub.com#$#.js-antiadblocker { display: none !important; }
+techtutorialshub.com#$#html { overflow: auto !important; }
+techtutorialshub.com#%#//scriptlet('prevent-setTimeout', 'pagead2.googlesyndication.com')
 techug.com##a[href*="/222.html"]
 techug.com##a[href*="/eee.html"]
 techug.com,webhek.com##.aatb
@@ -213375,7 +213594,6 @@ tubeon.com#?#.contain > div.c-appellation:has(> div.c-medappellation-output > h2
 tubeon.com#?#.envelope-coverap > div.contain:has(> div.c-appellation > div.c-medtitle-output > h2:contains(/Advertising|Reklama|Werbung|Publicité|Anuncio|Advertentie|Pubblicità|Anúncio|Реклама|広告/))
 tubeon.com#?#.envelope-coverap > div.contain:has(> div.livecams)
 tubeon.com,tubeon.net###banner_overlay-postitial-video
-tubeon.com,tubeon.net###spot_video_underplayer_livecams
 tubeon.com,tubeon.net##.cams-opener
 tubeon.com,tubeon.net##.player_premium_bar
 tubeon.com,tubeon.net##a[href^="https://fhgte.com/"]
@@ -220453,7 +220671,7 @@ yeptube.*###spot_video_underplayer_livecams
 yeptube.*##.cams
 yeptube.*##.main-frame > section:has(> div.container > div#spot_video_livecams)
 yeptube.*##.navbar-pages > li.navbar-page:has(> a[href][target="_blank"][rel="nofollow"])
-yeptube.*##.player-col:has(> iframe.player-ads)
+yeptube.*##.player-col:has(> div#player-video-wrap) + div.player-col
 yeptube.*##.player-live-title
 yeptube.com#%#//scriptlet('abort-on-property-read', 'initBetter')
 yeptube.com,proporn.com##.puFloatDiv
@@ -230991,12 +231209,12 @@ zzzyk.com###Tinfo
 @@||platform.cloud.coveo.com^$stealth=3p-auth,domain=intel.*
 @@||platform.twitter.com/$domain=discovery.com
 @@||platform.twitter.com/js/moment~timeline~tweet.*.js$domain=gamerant.com
-@@||platform.twitter.com/js/tweet.$script,domain=genshin-soku.com|monhan-soku.com|xn--gckdevd5myivf.site|yamiisoku.com
+@@||platform.twitter.com/js/tweet.$script,domain=genshin-soku.com|monhan-soku.com|xn--gckdevd5myivf.site|xn--o9j0bk1l6d1bnv1as45bb2j.com|yamiisoku.com
 @@||platform.twitter.com/js/tweet.*.js$domain=gamerant.com
 @@||platform.twitter.com/oct.js$domain=cravetv.ca
 @@||platform.twitter.com/widgets.js$domain=gamerant.com
-@@||platform.twitter.com/widgets.js$domain=genshin-soku.com|monhan-soku.com|xn--gckdevd5myivf.site|yamiisoku.com
-@@||platform.x.com/widgets.js$domain=genshin-soku.com|monhan-soku.com|xn--gckdevd5myivf.site|yamiisoku.com
+@@||platform.twitter.com/widgets.js$domain=genshin-soku.com|monhan-soku.com|xn--gckdevd5myivf.site|xn--o9j0bk1l6d1bnv1as45bb2j.com|yamiisoku.com
+@@||platform.x.com/widgets.js$domain=genshin-soku.com|monhan-soku.com|xn--gckdevd5myivf.site|xn--o9j0bk1l6d1bnv1as45bb2j.com|yamiisoku.com
 @@||plausible.io/js/plausible.js$script,domain=sammobile.com
 @@||play-old-pc-games.com/wp-content/plugins/agreeable-vacation/assets/js/advertisement.min.js
 @@||play.*.com/vendor/VisitorAPI.js$domain=play.aetv.com|play.mylifetime.com
@@ -234412,6 +234630,10 @@ zzzyk.com###Tinfo
 @@||xn--gckdevd5myivf.site/wp-includes/js/jquery/jquery-migrate.min.js
 @@||xn--gckdevd5myivf.site/wp-includes/js/jquery/jquery.min.js
 @@||xn--kcksk7a2bl5le7b6doc1h3f.com/video/$stealth=referrer
+@@||xn--o9j0bk1l6d1bnv1as45bb2j.com/wp-content/plugins/yamiisoku-bbs-comments/assets/comments.js
+@@||xn--o9j0bk1l6d1bnv1as45bb2j.com/wp-content/plugins/yamiisoku-popular-posts/assets/script.js
+@@||xn--o9j0bk1l6d1bnv1as45bb2j.com/wp-content/themes/yamiisoku-matome-theme/assets/js/comment-more.js
+@@||xn--o9j0bk1l6d1bnv1as45bb2j.com/wp-includes/js/wp-emoji-release.min.js
 @@||xnimg.cn/n/apps/profile/modules/tuiguang/
 @@||xnimg.cn^*/nx/ugc/share/js/hotlist.js
 @@||xozilla.com^$cname
