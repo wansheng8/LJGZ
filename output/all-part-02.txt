@@ -3,230 +3,11 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-10-24 00:04:06 +0800
-! Last Modified: 2026-10-24 00:04:06 +0800 (北京时间 UTC+8)
+! Version: 2026-10-24 04:55:39 +0800
+! Last Modified: 2026-10-24 04:55:39 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 236218
+! Rules: 236007
 
-email.mg.tributesportal.com$image
-email.mg.trichonlabs.com$image
-email.mg.tricog.com$image
-email.mg.trident-bathrooms.com$image
-email.mg.tridentasset.com$image
-email.mg.tridentphysicaltherapy.com$image
-email.mg.trifectaeq.com$image
-email.mg.trifft.io$image
-email.mg.trilliondollarclosers.com$image
-email.mg.trilogy-chiropractic.com$image
-email.mg.trimble.com$image
-email.mg.trimpoeng.no$image
-email.mg.trinity40rce.stocksvssneakers.com$image
-email.mg.trinitynat.com$image
-email.mg.trinityrei.com$image
-email.mg.trinusmsp.com$image
-email.mg.tripbook.io$image
-email.mg.tripgiraffe.com$image
-email.mg.triplelrentalsllc.com$image
-email.mg.tripssoftware.com.au$image
-email.mg.tristarpt.com$image
-email.mg.tritech-systems.com$image
-email.mg.tritechpros.com$image
-email.mg.trixx.co$image
-email.mg.trm-engine.com$image
-email.mg.trnvr.me$image
-email.mg.trnzfrmmindseducation.com$image
-email.mg.trofeja.si$image
-email.mg.tromborg.com$image
-email.mg.troomi.com$image
-email.mg.trottersrewards.com$image
-email.mg.trp.red$image
-email.mg.truckandbusbuilder.com$image
-email.mg.truckecm.com$image
-email.mg.trueformaisolutions.com$image
-email.mg.truegreennursery.com.au$image
-email.mg.truelegacyfarm.com$image
-email.mg.truelegacyinc.com$image
-email.mg.truemathmastery.com$image
-email.mg.truemed.com$image
-email.mg.truemtn.com$image
-email.mg.truenorthafrica.com$image
-email.mg.truenorthlg.com$image
-email.mg.truenorthretirementsolutions.com$image
-email.mg.trueoffersusa.com$image
-email.mg.truephotography.com$image
-email.mg.truestory.com$image
-email.mg.truestory.dk$image
-email.mg.truestory.no$image
-email.mg.truestory.se$image
-email.mg.trueswinggolf.com.au$image
-email.mg.truetoyouyoga.com$image
-email.mg.trulyfreehome.com$image
-email.mg.trulyoffice.com$image
-email.mg.trunkinventory.com$image
-email.mg.truranchinsiders.com$image
-email.mg.trustedherd.com$image
-email.mg.trustedsite.com$image
-email.mg.trustedtranslations.com$image
-email.mg.trustetc.com$image
-email.mg.trustfinance.com$image
-email.mg.trustpaisa.com$image
-email.mg.trustssd.com$image
-email.mg.trustswanpaving.com$image
-email.mg.trusttheprocessny.com$image
-email.mg.trustymail.co$image
-email.mg.truthfinder.com$image
-email.mg.truthfinder.email$image
-email.mg.try-sovena.com$image
-email.mg.tryapexneuroelite.com$image
-email.mg.tryapexos.com$image
-email.mg.trychameleon.com$image
-email.mg.tryexponent.com$image
-email.mg.tryfitmina.com$image
-email.mg.tryfridgepod.com$image
-email.mg.tryjabulani.com$image
-email.mg.tryjourneyhub.com$image
-email.mg.trykleo.ca$image
-email.mg.trylocalaeo.com$image
-email.mg.trymaxim.com$image
-email.mg.trymedallion.com$image
-email.mg.trymorinadvisors.com$image
-email.mg.trynailscleanpro.com$image
-email.mg.trynovamd.com$image
-email.mg.trynurovita.com$image
-email.mg.tryplantsandoils.com$image
-email.mg.tryspotlesssolutions.com$image
-email.mg.trytshape.com$image
-email.mg.tryzaphub.com$image
-email.mg.tsakademi.com$image
-email.mg.tsceventpartners.com$image
-email.mg.tsownersupport.com$image
-email.mg.tspaced.com$image
-email.mg.tstolk.se$image
-email.mg.ttaa.or.th$image
-email.mg.ttaweb.com$image
-email.mg.ttnadvisors.com$image
-email.mg.ttsclass.com$image
-email.mg.ttseakk.com$image
-email.mg.tuadministrativo.com$image
-email.mg.tuango.ca$image
-email.mg.tubly.download$image
-email.mg.tucuapuestas.bet.ar$image
-email.mg.tuemilio.com$image
-email.mg.tuinenmetweelde.nl$image
-email.mg.tuinmeubelshop.nl$image
-email.mg.tulpenrallye.nl$image
-email.mg.tulsarvauction.com$image
-email.mg.tunai.io$image
-email.mg.tungstengates.com$image
-email.mg.tunnellcompanies.com$image
-email.mg.tuplaus.com$image
-email.mg.tuqaebook.com$image
-email.mg.turbolead.ai$image
-email.mg.turegaloaldi.aldi.es$image
-email.mg.turismovivencial.com$image
-email.mg.turkcer.org.tr$image
-email.mg.turneyins.com$image
-email.mg.turnkeysolutionhq.com$image
-email.mg.turnoverrx.com$image
-email.mg.turorideto10k.com$image
-email.mg.turra.co.il$image
-email.mg.turrior.com$image
-email.mg.tuscanyleather.it$image
-email.mg.tuscanytours.com$image
-email.mg.tutorialesinteractivos.com$image
-email.mg.tuttocrociere.it$image
-email.mg.tuvcollective.com$image
-email.mg.tv-wartezimmer.de$image
-email.mg.tvc.mx$image
-email.mg.tved.net.au$image
-email.mg.tvnetworld.com$image
-email.mg.tvnmedia.com$image
-email.mg.tvoja-integracija.com$image
-email.mg.twcouple.com$image
-email.mg.tweeres.com$image
-email.mg.twif.online$image
-email.mg.twinlotusproduction.com$image
-email.mg.twinningedge.com$image
-email.mg.twinoakshealth.com$image
-email.mg.twinsoultest.com$image
-email.mg.twintownglass.me$image
-email.mg.twistacademics.dk$image
-email.mg.twistundschirm.de$image
-email.mg.twitchmoments.de$image
-email.mg.twmc.org$image
-email.mg.twomaidscleaning.com$image
-email.mg.twomuchart.com$image
-email.mg.twopagesites.com$image
-email.mg.twoseasarts.com$image
-email.mg.twovalleyintelligence.com$image
-email.mg.twpark.com$image
-email.mg.twrotary.events$image
-email.mg.tychesoftwares.com$image
-email.mg.tylanderai.com$image
-email.mg.tylerai.dev$image
-email.mg.tylercoleinsurance.com$image
-email.mg.typedesk.com$image
-email.mg.typeracer.com$image
-email.mg.typeset.io$image
-email.mg.typito.com$image
-email.mg.tyzden.sk$image
-email.mg.tzkiller.com$image
-email.mg.u-pack.co.za$image
-email.mg.u-pic.com$image
-email.mg.u3acostabrava.org$image
-email.mg.uab.edu$image
-email.mg.uaepix.com$image
-email.mg.uat.corgi.ovotech.org.uk$image
-email.mg.uberandlyftprofits.com$image
-email.mg.uconnect360.com$image
-email.mg.udzhal.com$image
-email.mg.ufcw832.com$image
-email.mg.ufhillel.org$image
-email.mg.ugc-society.io$image
-email.mg.ugcmasteryacademy.com$image
-email.mg.ugcmasteryacademynate.com$image
-email.mg.ugcvalet.com$image
-email.mg.ugly.cash$image
-email.mg.ugyved.app$image
-email.mg.uk-solar.co.uk$image
-email.mg.ukactiveweb.com$image
-email.mg.ukayshopping.com$image
-email.mg.ukcreditratings.co.uk$image
-email.mg.ukenergi.co.uk$image
-email.mg.ukrunchat.co.uk$image
-email.mg.uksarms.com$image
-email.mg.ultimate-change.com$image
-email.mg.ultimumgroup.com$image
-email.mg.ultra-mastermind.com$image
-email.mg.ultraport.fundacionsofofa.cl$image
-email.mg.uluteam.com$image
-email.mg.umahroworkshop.com$image
-email.mg.umanize.com$image
-email.mg.umipear.com$image
-email.mg.ummastery.com$image
-email.mg.ummeasma.in$image
-email.mg.umode.com.br$image
-email.mg.umpartschina.com$image
-email.mg.umvel.dev$image
-email.mg.unagotadecolor.com$image
-email.mg.unahealyoriginal.com$image
-email.mg.unavelaasanantonio.es$image
-email.mg.unboundpelvis.com$image
-email.mg.unboundphysicaltherapy.com$image
-email.mg.unchainedmusic.io$image
-email.mg.uncutmastery.com$image
-email.mg.undefeatedtribe.com$image
-email.mg.under17driver.co.uk$image
-email.mg.undergroundminigolf.com$image
-email.mg.underpressurehw.com$image
-email.mg.une-bonne-idee.ch$image
-email.mg.uniboxstorage.com$image
-email.mg.unideal.fr$image
-email.mg.unidi.co$image
-email.mg.unifab.ai$image
-email.mg.unifiedremote.com$image
-email.mg.unikorn.com.au$image
-email.mg.unimani.com$image
 email.mg.unionkingdomclo.com$image
 email.mg.unionmachines.com$image
 email.mg.unionworx.cloud$image
@@ -76887,7 +76668,10 @@ zonedirector.avadacom.com$image
 ||audimark.de/tracking/
 ||audio-*.scdn.co/audio/$media,~xmlhttprequest,redirect=noopmp4-1s,domain=spotify.com
 ||audio-ak*-*.akamaized.net/audio/$media,~xmlhttprequest,redirect=noopmp4-1s,domain=spotify.com
+||audiobookbay.lu/images/bz.jpg
+||audiobookbay.lu/images/tlt.gif
 ||audiobookbay.lu/images/trr.gif
+||audiobookbay.lu/images/wyhr.gif
 ||audiocircuit.dk/koko-analytics-collect.php
 ||audioeye.com/ae.js
 ||audioeye.com/frame/cookieStorage.html
@@ -82805,6 +82589,7 @@ zonedirector.avadacom.com$image
 ||electricfencing.co.uk/prnewsletterpopup/
 ||electriclove.at/*/api/cookie-settings
 ||electronlibre.info/mdx/images/bg_vivendi_hab.jpg
+||electroverse.com/view/insights/script.js
 ||electrum-data.cc^$doc
 ||elektroda.pl/js/first.js
 ||elektroda.pl/js/modal.js
@@ -92451,6 +92236,7 @@ zonedirector.avadacom.com$image
 ||nightbesties.com^$popup
 ||nigroopheert.com^$popup
 ||nihon-u.ac.jp/*/js/ga.js
+||nijiurachan.net/analytics/
 ||nike.com*/trackingConfig?
 ||nike.com/assets/measure/data-capture/
 ||nike.com/assets/measure/data-capture/mc.js
@@ -151235,7 +151021,7 @@ alu.cn##.Tg_260x70
 alu.cn##.Tg_290x60
 alu.cn##.Tg_390x60
 alu.cn##.Tg_590x60
-alumgadstore.co.il,ari-g.co.il,funkiershop.co.il,kmc-hotel.co.il,landers.co.il,lasport.co.il,maakav.org.il,marble-elchai.co.il,mrs-clean.co.il,nyga.co.il,peledlocks.co.il,trucksmuseum.org.il,yad-sarah.net###scb-banner
+alumgadstore.co.il,ari-g.co.il,funkiershop.co.il,kmc-hotel.co.il,landers.co.il,lasport.co.il,maakav.org.il,marble-elchai.co.il,mrs-clean.co.il,mylist.co.il,nyga.co.il,peledlocks.co.il,trucksmuseum.org.il,yad-sarah.net###scb-banner
 alunopresente.org.br,educacaoeterritorio.org.br,livredetrabalhoinfantil.org.br,territoriosemrede.org.br###lgpd-container
 alvarotrigo.com##.subscribe-s
 alvolante.it###wrapper-header-small-up
@@ -153476,7 +153262,7 @@ asmwall.com##+js(aopr, adblock)
 asn.in.ua,beadeath.dclans.ru###mdl_ctnr
 asna.ru##.modalCookies_root__356Q-
 asna.ru##div[class^="modalCookies_"]
-asofta.co.il,carmelph.co.il,equipit.co.il,h1944.co.il,iccjer.co.il###il-privacy-banner
+asofta.co.il,carmelph.co.il,equipit.co.il,h1944.co.il,iccjer.co.il,mekimi.co.il###il-privacy-banner
 asos.com##._3bNxItQ
 asp300.com,asp300.net##.tit01 > a
 asp300.com,asp300.net##.tit02 > a
@@ -153787,11 +153573,9 @@ audiobookbay.is##[src="/images/d-t.gif"]
 audiobookbay.is##[src="/images/dire.gif"]
 audiobookbay.is##a[href^="/dl-14-days-trial"]
 audiobookbay.is##div[style*="margin-bottom:"].ski
-audiobookbay.lu##.postContent > table > tbody > tr:has(> td > a[href="/ddeaatr"])
-audiobookbay.lu##.sky
-audiobookbay.lu##a[href^="/didl1-now"]
+audiobookbay.lu##.postContent > table > tbody > tr:has(> td > a > img)
 audiobookbay.lu##a[href^="/dl-14-days-trial"]
-audiobookbay.lu##tr:has(> td:last-child > span > a[href*="?"])
+audiobookbay.lu##div[itemprop="description"] + div > a > span > img[style]
 audiobookbay.lu#?##rsidebar > ul > li:has(> h2:contains(ADs))
 audiobyray.com##.cat-carousel
 audiocircuit.dk,topmanhuas.org,kinotehnik.net,gamekazi.com,donghuaworld.com,nxbrew.net,gaypornhot.com,ivfauthority.com,pinoyalbums.com,domhouse.it,watchfacebook.com,4allprograms.me,clapway.com#$#body { overflow: auto !important; }
@@ -171516,6 +171300,7 @@ foodbible.com##.article-header_discoverButton__PDfrQ
 foodbible.com,gamingbible.com,ladbible.com,sportbible.com,tyla.com,unilad.com##div[class^="advert-placeholder_"]
 foodbible.com,gamingbible.com,ladbible.com,sportbible.com,tyla.com,unilad.com,uniladtech.com##.floating-video-player_container__u4D9_
 foodbible.com,gamingbible.com,ladbible.com,sportbible.com,unilad.com##div[class*="margin-Advert"]
+foodiepedia.co.il##div[aria-label="עוגיות"]
 foodingredientsfirst.com##.UpdateGaBanner
 foodingredientsfirst.com##a[onclick*="https://www.cargill.com/"]
 foodir.org,konradsblatt.de,paulinus.de,pestor.nl,ramirez.pt,trentinoinnovation.eu###topcontrol
@@ -176977,7 +176762,6 @@ hdporncomics.com###sidebar-right > #custom_html-9
 hdporncomics.com###sidebar-right > #text-3
 hdporncomics.com##.hover\:shadow-xl:has(> .adsbyexoclick)
 hdporncomics.com##div[data-ad-injected]
-hdporner.me,yespornhd.com,milfnut.com,mangatrend.org,sezonlukdizi.cc,adslink.pw,vpnjantit.com,pitube.net,dromendra.com,vercomicporno.com,reelsuites.tv,tonkacine.xyz,tonkacine.watch,hunkypinoy.com,pxp.farm,pxp.guru,pxp.*,rawmiu.net,rawjx.net,boyplus.net,pxp.news,anime-odcinki.pl,3d-porn.org,yummyanime.tv,thotchicks.com,leakav.com,braflix.win,fileserve.com,desikamababa.com,premiumporn.org,nlcosplay.com,mangatv.net,pornosubtitula2.com,leakslove.com,pornobae.com,novelaplay.com,pelis182.net,pelimeli.com,mmsmasala27.com,isekaitube.com,jav.li,coomer1.net,manhuarmtl.com,turkleak1.live,taboodude.com,bingato.com,bellezashot.com,daemon-hentai.com,pornxp.ph,paipancon.com,jut-su.net,manhwa68.com,mangarawad.fit,thebarchive.com,primewire.*,archived.moe,hentaivox.com,pastelink.net,chikianimation.org,hornyfap.tv,tesbox.my.id,axomtube.in,pahe.plus,watchfreejavonline.co,hanime1-me.icu,hanime1-me.top,kisshentaiz.com,odiafresh.com,aninavi.blog,kiradream.blog,mikohub.blog,vintagepornfun.com,pantieshub.net,ansuko.net,7bit.link,yesjavplease.fun,pornxp.org,areabokep.com,gayfor.us,hentaiasmr.moe,sexpin.net,asiangaysex.net,huurshe.com,kahanighar.com,kuronavi.blog,gomuraw.blog,sweeteroticart.com,apnablogs.in,mangaraw1001.cc,redretti.com,watchmmafull.com,pinayflix.me,asmroger.*,hentaianimezone.com,manhwatop.com,shinshi-manga.net,japangaysex.com,sharinghubs.com,darknaija.com,erokomiksi.com,raw18.*,gayxx.net,xhamster.fm,gosexy.mobi,mangaraw.*,rawkuro.net,mangarawjp.me,mangaraw18.net,mangakoma01.*,echiman.com,earnfromarticles.com,smarttrend.xyz,banglachotigolpo.xyz,onlinework4all.com,likemanga.ink,love4u.net,safefileku.com,turboimagehost.com,otomi-games.com,2girls1cup.ca,nicomanga.com,kmansin09.org,kmansin09.top,rawinu.com,vipstand.*,kaliscan.*,ddd-smart.net,shemale6.com,piratehaven.xyz,raw1001.net,poapan.xyz,theblank.net,javboys.com,nudeslegion.com,sxyprn.com,fucksporn.com,fullxcinema1.com,pornxp.com,pornktubes.net,porhubvideo.com,yesleaks.com,bigojav.com,weloma.*,porn00.org,kisscos.net,besthdgayporn.com,latinohentai.com,vegvorous.com,gigmature.com,xmegadrive.com,gogoanime.*,urbharat.xyz,91.208.197.24,adslink.pw,pornohubonline.com,movieskafanda.xyz,mangamovil.net,tatli.biz,naijauncut.com,10convert.com,moviesjoy.*,javenspanish.com,jav-asia.top,komiklokal.xyz,leermanga.net,leechall.com,watchfreenet.com,javxxx.me,yifysubtitles.vip,justcastingporn.com,justfamilyporn.com,simply-hentai.com#%#//scriptlet('abort-current-inline-script', 'document.createElement', 'l.parentNode.insertBefore(s')
 hdporner.tv,sxyporn.tv#%#//scriptlet('prevent-addEventListener', 'message', 'handleTrigger')
 hdpornfree.xxx##.container:has(> iframe[src^="//hdpornfree.xxx/sup/"])
 hdpornmax.com#?#.container > h2:contains(Recommended)
@@ -182615,6 +182399,7 @@ javsek.net,gaqghe.com,stellarconductornexus.com,firestream.site,dstyladsg.com,jo
 javsex.vip##.prefix-player-promo-col
 javshujin.com,pussycatxx.com,taradinhos.com##.under-player-ad
 javsky.tv,javvin.me##footer > .row > center
+javsnap.com,hdporner.me,yespornhd.com,milfnut.com,mangatrend.org,sezonlukdizi.cc,adslink.pw,vpnjantit.com,pitube.net,dromendra.com,vercomicporno.com,reelsuites.tv,tonkacine.xyz,tonkacine.watch,hunkypinoy.com,pxp.farm,pxp.guru,pxp.*,rawmiu.net,rawjx.net,boyplus.net,pxp.news,anime-odcinki.pl,3d-porn.org,yummyanime.tv,thotchicks.com,leakav.com,braflix.win,fileserve.com,desikamababa.com,premiumporn.org,nlcosplay.com,mangatv.net,pornosubtitula2.com,leakslove.com,pornobae.com,novelaplay.com,pelis182.net,pelimeli.com,mmsmasala27.com,isekaitube.com,jav.li,coomer1.net,manhuarmtl.com,turkleak1.live,taboodude.com,bingato.com,bellezashot.com,daemon-hentai.com,pornxp.ph,paipancon.com,jut-su.net,manhwa68.com,mangarawad.fit,thebarchive.com,primewire.*,archived.moe,hentaivox.com,pastelink.net,chikianimation.org,hornyfap.tv,tesbox.my.id,axomtube.in,pahe.plus,watchfreejavonline.co,hanime1-me.icu,hanime1-me.top,kisshentaiz.com,odiafresh.com,aninavi.blog,kiradream.blog,mikohub.blog,vintagepornfun.com,pantieshub.net,ansuko.net,7bit.link,yesjavplease.fun,pornxp.org,areabokep.com,gayfor.us,hentaiasmr.moe,sexpin.net,asiangaysex.net,huurshe.com,kahanighar.com,kuronavi.blog,gomuraw.blog,sweeteroticart.com,apnablogs.in,mangaraw1001.cc,redretti.com,watchmmafull.com,pinayflix.me,asmroger.*,hentaianimezone.com,manhwatop.com,shinshi-manga.net,japangaysex.com,sharinghubs.com,darknaija.com,erokomiksi.com,raw18.*,gayxx.net,xhamster.fm,gosexy.mobi,mangaraw.*,rawkuro.net,mangarawjp.me,mangaraw18.net,mangakoma01.*,echiman.com,earnfromarticles.com,smarttrend.xyz,banglachotigolpo.xyz,onlinework4all.com,likemanga.ink,love4u.net,safefileku.com,turboimagehost.com,otomi-games.com,2girls1cup.ca,nicomanga.com,kmansin09.org,kmansin09.top,rawinu.com,vipstand.*,kaliscan.*,ddd-smart.net,shemale6.com,piratehaven.xyz,raw1001.net,poapan.xyz,theblank.net,javboys.com,nudeslegion.com,sxyprn.com,fucksporn.com,fullxcinema1.com,pornxp.com,pornktubes.net,porhubvideo.com,yesleaks.com,bigojav.com,weloma.*,porn00.org,kisscos.net,besthdgayporn.com,latinohentai.com,vegvorous.com,gigmature.com,xmegadrive.com,gogoanime.*,urbharat.xyz,91.208.197.24,adslink.pw,pornohubonline.com,movieskafanda.xyz,mangamovil.net,tatli.biz,naijauncut.com,10convert.com,moviesjoy.*,javenspanish.com,jav-asia.top,komiklokal.xyz,leermanga.net,leechall.com,watchfreenet.com,javxxx.me,yifysubtitles.vip,justcastingporn.com,justfamilyporn.com,simply-hentai.com#%#//scriptlet('abort-current-inline-script', 'document.createElement', 'l.parentNode.insertBefore(s')
 javstream.top#%#//scriptlet('prevent-window-open')
 javstream.us##.kumpulads-post
 javstream.us##.kumpulads-side
@@ -196739,7 +196524,6 @@ pahe.ink##[style="padding-top: 0; padding-bottom: 90px;"]
 pahe.ink#%#//scriptlet('abort-current-inline-script', 'localStorage.getItem', 'adserverDomain')
 pahe.plus##a[href^="https://s0-greate.net/"]
 pahe.plus##form#link-view > a
-pahe.plus#%#//scriptlet('abort-on-property-write', '__aw')
 pahe.plus,uiil.ink,exeygo.com,exe-links.com,mrproblogger.com,cuttyy.com,fc-lc.xyz,link4earn.com,atglinks.com,tii.la,ckk.ai,xpshort.com,rajsayt.xyz,insurglobal.xyz,cutp.in,try2link.com,filmyzilla-in.xyz,samaa-pro.com,earnme.club,adshort.*,adurly.cc,swzz.xyz,crazyblog.in,baominh.tech,seulink.online,ez4short.com,upshrink.com,beingtek.com,link.rota.cc,insuranceblog.xyz,webo.one,linkfly.io,coinadfly.com,ownurl.site,clk.ink,dl.tech-story.net,link.asiaon.top,xfiles.io,upfiles.*,dz-linkk.com,shorterall.com,promo-visits.site,shrink.icu,rshrt.com,tei.ai,exey.*,claimfreebits.com,jameeltips.us,turkdown.com,tui.click,short.food-royal.com,linkpoi.me,galaxy-link.space,finanzas-vida.com,linkebr.com,smoner.com,charexempire.com,forex-trnd.com,linkshorts.*,mycut.me,cuts-url.com,gainbtc.click,st23q.com,hotel.menjelajahi.com,ccurl.net,shrt10.com,shrinkforearn.in,seulink.net,modapk.link,miklpro.com,afly.pro,exe.app,adcorto.xyz,droplink.co,curto.win,linksfire.co,illink.net,ilinks.in,bitfly.io,imagenesderopaparaperros.com,url.namaidani.com,c-ut.com,4cash.me,shrinkme.in,fir3.net,link1s.net,apksvip.com,pkr.pw,shrinke.me,stfly.me,bolssc.com,cutdl.xyz,shortearn.in,linksly.co,link1s.*,tmearn.com,samapro.me,mondainai.moe,pnd.*,popimed.com,tipsforce.com,aii.sh,7r6.com,iir.ai,tii.ai,biroads.com,dz4link.com,linkad.in,fc.lc,rifurl.com,oncehelp.com,shortpaid.com,slink.bid,encurta.eu,leechpremium.link,readnnews.com,gplinks.co,memoo.xyz,linkviet.top,salez.site,caat.site,earnload.com,gplinks.in,stfly.io,eio.io,cutwin.com,uii.io,techbeast.xyz,zoom-link.com,short.pe,myhealthlytips.com,clik.pw,payskip.org,shrinkme.io,ex-foary.com,linkfinal.com,exe.io,liclink.com,adsafelink.com,enrt.eu,suqdz.com,getlink.deadtoonsindia.net,bollyreveal.com,shrtfly.net,mysiterank.org#%#//scriptlet('set-constant', 'app_vars.force_disable_adblock', 'undefined')
 paid4.link##.box > div[align="center"] > div.card
 paid4.link##.box-main > .blog-item
@@ -215270,6 +215054,8 @@ tv.101vn.com###topads
 tv.101vn.com##.page > div[id^="sl"]
 tv.101vn.com##a[href^="http://tv.101vn.com/img"] > img
 tv.101vn.com##div[id^="full_banner"]
+tv.10dailythings.com#@##pageAdDiv
+tv.10dailythings.com#@#.adsDiv
 tv.gab.com#%#//scriptlet("json-prune", "*", "placement video")
 tv.puresoul.live##a[href="https://nbabite.app/"]
 tv.puresoul.live##a[href="https://redi1.soccerstreams.net"]
@@ -223492,6 +223278,7 @@ zzzyk.com###Tinfo
 @@.shop/uploads/$stealth=referrer
 @@.ts^$stealth=referrer|useragent
 @@.txt?token=$xmlhttprequest,stealth=referrer,domain=senshi.to
+@@.txt|$xmlhttprequest,stealth=referrer,domain=streamingnow.mov
 @@.vaughnsoft.net/abvs.php?a=
 @@.xyz/embed-*.html$stealth=referrer
 @@.xyz/premiumtv/*.php$subdocument,xmlhttprequest,stealth=referrer
@@ -231087,6 +230874,7 @@ zzzyk.com###Tinfo
 @@||log.mmstat.com/eg.js$domain=v.youku.com
 @@||log.mmstat.com/eg.js$domain=youku.tv
 @@||log.mmstat.com/eg.js$script,domain=youku.com
+@@||log.rlsbb.in^$stealth=ip
 @@||log000.goo.ne.jp/gcgw.js$domain=nttxstore.jp
 @@||logcg.content-delivery.top/wp-content/plugins/bwp-minify/min/?f=
 @@||logger.eigene.io/js/logger.min.js$domain=home-learn.co.kr
@@ -234080,6 +233868,7 @@ zzzyk.com###Tinfo
 @@||speedtest.net/api/js/user-settings|$xmlhttprequest
 @@||speedtest.net/javascript/ads.js
 @@||speedtestcustom.com^$subdocument,stealth=referrer
+@@||speedwebgo.com^$stealth=referrer,domain=blacktoon425.com
 @@||spezialklinik-neukirchen.de/matomo/$~third-party
 @@||sphinx.tongdun.net^$domain=hainanairlines.com
 @@||spidgateway.regione.campania.it/staticResources/scripts/cookieconsent.min.js$~third-party
