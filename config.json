@@ -167,8 +167,22 @@
     "||email.mailgun.net^$important",
     "||mandrillapp.com^$important",
     "||fresnel.vimeocdn.com^$important",
+    "||c.choozle.com^$important",
+    "||g.ezoic.net^$important",
+    "||xp.apple.com^$important",
+    "||va.vercel-scripts.com^$important",
     "*.swf",
     "##embed[src*='.swf']",
-    "##object[type='application/x-shockwave-flash']"
+    "##object[type='application/x-shockwave-flash']",
+    "##[data-ad-manager]",
+    "##[data-ad-zone]",
+    "##[data-dfp-ad]",
+    "##[data-google-query-id]",
+    "###ad-area",
+    "###ad-zone",
+    "###div-gpt-ad",
+    "###popup-ad",
+    "##.in-article-ad",
+    "##.tracking-pixel"
   ]
 }

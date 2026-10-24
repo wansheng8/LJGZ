@@ -1,4 +1,4 @@
-<div align="center">
+﻿<div align="center">
 
 <img src="docs/logo.svg" width="104" alt="LJGZ Logo"/>
 
@@ -66,7 +66,7 @@ flowchart LR
 | ③ 合并 | `Merger` | 精确去重 + 修饰符排序后语义去重，`$badfilter` 失效，`@@` 例外保护 |
 | ④ 仲裁 | `finalize()` | 子域折叠、同域 type 规则消解、`$important` 提升、DNS 能力筛选 |
 | ⑤ 输出 | `write_outputs()` | 5 种格式、stats.json、徽章 SVG |
-| ⑥ 发布 | `update.yml` | 172 项测试 → 合并 → 跑分（非阻断）→ 无变化跳过 → commit/push → 部署 Pages |
+| ⑥ 发布 | `update.yml` | 180 项测试 → 合并 → 跑分（非阻断）→ 无变化跳过 → commit/push → 部署 Pages |
 
 ## 产物
 
@@ -107,7 +107,7 @@ flowchart LR
 <summary><b>🚀 自动更新与部署</b></summary>
 
 - 工作流：`.github/workflows/update.yml`（cron `0 0,12 * * *` UTC = 北京 08:00 / 20:00，`TZ=Asia/Shanghai`）
-- 流程：172 项测试 → 下载 23 源 → 合并 → 无变化跳过提交，有变化自动 commit + push → 部署 Pages
+- 流程：180 项测试 → 下载 23 源 → 合并 → 无变化跳过提交，有变化自动 commit + push → 部署 Pages
 - 另有两个纯清理 cron（06:00 / 18:00 UTC），只删旧 Actions 历史，保留最新 3 条
 - 输出头部含 `! Last Modified: ... (北京时间 UTC+8)` 与 `! Expires: 12 hours`
 - 徽章 SVG 由引擎每次运行重新生成，数字始终与最新合并一致
@@ -132,7 +132,7 @@ tools/live_benchmark.py        # 真实 Chromium 页面级跑分
 tools/triage_issue.py          # Issue 自动初筛
 docs/index.html                # 在线订阅中心 (GitHub Pages)
 docs/logo.svg                  # Logo
-tests/                         # 172 项测试, 全部无网络
+tests/                         # 180 项测试, 全部无网络
   test_parsing.py              #   词法分类
   test_merging.py              #   合并 / 去重 / 仲裁
   test_browser_profile.py      #   全格式完整性
@@ -160,7 +160,7 @@ git clone https://github.com/wansheng8/LJGZ.git
 cd LJGZ
 
 python merge_filters.py --test              # 冒烟自检
-python -m unittest discover -s tests         # 172 项测试
+python -m unittest discover -s tests         # 180 项测试
 python merge_filters.py                      # 下载合并 → ./output/
 python benchmark.py --out output/benchmark.json   # 离线覆盖率跑分
 ```

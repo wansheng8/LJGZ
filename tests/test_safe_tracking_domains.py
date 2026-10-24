@@ -34,6 +34,16 @@ FORBIDDEN = {
     "mailchimp.com": "Mailchimp 主域, 邮件系统与登录页在用",
     "app.convertkit.com": "ConvertKit 主应用域, 在线创作者站点在用",
     "f.vimeocdn.com": "Vimeo 核心 CDN, 拦了看不到所有 Vimeo 视频",
+    "connect.facebook.net": "Facebook 登录/社交插件依赖, 整域拦截会让 FB 登录按钮失效",
+    "platform.twitter.com": "X/Twitter 推文嵌入脚本主域, 拦了内嵌推文全空白",
+    "rover.ebay.com": "eBay 联盟跳转域, 拦了真实商品链接失效",
+    "js.userpilot.io": "产品新手引导 SDK, 拦了会让 SaaS 引导流程崩溃",
+    "cdn.walkme.com": "数字采用/引导平台, 属于站点功能而非追踪",
+    "app.getcensus.com": "反向 ETL 同步服务, 站点数据管道在用",
+    "snippet.maze.co": "用户调研组件, 站点反馈弹窗依赖",
+    "fast.trychameleon.com": "应用内引导组件, 属于功能而非广告",
+    "cdn.vuukle.com": "第三方评论区, 拦了评论整体消失",
+    "t1.kakaocdn.net": "Kakao/Daum 静态资源 CDN, 不只承载追踪像素",
 }
 
 # 应当出现在 extra_rules 里的纯追踪域。
@@ -49,6 +59,7 @@ EXPECTED_SAFE = {
     "api.flagsmith.com", "cdn-eu.configcat.com", "assets.mailerlite.com",
     "click.mailerlite.com", "clicks.aweber.com", "pixel.aweber.com",
     "email.mailgun.net", "mandrillapp.com", "fresnel.vimeocdn.com",
+    "c.choozle.com", "g.ezoic.net", "xp.apple.com", "va.vercel-scripts.com",
 }
 
 
