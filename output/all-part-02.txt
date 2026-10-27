@@ -3,11 +3,92 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-10-27 06:14:25 +0800
-! Last Modified: 2026-10-27 06:14:25 +0800 (北京时间 UTC+8)
+! Version: 2026-10-27 12:14:04 +0800
+! Last Modified: 2026-10-27 12:14:04 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 250783
+! Rules: 250865
 
+email.mg.clickflamingo.com$image
+email.mg.clickmediapro.com.py$image
+email.mg.clicknetprofits.com$image
+email.mg.clickrdigital.com$image
+email.mg.clickseguros.com.ar$image
+email.mg.clicktoclose.ai$image
+email.mg.clicktolaunch.co$image
+email.mg.clickup.com$image
+email.mg.clientacquisition.io$image
+email.mg.clientamp.com$image
+email.mg.clientflomail.com$image
+email.mg.clientflowapp.uk$image
+email.mg.clienthero.info$image
+email.mg.clienti.com$image
+email.mg.clientservicesmail.com$image
+email.mg.cliffordhousefostering.com$image
+email.mg.climapulse.app$image
+email.mg.clinica-cab.pt$image
+email.mg.clinicadelacolumna.cl$image
+email.mg.clinicadiagnosticum.pt$image
+email.mg.clinicaferrusbratos.com$image
+email.mg.clinicahispanadelangel.com$image
+email.mg.clinicbodycare.com$image
+email.mg.clinicgrower.com$image
+email.mg.clinicmind.com$image
+email.mg.clinicpromosuk.co.uk$image
+email.mg.clinicreadycollective.coach$image
+email.mg.cliniquenios.com$image
+email.mg.clinpgx.org$image
+email.mg.clipper-teas.com$image
+email.mg.clipping.ai$image
+email.mg.clk.com.uy$image
+email.mg.cllbk.com$image
+email.mg.cloakup.com$image
+email.mg.clockhousedental.com$image
+email.mg.closedcaptioning101.com$image
+email.mg.closefirst.ai$image
+email.mg.closercohort.com$image
+email.mg.closerlane.cloud$image
+email.mg.closers7cifras.co$image
+email.mg.closersacademy.io$image
+email.mg.closingwithtyler.com$image
+email.mg.clothesynergy.org$image
+email.mg.clothingdirect.com.au$image
+email.mg.cloud-et-racks.tg$image
+email.mg.cloud.akeneo.com$image
+email.mg.cloud.radicasoftware.com$image
+email.mg.cloud9fulfilment.net$image
+email.mg.cloudamqp.com$image
+email.mg.cloudappreciationsociety.org$image
+email.mg.cloudbedrock.com$image
+email.mg.cloudgarden.nl$image
+email.mg.cloudkitchens.com$image
+email.mg.cloudoffix.com$image
+email.mg.cloudpano.com$image
+email.mg.cloudraya.com$image
+email.mg.cloudscaff.com$image
+email.mg.cloudtimes.io$image
+email.mg.cloudyscents.pl$image
+email.mg.cloved.ai$image
+email.mg.cloverhealth.com$image
+email.mg.club300glasgowsouth.co.uk$image
+email.mg.clubdetkdnuevosinai.com$image
+email.mg.clubee.help$image
+email.mg.clubeniky.com.br$image
+email.mg.clubhappylife.com$image
+email.mg.clubinvertidas.es$image
+email.mg.clubmiles.com.pe$image
+email.mg.clubsportiva.com$image
+email.mg.clubsynergy.org$image
+email.mg.clutchelitecoaching.com$image
+email.mg.clutchtrades.com$image
+email.mg.clydesdalesheritage.org.uk$image
+email.mg.cmaanynj.org$image
+email.mg.cmf.co.id$image
+email.mg.cmhaa.org.au$image
+email.mg.cmptonlinecoaching.uk$image
+email.mg.cms-inc.ca$image
+email.mg.cmsachesapeake.org$image
+email.mg.cmsahawaii.org$image
+email.mg.cmsp.se$image
 email.mg.cnpourense.es$image
 email.mg.cnvrtbl.co$image
 email.mg.cnyepiscopal.org$image
@@ -235382,6 +235463,7 @@ www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, [?.attestat
 www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, [?.attestationRequest][?.context.client.userAgent*="yahi"]+={"params":"YAHI"})
 www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, [?.attestationRequest][?.context.client.userAgent=/adunit|channel|lactmilli|instream|inline|yahi|eafg/].playbackContext.contentPlaybackContext.referer=repl({"regex":"(?:#reloadxhr)?$"\,"replacement":"#reloadxhr"}))
 www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, [?.attestationRequest][?.context.client.userAgent=/channel|lactmilli|instream/].playbackContext.contentPlaybackContext.lactMilliseconds="${now}")
+www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, [?.createCommentParams].context.client.userAgent=repl({"regex":"/; (adunit|channel|lactmilli|instream|inline|yahi|eafg)\b/"\,"replacement":""}))
 www.youtube.com##+js(trusted-prevent-dom-bypass, Node.prototype.appendChild, JSON.parse)
 www.youtube.com##+js(trusted-prevent-dom-bypass, Node.prototype.appendChild, Request)
 www.youtube.com##+js(trusted-prevent-dom-bypass, Node.prototype.appendChild, fetch)
