@@ -76,7 +76,7 @@ footer a{color:var(--acc);text-decoration:none}
 <footer>
   <div>⏰ 每日北京时间 08:00 / 20:00 自动更新 · 全部时间戳为 UTC+8</div>
   <div><a href="https://github.com/wansheng8/LJGZ">GitHub 仓库</a>
-    · 上游列表版权归原作者 · 许可证见 README 致谢部分</div>
+    · 上游列表版权归原作者 · 许可证见 <a href="https://github.com/wansheng8/LJGZ#致谢与许可">README 致谢部分</a></div>
 </footer>
 </div>
 <script>
@@ -87,11 +87,13 @@ const P = [
  {i:'🧩', n:'浏览器扩展', a:'uBlock Origin · AdGuard · Adblock Plus', f:'all.txt',
   d:'网络规则 + 元素隐藏 + 脚本注入 + 例外，全格式订阅（完整规则）。',
   u:[['⭐ 首选 完整版', PAGES+'all.txt'],
+     ['分卷 1/2', PAGES+'all-part-01.txt'],
+     ['分卷 2/2', PAGES+'all-part-02.txt'],
      ['CDN · statically', 'https://cdn.statically.io/gh/wansheng8/LJGZ/main/output/all.txt'],
      ['CDN · githack', 'https://raw.githack.com/wansheng8/LJGZ/main/output/all.txt'],
      ['CDN · ghproxy', 'https://ghproxy.net/https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/all.txt'],
      ['备用', RAW+'all.txt']],
-  t:'⭐ 首选 GitHub Pages 直出（约 28MB 全量规则）。网络受限时用三个 CDN 单文件镜像，均已实测返回真实规则内容；jsDelivr 单文件超出 20MB 上限不可用，只能两张分卷一起加，缺一会少一半规则。'},
+  t:'⭐ 首选 GitHub Pages 直出（约 28MB 全量规则）。网络受限时用三个 CDN 单文件镜像，均已实测返回真实规则内容；jsDelivr 单文件超出 20MB 上限不可用，18MB 分卷也实测会返回 Failed to fetch。客户端限制单文件大小时，加下面两张 Pages 分卷，必须两卷一起订阅，缺一会少一半规则。'},
  {i:'🏠', n:'AdGuard Home', a:'AdGuard Home · AdGuard DNS · 私人 DNS', f:'adguard.txt',
   d:'子域折叠后的 DNS 拦截规则 + $dnsrewrite 规则 + DNS 白名单。',
   u:[['CDN 备选', CDN+'adguard.txt'], ['最短', PAGES+'adguard.txt'], ['备用', RAW+'adguard.txt']],
