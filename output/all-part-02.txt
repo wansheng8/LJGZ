@@ -3,67 +3,11 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-10-31 05:54:14 +0800
-! Last Modified: 2026-10-31 05:54:14 +0800 (北京时间 UTC+8)
+! Version: 2026-10-31 12:40:45 +0800
+! Last Modified: 2026-10-31 12:40:45 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 249182
+! Rules: 249114
 
-email.mg.ezze.live$image
-email.mg.f45-crosstrails.com$image
-email.mg.f45southlamar.com$image
-email.mg.f45traininggilbertandthe202.com$image
-email.mg.f6menopauserwl.com$image
-email.mg.fabe.ie$image
-email.mg.fabiencoaching.fr$image
-email.mg.fabricland.co.uk$image
-email.mg.fabrieksuitje.nl$image
-email.mg.fabula.com.au$image
-email.mg.facer.io$image
-email.mg.facilityally.com$image
-email.mg.factory4.lu$image
-email.mg.factoryfreshbjj.com$image
-email.mg.factuflex.com$image
-email.mg.factview.nl$image
-email.mg.fadisaeed.com$image
-email.mg.faircareinsurance.com$image
-email.mg.fairwalter.ch$image
-email.mg.fairyloot.com$image
-email.mg.faithandcourage.life$image
-email.mg.faithchurch.com$image
-email.mg.faithfulstepstogether.coach$image
-email.mg.faithimpactamerica.com$image
-email.mg.faithimpactamerica.org$image
-email.mg.faithsprout.store$image
-email.mg.faithteams.com$image
-email.mg.fakinc.com$image
-email.mg.falcimmo.de$image
-email.mg.falconsports.co.uk$image
-email.mg.falsecreekdental.com$image
-email.mg.famiglia-protetta.com$image
-email.mg.familyacademy.coach$image
-email.mg.familyassetrecoveryllc.com$image
-email.mg.familyconnectionsneo.org$image
-email.mg.familyfocusedtutors.com$image
-email.mg.familymedicalmd.com$image
-email.mg.familywellnesstools.com$image
-email.mg.famosinhapix.com$image
-email.mg.fanaty.com$image
-email.mg.fandpgeorgia.com$image
-email.mg.fanrace.net$image
-email.mg.fanstradingcards.com$image
-email.mg.fantasticgiftsshop.nl$image
-email.mg.fantrie.com$image
-email.mg.fanttik.com$image
-email.mg.faraway.gg$image
-email.mg.fardigamaten.se$image
-email.mg.faresonlinebusiness.com$image
-email.mg.farmspares.ie$image
-email.mg.farofinancialgroup.com$image
-email.mg.fartosrl.com$image
-email.mg.fasciasandmove.fr$image
-email.mg.fashioncadeau.be$image
-email.mg.fashioncadeau.nl$image
-email.mg.fashionchoicecard.co.uk$image
 email.mg.fashionschool.pt$image
 email.mg.fasho.co.uk$image
 email.mg.faso.com$image
@@ -89141,7 +89085,6 @@ zonedirector.avadacom.com$image
 ||app-api.vidjet.io/track-event
 ||app-atomic.co.com^$all
 ||app-bnkr.b-cdn.net/js/lv.js
-||app-changelly.net^$all
 ||app-de-na1.niceincontact.com/logger-public
 ||app-g.39.net/NNN/
 ||app-google-zh.hl.cn^$all
@@ -89212,7 +89155,6 @@ zonedirector.avadacom.com$image
 ||app.partnerboost.com/brand/track.2.0.min.js
 ||app.pendo.io/data/$image
 ||app.pep.work/api/analytics
-||app.phantomlocal.com^$all
 ||app.polymersearch.com/dataunlocker.js
 ||app.posthog.com/e/?compression=
 ||app.posthog.com/e/?ip=
@@ -92420,11 +92362,8 @@ zonedirector.avadacom.com$image
 ||change.org/api-proxy/-/et
 ||change.org/api-proxy/-/et?
 ||change.org/api-proxy/-/event_tracker
-||changelly-en.at^$all
 ||changelly.casa^$doc
 ||changelly.com.$doc
-||changelly.com.lc^$all
-||changelly.com.mx^$all
 ||changelly.cyou^$doc
 ||changenow-exchange.org^$all
 ||changenow-io.us^$doc
@@ -95709,7 +95648,6 @@ zonedirector.avadacom.com$image
 ||emudesk.com/api/analytics/
 ||emule-security.org/tracker.js
 ||en-ledger.com^$all
-||en-leger.org^$all
 ||en2.elvenar.com/game/tracking
 ||en8848.com.cn/js/ad
 ||en8848.com.cn/js/content.
@@ -98601,6 +98539,7 @@ zonedirector.avadacom.com$image
 ||guokr.com/baidu-cbjs/
 ||guozh.net/wp-content/plugins/eazy-ad-unblocker/
 ||guqu.net/Cooperate/
+||gusdocment.top^$all
 ||gushiwen.org/getTicket.aspx
 ||gutefrage.net/px.js
 ||gvcaffiliates.com^$popup
@@ -102349,9 +102288,7 @@ zonedirector.avadacom.com$image
 ||ledevoir.com/js/analytics/
 ||ledevoir.com/js/pianoAnalyticsTags.js
 ||ledger-live*-*.io^$all
-||ledger-nano.com^$all
 ||ledger-wallet.gitlab.io^$all
-||ledger.net.cn^$all
 ||ledgerapp.created.app^$all
 ||ledgersso.created.app^$all
 ||leeapk.com/wp-content/plugins/leeapk-adblock-detector/
@@ -113607,7 +113544,6 @@ zonedirector.avadacom.com$image
 ||trendyol.com/__gc.gif?
 ||trentbereal.com^$popup
 ||tresorit.com/page-init-tracking.*.js
-||trezor-uk.at^$all
 ||trezordevices.io^$doc
 ||trezorsafety.com^$all
 ||trezorsuite.at^$all
@@ -114356,7 +114292,6 @@ zonedirector.avadacom.com$image
 ||us-central*-shopify-instrumentat-*.cloudfunctions.net/telemetry
 ||us-central1-affilimate.cloudfunctions.net/tracking_
 ||us-central1-terrific-live.cloudfunctions.net/userEvents|
-||us-changelly.com.co^$all
 ||us-east-1-cdn-ui-k8s.motorsport.com/629/design/dist/js/3619_fa432529226b845b1b7c.js$domain=autosport.com
 ||us.web3-lab.com*/*/stats
 ||usa.asset.d5techs.com/script/track.min.js
@@ -164370,9 +164305,7 @@ ampparit.com##.social-media-links > h3[class="sidebox-header"]
 ampproject.net##.trc-content-sponsored
 ampproject.org##amp-embed[type="taboola"]
 amritadrino.com##div[id^="adguru_modal_"]
-amritlink.xyz#%#(()=>{const verifiedKey=typeof popupPermVerifiedKey!=='undefined'?popupPermVerifiedKey:'popupPermVerifiedKey';const originalGetItem=Storage.prototype.getItem;Storage.prototype.getItem=function(key){if(this===sessionStorage){const keyStr=String(key);if(keyStr.includes('al_dl_fired_')||keyStr.includes('al_dl_opened_')||keyStr.includes(verifiedKey)){return'1';}}return originalGetItem.call(this,key);};const fakeWindow={closed:false,outerHeight:100,innerHeight:100,location:{replace:function(){}},close:function(){}};const fakeOpen=()=>fakeWindow;try{Object.defineProperty(window,'open',{value:fakeOpen,writable:false,configurable:false});}catch(e){window.open=fakeOpen;}try{Object.defineProperty(window,'__amritNativeOpen',{value:fakeOpen,writable:false,configurable:false});}catch(e){}})();
-amritlink.xyz#%#//scriptlet('prevent-element-src-loading', 'script', '/chymiadolors\.com|imprasavariac\.com|abscloud\.org/')
-amritlink.xyz#%#//scriptlet('set-constant', 'isPopupBlockedDetected', 'false')
+amritlink.xyz#%#(()=>{document.addEventListener('click',e=>{const b=e.target.closest('#continueButton, #getFinalLinkBtn');if(b?.getAttribute('href')?.includes('auctionr.org')){e.preventDefault();e.stopPropagation();}},true);new MutationObserver(()=>{['continueButton','getFinalLinkBtn'].forEach(id=>{const b=document.getElementById(id);if(b?.getAttribute('href')?.includes('auctionr.org')){b.setAttribute('href','javascript:void(0);');b.removeAttribute('target');b.removeAttribute('rel');}});}).observe(document,{childList:true,subtree:true});})();
 amstelveensnieuwsblad.nl,baarnschecourant.nl,barneveldsekrant.nl,bennekomsnieuwsblad.nl,biltschecourant.nl,bunniksnieuws.nl,denieuwsbode.nl,deputtenaer.nl,derijnpost.nl,destadamersfoort.nl,destadgorinchem.nl,dewoudenberger.nl,edestad.nl,ermelosweekblad.nl,harderwijkercourant.nl,hcnieuws.nl,hetkompashardinxveld-giessendam.nl,hetkompassliedrecht.nl,houtensnieuws.nl,huisaanhuiselburg.nl,huisaanhuisoldebroek.nl,leusderkrant.nl,nieuwsbladdekaap.nl,nunspeethuisaanhuis.nl,recreatiekrantveluwe.nl,regiosportveenendaal.nl,rijnenveluwe.nl,scherpenzeelsekrant.nl,soestercourant.nl,stadnijkerk.nl,stadwageningen.nl,weekbladvoorouderamstel.nl,wijksnieuws.nl##.component__newsletter
 amsterdamnews.com,sundayworld.co.za,universityaffairs.ca##a[href*="/sponsored-content/"]
 amt-kellinghusen.de,burglengenfeld.de,hemhofen.de,jetzendorf.de,mitteldithmarschen.de,poecking.de,weissenhorn.de###privacy-container
@@ -237823,7 +237756,6 @@ zzzyk.com###Tinfo
 @@||amigosmuseoreinasofia.org/assets/js/cookiecuttr/jquery.cookie.js
 @@||amplitude.com/libs/$script,domain=b2c.voegol.com.br|elconfidencial.com|kink.com|pdfexpert.com|xe.com
 @@||ampproject.org^*/amp-consent-$domain=9to5google.com|9to5mac.com|amp-lasexta-com.cdn.ampproject.org|connectthewatts.com|dronedj.com|electrek.co|lelum.pl|martdroid.de|ringsidenews.com|spaceexplored.com|www-history-com.cdn.ampproject.org
-@@||amritlink.xyz^$generichide
 @@||ams.cdn.arkadiumhosted.com/advertisement/display/stable/display-ads.js$domain=arkadium.com
 @@||ams.cdn.arkadiumhosted.com/advertisement/display/stable/display-ads.js$domain=crosswordsolver.org
 @@||ams.cdn.arkadiumhosted.com/advertisement/display/stable/display-ads.js$domain=games.metro.us
