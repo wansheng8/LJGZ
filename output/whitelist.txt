@@ -1,43 +1,43 @@
 # Title: AdFilter Merge · DNS 白名单
-# Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — DNS 白名单 格式
+# Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — DNS 白名单
 # Homepage: https://github.com/wansheng8/LJGZ
 # Licence: 各上游列表许可证的并集, 见 README 致谢部分
-# Version: 2026-11-02 13:01:58 +0800
-# Last Modified: 2026-11-02 13:01:58 +0800 (北京时间 UTC+8)
+# Version: 2026-11-02 14:25:20 +0800
+# Last Modified: 2026-11-02 14:25:20 +0800 (北京时间 UTC+8)
 # Expires: 12 hours
 # Rules: 34
 
-@@||acid2.acidtests.org^$document
-@@||acid3.acidtests.org^$document
-@@||app.sendgrid.com$document
-@@||auth.gfx.ms^$document
-@@||clientlogin.cdn.skype.com^$document
+@@||acid2.acidtests.org^
+@@||acid3.acidtests.org^
+@@||app.sendgrid.com^
+@@||auth.gfx.ms^
+@@||clientlogin.cdn.skype.com^
 @@||connectivitycheck.gstatic.com^$important
-@@||content.googleapis.com$document
-@@||content.newegg.com$document
-@@||dashboard.jwplayer.com^$document
-@@||go.redirectingat.com^$document
-@@||googledrive.com$document
-@@||huntington.com^$document
-@@||ingdirect.com.au^$document
-@@||injections.adguard.com^$document
-@@||marketplace.xbox.com^$document
-@@||mediacdn.disqus.com^$document
-@@||my.westfieldinsurance.com^$document
-@@||oa.tr.line.me^$document
-@@||online.cosmosbank.in^$document
-@@||optout.networkadvertising.org^$document
-@@||publisher.adservice.com^$document
-@@||redactor.creatium.io^$document
-@@||router.asus.com^$document
-@@||routerlogin.com^$document
-@@||routerlogin.net^$document
-@@||securitykiss.com$document
-@@||software.seek.intel.com^$document
-@@||swedbank.ee^$document
-@@||sync.maxthon.com$document
-@@||tagmanager.google.com^$document
-@@||tiles.mapbox.com^$document
-@@||time.adp.com^$document
-@@||tryit.w3schools.com^$document
-@@||web.any.do^$document
+@@||content.googleapis.com^
+@@||content.newegg.com^
+@@||dashboard.jwplayer.com^
+@@||go.redirectingat.com^
+@@||googledrive.com^
+@@||huntington.com^
+@@||ingdirect.com.au^
+@@||injections.adguard.com^
+@@||marketplace.xbox.com^
+@@||mediacdn.disqus.com^
+@@||my.westfieldinsurance.com^
+@@||oa.tr.line.me^
+@@||online.cosmosbank.in^
+@@||optout.networkadvertising.org^
+@@||publisher.adservice.com^
+@@||redactor.creatium.io^
+@@||router.asus.com^
+@@||routerlogin.com^
+@@||routerlogin.net^
+@@||securitykiss.com^
+@@||software.seek.intel.com^
+@@||swedbank.ee^
+@@||sync.maxthon.com^
+@@||tagmanager.google.com^
+@@||tiles.mapbox.com^
+@@||time.adp.com^
+@@||tryit.w3schools.com^
+@@||web.any.do^
