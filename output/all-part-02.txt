@@ -3,247 +3,11 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2 格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-11-02 05:38:17 +0800
-! Last Modified: 2026-11-02 05:38:17 +0800 (北京时间 UTC+8)
+! Version: 2026-11-02 13:01:58 +0800
+! Last Modified: 2026-11-02 13:01:58 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 245998
+! Rules: 245764
 
-email.mg.mattgbuys.com$image
-email.mg.matthewgoldman.com$image
-email.mg.matthewneedham.co$image
-email.mg.matthiasmediainc.com$image
-email.mg.mattlrss.com$image
-email.mg.mattresscommercials.com$image
-email.mg.mattressnorthernbeaches.com.au$image
-email.mg.mauikut.id$image
-email.mg.maukatours.com$image
-email.mg.maurofitnesscoach.com$image
-email.mg.mavencleaner.com$image
-email.mg.maverickaccelerator.com$image
-email.mg.maxcessintl.com$image
-email.mg.maxenpower.com$image
-email.mg.maxforlive.com$image
-email.mg.maxgmb.com$image
-email.mg.maximhairrestoration.com$image
-email.mg.maxlifespecials.com$image
-email.mg.maxoutfinancialagency.com$image
-email.mg.maxyoursales.com$image
-email.mg.mayanrivieraphotography.com$image
-email.mg.mayfairba.com.au$image
-email.mg.mayfielddental.com$image
-email.mg.maziv.com$image
-email.mg.mbauction.com$image
-email.mg.mbbeavermail.com$image
-email.mg.mbc.dance$image
-email.mg.mbccollaborative.com$image
-email.mg.mccarthyplumbinggroup.com.au$image
-email.mg.mccarthysmoving.com$image
-email.mg.mccusa.co$image
-email.mg.mcdanielseweranddrain.com$image
-email.mg.mcdermott-hlc.com$image
-email.mg.mceagle-enterprises.com$image
-email.mg.mcgavranfinancial.com$image
-email.mg.mckaysbusinessbuilder.com$image
-email.mg.mckeewallwork.com$image
-email.mg.mckinneycustompools.net$image
-email.mg.mclpcb.com$image
-email.mg.mcm4smallbiz.com$image
-email.mg.mcmdav.com$image
-email.mg.mcnaughtondevelopment.com$image
-email.mg.mcpincmsp.com$image
-email.mg.mcquadeorganization.com$image
-email.mg.mcrlprinting.com$image
-email.mg.mcstockholm.se$image
-email.mg.mdconsultingny.com$image
-email.mg.mdsportandspine.com$image
-email.mg.me361.ca$image
-email.mg.mechanicalbookkeeping.com$image
-email.mg.mechanicdesk.com.au$image
-email.mg.mechsoft.com.tr$image
-email.mg.meckafitness.com$image
-email.mg.meclearlake.com$image
-email.mg.mecrobremake.com$image
-email.mg.med-eng.com$image
-email.mg.med.estate$image
-email.mg.med.se$image
-email.mg.medbuybacks.com$image
-email.mg.medchathan.com$image
-email.mg.medialiteracynow.org$image
-email.mg.mediamaratoncafe.com.co$image
-email.mg.mediaradar.com$image
-email.mg.mediasack.com$image
-email.mg.mediatamer.com$image
-email.mg.mediaworqs.com$image
-email.mg.mediax.digital$image
-email.mg.medical4punto0.it$image
-email.mg.medicalfloornursing.com$image
-email.mg.medicalspabuffalo.com$image
-email.mg.medicare-you.com$image
-email.mg.medicgate-store.de$image
-email.mg.medicinemarketplace.com$image
-email.mg.medihelp.info$image
-email.mg.medikiki-hp1.com$image
-email.mg.medinews.com$image
-email.mg.mediprodirect.com$image
-email.mg.medisera.se$image
-email.mg.medisilklab.com$image
-email.mg.meditation.de$image
-email.mg.meditationmoments.com$image
-email.mg.meditekservice.com$image
-email.mg.medivape.co.nz$image
-email.mg.medizinderzukunft.com$image
-email.mg.medlife.academy$image
-email.mg.medmarketingwiz.com$image
-email.mg.medon.lv$image
-email.mg.medspamax.com$image
-email.mg.medspaofaustin.com$image
-email.mg.medspaofsacramento.com$image
-email.mg.medsportperformance.com$image
-email.mg.medtechintel.com$image
-email.mg.medvednicatrail.run$image
-email.mg.medviu.ch$image
-email.mg.medx.com$image
-email.mg.mee-plus.com$image
-email.mg.meemu.org$image
-email.mg.meetch.app$image
-email.mg.meetnuyu.com$image
-email.mg.meettonyg.com$image
-email.mg.meetyourva.co$image
-email.mg.megabooon.com$image
-email.mg.megacorplogistics.com$image
-email.mg.megafitmeals.com$image
-email.mg.megahost.kz$image
-email.mg.megalook.com$image
-email.mg.megamorning.deals$image
-email.mg.meganaderele.com$image
-email.mg.megandale.com$image
-email.mg.megawineu.com$image
-email.mg.mehireuk.com$image
-email.mg.mehrkundenbitte.com$image
-email.mg.meiancientfitness.com$image
-email.mg.meijer-sanitair.nl$image
-email.mg.mein-golfclub.de$image
-email.mg.meincomeacademy.com$image
-email.mg.mejorahora.eu$image
-email.mg.melawyers.co$image
-email.mg.melinava.com$image
-email.mg.melissabrowerhomes.com$image
-email.mg.melissaetherton.com$image
-email.mg.melissamitchellsocialco.com$image
-email.mg.melissaparra.com$image
-email.mg.melissatennison.com$image
-email.mg.mellowsquish.com$image
-email.mg.melmackactingstudio.com$image
-email.mg.melodiak.hu$image
-email.mg.melsstrong4lifesquad.coach$image
-email.mg.meltartscic.co.uk$image
-email.mg.memberday.com$image
-email.mg.memoflowadvisors.com$image
-email.mg.memphisbesthomes.com$image
-email.mg.menacemedia.co.uk$image
-email.mg.menaup.net$image
-email.mg.mendezboyleconsulting.com$image
-email.mg.mendocinolandtrust.org$image
-email.mg.menivim.net$image
-email.mg.mennehlegalsa.com$image
-email.mg.menopausestrongmovement.com$image
-email.mg.mens.com$image
-email.mg.mensa.dk$image
-email.mg.mensdevelopmentacademy.com$image
-email.mg.mentalia.mx$image
-email.mg.mentoriumacademy.com$image
-email.mg.mentorjota.com$image
-email.mg.mentormechanic.com$image
-email.mg.mentoruniverse.in$image
-email.mg.menwellnessremedies.com$image
-email.mg.meowcatrescue.org$image
-email.mg.mercadosamericanos.com$image
-email.mg.merchyeah.com$image
-email.mg.mercury.com$image
-email.mg.mercurylivingproperty.com$image
-email.mg.mercy-divine.com$image
-email.mg.mercyships.be$image
-email.mg.mergado.com$image
-email.mg.mergeos.com$image
-email.mg.meridianpac.com$image
-email.mg.meritmgt.com$image
-email.mg.merlinsmagicwand.org$image
-email.mg.merlinsmaids.com$image
-email.mg.merlnotaryservices.net$image
-email.mg.merrimack.org$image
-email.mg.mertclinics.com$image
-email.mg.merusadventure.com$image
-email.mg.merycalvoeducadoracanina.com$image
-email.mg.meshaelr.com$image
-email.mg.meshplusplus.com$image
-email.mg.messymindedmagic.com$image
-email.mg.mestravaux.com$image
-email.mg.meswebguys.com$image
-email.mg.meta-analysis.com$image
-email.mg.meta.com.vn$image
-email.mg.metaapp.sk$image
-email.mg.metabolism-reset-method.com$image
-email.mg.metairieduvilliers.fr$image
-email.mg.metalbuildmarketing.com$image
-email.mg.metanoiafreedom.com$image
-email.mg.metaodysseycoaching.com$image
-email.mg.metaproject.it$image
-email.mg.metaprosperity.us$image
-email.mg.metatalentagency.com$image
-email.mg.meteoro.casino$image
-email.mg.method-athlete.com$image
-email.mg.metimefitputney.com$image
-email.mg.metodoanahata.com$image
-email.mg.metodocasaserena.it$image
-email.mg.metodocedo.com.ar$image
-email.mg.metodoegm.com$image
-email.mg.metodomilenium.es$image
-email.mg.metodorora.com$image
-email.mg.metodovirtu.it$image
-email.mg.metro-new-orleans.com$image
-email.mg.metselbedrijfmano.nl$image
-email.mg.mettaser.co$image
-email.mg.mewjew.com$image
-email.mg.mewjews.com$image
-email.mg.mewo.io$image
-email.mg.mg-realestate.gr$image
-email.mg.mganexus.com$image
-email.mg.mgbconstruction.org$image
-email.mg.mgdtrades.com$image
-email.mg.mgirestorations.com$image
-email.mg.mgroupresidential.com$image
-email.mg.mhanational.org$image
-email.mg.mhwdispensaries.com$image
-email.mg.miamicenterfordermatology.com$image
-email.mg.miasbijanouk.nl$image
-email.mg.micahub.co.za$image
-email.mg.michael-mann.com$image
-email.mg.michaelwhitworthconsulting.com$image
-email.mg.michealladivine.com$image
-email.mg.micheleleasurept.com$image
-email.mg.michelinegreen.com$image
-email.mg.michiganbusinessadvocates.com$image
-email.mg.miclient.ai$image
-email.mg.microcapclub.com$image
-email.mg.microcash.com.ua$image
-email.mg.microcosmpublishing.com$image
-email.mg.microgroovedigital.com$image
-email.mg.microserve.co.ke$image
-email.mg.midaliasteel.com$image
-email.mg.middlehousingpartners.com$image
-email.mg.midigitalai.com$image
-email.mg.midlifemoneyco.com$image
-email.mg.midmoshowers.com$image
-email.mg.midnightskyebizservices.com$image
-email.mg.midrag.co.il$image
-email.mg.midsouthfiber.com$image
-email.mg.midtrans.com$image
-email.mg.midvalleymedia.net$image
-email.mg.midwestoptics.net$image
-email.mg.midwestspinalimagingmn.com$image
-email.mg.migunesia.com$image
-email.mg.mijntechcarriere.nl$image
-email.mg.mike-duran.com$image
 email.mg.mikebehanmortgagebroker.com$image
 email.mg.mikecamby.com$image
 email.mg.mikemunter.com$image
@@ -85662,6 +85426,7 @@ zonedirector.avadacom.com$image
 ||api.experte.com/t/
 ||api.facebook.com/method/logging.clientevent
 ||api.fanmatics.com/event
+||api.fanpage.it/views/
 ||api.faphouse.com^$ping
 ||api.fboom.me/*/analytics/
 ||api.ffbbbdc6d3c353211fe2ba39c9f744cd.com^$third-party
@@ -85674,6 +85439,7 @@ zonedirector.avadacom.com$image
 ||api.fubo.tv/papi/v1/tracking
 ||api.fw.tv/embed/
 ||api.gamsgo2.com/data_explorer/metric
+||api.geopop.it/views/
 ||api.giga.de/*tracking
 ||api.giphy.com^*/related?$third-party
 ||api.gist.ai/v1/analytics/track
@@ -96885,7 +96651,7 @@ zonedirector.avadacom.com$image
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=kraloyun.com
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=ktla.com,important
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=pilipinaslive.com
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=shanelocaldog.com,important
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=shannoncoldalready.com,important
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=thethings.com
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima3,domain=humix.com|mistergadget.tech,important
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=3flix.top|8flix.top,redirect=google-ima.js
@@ -179828,6 +179594,7 @@ fcportables.com##.sidebar > div[id^="ai_widget-"]:has(> .code-block > .adsbygoog
 fcportables.com##div[class^="popup"][class$="wrap"][id]
 fcportables.com#$#.content-main-wrap ~ div[id][style*="border-block-style"]:not([class]) { display: none !important; }
 fcportables.com#$#body { overflow: auto !important; }
+fcportables.com#$#html { overflow: auto !important; }
 fcportables.com,ps2-bios.com##div[id$="____equal"]:not(.ad)
 fctables.com##.box-width > .hidden-xs
 fctables.com##.boxOverContentRevive__placeholder
@@ -186524,7 +186291,6 @@ hclips.com#@#.adholder2
 hclips.com,hdzog.com,sss.xxx#@#.adver
 hclips.com,hdzog.com,sss.xxx#@#.advertisements
 hclips.com,hotmovs.tube##.partners-wrap
-hclips.com,pornclassic.tube,gaytxxx.com,vjav.tube,vjav.com,transtxxx.com,upornia.*,txxxporn.tube,txxx.*##.video-videos-slider
 hclips.com,thegay.com,tporn.xxx,tubepornclassic.com##.footer-banners
 hcomic.net##.main-container > .swiper
 hcomic.net##div[class^="horizontalBanner_"]
@@ -205702,6 +205468,7 @@ oovoo.com,oovoo.pro##.elementor-spacer-inner
 ooxxx.com##.video-ntv-wrapper
 ooxxx.com##.wrapper > div[class]:has(> div > div > div > div[id^="suggestion_"])
 ooxxx.com##div[style^="width: 728px; height: 90px;"]
+ooxxx.com,hclips.com,pornclassic.tube,gaytxxx.com,vjav.tube,vjav.com,transtxxx.com,upornia.*,txxxporn.tube,txxx.*##.video-videos-slider
 ooyyo.com,imgur.com,autobytel.com##.masthead
 op.gg###__next > div[class]:has(> div[class] > div[id^="leaderboards"])
 op.gg###__next > div[class^="css-"] > div[class*="css-"]:has(> div[id^="div-gpt-ad-"])
@@ -215291,14 +215058,14 @@ shameless.com,imguur.pictures,imgdone.com,xxxdessert.com,xaoutchouc.live,simply-
 shamra.sy#%#//scriptlet('prevent-setTimeout', '.offsetHeight')
 shana.pe.kr##ins.adsbygoogle
 shanebarker.com###kt-layout-id_e3c48e-e4
-shanelocaldog.com##+js(acs, WebAssembly, atob)
-shanelocaldog.com##+js(acs, globalThis, break;case)
-shanelocaldog.com##+js(nowoif)
-shanelocaldog.com##+js(set, console.clear, undefined)
 shangyexinzhi.com##.hang-baidu_adv
 shangyexinzhi.com##.img2text-adv_wrapper
 shangyexinzhi.com,hg6384.com-www.6u7u.com##.advert
 shanjinji.com#@#.bottom_ad
+shannoncoldalready.com##+js(acs, WebAssembly, atob)
+shannoncoldalready.com##+js(acs, globalThis, break;case)
+shannoncoldalready.com##+js(nowoif)
+shannoncoldalready.com##+js(set, console.clear, undefined)
 shannoncoldalready.com,claireguessthousand.com,rebeccasciencestreet.com,nicholasbreakplan.com,benjaminreducecommunity.com,maryspecialwatch.com,brittanyaheadnew.com,charlessheimprove.com,richardquestionbuilding.com,timmaybealready.com,charlestoughrace.com,ianrequireadult.com,marissasharecareer.com,jessicaclearout.com,jefferycontrolmodel.com,dianaavoidthey.com,lancewhosedifficult.com,lauradaydo.com,crystaltreatmenteast.com,walterprettytheir.com,christopheruntilpoint.com,mikaylaarealike.com,lukesitturn.com,jilliandescribecompany.com,kellywhatcould.com,johnalwayssame.com,mariatheserepublican.com,jonathansociallike.com,diananatureforeign.com,sarahnewspaperbeat.com,richardsignfish.com,jennifercertaindevelopment.com,nathanfromsubject.com,adrianmissionminute.com,kristiesoundsimply.com,heatherwholeinvolve.com,alejandrocenturyoil.com,maxfinishseveral.com,robertordercharacter.com,sandratableother.com,brittneystandardwestern.com,jamessoundcost.com,toddpartneranimal.com,kimberlyonlocal.com,richardstorehalf.com,zacharycollectionmight.com,thomasalthoughhear.com,susanhavekeep.com,lorimuchbenefit.com,evelynthankregion.com,jessicaglassauthor.com,lisatrialidea.com,bethshouldercan.com,donaldlineelse.com,josephseveralconcern.com,alleneconomicmatter.com,robertplacespace.com,heatherdiscussionwhen.com,jayservicestuff.com,morganoperationface.com,johntryopen.com,jamiesamewalk.com,kennethofficialitem.com,lukecomparetwo.com,edwardarriveoften.com,paulkitchendark.com,kathleenmemberhistory.com,phenomenalityuniform.com,urochsunloath.com,35volitantplimsoles5.com,antecoxalbobbing1010.com,cyamidpulverulence530.com,guidon40hyporadius9.com,housecardsummerbutton.com,un-block-voe.net,voeunblk.com,voeunbl0ck.com,voeunblock2.com,voeunblock.com,voe-unblock.*,voe.sx#%#//scriptlet("abort-current-inline-script", "$", "/\.fadeIn|\.show\(.?\)/")
 shannoncoldalready.com,claireguessthousand.com,rebeccasciencestreet.com,nicholasbreakplan.com,benjaminreducecommunity.com,maryspecialwatch.com,brittanyaheadnew.com,charlessheimprove.com,richardquestionbuilding.com,timmaybealready.com,charlestoughrace.com,ianrequireadult.com,marissasharecareer.com,jessicaclearout.com,jefferycontrolmodel.com,dianaavoidthey.com,lancewhosedifficult.com,lauradaydo.com,crystaltreatmenteast.com,walterprettytheir.com,christopheruntilpoint.com,mikaylaarealike.com,lukesitturn.com,jilliandescribecompany.com,kellywhatcould.com,johnalwayssame.com,mariatheserepublican.com,jonathansociallike.com,diananatureforeign.com,sarahnewspaperbeat.com,richardsignfish.com,jennifercertaindevelopment.com,nathanfromsubject.com,adrianmissionminute.com,kristiesoundsimply.com,heatherwholeinvolve.com,alejandrocenturyoil.com,maxfinishseveral.com,robertordercharacter.com,sandratableother.com,brittneystandardwestern.com,jamessoundcost.com,toddpartneranimal.com,kimberlyonlocal.com,richardstorehalf.com,zacharycollectionmight.com,thomasalthoughhear.com,susanhavekeep.com,lorimuchbenefit.com,evelynthankregion.com,jessicaglassauthor.com,lisatrialidea.com,bethshouldercan.com,donaldlineelse.com,josephseveralconcern.com,alleneconomicmatter.com,robertplacespace.com,heatherdiscussionwhen.com,jayservicestuff.com,morganoperationface.com,johntryopen.com,jamiesamewalk.com,kennethofficialitem.com,lukecomparetwo.com,edwardarriveoften.com,paulkitchendark.com,kathleenmemberhistory.com,phenomenalityuniform.com,urochsunloath.com,35volitantplimsoles5.com,antecoxalbobbing1010.com,cyamidpulverulence530.com,guidon40hyporadius9.com,housecardsummerbutton.com,un-block-voe.net,voeunblk.com,voeunbl0ck.com,voeunblock2.com,voeunblock.com,voe-unblock.*,voe.sx#%#//scriptlet("abort-current-inline-script", "encodeURIComponent", "break;case")
 shannoncoldalready.com,claireguessthousand.com,rebeccasciencestreet.com,nicholasbreakplan.com,benjaminreducecommunity.com,maryspecialwatch.com,brittanyaheadnew.com,charlessheimprove.com,richardquestionbuilding.com,timmaybealready.com,charlestoughrace.com,ianrequireadult.com,marissasharecareer.com,jessicaclearout.com,jefferycontrolmodel.com,dianaavoidthey.com,lancewhosedifficult.com,lauradaydo.com,crystaltreatmenteast.com,walterprettytheir.com,christopheruntilpoint.com,mikaylaarealike.com,lukesitturn.com,jilliandescribecompany.com,kellywhatcould.com,johnalwayssame.com,mariatheserepublican.com,jonathansociallike.com,diananatureforeign.com,sarahnewspaperbeat.com,richardsignfish.com,jennifercertaindevelopment.com,nathanfromsubject.com,adrianmissionminute.com,kristiesoundsimply.com,heatherwholeinvolve.com,alejandrocenturyoil.com,maxfinishseveral.com,robertordercharacter.com,sandratableother.com,brittneystandardwestern.com,jamessoundcost.com,toddpartneranimal.com,kimberlyonlocal.com,richardstorehalf.com,zacharycollectionmight.com,thomasalthoughhear.com,susanhavekeep.com,lorimuchbenefit.com,evelynthankregion.com,jessicaglassauthor.com,lisatrialidea.com,bethshouldercan.com,donaldlineelse.com,josephseveralconcern.com,alleneconomicmatter.com,robertplacespace.com,heatherdiscussionwhen.com,jayservicestuff.com,morganoperationface.com,johntryopen.com,jamiesamewalk.com,kennethofficialitem.com,lukecomparetwo.com,edwardarriveoften.com,paulkitchendark.com,kathleenmemberhistory.com,phenomenalityuniform.com,urochsunloath.com,35volitantplimsoles5.com,antecoxalbobbing1010.com,cyamidpulverulence530.com,guidon40hyporadius9.com,housecardsummerbutton.com,un-block-voe.net,voeunblk.com,voeunbl0ck.com,voeunblock2.com,voeunblock.com,voe-unblock.*,voe.sx#%#//scriptlet('google-ima3')
@@ -215651,6 +215418,8 @@ shrinke.me,illink.net##.box-main > br
 shrinkearn.com##+js(aopr, open)
 shrinkforearn.in##.box-main > .row
 shrinkforearn.in#%#//scriptlet("prevent-window-open")
+shrinkme.click###link-view > div.smads
+shrinkme.click##.box-main > div.smads
 shrinkme.in###link-view > p[style="text-align: center;"]
 shrinkme.in##.box-main > #countdown ~ h3
 shrinkme.in##.col-md-12 > #link-view ~ h3
@@ -224917,10 +224686,7 @@ turningleftforless.com##.text-2
 turnoffthelights.com##.castpress:has(> .slideads)
 turnoffthelights.com##.chw-widget-area
 turnoffthelights.com##.slideads
-turtlecute.org##.collab_wrap
 turtlecute.org##.notice_stack > button[role="link"][aria-label]
-turtlecute.org##.sponsor_banner_wrap
-turtlecute.org##a[href^="https://shockvpn.com/?"]
 turystyka.wp.pl##article div[class][data-reactid] > div[class]:has(> span > div[class] > a.w_contentLink)
 turystyka.wp.pl##article div[class][data-reactid] > div[class]:has(> span:first-child:empty + span:last-child:empty)
 turystyka.wp.pl,finanse.wp.pl,film.wp.pl,kobieta.wp.pl,komorkomania.pl,tech.wp.pl,gadzetomania.pl,polygamia.pl,dobreprogramy.pl##div[class*=" "]:has(> img[src*="://v.wpimg.pl/"] + div[class] > style:first-child + div:last-child)
@@ -230571,14 +230337,14 @@ www.youtube.com##+js(json-prune-xhr-response, adPlacements adSlots playerRespons
 www.youtube.com##+js(nano-stb, [native code], 17000, 0.001)
 www.youtube.com##+js(no-xhr-if, /\/api\/stats\/atr\?.+?&rt=\d+\.\d+.+?&volume=\d+&cbr=.+?&fexp=v1%[-%0-9C]{300\,}&.+?&muted=\d(&vis=3)?&docid=/ method:POST)
 www.youtube.com##+js(rmnt, script, window\,"fetch")
-www.youtube.com##+js(rpnt, script, /(\(function serverContract\(\)|^if \(window\.ytcsi)/, (()=>{if("YOUTUBE_PREMIUM_LOGO"===window.ytInitialData?.topbar?.desktopTopbarRenderer?.logo?.topbarLogoRenderer?.iconImage?.iconType||"YOUTUBE_PREMIUM_LOGO"===document.getElementById("masthead")?.attributes?.["logo-type"]?.value||location.href.startsWith("https://www.youtube.com/tv#/"))return;const e=window.ytcfg.data_.INNERTUBE_CONTEXT.client.userAgent\,t=["channel"\,"lactmilli"\,"inline"\,"yahi"];let r=!1\,o=t;const n=t=>{if(t){let r=e?.match?.(/Mozilla\/5\.0 \([^)]+/)?.[0];window.ytcfg.data_.INNERTUBE_CONTEXT.client.userAgent=r?e.replace?.(r\,r+"; "+t):e}else window.ytcfg.data_.INNERTUBE_CONTEXT.client.userAgent=e}\,a=()=>{let e=document.getElementById("movie_player");return{player:e\,response:e?.getPlayerResponse?.()\,stats:e?.getStatsForNerds?.()\,progress:e?.getProgressState?.()\,buffer:e?.getPlayerStateObject?.()?.isBuffering}}\,l=(e\,t\,r)=>e&&"0.00 s"===t?.buffer_health_seconds&&"0x0"===t?.resolution&&r.length>0\,s=()=>{let{player:e\,response:t\,stats:n\,buffer:s}=a();e&&l(s\,n\,o)&&(t?.playbackTracking?.videostatsPlaybackUrl?.baseUrl?.includes?.("reloadxhr")&&(o=o.slice(1))\,r=!0)};document.addEventListener("DOMContentLoaded"\,(function(){const e=()=>{let e\,s\,{player:i\,response:d\,stats:c\,progress:p\,buffer:y}=a();if(i&&(window.location.href.includes("/watch?")||window.location.href.includes("/embed/"))){if(p&&p.duration>0&&(p.loaded<p.duration||p.duration-p.current>1)||d?.videoDetails?.isLive){if(c&&!c?.debug_info?.startsWith?.("SSAP\, AD")){const t=new URLSearchParams(window.location.search)\,a=d.videoDetails?.videoId\,u=d.playerConfig?.playbackStartConfig?.startSeconds||parseInt(t.get("t")\,10)||0\,g=d.playabilityStatus?.errorScreen\,w=JSON.stringify(g?.playerErrorMessageRenderer?.subreason?.runs||g?.playerInterstitialRenderer?.content?.interstitialViewModel?.description?.commandRuns);return void("UNPLAYABLE"===d?.playabilityStatus?.status&&!g?.playerErrorMessageRenderer?.playerCaptchaViewModel&&w?.includes?.("WEB_PAGE_TYPE_UNKNOWN")&&w?.includes?.("https://support.google.com/youtube/answer/3037019")?(o=o.slice(1)\,o.length>0?n(o[0]):n("")\,r=!1\,i.loadVideoById(a\,u)):0===o.length?(r=!1\,n("")):l(y\,c\,o)&&r?(n(o[0])\,r=!1\,i.loadVideoById(a\,u)):!r&&p.current-u>.1&&p.current-u<5&&location.href.includes("&list=")&&null===i.getPlaylistId?.()&&(e=document.querySelector("yt-playlist-manager")\,s=e?.getPlaylistData?.()\,s&&(e.setPlaylistData?.(s)\,e.setPlayerPlaybackControlData?.({playlistPanelRenderer:s}))))}c&&p.duration>0&&i.seekTo?.(p.duration)}}else o=t};e()\,new MutationObserver((()=>{e()})).observe(document\,{childList:!0\,subtree:!0})}))\,window.Map.prototype.has=new Proxy(window.Map.prototype.has\,{apply:(e\,t\,o)=>("onSnackbarMessage"!==o?.[0]||r||s()\,Reflect.apply(e\,t\,o))})\,window.Array.prototype.push=new Proxy(window.Array.prototype.push\,{apply:(e\,t\,r)=>{let o=r?.[0];return!o||"object"!=typeof o||"Uint8Array"!==o.constructor.name||o.buffer?.byteLength!==o.length||105!==o.length&&104!==o.length||(console.log(o)\,s())\,Reflect.apply(e\,t\,r)}});const i={apply:(e\,t\,r)=>{const o=r[0];return"function"==typeof o&&o.toString().includes("onAbnormalityDetected")&&(r[0]=function(){})\,Reflect.apply(e\,t\,r)}};window.Promise.prototype.then=new Proxy(window.Promise.prototype.then\,i)})();$1, sedCount, 1, excludes, MutationObserver, condition, /serverContract|js_ld/)
+www.youtube.com##+js(rpnt, script, /(\(function serverContract\(\)|^if \(window\.ytcsi)/, (()=>{if("YOUTUBE_PREMIUM_LOGO"===window.ytInitialData?.topbar?.desktopTopbarRenderer?.logo?.topbarLogoRenderer?.iconImage?.iconType||"YOUTUBE_PREMIUM_LOGO"===document.getElementById("masthead")?.attributes?.["logo-type"]?.value||location.href.startsWith("https://www.youtube.com/tv#/"))return;const e=window.ytcfg.data_.INNERTUBE_CONTEXT.client.userAgent\,t=["channel"\,"lactmilli"\,"yahi"\,"inline"];let r=!1\,o=t;const n=t=>{if(t){let r=e?.match?.(/Mozilla\/5\.0 \([^)]+/)?.[0];window.ytcfg.data_.INNERTUBE_CONTEXT.client.userAgent=r?e.replace?.(r\,r+"; "+t):e}else window.ytcfg.data_.INNERTUBE_CONTEXT.client.userAgent=e}\,a=()=>{let e=document.getElementById("movie_player");return{player:e\,response:e?.getPlayerResponse?.()\,stats:e?.getStatsForNerds?.()\,progress:e?.getProgressState?.()\,buffer:e?.getPlayerStateObject?.()?.isBuffering}}\,l=(e\,t\,r)=>e&&"0.00 s"===t?.buffer_health_seconds&&"0x0"===t?.resolution&&r.length>0\,s=()=>{let{player:e\,response:t\,stats:n\,buffer:s}=a();e&&l(s\,n\,o)&&(t?.playbackTracking?.videostatsPlaybackUrl?.baseUrl?.includes?.("reloadxhr")&&(o=o.slice(1))\,r=!0)};document.addEventListener("DOMContentLoaded"\,(function(){const e=()=>{let e\,s\,{player:i\,response:d\,stats:c\,progress:p\,buffer:y}=a();if(i&&(window.location.href.includes("/watch?")||window.location.href.includes("/embed/"))){if(p&&p.duration>0&&(p.loaded<p.duration||p.duration-p.current>1)||d?.videoDetails?.isLive){if(c&&!c?.debug_info?.startsWith?.("SSAP\, AD")){const t=new URLSearchParams(window.location.search)\,a=d.videoDetails?.videoId\,u=d.playerConfig?.playbackStartConfig?.startSeconds||parseInt(t.get("t")\,10)||0\,g=d.playabilityStatus?.errorScreen\,w=JSON.stringify(g?.playerErrorMessageRenderer?.subreason?.runs||g?.playerInterstitialRenderer?.content?.interstitialViewModel?.description?.commandRuns);return void("UNPLAYABLE"===d?.playabilityStatus?.status&&!g?.playerErrorMessageRenderer?.playerCaptchaViewModel&&w?.includes?.("WEB_PAGE_TYPE_UNKNOWN")&&w?.includes?.("https://support.google.com/youtube/answer/3037019")?(o=o.slice(1)\,o.length>0?n(o[0]):n("")\,r=!1\,i.loadVideoById(a\,u)):0===o.length?(r=!1\,n("")):l(y\,c\,o)&&r?(n(o[0])\,r=!1\,i.loadVideoById(a\,u)):!r&&p.current-u>.1&&p.current-u<5&&location.href.includes("&list=")&&null===i.getPlaylistId?.()&&(e=document.querySelector("yt-playlist-manager")\,s=e?.getPlaylistData?.()\,s&&(e.setPlaylistData?.(s)\,e.setPlayerPlaybackControlData?.({playlistPanelRenderer:s}))))}c&&p.duration>0&&i.seekTo?.(p.duration)}}else o=t};e()\,new MutationObserver((()=>{e()})).observe(document\,{childList:!0\,subtree:!0})}))\,window.Map.prototype.has=new Proxy(window.Map.prototype.has\,{apply:(e\,t\,o)=>("onSnackbarMessage"!==o?.[0]||r||s()\,Reflect.apply(e\,t\,o))})\,window.Array.prototype.push=new Proxy(window.Array.prototype.push\,{apply:(e\,t\,r)=>{let o=r?.[0];return!o||"object"!=typeof o||"Uint8Array"!==o.constructor.name||o.buffer?.byteLength!==o.length||105!==o.length&&104!==o.length||(console.log(o)\,s())\,Reflect.apply(e\,t\,r)}});const i={apply:(e\,t\,r)=>{const o=r[0];return"function"==typeof o&&o.toString().includes("onAbnormalityDetected")&&(r[0]=function(){})\,Reflect.apply(e\,t\,r)}};window.Promise.prototype.then=new Proxy(window.Promise.prototype.then\,i)})();$1, sedCount, 1, excludes, MutationObserver, condition, /serverContract|js_ld/)
 www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, [?.attestationRequest][?.context.client.userAgent*="channel"].context.client[?.clientName=="WEB"]+={"clientScreen":"CHANNEL"})
-www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, [?.attestationRequest][?.context.client.userAgent*="instream"].playbackContext[?.contentPlaybackContext]+={"adPlaybackContext":{"adType":"AD_TYPE_INSTREAM"}})
+www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, [?.attestationRequest][?.context.client.userAgent*="inline"].playbackContext.contentPlaybackContext+={"isInlinePlaybackNoAd":true})
 www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, [?.attestationRequest][?.context.client.userAgent*="lactmilli"]+={"params":"8AUB"})
 www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, [?.attestationRequest][?.context.client.userAgent*="yahi"]+={"params":"YAHI"})
-www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, [?.attestationRequest][?.context.client.userAgent=/adunit|channel|lactmilli|instream|inline|yahi|eafg/].playbackContext.contentPlaybackContext.referer=repl({"regex":"(?:#reloadxhr)?$"\,"replacement":"#reloadxhr"}))
-www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, [?.attestationRequest][?.context.client.userAgent=/channel|lactmilli|instream/].playbackContext.contentPlaybackContext.lactMilliseconds="${now}")
-www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, [?.createCommentParams].context.client.userAgent=repl({"regex":"/; (adunit|channel|lactmilli|instream|inline|yahi|eafg)\b/"\,"replacement":""}))
+www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, [?.attestationRequest][?.context.client.userAgent=/adunit|channel|lactmilli|inline|yahi|eafg|yaf4/].playbackContext.contentPlaybackContext.referer=repl({"regex":"(?:#reloadxhr)?$"\,"replacement":"#reloadxhr"}))
+www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, [?.attestationRequest][?.context.client.userAgent=/channel|lactmilli|inline/].playbackContext.contentPlaybackContext.lactMilliseconds="${now}")
+www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, [?.createCommentParams].context.client.userAgent=repl({"regex":"/; (adunit|channel|lactmilli|inline|yahi|eafg|yaf4)\b/"\,"replacement":""}))
 www.youtube.com##+js(trusted-prevent-dom-bypass, Node.prototype.appendChild, Request)
 www.youtube.com##+js(trusted-prevent-dom-bypass, Node.prototype.appendChild, fetch)
 www.youtube.com##+js(trusted-replace-xhr-response, /"adPlacements.*?("adSlots"|"adBreakHeartbeatParams")/gms, $1, /\/player(?:\?.+)?$/)
