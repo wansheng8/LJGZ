@@ -84,7 +84,7 @@ class TestRunEndToEnd(unittest.TestCase):
         self.assertIn("@@||good.example.com^$document", files["all"])
         # adguard 输出: 纯 ||d^ + 白名单, dnsrewrite 网络规则
         self.assertIn("||doubleclick.net^", files["adguard"])
-        self.assertIn("@@||good.example.com^$document", files["adguard"])
+        self.assertIn("@@||good.example.com^", files["adguard"])
         self.assertNotIn("||ads.example.com^$script", files["adguard"])
         # 裸域进 hosts (DNS 精确域语义保留), 消解的窄规则不泄漏
         self.assertIn("0.0.0.0 ads.example.com", files["hosts"])

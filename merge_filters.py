@@ -60,14 +60,6 @@ COSMETIC_SEPS = (
     "##",      # 元素隐藏 (uBO: 含 ##^ HTML过滤 / ##+js scriptlet)
 )
 
-# 例外规则中"仅浏览器侧生效"的修饰符 — 对 DNS 输出无意义 (语法文档 §4)
-_COSMETIC_ONLY_EXC_MODS = {
-    "elemhide", "ehide", "generichide", "ghide", "specifichide", "shide",
-    "jsinject", "content", "extension", "stealth", "cname", "urlskip",
-    "inline-script", "inline-font", "csp", "permissions", "replace",
-    "removeheader", "removeparam", "urltransform", "uritransform",
-    "hls", "jsonprune", "xmlprune", "cookie",
-}
 # 例外规则中 DNS 侧可兑现的修饰符: 空/document/doc/important
 _DNS_OK_EXC_MODS = {"document", "doc", "important"}
 
@@ -557,8 +549,13 @@ class Merger:
         for r in self._exc.values():
             if r.dns_relevant:
                 exc_imp[r.domain] = exc_imp.get(r.domain, False) or r.important
-        res.whitelist = sorted({r.raw for r in self._exc.values()
-                                if r.dns_relevant and r.domain})
+        # DNS 白名单统一写成 DNS 侧可兑现的形式: 上游的 `@@||d^$document`
+        # 里的 $document 是浏览器内容类型, AdGuard Home / Pi-hole 都不认,
+        # 照抄会让白名单在 DNS 端静默失效。这里按域归一为裸 `@@||d^`
+        # (带 $important 的例外保留优先级, 否则会被自己生成的裸例外反杀)。
+        res.whitelist = sorted(
+            "@@||{}^".format(d) + ("$important" if imp else "")
+            for d, imp in exc_imp.items())
         res.all_exceptions = sorted(self._exc)
         res.dropped_bare_exceptions = bare_whole_domain
 
@@ -790,7 +787,46 @@ def load_extra_rules(path: str) -> List[str]:
 
 # 订阅只能调用客户端内置的 scriptlet, 不能下发任意 JS
 SCRIPTLET_MARKERS = ("##+js(", "#%#//scriptlet(")
-_DOMAIN_RE = re.compile(r"^[a-z0-9]([a-z0-9.*_-]*[a-z0-9])?(\.[a-z0-9_-]+)+$", re.I)
+# scriptlet 前缀的域名可以宽松一些 (仍会挡掉明显畸形值), 但**不能复用**
+# _DOMAIN_RE —— 那会覆盖上面的严格域名校验, 让裸 IP / 通配 / 下划线混进
+# hosts 与纯域名产物。
+_SCRIPTLET_DOMAIN_RE = re.compile(
+    r"^[a-z0-9]([a-z0-9.*_-]*[a-z0-9])?(\.[a-z0-9_-]+)+$", re.I)
+
+
+def _parens_balanced(s: str) -> bool:
+    """括号配对检查, 跳过转义字符、引号字符串与字符类内的括号。
+
+    朴素的 count("(") == count(")") 会把参数里含转义括号的合法正则
+    (如 `##+js(acs, /a\\(b/)`) 误判成语法错误。
+    """
+    depth = 0
+    quote = ""
+    in_class = False
+    i = 0
+    while i < len(s):
+        c = s[i]
+        if c == "\\":
+            i += 2
+            continue
+        if quote:
+            if c == quote:
+                quote = ""
+        elif c in "'\"":
+            quote = c
+        elif in_class:
+            if c == "]":
+                in_class = False
+        elif c == "[":
+            in_class = True
+        elif c == "(":
+            depth += 1
+        elif c == ")":
+            depth -= 1
+            if depth < 0:
+                return False
+        i += 1
+    return depth == 0 and not quote and not in_class
 
 
 def load_scriptlet_rules(path: str) -> List[str]:
@@ -812,11 +848,12 @@ def load_scriptlet_rules(path: str) -> List[str]:
             if marker is None:
                 raise ValueError(f"{path}:{lineno} 不是 scriptlet 规则: {ln!r}")
             domain = ln.split(marker, 1)[0].strip()
-            if not _DOMAIN_RE.match(domain):
+            if not _SCRIPTLET_DOMAIN_RE.match(domain):
                 raise ValueError(f"{path}:{lineno} 域名不合法: {domain!r}")
-            if ln.count("(") != ln.count(")"):
+            if not _parens_balanced(ln):
                 raise ValueError(f"{path}:{lineno} 括号不配对: {ln!r}")
-            if not re.search(re.escape(marker) + r"\s*[a-z0-9-]+", ln, re.I):
+            # 名称允许带引号写法: #%#//scriptlet('name', ...)
+            if not re.search(re.escape(marker) + r"\s*['\"]?[a-z0-9-]+", ln, re.I):
                 raise ValueError(f"{path}:{lineno} 缺少 scriptlet 名称: {ln!r}")
             if ln not in out:
                 out.append(ln)
@@ -854,7 +891,7 @@ def _header_lines(title: str, now: str, count: int, kind: str,
     head = [ABP_HEADER] if abp else []       # ABP/uBO/AdGuard 认首行语法声明
     return head + [
         f"! Title: {title} · {kind}",
-        f"! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — {kind} 格式",
+        f"! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — {kind}",
         "! Homepage: https://github.com/wansheng8/LJGZ",
         "! Licence: 各上游列表许可证的并集, 见 README 致谢部分",
         f"! Version: {now}",
@@ -1047,7 +1084,7 @@ def write_outputs(res: MergeResult, outdir: str, *, title: str,
 
     paths["stats"] = os.path.join(outdir, "stats.json")
     import json as _json
-    with open(paths["stats"], "w", encoding="utf-8") as f:
+    with open(paths["stats"], "w", encoding="utf-8", newline="\n") as f:
         _json.dump(res.stats, f, ensure_ascii=False, indent=2, sort_keys=True)
 
     paths.update(write_badge_files(outdir, res.stats, now))
@@ -1120,7 +1157,8 @@ def run(config_path: str, *, outdir: str, transport=None,
     res.stats["scriptlet_rules"] = sum(
         1 for ln in res.all_cosmetic
         if any(m in ln for m in SCRIPTLET_MARKERS))
-    paths = write_outputs(res, outdir, title="AdFilter Merge")
+    title = str(_load_config_data(config_path).get("title") or "AdFilter Merge")
+    paths = write_outputs(res, outdir, title=title)
 
     return {
         "paths": paths,

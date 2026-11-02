@@ -60,7 +60,7 @@ class TestExceptionProtection(unittest.TestCase):
         self.assertEqual(res.domains, [])
         self.assertEqual(res.hosts, [])
         self.assertEqual(res.adguard_blocks, [])
-        self.assertIn("@@||ads.com^$document", res.whitelist)
+        self.assertIn("@@||ads.com^", res.whitelist)
         self.assertIn("@@||ads.com^$document", res.all_exceptions)
 
     def test_bare_dns_exception_dropped_but_domain_blocked(self):
@@ -79,7 +79,15 @@ class TestExceptionProtection(unittest.TestCase):
         self.assertEqual(res.domains, [])
         self.assertEqual(res.hosts, [])
         self.assertEqual(res.adguard_blocks, [])
-        self.assertIn("@@||ads.com^$document", res.whitelist)
+        self.assertIn("@@||ads.com^", res.whitelist)
+
+    def test_whitelist_uses_dns_syntax(self):
+        """白名单按 DNS 可兑现语法输出: $document 归一为裸 @@||d^
+        (AdGuard Home / Pi-hole 不认浏览器内容类型), $important 例外保留后缀。"""
+        res = merge("||ads.com^", "@@||ads.com^$document",
+                    "@@||ok.com^$important")
+        self.assertIn("@@||ads.com^", res.whitelist)
+        self.assertIn("@@||ok.com^$important", res.whitelist)
 
     def test_important_block_beats_normal_exception(self):
         """$important 拦截压过普通例外 (上游设计保留): 带 $document 修饰符的

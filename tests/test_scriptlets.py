@@ -51,6 +51,18 @@ class TestScriptletLoader(unittest.TestCase):
     def test_missing_file_is_empty(self):
         self.assertEqual([], mf.load_scriptlet_rules("no-such-file.txt"))
 
+    def test_accepts_quoted_scriptlet_name(self):
+        """#%#//scriptlet('name', ...) 是 uBO/AdGuard 的正式写法, 不能误拒。"""
+        rule = "example.com#%#//scriptlet('abort-on-property-read', 'adblockDetector')"
+        path = self._write(rule + "\n")
+        self.assertEqual([rule], mf.load_scriptlet_rules(path))
+
+    def test_accepts_escaped_paren_in_regex_arg(self):
+        """参数里的转义括号不是语法错误。"""
+        rule = "example.com##+js(acs, /a\\(b/)"
+        path = self._write(rule + "\n")
+        self.assertEqual([rule], mf.load_scriptlet_rules(path))
+
     def test_real_config_file_is_valid(self):
         rules = mf.load_scriptlet_file(os.path.join(REPO, "config.json"))
         self.assertGreaterEqual(len(rules), 1, "自研 scriptlet 文件为空")

@@ -56,5 +56,36 @@ class TestTrailingDollar(unittest.TestCase):
         self.assertEqual(len(res.domains), 1)
 
 
+class TestStrictDomain(unittest.TestCase):
+    """域名校验必须是严格版 (≥2 标签 + 字母开头 TLD)。
+
+    此前 scriptlet 校验器复用了同名 _DOMAIN_RE 并重新赋值, 把严格版覆盖成
+    宽松版 (放行通配/下划线/纯数字 TLD/裸 IP), 导致 199 条畸形条目混进
+    hosts 与纯域名产物。
+    """
+
+    def test_loose_forms_rejected(self):
+        for bad in ("1.2.3.4", "142.91.159", "23.109.82", "1080.x.90",
+                    "analytics-*.aasaam.com", "content_tracking.js",
+                    "outlook.live.com._6tqjfb_hmyqup_npe6dhc",
+                    "rgmechanicsgames.com*vpn.exe"):
+            self.assertFalse(mf._is_domain(bad), bad)
+
+    def test_hosts_line_with_malformed_domain_dropped(self):
+        for line in ("0.0.0.0 analytics-*.aasaam.com",
+                     "0.0.0.0 content_tracking.js",
+                     "0.0.0.0 rgmechanicsgames.com*vpn.exe",
+                     "0.0.0.0 23.109.82",
+                     "0.0.0.0 1.2.3.4"):
+            r = mf.parse_line(line)
+            self.assertTrue(r.dropped, f"{line} 应丢弃, 实际 kind={r.kind}")
+
+    def test_ip_anchor_is_network_rule(self):
+        """||1.2.3.4^ 无处可归并为域名, 只能按网络规则留在 all.txt。"""
+        r = mf.parse_line("||1.2.3.4^")
+        self.assertEqual(r.kind, mf.K_NETWORK)
+        self.assertFalse(r.dropped)
+
+
 if __name__ == "__main__":
     unittest.main()

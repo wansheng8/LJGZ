@@ -1,4 +1,4 @@
-﻿<div align="center">
+﻿﻿﻿﻿﻿﻿<div align="center">
 
 <img src="docs/logo.svg" width="104" alt="LJGZ Logo"/>
 
@@ -24,13 +24,13 @@
 
 | 场景 | 首选 (GitHub Pages) | 备选 (jsDelivr / CDN) | 备用 (raw) |
 |---|---|---|---|
-| 🧩 **浏览器扩展**<br><sub>uBlock Origin · AdGuard · Adblock Plus</sub> | [**all.txt**](https://wansheng8.github.io/LJGZ/all.txt)<br><sub>完整版 · 约 28MB</sub><br><sub>分卷：[1](https://wansheng8.github.io/LJGZ/all-part-01.txt) + [2](https://wansheng8.github.io/LJGZ/all-part-02.txt)</sub> | [all.txt](https://cdn.statically.io/gh/wansheng8/LJGZ/main/output/all.txt) | [all.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/all.txt) |
+| 🧩 **浏览器扩展**<br><sub>uBlock Origin · AdGuard · Adblock Plus</sub> | [**all.txt**](https://wansheng8.github.io/LJGZ/all.txt)<br><sub>完整版 · 约 29MB</sub><br><sub>分卷：[1](https://wansheng8.github.io/LJGZ/all-part-01.txt) + [2](https://wansheng8.github.io/LJGZ/all-part-02.txt)</sub> | [all.txt](https://cdn.statically.io/gh/wansheng8/LJGZ/main/output/all.txt) | [all.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/all.txt) |
 | 🏠 **AdGuard Home**<br><sub>AdGuard Home · AdGuard DNS</sub> | [adguard.txt](https://wansheng8.github.io/LJGZ/adguard.txt) | [adguard.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/adguard.txt) | [adguard.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/adguard.txt) |
 | 🕳 **Pi-hole / hosts**<br><sub>Pi-hole · SwitchHosts · 路由器</sub> | [hosts.txt](https://wansheng8.github.io/LJGZ/hosts.txt) | [hosts.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/hosts.txt) | [hosts.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/hosts.txt) |
 | 📃 **纯域名列表**<br><sub>Cloudflare Gateway · NextDNS</sub> | [domains.txt](https://wansheng8.github.io/LJGZ/domains.txt) | [domains.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/domains.txt) | [domains.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/domains.txt) |
 | ✅ **DNS 白名单**<br><sub>误拦截放行 · 例外列表</sub> | [whitelist.txt](https://wansheng8.github.io/LJGZ/whitelist.txt) | [whitelist.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/whitelist.txt) | [whitelist.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/whitelist.txt) |
 
-> **浏览器扩展优先用 Pages 的 `all.txt`（唯一完整单文件）。** 完整版约 28MB，超出 jsDelivr 单文件 20MB 上限（会返回 `Failed to fetch`），备选改用 statically 单文件镜像。客户端限制单文件大小时，把 Pages 的 `all-part-01.txt` + `all-part-02.txt` **两卷一起加**，缺一卷会少一半规则。分卷同样不要走 jsDelivr——实测 18MB 分卷也会返回 `Failed to fetch`。
+> **浏览器扩展优先用 Pages 的 `all.txt`（唯一完整单文件）。** 完整版约 29MB，超出 jsDelivr 单文件 20MB 上限（会返回 `Failed to fetch`），备选改用 statically 单文件镜像。客户端限制单文件大小时，把 Pages 的 `all-part-01.txt` + `all-part-02.txt` **两卷一起加**，缺一卷会少一半规则。分卷同样不要走 jsDelivr——实测 18MB 分卷也会返回 `Failed to fetch`。
 
 ## 规模
 
@@ -68,7 +68,7 @@ flowchart LR
 | ③ 合并 | `Merger` | 精确去重 + 修饰符排序后语义去重，`$badfilter` 失效，`@@` 例外保护 |
 | ④ 仲裁 | `finalize()` | 子域折叠、同域 type 规则消解、`$important` 提升、DNS 能力筛选 |
 | ⑤ 输出 | `write_outputs()` | 5 种格式、stats.json、徽章 SVG |
-| ⑥ 发布 | `update.yml` | 180 项测试 → 合并 → 跑分（非阻断）→ 无变化跳过 → commit/push → 部署 Pages |
+| ⑥ 发布 | `update.yml` | 186 项测试 → 合并 → 跑分（非阻断）→ 无变化跳过 → commit/push → 部署 Pages |
 
 ## 产物
 
@@ -77,9 +77,9 @@ flowchart LR
 | `all.txt` | ABP / uBO / AdGuard | 浏览器扩展 | 全语法完整版，**不做域名截断** |
 | `all-part-01/02.txt` | ABP 分卷 | 限制单文件体积的客户端 | `all.txt` 按约 18MB 切卷，各卷自带完整头部；两卷一起订阅 == 完整版 |
 | `adguard.txt` | AdGuard Home | DNS 服务器 | 子域折叠 + `$dnsrewrite` + 白名单 |
-| `hosts.txt` | hosts | Pi-hole / 路由器 | `0.0.0.0 domain`，精确匹配含子域 |
+| `hosts.txt` | hosts | Pi-hole / 路由器 | `0.0.0.0 domain`，按主机名精确匹配（子域各自单独成条） |
 | `domains.txt` | 纯域名 | Cloudflare / NextDNS | 一行一域，排序去重 |
-| `whitelist.txt` | `@@` 例外 | 误拦截放行 | 与拦截列表配合订阅 |
+| `whitelist.txt` | `@@\|\|d^` 例外 | 误拦截放行 | 一行一域，配合 DNS 列表订阅 |
 | `stats.json` | JSON | 站点 / 调试 | 各分类计数，每次运行刷新 |
 | `badge-*.svg` / `badge-*.json` | 徽章 | README / 站点 | 静态 SVG + shields.io endpoint JSON |
 | `benchmark.json` | JSON | 离线跑分 | 应拦 / 不应拦 / 漏拦覆盖率与总分 |
@@ -111,7 +111,7 @@ flowchart LR
 <details>
 <summary><b>🔬 词法判定细节</b></summary>
 
-1. **纯域名的判定条件** — `||d^` 形态 + 修饰符为空或仅 `$important`，且域名至少含一个点（`||com^` 这类单标签锚点不算域名，会退回网络规则）。`||1.2.3.4^` 这类 IP 形态保留为域名条目，便于 hosts / domains 兑现。
+1. **纯域名的判定条件** — `||d^` 形态 + 修饰符为空或仅 `$important`，且域名至少含一个点（`||com^` 这类单标签锚点不算域名，会退回网络规则）。`||1.2.3.4^` 这类 IP 锚点无法归并为域名（hosts / 纯域名里没有可兑现的形式），同样按网络规则保留在 `all.txt`。
 2. **域等价写法归并** — `||d^` ≡ `d` ≡ `0.0.0.0 d` ≡ `*.d` ≡ Pi-hole `(^|\.)d$` ≡ `^d$`，五类写法合成一条；FQDN 尾点、大小写在此层归一。
 3. **元素隐藏分隔符** — 十个标记按"最长优先"取最早出现者；前缀必须是空 / `*` / 合法域名列表（支持 `~` 否定、`*.`、`/^re$/`、`google.*`、`domain/path`），否则整行退回网络规则。HTML 过滤 `domain$$sel` / `domain$@$sel` 单独识别。
 4. **含空格的规则** — 首个 token 含 `$` 或以 `||` / `@@` / `|` 开头 → 按规则解析（支持 `$csp=script-src 'none'` 这类值内空格）；否则按 hosts 行扫描域名 token。
@@ -128,6 +128,7 @@ flowchart LR
 | 裸整域例外 `@@\|\|d^` | 直接删除 | 会全盘架空该域的拦截，是"订阅了却拦不住"的首要原因（实测 314 条中 25 个域被打穿） |
 | `@@` 与 `\|\|d^` 冲突 | 例外优先；唯 `\|\|d^$important` 可压过**普通**例外；带 `$important` 的例外仍赢 | 与各客户端仲裁一致 |
 | DNS 相关例外命中 | 该域名从 all.txt 域名块、hosts、domains 中一并移除，并写入白名单 | 避免"声明放行却仍在拦" |
+| DNS 白名单输出 | 上游的 `@@\|\|d^$document` 归一为裸 `@@\|\|d^`（带 `$important` 的保留后缀） | `$document` 是浏览器内容类型，DNS 端不兑现，照抄会让白名单静默失效 |
 | 父域已被拦 | 子域折叠；被折叠的 `$important` 子域把优先级**沿祖先链**提升到最近的保留祖先 | 否则 important 会被上游带修饰符的 `@@` 反杀 |
 | 已有 `\|\|d^` / `\|\|d^$important` | 同域纯类型窄规则 `\|\|d^$script` 等删除（拦截结果不变，省体积） | 见下方红线 |
 | 域名含全数字 label（如 `9.9.9.9` 段） | 不折叠、不消解 | IP 段在 AdBlock 语义里有歧义，保守保留 |
@@ -170,7 +171,7 @@ flowchart LR
 <summary><b>🚀 自动更新与部署</b></summary>
 
 - 工作流：`.github/workflows/update.yml`（cron `0 0,12 * * *` UTC = 北京 08:00 / 20:00，`TZ=Asia/Shanghai`）
-- 流程：180 项测试 → 下载 23 源 → 合并 → 无变化跳过提交，有变化自动 commit + push → 部署 Pages
+- 流程：186 项测试 → 下载 23 源 → 合并 → 无变化跳过提交，有变化自动 commit + push → 部署 Pages
 - 另有两个纯清理 cron（06:00 / 18:00 UTC），只删旧 Actions 历史，保留最新 3 条
 - 输出头部含 `! Last Modified: ... (北京时间 UTC+8)` 与 `! Expires: 12 hours`
 - 徽章 SVG 由引擎每次运行重新生成，数字始终与最新合并一致
@@ -195,7 +196,7 @@ tools/live_benchmark.py        # 真实 Chromium 页面级跑分
 tools/triage_issue.py          # Issue 自动初筛
 docs/index.html                # 在线订阅中心 (GitHub Pages)
 docs/logo.svg                  # Logo
-tests/                         # 180 项测试, 全部无网络
+tests/                         # 186 项测试, 全部无网络
   data/adblock-tester.html     #   adblock-tester 页面快照 (浏览器跑分输入)
   data/mobileproxy-missed.json #   移动端漏拦样本 (proxy 跑分输入)
   test_parsing.py              #   词法分类
@@ -234,7 +235,7 @@ git clone https://github.com/wansheng8/LJGZ.git
 cd LJGZ
 
 python merge_filters.py --test              # 冒烟自检
-python -m unittest discover -s tests         # 180 项测试
+python -m unittest discover -s tests         # 186 项测试
 python merge_filters.py                      # 下载合并 → ./output/
 python benchmark.py --out output/benchmark.json   # 离线覆盖率跑分
 ```
