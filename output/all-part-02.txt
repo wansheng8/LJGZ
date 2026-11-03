@@ -3,11 +3,100 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-11-04 02:46:25 +0800
-! Last Modified: 2026-11-04 02:46:25 +0800 (北京时间 UTC+8)
+! Version: 2026-11-04 06:50:37 +0800
+! Last Modified: 2026-11-04 06:50:37 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 268165
+! Rules: 268259
 
+email.mail.video-ads-agency.com$image
+email.mail.videoagencyos.com$image
+email.mail.videocasestory.com$image
+email.mail.videocashmachine.com$image
+email.mail.videoevolution.co.uk$image
+email.mail.videoremixespacks.com$image
+email.mail.videorijles.nl$image
+email.mail.vidleadsndr.com$image
+email.mail.vidnoz.com$image
+email.mail.vidqu.ai$image
+email.mail.vidresmanresa.com$image
+email.mail.vidwiz.ai$image
+email.mail.vidwud.com$image
+email.mail.vie-aesthetics.com$image
+email.mail.viennakang.uk$image
+email.mail.viennatango.com$image
+email.mail.vieon.vn$image
+email.mail.vieraos.com$image
+email.mail.vieroots.com$image
+email.mail.vieroots.in$image
+email.mail.viersdigital.com$image
+email.mail.vietai.cz$image
+email.mail.vietsc.vn$image
+email.mail.viewedmontonareahomes.com$image
+email.mail.viewfromthecanoe.com$image
+email.mail.viewmychain.com$image
+email.mail.viewtime.nl$image
+email.mail.vigeo-health.com$image
+email.mail.viivi.ca$image
+email.mail.vikingmarketing.ai$image
+email.mail.vikisews.com$image
+email.mail.viktoria-santos-barreto.com$image
+email.mail.viktoriaph.com$image
+email.mail.vilavitaparc.com$image
+email.mail.vilavitaportugal.com$image
+email.mail.villadestinoitaly.com$image
+email.mail.villagecalistoga.com$image
+email.mail.villagedentalcentre.co.uk$image
+email.mail.villagesalonstudios.ca$image
+email.mail.villageschoolhouse.co$image
+email.mail.villagesurrogacy.com$image
+email.mail.villamkalkulator.hu$image
+email.mail.villandscaping.ca$image
+email.mail.villapalmamiami.com$image
+email.mail.villasdelsol.nl$image
+email.mail.villnapszer.novexmarketing.hu$image
+email.mail.vilospa.com$image
+email.mail.vilvoorde.be$image
+email.mail.vimarindustrial.com$image
+email.mail.vimilin.com$image
+email.mail.vincenthilliardjr.com$image
+email.mail.vincentinfante.life$image
+email.mail.vincentmalevillecoaching.com$image
+email.mail.vincenzolongorealtor.com$image
+email.mail.vinceperri.com$image
+email.mail.vincere.au$image
+email.mail.vincerecoaching.com.au$image
+email.mail.vinceretrading.com$image
+email.mail.vinesinfullbloom.com$image
+email.mail.vinfeatherstone.com$image
+email.mail.viningfuneralhome.com$image
+email.mail.vininspect.com$image
+email.mail.vinlocity.com$image
+email.mail.vinnyagencyllc.com$image
+email.mail.vinylreleases.app$image
+email.mail.vipacademies.com$image
+email.mail.vipaestheticsla.com$image
+email.mail.vipbodyprogram.com$image
+email.mail.vipcleaningsquad.ca$image
+email.mail.viphealth.co.nz$image
+email.mail.viphighimpact.com$image
+email.mail.viralacademy.nl$image
+email.mail.viralapplaunch.com$image
+email.mail.viralcoach.com$image
+email.mail.viralformula.co$image
+email.mail.viralgrowth.ai$image
+email.mail.virality.au$image
+email.mail.viralmedia.com.br$image
+email.mail.viralscripts.fr$image
+email.mail.viralsecrets.com$image
+email.mail.viraltribeformula.com$image
+email.mail.viralvaultpro.com$image
+email.mail.virceja.nl$image
+email.mail.virginiapropertyconsultants.com$image
+email.mail.viridamplifiedhealthandwellness.org$image
+email.mail.virssius.com$image
+email.mail.virtalign.com$image
+email.mail.virtrify.com$image
+email.mail.virtual-assist.co$image
 email.mail.virtual360.solucioneskarolcy.com$image
 email.mail.virtualbeshy.space$image
 email.mail.virtualcoach.com$image
@@ -108234,6 +108323,7 @@ zonedirector.avadacom.com$image
 ||aps.amazon-adsystem.com^$script,redirect=amazon_apstag.js:5
 ||apsgo.com/assets/js/union.
 ||apsgo.com/go/
+||aptabase.com/api/*/event
 ||aqdy.net/js/banner.js
 ||aqdy.net/js/tj.js
 ||aqlife.com/data/attachment/portal/
@@ -110490,6 +110580,7 @@ zonedirector.avadacom.com$image
 ||camonster.com/landing/$popup,third-party
 ||camonster.io^$domain=hardgif.com
 ||camp-api.naver.com/*/bulk
+||camp.fastcompany.com/ash.js
 ||campaign-service.datacamp.com/api/v1/banner
 ||campaigns-collector.albacross.com^$third-party
 ||campaigns.yad2.co.il^$domain=walla.co.il
@@ -232035,6 +232126,9 @@ portmiamiwebcam.com#@#[id^="div-gpt-ad"]
 portmiamiwebcam.com#@#div[id^="div-gpt-"]
 portsmouth.co.uk##.bg-alert
 portsmouth.co.uk##.exco-video-player
+portsmouth.co.uk,peterboroughtoday.co.uk,thestar.co.uk##.hero-pap
+portsmouth.co.uk,peterboroughtoday.co.uk,thestar.co.uk##.taboola-bottomfeed
+portsmouth.co.uk,peterboroughtoday.co.uk,thestar.co.uk##div[id^="leaderboard"]
 portsmouth.co.uk,robbreport.com,scribd.com#%#//scriptlet('remove-node-text', 'script', 'await eval')
 portugalglobal.pt###barramensagem
 porvenir.com.co###cookie-modal
