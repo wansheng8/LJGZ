@@ -95,7 +95,7 @@ const P = [
      ['备用', RAW+'all.txt']],
   t:'⭐ 首选 GitHub Pages 直出（约 29MB 全量规则）。网络受限时用三个 CDN 单文件镜像，均已实测返回真实规则内容；jsDelivr 单文件超出 20MB 上限不可用，18MB 分卷也实测会返回 Failed to fetch。客户端限制单文件大小时，加下面两张 Pages 分卷，必须两卷一起订阅，缺一会少一半规则。'},
  {i:'🏠', n:'AdGuard Home', a:'AdGuard Home · AdGuard DNS · 私人 DNS', f:'adguard.txt',
-  d:'子域折叠后的 DNS 拦截规则 + $dnsrewrite 规则 + DNS 白名单。',
+  d:'子域折叠后的 DNS 拦截规则 + $dnstype / $denyallow 等 DNS 修饰符规则 + DNS 白名单。',
   u:[['CDN 备选', CDN+'adguard.txt'], ['最短', PAGES+'adguard.txt'], ['备用', RAW+'adguard.txt']],
   t:'过滤器 → DNS 拦截 → 添加过滤器，粘贴任一地址即可'},
  {i:'🕳', n:'Pi-hole / hosts', a:'Pi-hole · SwitchHosts · 路由器 / NAS', f:'hosts.txt',
@@ -107,7 +107,7 @@ const P = [
   u:[['CDN 备选', CDN+'domains.txt'], ['最短', PAGES+'domains.txt'], ['备用', RAW+'domains.txt']],
   t:'直接粘贴或导入任意支持纯域名列表的工具'},
  {i:'✅', n:'DNS 白名单', a:'误拦截放行 · 例外列表', f:'whitelist.txt',
-  d:'仅收录 DNS 可兑现的 @@|d^$important 精确域例外（不沿子域继承）；$document 等浏览器例外留在 all.txt 由客户端仲裁。',
+  d:'仅收录 DNS 可兑现的 @@||d^$important 例外（子域随父域一并放行）；$document 等浏览器例外留在 all.txt 由客户端仲裁。',
   u:[['CDN 备选', CDN+'whitelist.txt'], ['最短', PAGES+'whitelist.txt'], ['备用', RAW+'whitelist.txt']],
   t:'在 AdGuard Home 中作为第二个过滤器订阅（类型：精确/例外）'},
 ];

@@ -9,7 +9,7 @@ merge_filters — 广告过滤规则收集·转换·合并·去重引擎
 
 输出(由 merge 阶段生成, 详见 README):
   - all.txt            原样保留全部语法 (ABP/uBO/AdGuard 可订阅)
-  - adguard.txt        DNS 场景可用的 ||domain^ + @@例外 + $dnsrewrite
+  - adguard.txt        DNS 场景可用的 ||domain^ + @@例外 + $dnstype/$denyallow 等 DNS 修饰符规则
   - hosts.txt          0.0.0.0 domain hosts 式
   - domains.txt        纯域名列表
 
@@ -89,10 +89,15 @@ _IPV6ISH_RE = re.compile(r"^[0-9a-f:.%]+$")
 
 # ||domain^ 或 ||domain — 纯域名锚点形式 (含 AdGuard 的 ||domain^|)
 _ANCHOR_RE = re.compile(r"^\|\|([a-z0-9.-]+?)(\^|\|\^)?\|?$", re.IGNORECASE)
+# AGH pattern 允许的形状: 主机名掩码 ||host^ / ||host / ||*.host^ (域名内允许 * 通配)
+_DNS_HOST_MASK_RE = re.compile(r"^\|\|[a-z0-9_.*-]+\^?\|?$", re.IGNORECASE)
 # *.domain
 _WILD_PREFIX_RE = re.compile(r"^\*\.([a-z0-9.-]+?)(\^?)$", re.IGNORECASE)
-# Pi-hole 常见正则形状: (^|\.)a\.b$  →  a.b
-_PIHOLE_SUB_RE = re.compile(r"^\(\^\|\\\.\)((?:[a-z0-9-]+\\\.)*[a-z0-9-]+)\$$", re.IGNORECASE)
+# Pi-hole 常见正则形状: (^|\.)a\.b$ / (\.|^)a\.b$  →  a.b
+_PIHOLE_SUB_RE = re.compile(
+    r"^\((?:\\\.\|\^|\^\|\\\.)\)((?:[a-z0-9-]+\\\.)*[a-z0-9-]+)\$$",
+    re.IGNORECASE,
+)
 # ^a\.b$ 形状
 _PIHOLE_EXACT_RE = re.compile(r"^\^((?:[a-z0-9-]+\\\.)*[a-z0-9-]+)\$$", re.IGNORECASE)
 
@@ -197,6 +202,12 @@ def _find_cosmetic(s: str) -> Optional[int]:
         return None
     if not _valid_cosmetic_prefix(s[:best]):
         return None
+    # `###…` 行的 `##` 之后必须接着 id 选择器。若是空白/#/行尾, 那是上游用 `#`
+    # 画的分隔注释 (如 `### Version: …` / `####…`), 不是元素隐藏规则。
+    if best == 0 and s.startswith("##"):
+        sel = s[2:]
+        if sel[:1] == "#" and (len(sel) == 1 or sel[1] in "# \t"):
+            return None
     return best
 
 
@@ -223,9 +234,14 @@ def _valid_cosmetic_prefix(p: str) -> bool:
     return True
 
 
+def _is_reserved_arpa(d: str) -> bool:
+    """in-addr.arpa / ip6.arpa 等反向解析保留区 — 不是可拦截主机名。"""
+    return norm_domain(d).endswith(".arpa")
+
+
 def _domain_like_token(tok: str):
     """hosts/杂行扫描: 该 token 是否像一个可拦截域名。"""
-    if tok.endswith(".arpa"):              # in-addr.arpa / ip6.arpa 保留
+    if _is_reserved_arpa(tok):             # in-addr.arpa / ip6.arpa 保留
         return None
     tok = norm_domain(tok)
     return tok if _is_domain(tok) else None
@@ -237,7 +253,21 @@ def _extract_anchor_domain(pattern: str) -> str:
     if not m:
         return ""
     d = norm_domain(m.group(1))
+    if _is_reserved_arpa(d):               # 反向解析区不可归并为域名
+        return ""
     return d if _is_domain(d) else ""
+
+
+def _is_dns_pattern(pattern: str) -> bool:
+    """AGH pattern 是否为 DNS 层可匹配的形状: 主机名掩码 或 /regex/。
+
+    路径/查询串/端口只存在于 URL, DNS 查询只带主机名 — 这类规则进了
+    adguard.txt 也永不命中 (部分 AGH 版本记为无效规则)。
+    """
+    p = pattern.strip()
+    if p.startswith("/") and p.endswith("/") and len(p) > 2:
+        return True
+    return bool(_DNS_HOST_MASK_RE.match(p))
 
 
 def _parse_exception(s: str, source: str = "") -> Rule:
@@ -279,7 +309,7 @@ def _parse_single_token(s: str, source: str = "") -> Rule:
     m = _WILD_PREFIX_RE.match(pattern)
     if m and _mods_subset_of(mods, _DNS_SAFE_BLOCK_MODS):
         d = norm_domain(m.group(1))
-        if _is_domain(d):
+        if _is_domain(d) and not _is_reserved_arpa(d):
             return Rule(raw=s, kind=K_DOMAIN, domains=(d,), domain=d, source=source)
 
     # 裸 IP 行 (hosts 文件脏数据): 无域名可拦, 丢弃而非当成子串网络规则
@@ -289,6 +319,8 @@ def _parse_single_token(s: str, source: str = "") -> Rule:
     # 裸域名 (无任何修饰符/通配符/锚点); 允许 FQDN 尾点, 先规范化再校验
     if not mods:
         d = norm_domain(s)
+        if _is_reserved_arpa(d):           # 反向解析区: 无可拦截域名, 丢弃
+            return Rule(raw=s, kind=K_INVALID, dropped=True, source=source)
         if _is_domain(d):
             return Rule(raw=s, kind=K_DOMAIN, domains=(d,), domain=d, source=source)
 
@@ -372,6 +404,7 @@ def parse_line(line: str, source: str = "") -> Rule:
 
 # AdGuard Home 可兑现的网络修饰符 (语法文档 §8) — 用于筛选可进 DNS 输出的网络规则
 _DNS_NET_MODS = {"dnsrewrite", "dnstype", "client", "ctag", "important", "denyallow"}
+
 
 # 可被"裸域名块 ||d^"完全覆盖的纯请求类型/上下文修饰符。
 # 这些标签只是收窄"拦哪种资源", 而裸 ||d^ 已拦该域所有请求 → 同域窄规则冗余。
@@ -651,16 +684,19 @@ class Merger:
         return res
 
     def _dns_capable_network(self, bad: Set[str]) -> List[str]:
-        """修饰符全部属于 AGH 支持集的网络规则 (dnsrewrite/dnstype/client/...)。"""
+        """修饰符属于 AGH 支持集, 且 pattern 是主机名掩码或 /regex/ 的网络规则。"""
         out, seen = [], set()
         for key, raw in self._net.items():
             if key in bad or key in seen:
                 continue
             pattern, mods = _split_modifiers(raw)
             keys = {m.split("=", 1)[0] for m in split_mod_tokens(mods.lower())}
-            if keys and keys <= _DNS_NET_MODS:
-                seen.add(key)
-                out.append(raw)
+            if not keys or not keys <= _DNS_NET_MODS:
+                continue
+            if not _is_dns_pattern(pattern):
+                continue
+            seen.add(key)
+            out.append(raw)
         return sorted(out)
 
 
@@ -1095,9 +1131,10 @@ def write_outputs(res: MergeResult, outdir: str, *, title: str,
     _write(paths["domains"], dom_head + res.domains)
 
     paths["whitelist"] = os.path.join(outdir, "whitelist.txt")
-    wl_head = [("# " + ln[2:]) if ln.startswith("! ") else ln
-               for ln in _header_lines(title, now, len(res.whitelist), "DNS 白名单")]
-    _write(paths["whitelist"], wl_head + res.whitelist)
+    # 内容是 ABP 例外规则 (@@...), 按订阅格式写: ABP 头 + ! 注释
+    _write(paths["whitelist"],
+           _header_lines(title, now, len(res.whitelist), "DNS 白名单", abp=True)
+           + res.whitelist)
 
     paths["stats"] = os.path.join(outdir, "stats.json")
     import json as _json

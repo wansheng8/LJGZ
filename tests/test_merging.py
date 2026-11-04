@@ -177,6 +177,22 @@ class TestOutputsSplit(unittest.TestCase):
         self.assertEqual(res.hosts, [])
         self.assertEqual(res.domains, [])
 
+    def test_path_pattern_not_in_dns_output(self):
+        """带路径/查询串的规则在 DNS 层永不命中, 即使修饰符合法也不进 adguard.txt。"""
+        res = merge("||ads.com/path/a.php$important",
+                    "||ads.com^$important",
+                    "||track.example.com/x?y=1$important",
+                    "stun:1755001826:443$important")
+        self.assertEqual(res.adguard_dns, ["||ads.com^$important"])
+        # 浏览器输出仍原样保留
+        self.assertIn("||ads.com/path/a.php$important", res.all_network)
+
+    def test_regex_and_wildcard_are_dns_patterns(self):
+        """正则与 * 主机名通配仍是合法 DNS pattern, 不能被新校验误伤。"""
+        res = merge("/^ad[0-9]+\\.com$/$dnstype=A",
+                    "||*serror*.wo.com.cn^$dnstype=A|CNAME")
+        self.assertEqual(len(res.adguard_dns), 2)
+
     def test_sorted_domain_output(self):
         res = merge("||b.com^", "||a.com^", "||c.com^")
         self.assertEqual(res.domains, ["a.com", "b.com", "c.com"])

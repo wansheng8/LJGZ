@@ -41,6 +41,15 @@ class TestAbpHeader(unittest.TestCase):
             with open(paths["adguard"], encoding="utf-8") as f:
                 self.assertEqual(f.readline().rstrip(), ABP_HEADER)
 
+    def test_whitelist_txt_starts_with_abp_header(self):
+        """whitelist.txt 装的是 ABP 例外规则, 首行同样必须是语法头。"""
+        with tempfile.TemporaryDirectory() as td:
+            paths = mf.write_outputs(_sample_result(), td, title="t", now="x")
+            with open(paths["whitelist"], encoding="utf-8") as f:
+                lines = f.read().splitlines()
+            self.assertEqual(lines[0], ABP_HEADER)
+            self.assertEqual(lines[-1], "@@||ok.com^")
+
     def test_abp_header_is_exactly_first_line(self):
         """头必须在第 1 行 (ABP 只认首行, 前面不能有空行/BOM)。"""
         with tempfile.TemporaryDirectory() as td:

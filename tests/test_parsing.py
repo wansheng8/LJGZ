@@ -48,6 +48,23 @@ class TestCosmetic(unittest.TestCase):
             self.assertFalse(r.dropped, line)
             self.assertEqual(r.kind, mf.K_COSMETIC, line)
 
+    def test_hash_decorative_comment_dropped(self):
+        """上游用 # 画的分隔注释不是元素隐藏规则 (## 后没有合法 id 选择器)。"""
+        for line in ("###################################################",
+                     "### Version: V1.2021.05.8588",
+                     "##### Version Information #",
+                     "##### Version Information ##"):
+            r = mf.parse_line(line)
+            self.assertTrue(r.dropped, line)
+            self.assertEqual(r.kind, mf.K_COMMENT, line)
+
+    def test_id_selector_after_hash_is_cosmetic(self):
+        """真正的 ###id 规则仍须保留。"""
+        for line in ("###AD_300", "###ad-area > .x", "###\\31 280_adv"):
+            r = mf.parse_line(line)
+            self.assertFalse(r.dropped, line)
+            self.assertEqual(r.kind, mf.K_COSMETIC, line)
+
     def test_cosmetic_variants(self):
         lines = [
             "example.com##.advert",
@@ -126,13 +143,19 @@ class TestDomainRules(unittest.TestCase):
             self.assertTrue(mf.parse_line(line).dropped, line)
 
     def test_reserved_arpa_dropped(self):
-        for line in ("0.0.0.0 1.0.0.127.in-addr.arpa", "0.0.0.0 x.ip6.arpa"):
+        """hosts 式与单行裸 .arpa 都属反向解析保留区, 一律丢弃。"""
+        for line in ("0.0.0.0 1.0.0.127.in-addr.arpa", "0.0.0.0 x.ip6.arpa",
+                     "1.0.0.127.in-addr.arpa", "X.IP6.ARPA",
+                     "1.0.0.127.in-addr.arpa."):
             self.assertTrue(mf.parse_line(line).dropped, line)
 
     def test_pihole_regex_converted(self):
-        r = mf.parse_line(r"(^|\.)doubleclick\.net$")
-        self.assertEqual(r.kind, mf.K_DOMAIN)
-        self.assertEqual(r.domains, ("doubleclick.net",))
+        """Pi-hole 两种子域正则顺序 + 精确匹配形状都归并为域名。"""
+        for line in (r"(^|\.)doubleclick\.net$", r"(\.|^)doubleclick\.net$",
+                     r"^doubleclick\.net$"):
+            r = mf.parse_line(line)
+            self.assertEqual(r.kind, mf.K_DOMAIN, line)
+            self.assertEqual(r.domains, ("doubleclick.net",), line)
 
     def test_important_modifier_counts_as_domain(self):
         r = mf.parse_line("||example.com^$important")

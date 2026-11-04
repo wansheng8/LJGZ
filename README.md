@@ -42,7 +42,7 @@
 | 全格式文件 | **约 29MB / 95 万行** |
 | 更新时间 | **每日北京时间 08:00 / 20:00** |
 
-口径说明：「拦截域名」= `domains_lines`，即去重后的主机名数量，与 `domains.txt` / `hosts.txt` 的行数一致，可直接对着文件数出来。「规则总数」四类之和 = `all.txt` 头部 `! Rules` 所报行数；其中 `domains_unique` 是**折叠后**的域名规则条数（约 50.0 万），比 `domains_lines` 少的正是被父域覆盖掉的子域（约 6 万），两者不是同一个指标。
+口径说明：「拦截域名」= `domains_lines`，即去重后的主机名数量，与 `domains.txt` / `hosts.txt` 的规则行数一致（不含文件头注释），可直接对着文件数出来。「规则总数」四类之和 = `all.txt` 头部 `! Rules` 所报行数；其中 `domains_unique` 是**折叠后**的域名规则条数（约 50.0 万），比 `domains_lines` 少的正是被父域覆盖掉的子域（约 6 万），两者不是同一个指标。
 
 覆盖广告、隐私追踪、恶意软件、钓鱼、挖矿、烦恼元素与中文专项。
 
@@ -68,7 +68,7 @@ flowchart LR
 | ③ 合并 | `Merger` | 精确去重 + 修饰符排序后语义去重，`$badfilter` 失效，`@@` 例外保护 |
 | ④ 仲裁 | `finalize()` | 子域折叠、同域 type 规则消解、DNS 能力筛选 |
 | ⑤ 输出 | `write_outputs()` | 5 种格式、stats.json、徽章 SVG |
-| ⑥ 发布 | `update.yml` | 196 项测试 → 合并 → 跑分（非阻断）→ 无变化跳过提交（定时跳过部署）→ commit/push → 部署 Pages |
+| ⑥ 发布 | `update.yml` | 201 项测试 → 合并 → 跑分（非阻断）→ 无变化跳过提交（定时跳过部署）→ commit/push → 部署 Pages |
 
 ## 产物
 
@@ -76,12 +76,12 @@ flowchart LR
 |---|---|---|---|
 | `all.txt` | ABP / uBO / AdGuard | 浏览器扩展 | 全语法完整版，**不做域名截断** |
 | `all-part-01/02.txt` | ABP 分卷 | 限制单文件体积的客户端 | `all.txt` 按约 18MB 切卷，各卷自带完整头部；两卷一起订阅 == 完整版 |
-| `adguard.txt` | AdGuard Home | DNS 服务器 | 子域折叠 + `$dnsrewrite` + 白名单 |
+| `adguard.txt` | AdGuard Home | DNS 服务器 | 子域折叠 + `$dnstype` / `$denyallow` 等 DNS 修饰符规则 + 白名单 |
 | `hosts.txt` | hosts | Pi-hole / 路由器 | `0.0.0.0 domain`，按主机名精确匹配（子域各自单独成条） |
 | `domains.txt` | 纯域名 | Cloudflare / NextDNS | 一行一域，排序去重 |
-| `whitelist.txt` | `@@\|d^` 精确域例外 | 误拦截放行 | 一行一域，不沿子域继承，配合 DNS 列表订阅 |
+| `whitelist.txt` | `@@\|\|d^$important` 例外 | 误拦截放行 | 一行一域，配合 DNS 列表订阅；`\|\|d^` 语义下子域随父域一并放行 |
 | `stats.json` | JSON | 站点 / 调试 | 各分类计数，每次运行刷新 |
-| `badge-*.svg` / `badge-*.json` | 徽章 | README / 站点 | 静态 SVG + shields.io endpoint JSON |
+| `badge-*.svg` / `badge-*.json` | 徽章 | README / 站点 | 静态 SVG；`badge-rules` / `badge-domains` / `badge-updated` 另附 shields.io endpoint JSON |
 | `benchmark.json` | JSON | 离线跑分 | 应拦 / 不应拦 / 漏拦覆盖率与总分 |
 | `live-benchmark.json` / `.png` | JSON / 截图 | CI | 每周真实 Chromium 跑分，仅存 Actions Artifact |
 
@@ -96,27 +96,32 @@ flowchart LR
 | `\|\|d^` / `\|\|d` / `\|\|d^\|` | 纯域名 | ✓ | ✓ | ✓ | — |
 | `\|\|d^$important` | 纯域名（带优先级） | ✓ | ✓ | ✓ | — |
 | `\|\|d^$script,image,document,third-party…` | 网络规则 | ✓ | — | — | — |
-| `\|\|d/path^`、子串、`/regex/` | 网络规则 | ✓ | — | — | — |
+| `\|\|d/path^`、子串、不含 DNS 修饰符的 `/regex/` | 网络规则 | ✓ | — | — | — |
 | `$dnsrewrite` / `$dnstype` / `$client` / `$ctag` / `$denyallow` | DNS 网络规则 | ✓ | ✓ | — | — |
 | `$badfilter` | 失效指令 | 剔除目标 | 剔除目标 | 剔除目标 | 剔除目标 |
-| 裸域名 `d` / `*.d` / `0.0.0.0 d` / Pi-hole `(^\|\.)d$`、`^d$` | 纯域名 | ✓ | ✓ | ✓ | — |
-| `##` `#@#` `#?#` `#$#` `#%#` `#@$#` `#@%#` `#@?#` `#@$?#` `##+js()` `#%#//scriptlet()` `$$` `$@$` | 元素隐藏 / 注入 | ✓ | — | — | — |
+| 裸域名 `d` / `*.d` / `0.0.0.0 d` / Pi-hole `(^\|\.)example\.com$`、`(\.\|^)example\.com$`、`^example\.com$` | 纯域名 | ✓ | ✓ | ✓ | — |
+| `##` `#@#` `#?#` `#$#` `#$?#` `#%#` `#@$#` `#@%#` `#@?#` `#@$?#` `##+js()` `#%#//scriptlet()` `$$` `$@$` | 元素隐藏 / 注入 | ✓ | — | — | — |
+| `[$domain=…]` / `[$path=…]` / `[$url=…]` 前缀的 `##` 规则 | 网络规则（原文保留） | ✓ | — | — | — |
 | `@@\|\|d^$important` | DNS 相关例外 | ✓ | ✓ | 域名移出 | ✓ |
 | `@@\|\|d^$document` / `$doc` | 浏览器例外（内容类型） | ✓ | — | — | — |
 | `@@\|\|d^$script` 等其他例外 | 浏览器例外 | ✓ | — | — | — |
 | 裸 `@@\|\|d^`（无修饰符） | 丢弃 | — | — | — | — |
 | `!#include` / `!#if` 等预处理 | 丢弃 | — | — | — | — |
 | `!` / `#` 注释、`[Adblock Plus 2.0]` | 丢弃 | — | — | — | — |
-| 裸 IP、localhost、`*.arpa`、广播地址 | 丢弃 | — | — | — | — |
+| hosts 行中的裸 IP / `localhost` / `*.arpa` / 广播地址 token；单行裸 `.arpa` 域名 | 丢弃 | — | — | — | — |
+
+> 注：`[$domain=…]` / `[$path=…]` / `[$url=…]` 是 AdGuard 系客户端的元素隐藏前置修饰符写法（上游当前约 57 条）。`all.txt` 原样保留，ABP / uBO 不识别该前缀，会把整行当无效规则跳过，不影响同列表其他规则；另有一条上游原文 `[$path]f95zone.to##…` 缺 `=值`，属源列表笔误，任何客户端都不生效。这类行词法上被归为**网络规则**（`[$path` 中的 `$` 先被当作修饰符分隔符），因此落在 `all.txt` 的网络规则段而非元素隐藏段；原文完整，AdGuard 系客户端仍按前置修饰符生效。
+
+> 注：`||d`（不带 `^`）在客户端是**前缀匹配**，会连带命中 `d.cn`、`d.evil.com` 这类更长的主机名，比 `||d^` 宽松；`||d^|` 尾部的 `|` 是地址结尾锚点，而 `^` 本身已能匹配 URL 结尾，语义冗余但完全合法。本项目把三种写法一律归一为 `||d^` 再输出（含 `all.txt`），因此三者在本项目产物中没有差别。
 
 <details>
 <summary><b>🔬 词法判定细节</b></summary>
 
 1. **纯域名的判定条件** — `||d^` 形态 + 修饰符为空或仅 `$important`，且域名至少含一个点（`||com^` 这类单标签锚点不算域名，会退回网络规则）。`||1.2.3.4^` 这类 IP 锚点无法归并为域名（hosts / 纯域名里没有可兑现的形式），同样按网络规则保留在 `all.txt`。
-2. **域等价写法归并** — `||d^` ≡ `d` ≡ `0.0.0.0 d` ≡ `*.d` ≡ Pi-hole `(^|\.)d$` ≡ `^d$`，五类写法合成一条；FQDN 尾点、大小写在此层归一。
+2. **域等价写法归并** — `||d^` ≡ `d` ≡ `0.0.0.0 d` ≡ `*.d` ≡ Pi-hole `(^|\.)d$` / `(\.|^)d$` ≡ `^d$`，五类写法合成一条；`d` 代入真实域名时点必须转义（`(^|\.)example\.com$`），未转义的 `.` 是正则通配，不会被归并；FQDN 尾点、大小写在此层归一。
 3. **元素隐藏分隔符** — 十个标记按"最长优先"取最早出现者；前缀必须是空 / `*` / 合法域名列表（支持 `~` 否定、`*.`、`/^re$/`、`google.*`、`domain/path`），否则整行退回网络规则。HTML 过滤 `domain$$sel` / `domain$@$sel` 单独识别。
 4. **含空格的规则** — 首个 token 含 `$` 或以 `||` / `@@` / `|` 开头 → 按规则解析（支持 `$csp=script-src 'none'` 这类值内空格）；否则按 hosts 行扫描域名 token。
-5. **正则只认 Pi-hole 两种形状** — 其他正则按网络规则原样保留，交给客户端解释，不参与域名归并。
+5. **正则只认 Pi-hole 两种形状** — 其他正则按网络规则原样保留，交给客户端解释，不参与域名归并；带 `$dnstype` / `$denyallow` 等 DNS 修饰符的 `/regex/` 会原样进入 `adguard.txt`。
 6. **精确去重 + 语义去重** — 文本相同只留一条；修饰符按排序后比较（`$script,image` ≡ `$image,script`），顺序无关。
 7. **$badfilter 语义键** — 键 = 模式 + 排序后修饰符。顺序无关，但**大小写与原文须一致**，否则静默不生效。
 
@@ -126,11 +131,11 @@ flowchart LR
 
 | 触发 | 引擎动作 | 原因 |
 |---|---|---|
-| 裸整域例外 `@@\|\|d^` | 直接删除 | 会全盘架空该域的拦截，是"订阅了却拦不住"的首要原因（实测 314 条中 25 个域被打穿） |
+| 裸整域例外 `@@\|\|d^` | 直接删除 | 会全盘架空该域的拦截，是"订阅了却拦不住"的首要原因（单轮实测即命中 324 条） |
 | `@@` 与 `\|\|d^` 冲突 | 浏览器层：例外优先（客户端自仲裁）；DNS 层：只有 `$important` 例外能移出该域 | `$document` / `$doc` 是内容类型，只放行页面文档，不能升级为整域 DNS 放行 |
-| DNS 例外命中（`@@\|\|d^$important`） | **只**从 hosts、domains、adguard 中移除该域本身（精确匹配，不沿子域继承）并写入白名单；all.txt 保留 `\|\|d^`，由客户端用同文件里的 `@@` 原文仲裁 | 两层各算各的：浏览器端 `$document` 本就是整站放行，DNS 端没有内容类型概念，不剔域会"声明放行却仍在拦" |
+| DNS 例外命中（`@@\|\|d^$important`） | 从 hosts、domains、adguard 中移除该域及其子域（与 `\|\|d^` 的子域语义对称）并写入白名单；all.txt 保留 `\|\|d^`，由客户端用同文件里的 `@@` 原文仲裁 | 两层各算各的：浏览器端 `$document` 本就是整站放行，DNS 端没有内容类型概念，不剔域会"声明放行却仍在拦" |
 | `@@\|\|d^$document` / `$doc` | 只原样进 all.txt；不剔 DNS 域、不进白名单 | 内容类型属浏览器语义，升级成整域 DNS 放行会连带放开同域接口 / 图片 |
-| DNS 白名单输出 | 只输出 `@@\|d^$important`（单竖线精确锚点） | 用 `\|\|` 会连带子域，等于把整站放行；单竖线只匹配该主机名，与 hosts / domains 的精确剔除口径一致 |
+| DNS 白名单输出 | 只输出 `@@\|\|d^$important`（双竖线域锚点） | 单竖线 `@@\|d^` 的 `\|` 锚定 URL 开头，DNS 查询没有 URL 可锚，客户端匹配不到（自家跑分脚本也只认 `@@\|\|d^`） |
 | 父域已被拦 | 子域折叠；被折叠子域的 `$important` **不**向父域提升，父域保持裸 `\|\|d^` | 提升会把整域升级为 important 拦截，连带压过上游针对兄弟子域的 `@@` 例外 |
 | 已有 `\|\|d^` / `\|\|d^$important` | 同域纯类型窄规则 `\|\|d^$script` 等删除（拦截结果不变，省体积） | 见下方红线 |
 | 域名含全数字 label（如 `9.9.9.9` 段） | 不折叠、不消解 | IP 段在 AdBlock 语义里有歧义，保守保留 |
@@ -163,17 +168,17 @@ flowchart LR
 
 ### 校验与失败策略
 
-- **scriptlet 强校验** — 必须形如 `<域名>##+js(<内置名>, <参数>)` 或 `#%#//scriptlet(...)`；校验域名合法性、括号配对、scriptlet 名称是否存在。任一失败直接 `ValueError`，CI 阻断发布。订阅只能调用客户端内置 scriptlet，无法下发任意 JS。
+- **scriptlet 强校验** — 必须形如 `<域名>##+js(<内置名>, <参数>)` 或 `#%#//scriptlet(...)`；校验域名合法性、括号配对、scriptlet 名称非空。任一失败直接 `ValueError`，CI 阻断发布。订阅只能调用客户端内置 scriptlet，无法下发任意 JS。
 - **源下载** — 23 个上游全部成功才发布；4xx 不重试，网络错误指数退避重试。
 - **分卷** — 按行累积切卷，阈值 18,000,000 字节并预留 4096 字节头部余量，保证单卷不超过 18MB；每卷自带完整头部与 `[Adblock Plus 2.0]`，多卷全订阅 == 完整 `all.txt`，用于受限客户端；每轮清理过期分卷。
-- **自检** — `python merge_filters.py --test` 跑内置冒烟用例；`python -m unittest discover -s tests` 跑 180 项离线测试。
+- **自检** — `python merge_filters.py --test` 跑内置冒烟用例；`python -m unittest discover -s tests` 跑 201 项离线测试。
 - **零依赖** — 纯 stdlib 单文件，`python merge_filters.py` 即跑。
 
 <details>
 <summary><b>🚀 自动更新与部署</b></summary>
 
-- 工作流：`.github/workflows/update.yml`（cron `0 0,12 * * *` UTC = 北京 08:00 / 20:00，`TZ=Asia/Shanghai`）
-- 流程：196 项测试 → 下载 23 源 → 合并 → 无变化跳过提交，有变化自动 commit + push → 部署 Pages（定时触发且无变化时跳过，push / 手动触发始终部署）
+- 工作流：`.github/workflows/update.yml`（cron `0 0 * * *` + `0 12 * * *` UTC = 北京 08:00 / 20:00，`TZ=Asia/Shanghai`）
+- 流程：201 项测试 → 下载 23 源 → 合并 → 无变化跳过提交，有变化自动 commit + push → 部署 Pages（定时触发且无变化时跳过，push / 手动触发始终部署）
 - 另有两个纯清理 cron（06:00 / 18:00 UTC），只删旧 Actions 历史，保留最新 3 条
 - 输出头部含 `! Last Modified: ... (北京时间 UTC+8)` 与 `! Expires: 12 hours`
 - 徽章 SVG 由引擎每次运行重新生成，数字始终与最新合并一致
@@ -198,7 +203,7 @@ tools/live_benchmark.py        # 真实 Chromium 页面级跑分
 tools/triage_issue.py          # Issue 自动初筛
 docs/index.html                # 在线订阅中心 (GitHub Pages)
 docs/logo.svg                  # Logo
-tests/                         # 196 项测试, 全部无网络
+tests/                         # 201 项测试, 全部无网络
   data/adblock-tester.html     #   adblock-tester 页面快照 (浏览器跑分输入)
   data/mobileproxy-missed.json #   移动端漏拦样本 (proxy 跑分输入)
   test_parsing.py              #   词法分类
@@ -237,7 +242,7 @@ git clone https://github.com/wansheng8/LJGZ.git
 cd LJGZ
 
 python merge_filters.py --test              # 冒烟自检
-python -m unittest discover -s tests         # 196 项测试
+python -m unittest discover -s tests         # 201 项测试
 python merge_filters.py                      # 下载合并 → ./output/
 python benchmark.py --out output/benchmark.json   # 离线覆盖率跑分
 ```
