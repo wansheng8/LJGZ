@@ -51,10 +51,24 @@ class TestBrowserOutputProfile(unittest.TestCase):
         self.assertIn("||critical.example.com^$important", res.all_blocks)
         self.assertEqual(len(res.all_blocks), 160001)
 
-    def test_whitelisted_domains_excluded_from_all(self):
-        """被 @@ DNS 例外解锁的域名不应出现在浏览器拦截输出。"""
+    def test_document_exception_stays_browser_only(self):
+        """例外裁决分两层: $document 只作用于浏览器层 —— all.txt 原样输出
+        @@ 交给客户端仲裁, DNS 产物照常拦截, 不生成白名单 ($document 不能
+        升级为整域 DNS 放行)。"""
         res = merge_rules("||ads.com^", "@@||ads.com^$document")
-        self.assertNotIn("||ads.com^", res.all_blocks)
+        self.assertIn("||ads.com^", res.all_blocks)
+        self.assertIn("@@||ads.com^$document", res.all_exceptions)
+        self.assertIn("||ads.com^", res.adguard_blocks)
+        self.assertEqual(res.domains, ["ads.com"])
+        self.assertEqual(res.whitelist, [])
+
+    def test_important_exception_removes_dns_block(self):
+        """DNS 层只认 $important 例外: 命中即从 DNS 产物剔除该域。"""
+        res = merge_rules("||ads.com^", "@@||ads.com^$important")
+        self.assertIn("||ads.com^", res.all_blocks)
+        self.assertNotIn("||ads.com^", res.adguard_blocks)
+        self.assertEqual(res.domains, [])
+        self.assertEqual(res.whitelist, ["@@||ads.com^$important"])
 
     def test_no_silent_domain_loss(self):
         """大规模纯域名不得因字典序截断而丢尾部域名。"""

@@ -70,14 +70,23 @@ jobs:
         run: python benchmark.py --out output/benchmark.json
 
       - name: 提交并推送 (带重试, 防非快进竞态)
+        id: publish
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add output/
-          if git diff --cached --quiet; then
+          # 只比对"实质内容": 每份产物头部都写 Version / Last Modified 时间戳,
+          # badge-updated.* 也带时间 —— 直接 git diff 永远非空, 于是"无变化跳过"
+          # 从未生效 (实测 240 次提交里 182 次是这种噪音提交)。
+          # -I 忽略时间戳行 + 排除 badge-updated.* 之后, 才等价于"规则真的变了"。
+          if git diff --cached --quiet \
+               -I 'Version:' -I 'Last Modified:' -- output/ \
+               ':(exclude)output/badge-updated.json' \
+               ':(exclude)output/badge-updated.svg'; then
             echo "规则无变化, 跳过提交"
-            echo "changed=false" >> "$GITHUB_STATE" || true
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
             git commit -m "自动更新过滤规则 (北京时间 $(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M'))"
             # 远端被并发移动时 (另一 run/人工/API 推送) rebase 重试, 最多 3 次
             for i in 1 2 3; do
@@ -101,13 +110,17 @@ jobs:
 
     outputs:
       commit: ${{ steps.sha.outputs.commit }}
+      changed: ${{ steps.publish.outputs.changed }}
 
   deploy-pages:
     needs: update
+    # 定时触发且产物无变化 → 跳过部署 (站点内容未变, 无需重发);
+    # push / 手动触发一律部署: push 可能改的是 docs/**, 手动则用于强制重发。
     if: |
       inputs.cleanup_only != 'true'
       && always()
       && needs.update.result == 'success'
+      && (github.event_name != 'schedule' || needs.update.outputs.changed == 'true')
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     environment:

@@ -69,7 +69,7 @@ class TestRunEndToEnd(unittest.TestCase):
         # 三源都拉取了
         self.assertEqual(len(t.calls), 3)
         # 域名合并: doubleclick.net (easylist≡bare 重复), tracker.io, pihole.net
-        # 例外剔除: good.example.com 不进 DNS 输出
+        # $document 例外只进浏览器 all.txt, 不影响 hosts/domains
         self.assertIn("0.0.0.0 tracker.io", files["hosts"])
         self.assertIn("0.0.0.0 pihole.net", files["hosts"])
         self.assertNotIn("good.example.com", files["hosts"])
@@ -82,9 +82,10 @@ class TestRunEndToEnd(unittest.TestCase):
         self.assertIn("||ads.example.com^", files["all"])
         self.assertNotIn("||ads.example.com^$script", files["all"])
         self.assertIn("@@||good.example.com^$document", files["all"])
-        # adguard 输出: 纯 ||d^ + 白名单, dnsrewrite 网络规则
+        # adguard 输出: 纯 ||d^ + 白名单, dnsrewrite 网络规则。
+        # $document 例外只作用于浏览器层 → 不进 adguard 白名单。
         self.assertIn("||doubleclick.net^", files["adguard"])
-        self.assertIn("@@||good.example.com^", files["adguard"])
+        self.assertNotIn("@@||good.example.com^", files["adguard"])
         self.assertNotIn("||ads.example.com^$script", files["adguard"])
         # 裸域进 hosts (DNS 精确域语义保留), 消解的窄规则不泄漏
         self.assertIn("0.0.0.0 ads.example.com", files["hosts"])

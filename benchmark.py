@@ -26,9 +26,13 @@ def load_rules(path):
             if line.startswith("@@"):
                 m = re.match(r"^@@\|\|([a-z0-9.-]+)\^(\$.*)?$", line, re.I)
                 if m:
-                    mods = m.group(2) or ""
-                    # 只有无条件例外才整域放行; $script,domain=x 这类只放行特定场景
-                    if not mods or "$document" in mods or "$all" in mods:
+                    # 只有"无条件例外"才整域放行。$document / $all / $important
+                    # 都是整域语义; 一旦混进 domain= / 内容类型等收窄修饰符, 就
+                    # 只放行特定场景, 不能算作该域已放行。
+                    mods = {t.strip().lower()
+                            for t in (m.group(2) or "").lstrip("$").split(",")
+                            if t.strip()}
+                    if not mods or mods <= {"document", "doc", "all", "important"}:
                         exc.add(m.group(1).lower())
                 continue
             m = re.match(r"^\|\|([a-z0-9.-]+)\^$", line, re.I)

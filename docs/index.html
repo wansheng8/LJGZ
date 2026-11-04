@@ -107,7 +107,7 @@ const P = [
   u:[['CDN 备选', CDN+'domains.txt'], ['最短', PAGES+'domains.txt'], ['备用', RAW+'domains.txt']],
   t:'直接粘贴或导入任意支持纯域名列表的工具'},
  {i:'✅', n:'DNS 白名单', a:'误拦截放行 · 例外列表', f:'whitelist.txt',
-  d:'@@ 例外规则，与拦截列表配合订阅可解除误拦截。',
+  d:'仅收录 DNS 可兑现的 @@|d^$important 精确域例外（不沿子域继承）；$document 等浏览器例外留在 all.txt 由客户端仲裁。',
   u:[['CDN 备选', CDN+'whitelist.txt'], ['最短', PAGES+'whitelist.txt'], ['备用', RAW+'whitelist.txt']],
   t:'在 AdGuard Home 中作为第二个过滤器订阅（类型：精确/例外）'},
 ];
@@ -143,7 +143,7 @@ fetch('stats.json').then(r => r.json()).then(s => {
   const total = (s.domains_unique || 0) + (s.network_unique || 0) +
                  (s.cosmetic_unique || 0) + (s.exceptions_unique || 0);
   el.innerHTML =
-    `<span><b>${f(s.domains_unique)}</b>拦截域名</span>` +
+    `<span><b>${f(s.domains_lines || s.domains_unique)}</b>拦截域名</span>` +
     `<span><b>${f(total)}</b>规则总数</span>` +
     `<span><b>${s.sources_total || '…'}</b>上游源</span>` +
     `<span><b>2 ×/日</b>北京时间更新</span>`;

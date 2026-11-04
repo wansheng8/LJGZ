@@ -60,8 +60,10 @@ COSMETIC_SEPS = (
     "##",      # 元素隐藏 (uBO: 含 ##^ HTML过滤 / ##+js scriptlet)
 )
 
-# 例外规则中 DNS 侧可兑现的修饰符: 空/document/doc/important
-_DNS_OK_EXC_MODS = {"document", "doc", "important"}
+# 例外规则中 DNS 侧可兑现的修饰符: 空(裸例外, 会被丢弃) / important
+# $document / $doc 是浏览器内容类型 —— 只放行"页面文档", 不能升级为整域
+# DNS 放行, 否则会把同域接口/图片/脚本一并放开。
+_DNS_OK_EXC_MODS = {"important"}
 
 # 拦截规则可归并为纯域名规则的修饰符子集 (语法文档 §8: AGH 仅支持少数修饰符)
 _DNS_SAFE_BLOCK_MODS = {"important"}
@@ -243,7 +245,8 @@ def _parse_exception(s: str, source: str = "") -> Rule:
     pattern, mods = _split_modifiers(body)
     dom = _extract_anchor_domain(pattern) if pattern.startswith("||") else ""
     lower_mods = {m.split("=", 1)[0] for m in split_mod_tokens(mods.lower())}
-    # DNS 相关: 修饰符为空或全属 {document, important} (client/ctag/dnstype/内容类型等不可在纯域名输出兑现)
+    # DNS 相关: 修饰符为空或仅 $important (client/ctag/dnstype/内容类型
+    # 含 $document/$doc 均不可在纯域名输出兑现 — 它们只管浏览器层)
     dns_rel = bool(dom) and lower_mods <= _DNS_OK_EXC_MODS
     return Rule(raw=s, kind=K_EXCEPTION, pattern=pattern, modifiers=mods,
                 domain=dom, dns_relevant=dns_rel,
@@ -395,6 +398,18 @@ def _net_canon_key(rule: Rule) -> str:
     return _canon_key(rule.pattern, split_mod_tokens(rule.modifiers))
 
 
+def _excepted(domain: str, exc: Set[str]) -> bool:
+    """域名自身或任一上级域在例外集中 → 视为已放行。
+
+    与 `||d^` 的子域语义对称: 拦 d 会连带拦 sub.d, 放行 d 也应连带放行 sub.d。
+    """
+    parts = domain.split(".")
+    for k in range(len(parts)):
+        if ".".join(parts[k:]) in exc:
+            return True
+    return False
+
+
 @dataclass
 class MergeResult:
     """finalize() 的产物。各字段均为可直接写出的行列表。"""
@@ -461,34 +476,29 @@ class Merger:
         return any(re.fullmatch(r"\d+", seg) for seg in d.split(".") if seg)
 
     def _fold_redundant(self, items):
-        """子域折叠 + important 提升标记。
+        """子域折叠。
 
         items: [(domain, important, canon)] (finalize 的 survive 列表)。
-        返回 (kept, folded_parents):
-          kept — 未被折叠的条目 (IP 数字 label 保护, 不折叠; 折叠关闭时全保留)
-          folded_parents — {被 important 子域折叠所覆盖的祖先域}。这些父域
-                           若原为裸 ||d^, 输出时须提升为 $important — 否则
-                           被折叠子域的 important 优先级静默丢失 (会被上游
-                           带修饰符的 @@ 例外反杀)。
+        返回 kept — 未被折叠的条目 (IP 数字 label 保护, 不折叠; 折叠关闭时
+        全保留)。被祖先已拦的子域冗余, 直接折叠掉; 子域的 $important 不向
+        父域提升 —— 提升会把整域升级成 important 拦截, 连带压过上游针对兄弟
+        子域的例外。
         """
         enabled = self.collapse
         blocked = {d for d, _, _ in items}
         kept = []
-        folded_parents: Set[str] = set()
         for d, imp, canon in items:
             if enabled and not self._has_numeric_label(d):
                 parts = d.split(".")
                 for k in range(1, len(parts)):
                     anc = ".".join(parts[k:])
                     if anc in blocked:
-                        if imp:                     # important 子域折叠 → 提升父域
-                            folded_parents.add(anc)
                         break
                 else:                                # 无祖先被拦 → 保留
                     kept.append((d, imp, canon))
                 continue
             kept.append((d, imp, canon))
-        return kept, folded_parents
+        return kept
 
     def _subsume_type_rules(self, candidates: List[str],
                             browser_items: List[Tuple[str, bool, str]]) -> List[str]:
@@ -535,29 +545,36 @@ class Merger:
         # 截断后统一做, 需要 browser_items 的覆盖集合, 见下)。
         net_candidates = sorted(raw for key, raw in self._net.items() if key not in bad)
 
-        # 例外: DNS 相关白名单 + 每域名 important 标记。
-        # 丢弃"裸整域无条件例外" (无修饰符的 @@||d^): 它们会全盘架空对应域的
+        # 例外裁决拆成互不引用的两层:
+        #   ① 浏览器层 (all.txt): 只清理"裸整域例外", 其余 @@ 原样输出, 交给
+        #      客户端自己仲裁; 拦截规则不因例外剔除 —— $document 在 uBO /
+        #      AdGuard 里本就是整站放行, 客户端算得比我们猜更准。
+        #   ② DNS 层 (adguard / hosts / domains / whitelist): DNS 端没有内容
+        #      类型概念, 只认 $important 例外; 命中才把该域从 DNS 拦截产物
+        #      剔除并写入白名单。$document / $doc 只作用于浏览器层, 不升级
+        #      为整域 DNS 放行 (否则同域接口/图片会一起被放开)。
+        # 裸整域例外 (无修饰符的 @@||d^) 两层都不认: 它会全盘架空对应域的
         # 拦截, 且常来自上游"放行合法点击链接"的误判 (实测 314 条中 25 个域
-        # 的全部拦截被打穿, 是"订阅了却拦不住"的根因)。带修饰符/带路径的
-        # 例外语义明确, 原样保留。
+        # 的全部拦截被打穿, 是"订阅了却拦不住"的根因)。
         bare_whole_domain = 0
         for r in list(self._exc.values()):
             if r.dns_relevant and not r.important and not r.modifiers.strip():
                 del self._exc[r.raw]
                 bare_whole_domain += 1
-        exc_imp: Dict[str, bool] = {}
-        for r in self._exc.values():
-            if r.dns_relevant:
-                exc_imp[r.domain] = exc_imp.get(r.domain, False) or r.important
-        # DNS 白名单统一写成 DNS 侧可兑现的形式: 上游的 `@@||d^$document`
-        # 里的 $document 是浏览器内容类型, AdGuard Home / Pi-hole 都不认,
-        # 照抄会让白名单在 DNS 端静默失效。这里按域归一为裸 `@@||d^`
-        # (带 $important 的例外保留优先级, 否则会被自己生成的裸例外反杀)。
-        res.whitelist = sorted(
-            "@@||{}^".format(d) + ("$important" if imp else "")
-            for d, imp in exc_imp.items())
+
+        # ① 浏览器层: 例外原样输出 (含 $document 等, 由客户端仲裁)
         res.all_exceptions = sorted(self._exc)
         res.dropped_bare_exceptions = bare_whole_domain
+
+        # ② DNS 层: 独立计算可兑现例外 + 白名单
+        # 只收 $important 例外 (裸例外上面已删); $document / $doc 属浏览器
+        # 内容类型, 不进白名单, 也不从 DNS 拦截产物剔除该域。
+        dns_exc: Set[str] = {r.domain for r in self._exc.values() if r.dns_relevant}
+        # 白名单必须写 `@@||d^` (双竖线): 单竖线 `@@|d^` 的 `|` 锚定的是 URL
+        # 开头, 而客户端匹配的是 `https://d/...`, `|d` 永远匹配不上 → 该条在
+        # AdGuard Home / uBO 里是死规则 (本仓库 benchmark.py / live_benchmark.py
+        # 的正则也只认 `@@||d^`, 单竖线连自家跑分都读不到)。
+        res.whitelist = sorted("@@||{}^$important".format(d) for d in dns_exc)
 
         # 域名条目: (domain, important, canonical)
         items = []
@@ -568,38 +585,25 @@ class Merger:
                 continue
             items.append((d, imp, canon))
 
-        # DNS 输出裁决: 例外赢, 除非 拦截带important 且 例外不带
+        # DNS 输出裁决 (只看 DNS 层, 浏览器层不引用): 命中 $important 例外
+        # 的域从 hosts / domains / adguard 剔除。结果只影响 DNS 产物。
+        # 裁决沿祖先链继承: `||d^` 的拦截本身含子域语义, 例外必须对称地覆盖
+        # 子域 —— 否则 hosts / domains 这种没有 @@ 机制的格式里, "放行 d" 会被
+        # 上游仍在拦的 sub.d 打败, 白名单形同虚设 (声明放行却仍在拦)。
+        # 与 benchmark.py / live_benchmark.py 的 is_blocked 判定保持一致。
         survive = []
         for d, imp, canon in items:
-            if d in exc_imp and not (imp and not exc_imp[d]):
+            if _excepted(d, dns_exc):
                 continue
             survive.append((d, imp, canon))
 
-        # 子域折叠 + important 提升 (all_blocks 与 adguard_blocks 共用):
-        # ||d^ 含子域语义 — 被祖先已拦的子域是冗余的, 折叠掉; 当 important 子域
-        # 被折叠进裸父域时, 父域须提升为 $important, 否则 important 优先级静默
-        # 丢失 (会被上游带修饰符的 @@ 例外反杀)。数字 label (IP 段) 不折叠。
-        kept, folded_parents = self._fold_redundant(survive)
-        # important 提升须沿祖先链传播: 被折叠的父域自身可能也被折叠, 一路找
-        # 到仍留在 kept 里的最近祖先, 把它提升为 $important。
-        kept_map = {d: i for i, (d, _, _) in enumerate(kept)}
-        for p in folded_parents:
-            d = p
-            while d:
-                if d in kept_map:
-                    i = kept_map[d]
-                    kd, kimp, kcanon = kept[i]
-                    if not kimp:
-                        kcanon = kcanon + "$important"
-                        kept[i] = (kd, True, kcanon)
-                    break
-                d = d.split(".", 1)[1] if "." in d else ""
-
-        # 浏览器输出 (all_blocks): 用折叠结果, 不做截断 — 全格式订阅必须包含
-        # 全部规则。此前的 15 万阈值会静默丢掉数十万条 ||d^ (55.8 万域名只剩
-        # 15 万), 订阅端表现为"规则少/内容不全"。
-        browser_items = list(kept)
+        # 子域折叠 (不向父域提升 $important): 两套裁决各自折叠, 互不影响。
+        #   · 浏览器 items: 不剔例外 → all_blocks 保留全部拦截, 由客户端用
+        #     同文件里的 @@ 原文仲裁 ($document 即整站放行)。
+        #   · DNS survive: 已剔例外 → adguard_blocks 与 hosts/domains 对齐。
+        browser_items = self._fold_redundant(items)
         res.all_blocks = [c for _, _, c in browser_items]
+        dns_kept = self._fold_redundant(survive)
 
         # 同域 type 消解 (高效拦截 + 省体积): 若域名 d 已被"全请求类型"拦截
         # (browser_items 里有 ||d^ / ||d^$important), 则同域纯类型窄规则
@@ -618,8 +622,8 @@ class Merger:
         res.domains = [d for d, _, _ in survive]
         res.hosts = ["0.0.0.0 " + d for d, _, _ in survive]
 
-        # adguard_blocks: 与 all_blocks 同一折叠结果 (||d^ 含子域语义)
-        res.adguard_blocks = [c for _, _, c in kept]
+        # adguard_blocks: DNS 层折叠结果 (已剔例外, 与 hosts/domains 对齐)
+        res.adguard_blocks = [c for _, _, c in dns_kept]
 
         # AGH 完整订阅: blocks + DNS 可兑现网络规则 + DNS 白名单
         dns_net = self._dns_capable_network(bad)
@@ -628,7 +632,13 @@ class Merger:
         res.all_cosmetic = sorted(self._cosmetic)
         res.stats = {
             "local_additions": self._local_count,
-            "domains_unique": len(res.domains),   # 与 DNS 输出一致 (例外已剔除)
+            # 与 all.txt 的域名规则行数一致 (折叠后): 四类计数之和 == 产物
+            # 头部 `! Rules`。hosts/domains 按精确匹配语义另留子域, 故更长。
+            "domains_unique": len(res.all_blocks),
+            # 去重主机名数 = domains.txt / hosts.txt 的实际行数。徽章与订阅中心
+            # 取这个 (用户能对着文件数出来), domains_unique 是折叠后的规则条数,
+            # 两者相差的就是被父域覆盖掉的子域 (约 6 万)。
+            "domains_lines": len(res.domains),
             "network_unique": len(res.all_network),
             "cosmetic_unique": len(res.all_cosmetic),
             "exceptions_unique": len(res.all_exceptions),
@@ -984,12 +994,19 @@ def _svg_badge(label: str, message: str, color: str) -> str:
     )
 
 
-def write_badge_files(outdir: str, stats: dict, now: str) -> Dict[str, str]:
-    """生成 output/badge-*.json (shields endpoint) 与 badge-*.svg (README 直用)。"""
+def write_badge_files(outdir: str, stats: dict, now: str,
+                      domains_lines: Optional[int] = None) -> Dict[str, str]:
+    """生成 output/badge-*.json (shields endpoint) 与 badge-*.svg (README 直用)。
+
+    domains_lines: hosts/domains 的实际行数 (去重后的主机名数)。徽章取自它,
+    而不是折叠后的 all.txt 域名规则数 —— 用户订阅的是 domains.txt, 拿徽章
+    数字去数文件行数必须对得上。
+    """
     import json as _json
 
     os.makedirs(outdir, exist_ok=True)
-    domains = stats.get("domains_unique", 0)
+    domains = domains_lines if domains_lines is not None \
+        else stats.get("domains_unique", 0)
     rules = sum(stats.get(k, 0) for k in
                 ("domains_unique", "network_unique",
                  "cosmetic_unique", "exceptions_unique"))
@@ -1087,7 +1104,8 @@ def write_outputs(res: MergeResult, outdir: str, *, title: str,
     with open(paths["stats"], "w", encoding="utf-8", newline="\n") as f:
         _json.dump(res.stats, f, ensure_ascii=False, indent=2, sort_keys=True)
 
-    paths.update(write_badge_files(outdir, res.stats, now))
+    paths.update(write_badge_files(outdir, res.stats, now,
+                                   domains_lines=len(res.domains)))
 
     return paths
 

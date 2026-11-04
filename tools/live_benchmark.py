@@ -87,8 +87,14 @@ def load_blocklist(path):
                 continue
             if line.startswith("@@"):
                 m = re.match(r"^@@\|\|([a-z0-9.-]+)\^(\$.*)?$", line, re.I)
-                if m and (not m.group(2) or "$document" in m.group(2)):
-                    exc.add(m.group(1).lower())
+                if m:
+                    # 与 benchmark.py 同口径: 整域语义的修饰符 ($document /
+                    # $doc / $all / $important) 才算放行; 收窄修饰符不算。
+                    mods = {t.strip().lower()
+                            for t in (m.group(2) or "").lstrip("$").split(",")
+                            if t.strip()}
+                    if not mods or mods <= {"document", "doc", "all", "important"}:
+                        exc.add(m.group(1).lower())
                 continue
             if any(x in line.lower() for x in NO_BLOCK):
                 continue

@@ -204,8 +204,11 @@ class TestExceptions(unittest.TestCase):
         self.assertEqual(r.domain, "example.com")
         self.assertFalse(r.dropped)
 
-    def test_document_exception_is_dns_relevant(self):
-        self.assertTrue(mf.parse_line("@@||example.com^$document").dns_relevant)
+    def test_document_exception_not_dns_relevant(self):
+        """$document 是浏览器内容类型, 不能升级为整域 DNS 放行。"""
+        r = mf.parse_line("@@||example.com^$document")
+        self.assertFalse(r.dns_relevant)
+        self.assertTrue(mf.parse_line("@@||example.com^$important").dns_relevant)
 
     def test_cosmetic_exceptions_not_dns_relevant(self):
         for line in ("@@||example.com^$elemhide", "@@||example.com^$generichide",

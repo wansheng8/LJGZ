@@ -36,6 +36,19 @@ class TestScoring(unittest.TestCase):
                              {"must_block": [], "must_not_block": ["a.example.com"]})
         self.assertEqual([], res["safety"]["false_positives"])
 
+    def test_important_exception_counts_as_unblock(self):
+        """DNS 白名单现在的唯一形式是 `@@||d^$important` (merge 端只输出这个),
+        跑分必须把它当放行, 否则白名单在跑分里等于不存在。"""
+        res = self._evaluate("||example.com^$important\n@@||example.com^$important\n",
+                             {"must_block": [], "must_not_block": ["a.example.com"]})
+        self.assertEqual([], res["safety"]["false_positives"])
+
+    def test_scoped_exception_is_not_whole_domain(self):
+        """带收窄修饰符的例外 (domain= / $script) 只放行特定场景, 不算整域放行。"""
+        res = self._evaluate("||example.com^\n@@||example.com^$script,domain=a.test\n",
+                             {"must_block": [], "must_not_block": ["example.com"]})
+        self.assertEqual(["example.com"], res["safety"]["false_positives"])
+
     def test_safety_and_coverage_are_weighted(self):
         res = self._evaluate("||ad.test^\n",
                              {"must_block": ["ad.test", "missing.test"],

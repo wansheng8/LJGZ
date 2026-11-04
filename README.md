@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿<div align="center">
+﻿<div align="center">
 
 <img src="docs/logo.svg" width="104" alt="LJGZ Logo"/>
 
@@ -37,12 +37,12 @@
 | 指标 | 当前值 |
 |---|---|
 | 上游源 | **23 个**（全部成功才发布） |
-| 拦截域名 | **约 56.2 万** |
-| 规则总数 | **约 99.4 万**（分类去重后合计） |
-| 全格式文件 | **约 29MB / 93 万行** |
+| 拦截域名 | **约 56.0 万**（去重主机名数，= `domains.txt` 行数） |
+| 规则总数 | **约 95.2 万**（域名 + 网络 + 元素隐藏 + 例外） |
+| 全格式文件 | **约 29MB / 95 万行** |
 | 更新时间 | **每日北京时间 08:00 / 20:00** |
 
-口径说明：「规则总数」= 域名 + 网络 + 元素隐藏 + 例外四类的去重合计；产物头部 `! Rules` 是 `all.txt` 合并后的实际行数（两者不等，前者含被折叠/消解前的分类计数）。
+口径说明：「拦截域名」= `domains_lines`，即去重后的主机名数量，与 `domains.txt` / `hosts.txt` 的行数一致，可直接对着文件数出来。「规则总数」四类之和 = `all.txt` 头部 `! Rules` 所报行数；其中 `domains_unique` 是**折叠后**的域名规则条数（约 50.0 万），比 `domains_lines` 少的正是被父域覆盖掉的子域（约 6 万），两者不是同一个指标。
 
 覆盖广告、隐私追踪、恶意软件、钓鱼、挖矿、烦恼元素与中文专项。
 
@@ -54,7 +54,7 @@ flowchart LR
     B["并发下载<br/>6 线程 · 退避重试"]
     C["parse_line()<br/>八类词法分诊"]
     D["Merger<br/>语义去重 · badfilter · 例外仲裁"]
-    E["finalize()<br/>子域折叠 · type 消解 · important 提升"]
+    E["finalize()<br/>子域折叠 · type 消解 · 例外裁决"]
     F["write_outputs()<br/>5 种订阅格式 + 徽章"]
     G["GitHub Actions<br/>测试 → 提交 → Pages"]
 
@@ -66,9 +66,9 @@ flowchart LR
 | ① 下载 | `fetch_text()` | urllib 零依赖，并行 6 路，指数退避；4xx 不重试 |
 | ② 解析 | `parse_line()` | 一行分成 8 类：注释 / 预指令 / 表头 / 元素隐藏 / 纯域名 / 网络规则 / `@@` 例外 / 无法解析（丢弃） |
 | ③ 合并 | `Merger` | 精确去重 + 修饰符排序后语义去重，`$badfilter` 失效，`@@` 例外保护 |
-| ④ 仲裁 | `finalize()` | 子域折叠、同域 type 规则消解、`$important` 提升、DNS 能力筛选 |
+| ④ 仲裁 | `finalize()` | 子域折叠、同域 type 规则消解、DNS 能力筛选 |
 | ⑤ 输出 | `write_outputs()` | 5 种格式、stats.json、徽章 SVG |
-| ⑥ 发布 | `update.yml` | 186 项测试 → 合并 → 跑分（非阻断）→ 无变化跳过 → commit/push → 部署 Pages |
+| ⑥ 发布 | `update.yml` | 196 项测试 → 合并 → 跑分（非阻断）→ 无变化跳过提交（定时跳过部署）→ commit/push → 部署 Pages |
 
 ## 产物
 
@@ -79,7 +79,7 @@ flowchart LR
 | `adguard.txt` | AdGuard Home | DNS 服务器 | 子域折叠 + `$dnsrewrite` + 白名单 |
 | `hosts.txt` | hosts | Pi-hole / 路由器 | `0.0.0.0 domain`，按主机名精确匹配（子域各自单独成条） |
 | `domains.txt` | 纯域名 | Cloudflare / NextDNS | 一行一域，排序去重 |
-| `whitelist.txt` | `@@\|\|d^` 例外 | 误拦截放行 | 一行一域，配合 DNS 列表订阅 |
+| `whitelist.txt` | `@@\|d^` 精确域例外 | 误拦截放行 | 一行一域，不沿子域继承，配合 DNS 列表订阅 |
 | `stats.json` | JSON | 站点 / 调试 | 各分类计数，每次运行刷新 |
 | `badge-*.svg` / `badge-*.json` | 徽章 | README / 站点 | 静态 SVG + shields.io endpoint JSON |
 | `benchmark.json` | JSON | 离线跑分 | 应拦 / 不应拦 / 漏拦覆盖率与总分 |
@@ -101,7 +101,8 @@ flowchart LR
 | `$badfilter` | 失效指令 | 剔除目标 | 剔除目标 | 剔除目标 | 剔除目标 |
 | 裸域名 `d` / `*.d` / `0.0.0.0 d` / Pi-hole `(^\|\.)d$`、`^d$` | 纯域名 | ✓ | ✓ | ✓ | — |
 | `##` `#@#` `#?#` `#$#` `#%#` `#@$#` `#@%#` `#@?#` `#@$?#` `##+js()` `#%#//scriptlet()` `$$` `$@$` | 元素隐藏 / 注入 | ✓ | — | — | — |
-| `@@\|\|d^$document` / `$doc` / `$important` | DNS 相关例外 | ✓ | ✓ | 域名移出 | ✓ |
+| `@@\|\|d^$important` | DNS 相关例外 | ✓ | ✓ | 域名移出 | ✓ |
+| `@@\|\|d^$document` / `$doc` | 浏览器例外（内容类型） | ✓ | — | — | — |
 | `@@\|\|d^$script` 等其他例外 | 浏览器例外 | ✓ | — | — | — |
 | 裸 `@@\|\|d^`（无修饰符） | 丢弃 | — | — | — | — |
 | `!#include` / `!#if` 等预处理 | 丢弃 | — | — | — | — |
@@ -126,10 +127,11 @@ flowchart LR
 | 触发 | 引擎动作 | 原因 |
 |---|---|---|
 | 裸整域例外 `@@\|\|d^` | 直接删除 | 会全盘架空该域的拦截，是"订阅了却拦不住"的首要原因（实测 314 条中 25 个域被打穿） |
-| `@@` 与 `\|\|d^` 冲突 | 例外优先；唯 `\|\|d^$important` 可压过**普通**例外；带 `$important` 的例外仍赢 | 与各客户端仲裁一致 |
-| DNS 相关例外命中 | 该域名从 all.txt 域名块、hosts、domains 中一并移除，并写入白名单 | 避免"声明放行却仍在拦" |
-| DNS 白名单输出 | 上游的 `@@\|\|d^$document` 归一为裸 `@@\|\|d^`（带 `$important` 的保留后缀） | `$document` 是浏览器内容类型，DNS 端不兑现，照抄会让白名单静默失效 |
-| 父域已被拦 | 子域折叠；被折叠的 `$important` 子域把优先级**沿祖先链**提升到最近的保留祖先 | 否则 important 会被上游带修饰符的 `@@` 反杀 |
+| `@@` 与 `\|\|d^` 冲突 | 浏览器层：例外优先（客户端自仲裁）；DNS 层：只有 `$important` 例外能移出该域 | `$document` / `$doc` 是内容类型，只放行页面文档，不能升级为整域 DNS 放行 |
+| DNS 例外命中（`@@\|\|d^$important`） | **只**从 hosts、domains、adguard 中移除该域本身（精确匹配，不沿子域继承）并写入白名单；all.txt 保留 `\|\|d^`，由客户端用同文件里的 `@@` 原文仲裁 | 两层各算各的：浏览器端 `$document` 本就是整站放行，DNS 端没有内容类型概念，不剔域会"声明放行却仍在拦" |
+| `@@\|\|d^$document` / `$doc` | 只原样进 all.txt；不剔 DNS 域、不进白名单 | 内容类型属浏览器语义，升级成整域 DNS 放行会连带放开同域接口 / 图片 |
+| DNS 白名单输出 | 只输出 `@@\|d^$important`（单竖线精确锚点） | 用 `\|\|` 会连带子域，等于把整站放行；单竖线只匹配该主机名，与 hosts / domains 的精确剔除口径一致 |
+| 父域已被拦 | 子域折叠；被折叠子域的 `$important` **不**向父域提升，父域保持裸 `\|\|d^` | 提升会把整域升级为 important 拦截，连带压过上游针对兄弟子域的 `@@` 例外 |
 | 已有 `\|\|d^` / `\|\|d^$important` | 同域纯类型窄规则 `\|\|d^$script` 等删除（拦截结果不变，省体积） | 见下方红线 |
 | 域名含全数字 label（如 `9.9.9.9` 段） | 不折叠、不消解 | IP 段在 AdBlock 语义里有歧义，保守保留 |
 | `$badfilter` 命中 | 目标规则从**全部**产物剔除 | 上游用来撤回错误规则的通用机制 |
@@ -142,7 +144,7 @@ flowchart LR
 |---|---|---|
 | `\|\|d^$third-party` | 同站请求、无 Referer 时不触发；本项目测试明令禁止 | 纯追踪域用 `\|\|d^$important` |
 | `\|\|d^$script` 指望 DNS 生效 | 只进 `all.txt`，adguard / hosts / domains 都不含 | DNS 场景用 `\|\|d^` |
-| 裸 `@@\|\|d^` 想放行 | 会被"裸例外清理"删除，不是放行 | 写 `@@\|\|d^$document`，或带路径收窄 |
+| 裸 `@@\|\|d^` 想放行 | 会被"裸例外清理"删除，不是放行 | 浏览器端写 `@@\|\|d^$document`；DNS 端要放行必须 `@@\|\|d^$important` |
 | `$badfilter` 目标写错 | 语义键必须完全一致（模式 + 修饰符；顺序无关、大小写敏感） | 复制原规则，仅追加 `,badfilter` |
 | 靠 `!#include` 拆文件 | 预处理指令被丢弃，不会展开 | 合并进主源或 `extra_rules` |
 | 在 DNS 产物里找 `##+js()` | 元素隐藏 / 注入只进 `all.txt` | 浏览器扩展专用 |
@@ -171,7 +173,7 @@ flowchart LR
 <summary><b>🚀 自动更新与部署</b></summary>
 
 - 工作流：`.github/workflows/update.yml`（cron `0 0,12 * * *` UTC = 北京 08:00 / 20:00，`TZ=Asia/Shanghai`）
-- 流程：186 项测试 → 下载 23 源 → 合并 → 无变化跳过提交，有变化自动 commit + push → 部署 Pages
+- 流程：196 项测试 → 下载 23 源 → 合并 → 无变化跳过提交，有变化自动 commit + push → 部署 Pages（定时触发且无变化时跳过，push / 手动触发始终部署）
 - 另有两个纯清理 cron（06:00 / 18:00 UTC），只删旧 Actions 历史，保留最新 3 条
 - 输出头部含 `! Last Modified: ... (北京时间 UTC+8)` 与 `! Expires: 12 hours`
 - 徽章 SVG 由引擎每次运行重新生成，数字始终与最新合并一致
@@ -196,7 +198,7 @@ tools/live_benchmark.py        # 真实 Chromium 页面级跑分
 tools/triage_issue.py          # Issue 自动初筛
 docs/index.html                # 在线订阅中心 (GitHub Pages)
 docs/logo.svg                  # Logo
-tests/                         # 186 项测试, 全部无网络
+tests/                         # 196 项测试, 全部无网络
   data/adblock-tester.html     #   adblock-tester 页面快照 (浏览器跑分输入)
   data/mobileproxy-missed.json #   移动端漏拦样本 (proxy 跑分输入)
   test_parsing.py              #   词法分类
@@ -235,7 +237,7 @@ git clone https://github.com/wansheng8/LJGZ.git
 cd LJGZ
 
 python merge_filters.py --test              # 冒烟自检
-python -m unittest discover -s tests         # 186 项测试
+python -m unittest discover -s tests         # 196 项测试
 python merge_filters.py                      # 下载合并 → ./output/
 python benchmark.py --out output/benchmark.json   # 离线覆盖率跑分
 ```
@@ -260,7 +262,7 @@ python benchmark.py --out output/benchmark.json   # 离线覆盖率跑分
 <details>
 <summary><b>为什么 `all.txt` 有 29MB？</b></summary>
 
-全格式包含全部域名（约 56.2 万，子域折叠后约 50 万条）、网络规则、元素隐藏与例外，且不再做域名截断。首次导入较慢，之后按 `! Expires: 12 hours` 增量检查。
+全格式包含全部域名（精确域集合约 56.0 万，子域折叠后约 50.0 万条）、网络规则、元素隐藏与例外，且不再做域名截断。首次导入较慢，之后按 `! Expires: 12 hours` 增量检查。
 
 </details>
 

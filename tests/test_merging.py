@@ -56,12 +56,12 @@ class TestSemanticDedup(unittest.TestCase):
 class TestExceptionProtection(unittest.TestCase):
     def test_dns_relevant_exception_removes_domain_block(self):
         """@@ 例外 → 该域名不进 hosts/domains/adguard 拦截输出, 但进白名单。"""
-        res = merge("||ads.com^", "@@||ads.com^$document")
+        res = merge("||ads.com^", "@@||ads.com^$important")
         self.assertEqual(res.domains, [])
         self.assertEqual(res.hosts, [])
         self.assertEqual(res.adguard_blocks, [])
-        self.assertIn("@@||ads.com^", res.whitelist)
-        self.assertIn("@@||ads.com^$document", res.all_exceptions)
+        self.assertIn("@@||ads.com^$important", res.whitelist)
+        self.assertIn("@@||ads.com^$important", res.all_exceptions)
 
     def test_bare_dns_exception_dropped_but_domain_blocked(self):
         """无修饰符的整域 @@ 例外会被丢弃 (它会在浏览器端架空同域拦截),
@@ -73,25 +73,69 @@ class TestExceptionProtection(unittest.TestCase):
         self.assertEqual(res.all_exceptions, [])
 
     def test_modified_dns_exception_still_removes_domain(self):
-        """带修饰符的例外 (如 $document / $domain=x) 语义明确, 仍按旧逻辑
-        把该域从拦截输出剔除并进白名单。"""
-        res = merge("||ads.com^", "@@||ads.com^$document")
+        """带 $important 的例外是 DNS 侧唯一认可的放行形式, 仍把该域从
+        DNS 拦截输出剔除并进白名单。"""
+        res = merge("||ads.com^", "@@||ads.com^$important")
         self.assertEqual(res.domains, [])
         self.assertEqual(res.hosts, [])
         self.assertEqual(res.adguard_blocks, [])
-        self.assertIn("@@||ads.com^", res.whitelist)
+        self.assertIn("@@||ads.com^$important", res.whitelist)
 
-    def test_whitelist_uses_dns_syntax(self):
-        """白名单按 DNS 可兑现语法输出: $document 归一为裸 @@||d^
-        (AdGuard Home / Pi-hole 不认浏览器内容类型), $important 例外保留后缀。"""
+    def test_whitelist_only_important_exceptions(self):
+        """白名单只收 DNS 可兑现的 $important 例外; $document 属浏览器层,
+        不进白名单。"""
         res = merge("||ads.com^", "@@||ads.com^$document",
                     "@@||ok.com^$important")
-        self.assertIn("@@||ads.com^", res.whitelist)
-        self.assertIn("@@||ok.com^$important", res.whitelist)
+        self.assertNotIn("@@||ads.com^", res.whitelist)
+        self.assertNotIn("@@||ads.com^$document", res.whitelist)
+        self.assertEqual(res.whitelist, ["@@||ok.com^$important"])
+        self.assertIn("ads.com", res.domains)
 
-    def test_important_block_beats_normal_exception(self):
-        """$important 拦截压过普通例外 (上游设计保留): 带 $document 修饰符的
-        例外仍会被 important 拦截盖住, 域名留在拦截输出。"""
+    def test_dns_exception_inherits_to_subdomains(self):
+        """DNS 例外沿子域继承: 父域被例外放行时, 子域拦截一并从 hosts /
+        domains / adguard 剔除。`||d^` 的拦截含子域语义, 例外必须对称 ——
+        否则 hosts 格式没有 @@ 机制, 白名单会被上游仍在拦的子域打败。"""
+        res = merge("||ads.com^", "||sub.ads.com^", "@@||ads.com^$important")
+        self.assertEqual(res.hosts, [])
+        self.assertEqual(res.domains, [])
+        self.assertEqual(res.adguard_blocks, [])
+        self.assertEqual(res.whitelist, ["@@||ads.com^$important"])
+
+    def test_exception_does_not_leak_to_siblings(self):
+        """例外不横向扩散: 放行 ads.com 不影响兄弟域 other.com。"""
+        res = merge("||ads.com^", "||sub.ads.com^", "||other.com^",
+                    "@@||ads.com^$important")
+        self.assertEqual(res.domains, ["other.com"])
+
+    def test_whitelist_anchor_is_double_pipe(self):
+        """白名单必须写 `@@||d^`: 单竖线 `@@|d^` 锚定 URL 开头, 客户端匹配
+        的是 `https://d/...`, 该条会成为死规则 (自家跑分脚本也只认 `@@||d^`)。"""
+        res = merge("||ads.com^", "@@||ads.com^$important")
+        self.assertEqual(res.whitelist, ["@@||ads.com^$important"])
+        self.assertNotIn("@@|ads.com^", res.whitelist)
+
+    def test_browser_layer_ignores_dns_exception(self):
+        """两套裁决: $document 只影响浏览器层 —— all.txt 原样输出 @@ 交给
+        客户端仲裁, DNS 产物照常拦截, 也不产生白名单。"""
+        res = merge("||ads.com^", "@@||ads.com^$document")
+        self.assertIn("||ads.com^", res.all_blocks)
+        self.assertIn("@@||ads.com^$document", res.all_exceptions)
+        self.assertIn("||ads.com^", res.adguard_blocks)
+        self.assertEqual(res.domains, ["ads.com"])
+        self.assertEqual(res.whitelist, [])
+
+    def test_whitelist_takes_only_dns_relevant_exceptions(self):
+        """白名单只由 DNS 层裁决产生: 浏览器专属例外 ($elemhide / $document)
+        不进白名单, 也不剔 DNS 域。"""
+        res = merge("||ads.com^", "@@||ads.com^$elemhide",
+                    "@@||ok.com^$document")
+        self.assertIn("@@||ads.com^$elemhide", res.all_exceptions)
+        self.assertEqual(res.whitelist, [])
+        self.assertIn("ads.com", res.domains)
+
+    def test_important_block_survives_document_exception(self):
+        """$document 不参与 DNS 裁决: 该域即使有 $document 例外, 其
+        $important 拦截仍照常输出到 DNS 产物。"""
         res = merge("||ads.com^$important", "@@||ads.com^$document")
         self.assertIn("||ads.com^$important", res.adguard_blocks)
         self.assertEqual(res.domains, ["ads.com"])
@@ -161,13 +205,13 @@ class TestSubdomainCollapse(unittest.TestCase):
 
 
 class TestBrowserSubdomainCollapse(unittest.TestCase):
-    """浏览器 all.txt 也做子域折叠 + $important 保护 (2026-10 优化)。
+    """浏览器 all.txt 也做子域折叠 (2026-10 优化)。
 
     动机: 折叠原先只作用于 adguard 输出, 浏览器 all_blocks 仍保留 ~9.5k 条
     "父域已覆盖"的冗余子域规则, 订阅体积虚高。折叠语义不变 (||d^ 本就拦
     子域), 拦截能力 0 损失 (不变量: 折叠前后 domains/hosts 精确域集合相同)。
-    顺带修 bug: important 子域折叠进裸父域时, 父域须提升 $important,
-    否则 important 优先级静默丢失。数字 label (IP 段) 保守不折叠。
+    子域的 $important 不向父域提升: 提升会把整域升级成 important 拦截, 连带
+    压过上游针对兄弟子域的例外。数字 label (IP 段) 保守不折叠。
     """
 
     def test_all_blocks_collapse_subdomains(self):
@@ -179,16 +223,16 @@ class TestBrowserSubdomainCollapse(unittest.TestCase):
         self.assertEqual(sorted(res.hosts),
                          ["0.0.0.0 example.com", "0.0.0.0 sub.example.com"])
 
-    def test_important_child_promotes_bare_parent(self):
-        """important 子域折叠 → 父域提升 $important (不能静默降级)。"""
+    def test_important_child_not_promoted_to_parent(self):
+        """important 子域折叠后, 父域保持裸 ||d^ — 不提升 $important。"""
         res = merge("||example.com^", "||sub.example.com^$important")
-        self.assertEqual(res.all_blocks, ["||example.com^$important"])
-        self.assertEqual(res.adguard_blocks, ["||example.com^$important"])
+        self.assertEqual(res.all_blocks, ["||example.com^"])
+        self.assertEqual(res.adguard_blocks, ["||example.com^"])
 
-    def test_chained_important_promotion(self):
-        """链式: a.b.c$important 折叠 → b.c 提升 → c.com 提升。"""
+    def test_chained_important_not_promoted(self):
+        """链式折叠同样不提升: a.b.c$important 折叠掉, c.com 保持裸规则。"""
         res = merge("||c.com^", "||b.c.com^", "||a.b.c.com^$important")
-        self.assertEqual(res.all_blocks, ["||c.com^$important"])
+        self.assertEqual(res.all_blocks, ["||c.com^"])
 
     def test_numeric_label_not_collapsed(self):
         """数字 label 子域 (0.ackzany.com) 保守保留, 不折叠。"""
