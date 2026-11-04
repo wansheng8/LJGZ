@@ -3,11 +3,13 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-11-04 16:25:15 +0800
-! Last Modified: 2026-11-04 16:25:15 +0800 (北京时间 UTC+8)
+! Version: 2026-11-04 16:33:29 +0800
+! Last Modified: 2026-11-04 16:33:29 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 268491
+! Rules: 268493
 
+email.mail.vantagetoursrep.com$image
+email.mail.vantapipeline.com$image
 email.mail.vantaservices.de$image
 email.mail.vantedgegroupai.com$image
 email.mail.vantora.com$image
