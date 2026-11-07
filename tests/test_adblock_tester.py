@@ -111,12 +111,18 @@ class AdblockTesterRulesTest(unittest.TestCase):
                     "规则 %r 含已证伪的写法 %r: %s" % (rule, banned, why))
 
     def test_banner_network_rule_is_unconditional(self):
-        """banner 规则必须无条件拦截: 同域请求不满足 $~third-party。"""
+        """banner 规则必须无条件拦截: 同域请求不满足 $~third-party。
+
+        无条件拦截在三大引擎里可用的写法是 `$important`; AdGuard 另有 `$all`,
+        但 uBO / ABP 不认它, 会把整行当无效规则丢弃。两者都接受, 但必须是其中之一。
+        """
         banner = [r for r in self.rules if "adblock-tester.com/banners" in r]
         self.assertTrue(banner, "缺少 banner 网络拦截规则")
         for r in banner:
-            self.assertIn("$all", r,
-                          "banner 规则 %r 缺 $all, 在同域场景下可能不生效" % r)
+            self.assertTrue(
+                "$important" in r or "$all" in r,
+                "banner 规则 %r 没有无条件修饰符 ($important), "
+                "在同域 / 上游例外场景下会静默失效" % r)
 
     def test_every_cosmetic_selector_matches_real_dom(self):
         """核心回归: 每条 adblock-tester 元素隐藏规则必须真实命中 >=1 个元素。"""

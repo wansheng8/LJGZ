@@ -189,6 +189,47 @@ def _mods_subset_of(mods: str, allowed) -> bool:
     return set(split_mod_tokens(mods.lower())) <= allowed
 
 
+# 上游列表混入的非语义修饰符记号: 任何引擎都不认, 会让客户端把整行当无效
+# 规则丢弃 (拦不住)。它们不承载过滤语义, 去掉后规则回归标准语法:
+#   · `_____`   占位符 (出现在带 denyallow 的规则里)
+#   · `reason=` 人读的原因说明 (malicious / tracker …)
+_NON_SEMANTIC_MOD_TOKENS = {"_____"}
+_NON_SEMANTIC_MOD_PREFIXES = ("reason=",)
+
+
+def _split_mods_raw(mods: str):
+    """按未转义逗号切分, 但保留原文 (含 `\\,` 转义), 便于原样拼回。"""
+    out, buf, i = [], [], 0
+    while i < len(mods):
+        c = mods[i]
+        if c == "\\" and i + 1 < len(mods):
+            buf.append(mods[i:i + 2])
+            i += 2
+            continue
+        if c == ",":
+            out.append("".join(buf))
+            buf = []
+        else:
+            buf.append(c)
+        i += 1
+    if buf:
+        out.append("".join(buf))
+    return out
+
+
+def _sanitize_modifiers(mods: str) -> str:
+    """去掉非语义修饰符; 未命中时原样返回, 不做无谓改写。"""
+    if not mods:
+        return mods
+    parts = _split_mods_raw(mods)
+    keep = [p for p in parts
+            if p.strip().lower() not in _NON_SEMANTIC_MOD_TOKENS
+            and not p.strip().lower().startswith(_NON_SEMANTIC_MOD_PREFIXES)]
+    if len(keep) == len(parts):
+        return mods
+    return ",".join(keep).strip()
+
+
 def _find_cosmetic(s: str) -> Optional[int]:
     """返回最早的元素隐藏/注入分隔符位置; 前缀须是合法域名列表, 否则 None。"""
     best = None
@@ -270,9 +311,27 @@ def _is_dns_pattern(pattern: str) -> bool:
     return bool(_DNS_HOST_MASK_RE.match(p))
 
 
+def _covered(d: str, blocked: Set[str]) -> bool:
+    """d 是否已被"全请求类型"的域名拦截覆盖 (自身或任一祖先在 blocked)。
+
+    `||d^` 的匹配含子域, 所以父域在 blocked 里也算覆盖。
+    """
+    if d in blocked:
+        return True
+    parts = d.split(".")
+    for k in range(1, len(parts)):
+        if ".".join(parts[k:]) in blocked:
+            return True
+    return False
+
+
 def _parse_exception(s: str, source: str = "") -> Rule:
     body = s[2:]
     pattern, mods = _split_modifiers(body)
+    clean = _sanitize_modifiers(mods)
+    if clean != mods:                       # 去掉上游非语义记号, 原文同步改写
+        s = "@@" + pattern + ("$" + clean if clean else "")
+        mods = clean
     dom = _extract_anchor_domain(pattern) if pattern.startswith("||") else ""
     lower_mods = {m.split("=", 1)[0] for m in split_mod_tokens(mods.lower())}
     # DNS 相关: 修饰符为空或仅 $important (client/ctag/dnstype/内容类型
@@ -286,6 +345,10 @@ def _parse_exception(s: str, source: str = "") -> Rule:
 def _parse_single_token(s: str, source: str = "") -> Rule:
     """无空白的规则行: ||锚点 / /regex/ / Pi-hole 正则 / *.域 / 裸域名 / 网络模式。"""
     pattern, mods = _split_modifiers(s)
+    clean = _sanitize_modifiers(mods)
+    if clean != mods:                       # 去掉上游非语义记号, 原文同步改写
+        s = pattern + ("$" + clean if clean else "")
+        mods = clean
     lower_mods = {m.split("=", 1)[0] for m in split_mod_tokens(mods.lower())}
 
     # Pi-hole 正则形状 → 等价域名 (子域含本身, ≡ ||domain^)
@@ -513,24 +576,35 @@ class Merger:
 
         items: [(domain, important, canon)] (finalize 的 survive 列表)。
         返回 kept — 未被折叠的条目 (IP 数字 label 保护, 不折叠; 折叠关闭时
-        全保留)。被祖先已拦的子域冗余, 直接折叠掉; 子域的 $important 不向
-        父域提升 —— 提升会把整域升级成 important 拦截, 连带压过上游针对兄弟
-        子域的例外。
+        全保留)。
+
+        折叠判据必须保住 `$important`: 子域被父域覆盖时, 只有父域链上存在
+        同等强度的拦截 (父域也带 $important) 才能丢; 否则丢掉子域的
+        `$important` 会让上游 `@@` 例外重新盖住它 ——
+        test_safe_tracking_domains 的前提就是"只有 $important 能压过例外"。
+        子域的 $important 仍不向父域提升 (提升会连带压过兄弟子域的例外),
+        只保留子域自身那条。
         """
-        enabled = self.collapse
-        blocked = {d for d, _, _ in items}
+        if not self.collapse:
+            return list(items)
+        blocked_any = {d for d, _, _ in items}
+        blocked_imp = {d for d, imp, _ in items if imp}
         kept = []
         for d, imp, canon in items:
-            if enabled and not self._has_numeric_label(d):
-                parts = d.split(".")
-                for k in range(1, len(parts)):
-                    anc = ".".join(parts[k:])
-                    if anc in blocked:
-                        break
-                else:                                # 无祖先被拦 → 保留
-                    kept.append((d, imp, canon))
+            if self._has_numeric_label(d):
+                kept.append((d, imp, canon))
                 continue
-            kept.append((d, imp, canon))
+            parts = d.split(".")
+            folded = False
+            for k in range(1, len(parts)):
+                anc = ".".join(parts[k:])
+                # 子域非 important: 父域任意拦截都已覆盖; 子域 important:
+                # 必须父域拦截也带 $important 才算覆盖。
+                if anc in blocked_imp or (not imp and anc in blocked_any):
+                    folded = True
+                    break
+            if not folded:
+                kept.append((d, imp, canon))
         return kept
 
     def _subsume_type_rules(self, candidates: List[str],
@@ -570,6 +644,42 @@ class Merger:
         return keep
 
     # -- 收敛 ------------------------------------------------------------
+    def _all_mirrors(self, items, net_candidates):
+        """`$all` 兼容镜像: AdGuard 专有修饰符 → 跨引擎等价规则。
+
+        `$all` 只有 AdGuard 认; uBO / ABP 会把整行判为无效并丢弃。镜像就是
+        "去掉 $all 的同一规则": 无类型修饰符即全请求类型, 与 $all 强度相同,
+        但**不用 $important** —— 不提高优先级, 站点自己的 `@@` 仍可放行。
+
+        纯域形态 `||d^$all` 只在该域尚无其它全类型拦截时才补 (否则上千条
+        冗余); 路径/正则/带 `domain=` 等复合形态按原式去 $all 补一条。
+
+        返回 (域名镜像, 网络镜像)。
+        """
+        blocked = {d for d, _, _ in items}
+        dom_mirrors = []
+        net_mirrors = []
+        for raw in net_candidates:
+            pattern, mods = _split_modifiers(raw)
+            toks = _split_mods_raw(mods)
+            keys = {t.split("=", 1)[0].strip().lower() for t in toks}
+            if "all" not in keys or "badfilter" in keys:
+                continue
+            rest = [t for t in toks
+                    if t.split("=", 1)[0].strip().lower() != "all"]
+            body = ",".join(rest).strip()
+            m = _ANCHOR_RE.match(pattern)
+            if m and not body:
+                d = norm_domain(m.group(1))
+                if (_is_domain(d) and not self._has_numeric_label(d)
+                        and not _covered(d, blocked)):
+                    dom_mirrors.append((d, False, "||{}^".format(d)))
+                continue
+            mirror = pattern + ("$" + body if body else "")
+            if mirror != raw:
+                net_mirrors.append(mirror)
+        return dom_mirrors, net_mirrors
+
     def finalize(self) -> MergeResult:
         res = MergeResult()
         bad = self._badfilter_targets
@@ -618,6 +728,13 @@ class Merger:
                 continue
             items.append((d, imp, canon))
 
+        # `$all` 兼容镜像 (见 _all_mirrors): 域镜像在折叠 / DNS 例外 / hosts
+        # 裁决之前并入, 与普通拦截走同一条流水线; 网络镜像在消解之后追加
+        # (它们带独立 pattern, 不在域名集合里)。
+        dom_mirrors, net_mirrors = self._all_mirrors(items, net_candidates)
+        items.extend(dom_mirrors)
+        items.sort()
+
         # DNS 输出裁决 (只看 DNS 层, 浏览器层不引用): 命中 $important 例外
         # 的域从 hosts / domains / adguard 剔除。结果只影响 DNS 产物。
         # 裁决沿祖先链继承: `||d^` 的拦截本身含子域语义, 例外必须对称地覆盖
@@ -651,6 +768,16 @@ class Merger:
         res.all_network = self._subsume_type_rules(net_candidates,
                                                    browser_items)
 
+        # `$all` 网络镜像 (路径/正则/带 domain= 的复合形态): 只在没有同式
+        # 规则时追加, 避免重复。
+        net_added = 0
+        if net_mirrors:
+            existing = set(res.all_network)
+            add = sorted(set(net_mirrors) - existing)
+            net_added = len(add)
+            if add:
+                res.all_network = sorted(res.all_network + add)
+
         # hosts / domains: 精确匹配语义, 保留子域 (不折叠), 排序
         res.domains = [d for d, _, _ in survive]
         res.hosts = ["0.0.0.0 " + d for d, _, _ in survive]
@@ -680,6 +807,7 @@ class Merger:
             "dropped": self._stats_dropped,
             "dropped_bare_exceptions": bare_whole_domain,
             "subsumed_type_rules": self._subsumed_count,
+            "all_compat_mirrors": len(dom_mirrors) + net_added,
         }
         return res
 

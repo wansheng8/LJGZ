@@ -68,7 +68,7 @@ flowchart LR
 | ③ 合并 | `Merger` | 精确去重 + 修饰符排序后语义去重，`$badfilter` 失效，`@@` 例外保护 |
 | ④ 仲裁 | `finalize()` | 子域折叠、同域 type 规则消解、DNS 能力筛选 |
 | ⑤ 输出 | `write_outputs()` | 5 种格式、stats.json、徽章 SVG |
-| ⑥ 发布 | `update.yml` | 201 项测试 → 合并 → 跑分（非阻断）→ 无变化跳过提交（定时跳过部署）→ commit/push → 部署 Pages |
+| ⑥ 发布 | `update.yml` | 206 项测试 → 合并 → 跑分（非阻断）→ 无变化跳过提交（定时跳过部署）→ commit/push → 部署 Pages |
 
 ## 产物
 
@@ -152,6 +152,7 @@ flowchart LR
 | 裸 `@@\|\|d^` 想放行 | 会被"裸例外清理"删除，不是放行 | 浏览器端写 `@@\|\|d^$document`；DNS 端要放行必须 `@@\|\|d^$important` |
 | `$badfilter` 目标写错 | 语义键必须完全一致（模式 + 修饰符；顺序无关、大小写敏感） | 复制原规则，仅追加 `,badfilter` |
 | 靠 `!#include` 拆文件 | 预处理指令被丢弃，不会展开 | 合并进主源或 `extra_rules` |
+| `$all` 以为全引擎生效 | AdGuard 专有；uBO / ABP 不认识该 token，会把**整行**判为无效丢弃 | 合并器自动补一条"去掉 `$all`"的等价镜像（不升级成 `$important`，站点 `@@` 仍可放行），上游原行保持不变 |
 | 在 DNS 产物里找 `##+js()` | 元素隐藏 / 注入只进 `all.txt` | 浏览器扩展专用 |
 | 自定义 Pi-hole 正则 `^ads\d+\.` | 非两种标准形状 → 当网络规则，DNS 不生效 | 用 `\|\|d^` 或纯域名 |
 | `$removeparam` / `$cookie` / `$csp` | 保留在 `all.txt`，但 DNS / hosts 无法兑现 | 浏览器扩展专用 |
@@ -171,14 +172,14 @@ flowchart LR
 - **scriptlet 强校验** — 必须形如 `<域名>##+js(<内置名>, <参数>)` 或 `#%#//scriptlet(...)`；校验域名合法性、括号配对、scriptlet 名称非空。任一失败直接 `ValueError`，CI 阻断发布。订阅只能调用客户端内置 scriptlet，无法下发任意 JS。
 - **源下载** — 23 个上游全部成功才发布；4xx 不重试，网络错误指数退避重试。
 - **分卷** — 按行累积切卷，阈值 18,000,000 字节并预留 4096 字节头部余量，保证单卷不超过 18MB；每卷自带完整头部与 `[Adblock Plus 2.0]`，多卷全订阅 == 完整 `all.txt`，用于受限客户端；每轮清理过期分卷。
-- **自检** — `python merge_filters.py --test` 跑内置冒烟用例；`python -m unittest discover -s tests` 跑 201 项离线测试。
+- **自检** — `python merge_filters.py --test` 跑内置冒烟用例；`python -m unittest discover -s tests` 跑 206 项离线测试。
 - **零依赖** — 纯 stdlib 单文件，`python merge_filters.py` 即跑。
 
 <details>
 <summary><b>🚀 自动更新与部署</b></summary>
 
 - 工作流：`.github/workflows/update.yml`（cron `0 0 * * *` + `0 12 * * *` UTC = 北京 08:00 / 20:00，`TZ=Asia/Shanghai`）
-- 流程：201 项测试 → 下载 23 源 → 合并 → 无变化跳过提交，有变化自动 commit + push → 部署 Pages（定时触发且无变化时跳过，push / 手动触发始终部署）
+- 流程：206 项测试 → 下载 23 源 → 合并 → 无变化跳过提交，有变化自动 commit + push → 部署 Pages（定时触发且无变化时跳过，push / 手动触发始终部署）
 - 另有两个纯清理 cron（06:00 / 18:00 UTC），只删旧 Actions 历史，保留最新 3 条
 - 输出头部含 `! Last Modified: ... (北京时间 UTC+8)` 与 `! Expires: 12 hours`
 - 徽章 SVG 由引擎每次运行重新生成，数字始终与最新合并一致
@@ -203,7 +204,7 @@ tools/live_benchmark.py        # 真实 Chromium 页面级跑分
 tools/triage_issue.py          # Issue 自动初筛
 docs/index.html                # 在线订阅中心 (GitHub Pages)
 docs/logo.svg                  # Logo
-tests/                         # 201 项测试, 全部无网络
+tests/                         # 206 项测试, 全部无网络
   data/adblock-tester.html     #   adblock-tester 页面快照 (浏览器跑分输入)
   data/mobileproxy-missed.json #   移动端漏拦样本 (proxy 跑分输入)
   test_parsing.py              #   词法分类
@@ -242,7 +243,7 @@ git clone https://github.com/wansheng8/LJGZ.git
 cd LJGZ
 
 python merge_filters.py --test              # 冒烟自检
-python -m unittest discover -s tests         # 201 项测试
+python -m unittest discover -s tests         # 206 项测试
 python merge_filters.py                      # 下载合并 → ./output/
 python benchmark.py --out output/benchmark.json   # 离线覆盖率跑分
 ```

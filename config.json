@@ -122,7 +122,7 @@
   ],
   "scriptlet_file": "scriptlets/custom.txt",
   "extra_rules": [
-    "||adblock-tester.com/banners/$all",
+    "||adblock-tester.com/banners/$important",
     "||ymatuhin.ru^$important",
     "adblock-tester.com##.include",
     "adblock-tester.com##.includeWrapper",
@@ -253,18 +253,6 @@
     "###cky-consent",
     "###iubenda-cs-container",
     "##.consent-banner",
-    "##.cookie-wall",
-    "##[width=\"336\"][height=\"280\"]",
-    "##[width=\"120\"][height=\"600\"]",
-    "##[width=\"250\"][height=\"250\"]",
-    "##[width=\"468\"][height=\"60\"]",
-    "##[width=\"970\"][height=\"90\"]",
-    "##[width=\"320\"][height=\"100\"]",
-    "##[width=\"320\"][height=\"50\"]",
-    "##[width=\"970\"][height=\"250\"]",
-    "##[width=\"300\"][height=\"600\"]",
-    "##[width=\"160\"][height=\"600\"]",
-    "##[width=\"300\"][height=\"250\"]",
-    "##[width=\"728\"][height=\"90\"]"
+    "##.cookie-wall"
   ]
 }

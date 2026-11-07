@@ -239,16 +239,27 @@ class TestBrowserSubdomainCollapse(unittest.TestCase):
         self.assertEqual(sorted(res.hosts),
                          ["0.0.0.0 example.com", "0.0.0.0 sub.example.com"])
 
-    def test_important_child_not_promoted_to_parent(self):
-        """important 子域折叠后, 父域保持裸 ||d^ — 不提升 $important。"""
-        res = merge("||example.com^", "||sub.example.com^$important")
-        self.assertEqual(res.all_blocks, ["||example.com^"])
-        self.assertEqual(res.adguard_blocks, ["||example.com^"])
+    def test_important_child_kept_when_parent_is_plain(self):
+        """父域只是裸 ||d^ 时, 子域的 $important 必须保留 (不提升、也不丢)。
 
-    def test_chained_important_not_promoted(self):
-        """链式折叠同样不提升: a.b.c$important 折叠掉, c.com 保持裸规则。"""
+        丢掉子域那条 = 失去 $important, 上游任何 `@@` 例外都能重新盖住;
+        保留它则拦截强度不变, 只是多一行。
+        """
+        res = merge("||example.com^", "||sub.example.com^$important")
+        self.assertEqual(sorted(res.all_blocks),
+                         ["||example.com^", "||sub.example.com^$important"])
+        self.assertEqual(sorted(res.adguard_blocks),
+                         ["||example.com^", "||sub.example.com^$important"])
+
+    def test_important_child_folded_into_important_parent(self):
+        """父域同样是 $important 时强度等价, 子域才可折叠 (且不提升语义)。"""
+        res = merge("||example.com^$important", "||sub.example.com^$important")
+        self.assertEqual(res.all_blocks, ["||example.com^$important"])
+
+    def test_chained_important_kept_when_chain_is_plain(self):
+        """链式: a.b.c.com$important 的祖先链没有 important → 保留。"""
         res = merge("||c.com^", "||b.c.com^", "||a.b.c.com^$important")
-        self.assertEqual(res.all_blocks, ["||c.com^"])
+        self.assertEqual(res.all_blocks, ["||a.b.c.com^$important", "||c.com^"])
 
     def test_numeric_label_not_collapsed(self):
         """数字 label 子域 (0.ackzany.com) 保守保留, 不折叠。"""
@@ -318,6 +329,38 @@ class TestTypeRuleSubsumption(unittest.TestCase):
         """$all 平台修饰符 (含 adguard) 不匹配裸 ||d^ 语义, 保留。"""
         res = merge("||ads.com^", "||ads.com^$all")
         self.assertEqual(res.all_network, ["||ads.com^$all"])
+
+    def test_all_modifier_mirrored_as_plain_domain_rule(self):
+        """$all 只有 AdGuard 认; uBO/ABP 会丢整行 → 补裸 ||d^ 镜像。
+
+        镜像不用 $important: 强度与 $all 相同 (全请求类型), 但站点 `@@`
+        仍可放行, 不抬高优先级。
+        """
+        res = merge("||ads.com^$all")
+        self.assertEqual(res.all_blocks, ["||ads.com^"])       # 跨引擎可用的镜像
+        self.assertEqual(res.all_network, ["||ads.com^$all"])  # AdGuard 原规则
+        self.assertEqual(res.domains, ["ads.com"])
+        self.assertEqual(res.stats["all_compat_mirrors"], 1)
+
+    def test_all_mirror_skipped_when_domain_already_blocked(self):
+        """该域已有全类型拦截时不补镜像, 避免上千条冗余。"""
+        res = merge("||ads.com^", "||ads.com^$all")
+        self.assertEqual(res.all_blocks, ["||ads.com^"])
+        self.assertEqual(res.stats["all_compat_mirrors"], 0)
+
+    def test_all_mirror_skipped_when_ancestor_blocks(self):
+        """父域已拦 → 子域的 $all 由父域覆盖, 不补镜像。"""
+        res = merge("||ads.com^", "||x.ads.com^$all")
+        self.assertEqual(res.all_blocks, ["||ads.com^"])
+        self.assertEqual(res.stats["all_compat_mirrors"], 0)
+
+    def test_path_all_rule_mirrored_without_important(self):
+        """路径形态 $all 按原式去 $all 补镜像 (不扩到整域, 不抬优先级)。"""
+        res = merge("||example.com/ad.js$all")
+        self.assertEqual(sorted(res.all_network),
+                         ["||example.com/ad.js", "||example.com/ad.js$all"])
+        self.assertNotIn("$important", "".join(res.all_network))
+        self.assertEqual(res.stats["all_compat_mirrors"], 1)
 
     def test_numeric_label_skipped(self):
         """数字 label 窄规则保守保留, 不消解。"""
