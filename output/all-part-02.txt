@@ -3,11 +3,44 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-11-08 13:06:43 +0800
-! Last Modified: 2026-11-08 13:06:43 +0800 (北京时间 UTC+8)
+! Version: 2026-11-08 21:12:15 +0800
+! Last Modified: 2026-11-08 21:12:15 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 311002
+! Rules: 311047
 
+email.lc.tracieroot.com$image
+email.lc.tracinginmotion.be$image
+email.lc.trackmo.app$image
+email.lc.tracpallc.com$image
+email.lc.tracyannwood.com$image
+email.lc.tracycornell.com$image
+email.lc.tracyishealthyish.shop$image
+email.lc.tracymurphrey.com$image
+email.lc.trade-booster.com$image
+email.lc.tradecopia.com$image
+email.lc.tradeplanet.us$image
+email.lc.trader-entrepreneur.fr$image
+email.lc.tradesfreedomclub.com$image
+email.lc.tradetechroofing.co.uk$image
+email.lc.tradeunderfloor.co.uk$image
+email.lc.tradewinsvip.com$image
+email.lc.tradeyalgorithms.com$image
+email.lc.tradingeducationou.com$image
+email.lc.tradingscientifico.academy$image
+email.lc.tradzillatattoos.com$image
+email.lc.trafegon.com.br$image
+email.lc.traidtech.com$image
+email.lc.traineatseaboardstation.com$image
+email.lc.trainingbetweentheears.com$image
+email.lc.trainwithlov.net$image
+email.lc.tramitescarames.com$image
+email.lc.trangroupre.com$image
+email.lc.tranquiltherapyjc.com$image
+email.lc.transaction.drmaggieyu.com$image
+email.lc.transactionflow.com$image
+email.lc.transactions.drmaggieyu.com$image
+email.lc.transcendencecoaching.ca$image
+email.lc.transcendentglobal.com$image
 email.lc.transendability.com$image
 email.lc.transfermanagerconsulting.com$image
 email.lc.transformandomentesmillonarias.com$image
@@ -173314,6 +173347,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||steamprices.com/analytics^
 ||steamproxy.$all,to=steamproxy.cc|steamproxy.net|steamproxy.vip
 ||steamproxy.$to=steamproxy.cc|steamproxy.net|steamproxy.vip
+||stearndb.info^$all
 ||steelcn.cn/img/bj_*_146_315.jpg
 ||steelseries.com/static/css/eu-osano.
 ||steepto.com/g/$image,redirect=nooptext,domain=a2zapk.dev
@@ -173838,6 +173872,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||synccora.com^$popup
 ||syncedvision.com^$popup
 ||synchrobox.adswizz.com/register2.php$script,domain=player.amperwave.net,important
+||syncly-whatsapp.com^$doc
 ||syncwallet.pages.dev^$all
 ||synd.edgecdnc.com^$all
 ||syndication.dynsrvtbg.com^$popup,domain=tnaflix.com
@@ -173859,10 +173894,16 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||sypost.net/track/Images/20250617.jpg
 ||syri.net/marketing/a.php?
 ||sys000.uid.me/canalyzer/
+||sysbox-whatsapp.com^$doc
 ||sysclt.banggood.com/collectException
 ||syseen.com/content/uploadfile/*/hongbao.png
+||syshub-whatsapp.com^$doc
 ||sysin.org/img/promotion-
+||syskit-whatsapp.com^$doc
+||syslab-whatsapp.com^$doc
 ||syslab.ru/cnt/$third-party
+||sysnet-whatsapp.com^$doc
+||syspro-whatsapp.com^$doc
 ||system-update-new-2021.com^$all
 ||systeme-business.online^$popup
 ||systeme.io^$third-party
@@ -174176,6 +174217,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||techiteration.com^$popup
 ||techkalauz.hu/app/uploads/*/*LSZ_ONLINE*.jpg
 ||techlore.tech/public/ghost-stats.min.js
+||techly-whatsapp.com^$doc
 ||techno-science.net/outils/serviceLoc.php?
 ||technologynetworks.com/ApprovedGuid/
 ||technolutions.net/ping?
@@ -224281,7 +224323,7 @@ additivemanufacturing.media,compositesworld.com,ptonline.com##.DisplayBar
 additudemag.com##.signup-global
 additudemag.com,organicfacts.net,vinepair.com##.header-ad
 addmusictophoto.com#?#h6:contains(/^Advertisement$/)
-addnoise.nl,alpha-buch.de,andelprerov.cz,annualreviews.org,armesbastille.com,casino.org,cdobrianza.it,cdobrianza.org,cesnet.cz,chimeratool.com,comune.roma.it,correiodoestado.com.br,crossref.org,einforma.co,engelsbergideas.com,eshop.efko.cz,fabricmill.com,goodtravel.de,granta.com,gruppovideomedia.it,gsi-one.org,hofer.it,ilbracere.com,ilgiardinodeilibri.it,islambook.com,jagledam.com,knowablemagazine.org,lockheedmartin.com,macrosad.com,marketingtribune.nl,megasport.co.il,milescorts.es,ods.cz,paracadutistirimini.com,pc-facile.com,poruba.ostrava.cz,promptamcs.com,querstarter.de,quesoslomogallego.com,rareseeds.com,ryxy.online,searchenginewatch.com,sharkrobot.com,shinden.pl,sklep.stamarpoznan.pl,svpressa.ru,szegedsport.hu,tirol-infos.at,trwalamotywacja.pl,werkenbijwestcord.nl###cookie-bar
+addnoise.nl,alpha-buch.de,andelprerov.cz,annualreviews.org,armesbastille.com,casino.org,cdobrianza.it,cdobrianza.org,cesnet.cz,chimeratool.com,comune.roma.it,correiodoestado.com.br,crossref.org,einforma.co,engelsbergideas.com,eshop.efko.cz,fabricmill.com,goodtravel.de,granta.com,gruppovideomedia.it,gsi-one.org,hofer.it,ilbracere.com,ilgiardinodeilibri.it,islambook.com,jagledam.*,knowablemagazine.org,lockheedmartin.com,macrosad.com,marketingtribune.nl,megasport.co.il,milescorts.es,ods.cz,paracadutistirimini.com,pc-facile.com,poruba.ostrava.cz,promptamcs.com,querstarter.de,quesoslomogallego.com,rareseeds.com,ryxy.online,searchenginewatch.com,sharkrobot.com,shinden.pl,sklep.stamarpoznan.pl,svpressa.ru,szegedsport.hu,tirol-infos.at,trwalamotywacja.pl,werkenbijwestcord.nl###cookie-bar
 addons.mozilla.org#%#//scriptlet('href-sanitizer', 'a[href^="https://prod.outgoing.prod.webservices.mozgcp.net/"]:not([title]')
 addons.mozilla.org#%#//scriptlet('href-sanitizer', 'a[href^="https://prod.outgoing.prod.webservices.mozgcp.net/"][title]', '[title]')
 addons.opera.com###overlay
@@ -275310,6 +275352,7 @@ producthunt.com##article:has(img[alt="Promoted"])
 producthunt.com##div.cursor-pointer.overflow-hidden:has(> img.object-contain)
 producthunt.com##div.my-4.flex-1.rounded-md.border-2.border-gray-200
 producthunt.com##div.rounded-lg.bg-gray-50.p-3
+producthunt.com##div:has(> div.-mt-px.justify-end.pr-4)
 producthunt.com##div[class="my-2 flex cursor-pointer flex-row items-center gap-4 rounded-lg bg-gray-50 p-3"]:has(a[href="/sponsor"])
 producthunt.com##div[class="my-2 flex cursor-pointer flex-row items-center gap-4 rounded-lg bg-gray-50 p-3"]:has(img[src="/i/33b26ee8f2668842e38841253cfde42aa203585e395ff731f21aebffbb38c8e5"])
 producthunt.com##div[class="my-2 flex cursor-pointer flex-row items-center gap-4 rounded-lg bg-gray-50 p-3"]:has(img[src^="/i/"])
@@ -275321,6 +275364,7 @@ producthunt.com##div[data-test] > section:has(img[src="/i/299a62819c7092e196f7fc
 producthunt.com##div[data-test]:not([data-test^="homepage-section-"]) > section[data-test^="post-item-"]
 producthunt.com##div[data-test^="ad-slot"]
 producthunt.com##div[data-test^="ad-slot-"]
+producthunt.com##li:has(> div.relative.isolate.grid img[alt="Promoted"])
 producthunt.com##main > div:has(> div.-mt-px.justify-end.pr-4)
 producthunt.com##main > div[data-sentry-component="Ad"]
 producthunt.com##section.group + div > section.group
@@ -275330,7 +275374,7 @@ producthunt.com#?#.cursor-pointer:has-text(Promoted)
 producthunt.com#?#.layoutSidebar div[class^="styles_item"]:has(> div > img + div.flex > div.flex > a[href="/sponsor"])
 producthunt.com#?#.text-12:contains(Promoted)
 producthunt.com#?#.text-12:has-text(Promoted)
-producthunt.com#?#[data-test^="homepage-section-"] > section[data-container]:xpath(self::*[not(contains("0123456789", substring(normalize-space(.),1,1)))])
+producthunt.com#?#[data-test^="homepage-section-"] > section[data-container]:xpath(self::*[.//img[@alt="Promoted"]/@src != //div[starts-with(@data-test,"homepage-section-")]/section[@data-container][substring(normalize-space(.),1,1) != ""][contains("0123456789", substring(normalize-space(.),1,1))]//img[@alt="Promoted"]/@src])
 producthunt.com#?#article:contains(Promoted)
 producthunt.com#?#article:has-text(Promoted)
 producthunt.com#?#div[class*="style_direction-row__"]:has(a[href="/sponsor"])
@@ -295737,6 +295781,7 @@ x.com##.rn-gvpnoh.rn-eps6nq.rn-13qz1uu
 x.com##.toast.client_prompt
 x.com##.u12-data-protection-notice
 x.com##[data-reactroot] > [class] + [class]:last-child
+x.com##[id^="urt"]>ul>li:has([class*="data-ad-disclosure"])
 x.com##header[role="banner"] > ._3oxnid3o._3f2NsD-H
 x.com#%#//scriptlet('prevent-fetch', '/i/api/1.1/flow/viewer.json')
 x.com#?#.css-175oi2r.r-12vffkv[style^="position: absolute; bottom: 0px; width: 100%;"]:has-text(data protection)
