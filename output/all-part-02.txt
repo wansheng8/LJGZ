@@ -3,200 +3,11 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-11-08 05:22:58 +0800
-! Last Modified: 2026-11-08 05:22:58 +0800 (北京时间 UTC+8)
+! Version: 2026-11-08 13:06:43 +0800
+! Last Modified: 2026-11-08 13:06:43 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 311180
+! Rules: 311002
 
-email.lc.thrive360affiliates.com$image
-email.lc.thrivecoachings.com$image
-email.lc.thrivemdhealth.com$image
-email.lc.thriveover45.info$image
-email.lc.thriver.finance$image
-email.lc.thrivespineandsportsrehab.com$image
-email.lc.thrivevive.com$image
-email.lc.thunderroadcafe.com$image
-email.lc.thynk-solutions.com$image
-email.lc.thynkit.io$image
-email.lc.thyroidrevivalmethod.com$image
-email.lc.tiago-alves.com$image
-email.lc.ticesautomotive.com$image
-email.lc.tickertapeusa.com$image
-email.lc.ticketingforless.com$image
-email.lc.tickets99.com.au$image
-email.lc.tidalchiro.com$image
-email.lc.tidaltouchcleaning.com$image
-email.lc.tidalweb.com$image
-email.lc.tideandtimber-mo.com$image
-email.lc.tiedfw.com$image
-email.lc.tieronedigital.net$image
-email.lc.tifdancfit.com$image
-email.lc.tiffannielindskognotary.com$image
-email.lc.tiffany-lay.com$image
-email.lc.tiffanybethmann.smartside.ca$image
-email.lc.tiffanygdigitals.com$image
-email.lc.tiffanythompsonnotary.com$image
-email.lc.tiiasocials.com$image
-email.lc.tikiacaldwellnotary.com$image
-email.lc.tiklaunch.co$image
-email.lc.tilewrightbathconversion.com$image
-email.lc.timberlakefirearms.com$image
-email.lc.timberninjatreeservicellc.com$image
-email.lc.timblinfinancial.com$image
-email.lc.time2pivot.com$image
-email.lc.timelenders.com$image
-email.lc.timelessbeauty.com.mx$image
-email.lc.timessquaretx.com$image
-email.lc.timmcneely.com$image
-email.lc.timoteja-petrovic.com$image
-email.lc.timthack.com$image
-email.lc.tinahaskim.biz$image
-email.lc.tinascakeswithcharacter.com$image
-email.lc.tinkkitaura.com$image
-email.lc.tintbiz.com$image
-email.lc.tiny-domo.de$image
-email.lc.tinygirlbigshow.com$image
-email.lc.tinytunesteaching.com$image
-email.lc.tiredteachersboutique.com$image
-email.lc.tiroconarcolima.com$image
-email.lc.titandepot.co.uk$image
-email.lc.titanium-industrial.com$image
-email.lc.titaniumharley.com$image
-email.lc.titanlandco.com$image
-email.lc.titanoc.com$image
-email.lc.titanplumbingandelectric.com$image
-email.lc.titiclinicpromos.com$image
-email.lc.tjs16media.com$image
-email.lc.tkainnovativegroupllc.com$image
-email.lc.tkcontracting.net$image
-email.lc.tkotimeshares.com$image
-email.lc.tl-roofing.smartside.ca$image
-email.lc.tlaailab.com$image
-email.lc.tlncglobal.com$image
-email.lc.tlrdistro.com$image
-email.lc.tlsweb.net$image
-email.lc.tmillerhealth.com$image
-email.lc.tmkitchens.com$image
-email.lc.tmlending.ca$image
-email.lc.tmpharmacyconsulting.com$image
-email.lc.tmrconsultinggroup.com$image
-email.lc.tmwagen.com$image
-email.lc.tnbwscorp.com$image
-email.lc.tngconsultants.com$image
-email.lc.tnmsgsndr.com$image
-email.lc.tnthairspa.com$image
-email.lc.tntreecare.com$image
-email.lc.tnvisaexpert.com$image
-email.lc.todaysface.com$image
-email.lc.toddbailey.com$image
-email.lc.todddurkin.com$image
-email.lc.todgomes.com$image
-email.lc.toitsalternatifs.fr$image
-email.lc.tolbertfinancialgroup.com$image
-email.lc.toledanocollection.com$image
-email.lc.tom-lyman.com$image
-email.lc.tombizmerch.com$image
-email.lc.tommay.pl$image
-email.lc.tommyanddesnekka.com$image
-email.lc.tomorrowdoctor.com$image
-email.lc.tomsaitools.com$image
-email.lc.tomsaudioschool.com$image
-email.lc.tomsox.org$image
-email.lc.tomsteam.nl$image
-email.lc.tondadapaura.com$image
-email.lc.tondamckay.com$image
-email.lc.toniamilewski.com$image
-email.lc.tonikwellness.com$image
-email.lc.tonneaucovered.com$image
-email.lc.tonneaufactoryoutlet.com$image
-email.lc.tonsofclients.com$image
-email.lc.tonyaezellnotary.com$image
-email.lc.tonyanichols.com$image
-email.lc.tonygrowth.coach$image
-email.lc.tonymeredithcoaching.com.au$image
-email.lc.tonypolicci.com$image
-email.lc.tonyromaspembina.ca$image
-email.lc.tonythenotary.com$image
-email.lc.tooling.aero$image
-email.lc.toolsforyourbiz.com$image
-email.lc.topagentnation.com$image
-email.lc.topagentsacademy.com$image
-email.lc.topauthoritymarketing.ca$image
-email.lc.topauthoritymarketing.com$image
-email.lc.topclientsllc.com$image
-email.lc.topdogfa.com$image
-email.lc.topfenceusa.com$image
-email.lc.topgeartuningwestmids.co.uk$image
-email.lc.toplinek9az.com$image
-email.lc.topmediamarketing.co.uk$image
-email.lc.topprospectsolutions.com$image
-email.lc.topservedigital.com$image
-email.lc.topshelfplumbingsandy.com$image
-email.lc.topshelftrailers.com$image
-email.lc.toptierfingerprinting.com$image
-email.lc.toptieromb.de$image
-email.lc.toptulsaremodeling.com$image
-email.lc.topucu.com$image
-email.lc.topusalaw.com$image
-email.lc.toritanernotary.com$image
-email.lc.toroshomesolutions.com$image
-email.lc.torquelogicdigital.com$image
-email.lc.torredasletras.com.br$image
-email.lc.torresfutbolperformance.com$image
-email.lc.toshiana.com$image
-email.lc.totalallinonesolutions.com$image
-email.lc.totalbody180.com$image
-email.lc.totalcapture.com.au$image
-email.lc.totalhome365.com$image
-email.lc.totallydigitalmedia.com$image
-email.lc.totalroofingsystem.com$image
-email.lc.toteshelfguy.com$image
-email.lc.tothepointpt.com$image
-email.lc.touchinspiration.com$image
-email.lc.touchofbeautymedispapromos.com$image
-email.lc.touchofhopesheldon.com$image
-email.lc.tourmalinethymequilts.com$image
-email.lc.toveyhomeloans.com$image
-email.lc.towandgonw.com$image
-email.lc.townplasticsurgery.com$image
-email.lc.tozerair.com.au$image
-email.lc.tpp.ac$image
-email.lc.traceywarrennotary.com$image
-email.lc.traceywatsonnotary.com$image
-email.lc.traciecollinsofficial.com$image
-email.lc.tracieroot.com$image
-email.lc.tracinginmotion.be$image
-email.lc.trackmo.app$image
-email.lc.tracpallc.com$image
-email.lc.tracyannwood.com$image
-email.lc.tracycornell.com$image
-email.lc.tracyishealthyish.shop$image
-email.lc.tracymurphrey.com$image
-email.lc.trade-booster.com$image
-email.lc.tradecopia.com$image
-email.lc.tradeplanet.us$image
-email.lc.trader-entrepreneur.fr$image
-email.lc.tradesfreedomclub.com$image
-email.lc.tradetechroofing.co.uk$image
-email.lc.tradeunderfloor.co.uk$image
-email.lc.tradewinsvip.com$image
-email.lc.tradeyalgorithms.com$image
-email.lc.tradingeducationou.com$image
-email.lc.tradingscientifico.academy$image
-email.lc.tradzillatattoos.com$image
-email.lc.trafegon.com.br$image
-email.lc.traidtech.com$image
-email.lc.traineatseaboardstation.com$image
-email.lc.trainingbetweentheears.com$image
-email.lc.trainwithlov.net$image
-email.lc.tramitescarames.com$image
-email.lc.trangroupre.com$image
-email.lc.tranquiltherapyjc.com$image
-email.lc.transaction.drmaggieyu.com$image
-email.lc.transactionflow.com$image
-email.lc.transactions.drmaggieyu.com$image
-email.lc.transcendencecoaching.ca$image
-email.lc.transcendentglobal.com$image
 email.lc.transendability.com$image
 email.lc.transfermanagerconsulting.com$image
 email.lc.transformandomentesmillonarias.com$image
@@ -148862,7 +148673,6 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||acuris.com/wat/v2/data-event
 ||acustomizedgift.com^$domain=masslive.com|silive.com
 ||acustomizedgift.com^$~xmlhttprequest
-||acweb.clog.jp^$third-party
 ||ad*.bilgin.pro^
 ||ad*.ettoday.net^
 ||ad*.gyaloglo.hu^
@@ -172624,6 +172434,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||soft4fun.net/wp-content/themes/arthemia/js/common_footer_min.js
 ||softcab.com/google.php?
 ||softfully.com/downloads/download$image
+||softhub-whatsapp.com^$doc
 ||softonic*/web-stats
 ||softonic.jp/web-stats
 ||softpedia-static.com/images/afh/
@@ -173852,6 +173663,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||suno.com/v1//rgstr
 ||sunofbeaches.com/ast/assistant/ad-item/
 ||sunofbeaches.com/shop/recommend/
+||sunperp.icu^$doc
 ||sunpma.com/other/logo/
 ||sunporno.com/*.php$script,1p
 ||sunporno.com/*.php$script,~third-party
@@ -174610,6 +174422,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||thefreedictionary.com/_/track.ashx?r=
 ||thefreesite.com/nov99bannov.gif
 ||thegamer.com/strpixel.png?
+||thegay.com/static/da/
 ||thegay.com/static/tf/videos.gjmpa.json
 ||thegay.com^$script,domain=thegay.com
 ||thegay.porn/gdtatrco/
@@ -221565,7 +221378,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 1010jiajiao.com##.xiti_content + .xiti
 1010jiajiao.com##div[style*="position:fixed;"][style*="bottom:1px;"]
 1017theone.ca,wingham.coolradio.ca###mailchimp-signup
-1019therock.com,101theeagle.com,1023thebullfm.com,1025kiss.com,1027kord.com,1033thegoat.com,1035kissfmboise.com,1037theloon.com,1037theriver.com,103gbfrocks.com,103kkcn.com,103wjod.com,1043wowcountry.com,1045theteam.com,1051theblock.com,1057thehawk.com,1061evansville.com,1063nowfm.com,1063thebuzz.com,1073kissfmtexas.com,1073popcrush.com,1075thepeak.com,1079ishot.com,107jamz.com,1130thetiger.com,1340thehawk.com,1390granitecitysports.com,1420wbec.com,1440wrok.com,1470kyyw.com,1520theticket.com,560kmon.com,610kona.com,710keel.com,890kdxu.com,925kaar.com,925theranch.com,929nin.com,929thebull.com,929thelake.com,929theticket.com,92moose.fm,943litefm.com,943thepoint.com,945maxcountry.com,949whom.com,94kix.com,953thebear.com,955kmbr.com,95rockfm.com,961theeagle.com,963theblaze.com,965kvki.com,965therock.com,965thewalleye.com,967theeagle.net,969zoofm.com,973espn.com,973kkrc.com,973thedawg.com,975kgkl.com,975now.com,979kickfm.com,97rockonline.com,97x.com,97zokonline.com,981thehawk.com,983thesnake.com,987jack.com,987kissfmsanangelo.com,987thebomb.com,987thegrand.com,995theapple.com,999bigskysports.com,999ktdy.com,999thepoint.com,99wfmk.com,addapinch.com,advocate.com,allhitskzmk.com,alpin.de,alternativemissoula.com,anothermag.com,antena3.com,antennamag.com,armageddonexpo.com,averiecooks.com,awesome98.com,b100quadcities.com,b1027.com,b105country.com,b921hits.com,b93.net,b985.fm,banana1015.com,bigcat921.com,bigcat953.com,bigcountry969.com,bigfrog104.com,bigstack1039.com,billingsmix.com,bitcoinmagazine.nl,bnn.de,bolina.it,bozemanskissfm.com,btvradio.bg,caspercowboy.com,catcountry1029.com,catcountry1073.com,catcountryutah.com,catfishtuscaloosa.com,cgchannel.com,classicfm.bg,classicrock1051.com,classicrock961.com,club937.com,cnynews.com,codigoqro.mx,cool987fm.com,culture.pl,dakotacountry961.com,danburycountry.com,dave1077.com,deghi.it,diariolasamericas.com,dreadcentral.com,eagle1023fm.com,eagle933.com,ebu.io,elancasti.com.ar,espn960sanangelo.com,espnquadcities.com,espnsiouxfalls.com,espnwesterncolorado.com,finance.yahoo.com,finanzfluss.de,fortune.com,foxsports1510.com,foxsportsutahradio.com,freefrontend.com,fullfact.org,fun1043.com,fun107.com,fun947.com,gator995.com,gimmedelicious.com,global.espreso.tv,hannity.com,highway989.com,hot1047.com,hot975fm.com,hot991.com,hudsonvalleycountry.com,i24news.tv,i95rock.com,i95rocks.com,idsnews.com,imlive.com,insurancejournal.com,jackfmcasper.com,jobrapido.com,jstor.org,juan925fm.com,juanhudsonvalley.com,justjared.com,k2radio.com,k923.fm,k945.com,k96fm.com,k99.com,k99hits.com,katsfm.com,kbat.com,kbulnewstalk.com,kcrr.com,kdat.com,kdhlradio.com,keanradio.com,kekbfm.com,keyj.com,keyw.com,keyzradio.com,kezj.com,kffm.com,kfilradio.com,kfmx.com,kfox95.com,kfyo.com,kgab.com,kgrzmissoula.com,khak.com,khmoradio.com,kickam1530.com,kicks105.com,kidotalkradio.com,kikn.com,king-mag.com,kingfm.com,kisscasper.com,kisselpaso.com,kissfm1053.com,kissfm969.com,kissin977.com,kixs.com,kkam.com,kkyr.com,klaq.com,klaw.com,klubtejano.com,kmhk.com,kmmsam.com,knowledge.wharton.upenn.edu,knue.com,koel.com,kool1017.com,kool1079.com,kool929fm.com,kool965.com,koolfmabilene.com,kowb1290.com,kpel965.com,kpq.com,kqvt.com,krfofm.com,krforadio.com,krna.com,kroc.com,krocnews.com,krod.com,ksenam.com,ksfa860.com,ksisradio.com,ksub590.com,ktemnews.com,kubcthecanyon.com,kw3.com,kwcdcountry.com,kxkx.com,kxrb.com,kxtl.com,kygl.com,kyssfm.com,lifestyle.bg,lite987.com,litefm955.com,liteonline.com,live959.com,lmneuquen.com,lonestar923.com,lonestar995fm.com,loudwire.com,marketplace.org,maxim.com,may9.ru,med.stanford.edu,mega993online.com,meteosafe.com,metro.us,minnesotasnewcountry.com,mix1043fm.com,mix106radio.com,mix108.com,mix931fm.com,mix941kmxj.com,mix949.com,mix951.com,mix957gr.com,mix979fm.com,mobilesyrup.com,money.bg,montanastatenews.com,mooseradio.com,mothership.blog,moviemaker.com,my1053wjlt.com,myb106.com,mybeachradio.com,mycountry955.com,myjuan1017.com,mykiss1031.com,mykisscountry937.com,mymagicgr.com,mymajic933.com,mymix923.com,mymodernmet.com,myq1075.com,nationalactionnetwork.net,nau.ch,nerfnow.com,netwerk24.com,news.bg,news24.com,newsradio1310.com,newstalk1280.com,newstalk1290.com,newstalk870.am,newstalk940.com,newstalkkgvo.com,newstalkkit.com,nj1015.com,noisecreep.com,northlandfan.com,oann.com,orizzontescuola.it,out.com,overwolf.com,passioneturchia.it,pocketgamer.biz,popcrush.com,power1029noco.com,power959.com,power96radio.com,powerboise.com,praise933.com,pydantic.dev,q1057.com,q1065.fm,q1077.com,q961.com,q985.fm,q985online.com,quantamagazine.org,quickcountry.com,retro1025.com,river967.com,rivergrandrapids.com,rock1041.com,rock967online.com,rocketbeans.tv,salzburg24.at,san.com,saturdayeveningpost.com,screencrush.com,searchnowweb.com,serieturche.eu,sfist.com,shark1053.com,skinnyms.com,soaps.sheknows.com,sojo1049.com,son.co.za,sportsradio977.com,squatchrocks.com,star939.com,star981.com,steamhype.com,supertalk1270.com,talk1067.com,talk1470.com,talkradio960.com,tasteofcountry.com,theboot.com,thebullamarillo.com,thedailystar.net,theeagleonline.com,thegame730am.com,thequake1021.com,theriver979.com,therockofrochester.com,thunder981.com,tide1009.com,topsport.bg,trustradio.com.ng,tuasaude.com,ultimateclassicrock.com,upworthy.com,us103.com,us1033.com,us1049quadcities.com,us105fm.com,utoronto.ca,wakingtimes.com,wantedonline.co.za,wbckfm.com,wbkr.com,wblk.com,wblm.com,wbsm.com,wbxxfm.com,wchram.com,wcrz.com,wcyy.com,wdbqam.com,wdea.am,wfnt.com,wfpg.com,wgna.com,wgrd.com,wibx950.com,wijwedden.net,witl.com,wjbq.com,wjimam.com,wjon.com,wkdq.com,wkfr.com,wkmi.com,wmmq.com,wnaw.com,wnbf.com,wobm.com,wokq.com,womiowensboro.com,wour.com,wpdh.com,wpst.com,wral.com,wrkr.com,wrrv.com,wsbs.com,wsrkfm.com,wtug.com,wupe.com,wyrk.com,wzozfm.com,xlcountry.com,xxlmag.com,y105fm.com,y105music.com,y95country.com,z100missoula.com,z1073.com,z94.com,zoey1039.com##.social-links
+1019therock.com,101theeagle.com,1023thebullfm.com,1025kiss.com,1027kord.com,1033thegoat.com,1035kissfmboise.com,1037theloon.com,1037theriver.com,103gbfrocks.com,103kkcn.com,103wjod.com,1043wowcountry.com,1045theteam.com,1051theblock.com,1057thehawk.com,1061evansville.com,1063nowfm.com,1063thebuzz.com,1073kissfmtexas.com,1073popcrush.com,1075thepeak.com,1079ishot.com,107jamz.com,1130thetiger.com,1340thehawk.com,1390granitecitysports.com,1420wbec.com,1440wrok.com,1470kyyw.com,1520theticket.com,560kmon.com,610kona.com,710keel.com,890kdxu.com,925kaar.com,925theranch.com,929nin.com,929thebull.com,929thelake.com,929theticket.com,92moose.fm,943litefm.com,943thepoint.com,945maxcountry.com,949whom.com,94kix.com,953thebear.com,955kmbr.com,95rockfm.com,961theeagle.com,963theblaze.com,965kvki.com,965therock.com,965thewalleye.com,967theeagle.net,969zoofm.com,973espn.com,973kkrc.com,973thedawg.com,975kgkl.com,975now.com,979kickfm.com,97rockonline.com,97x.com,97zokonline.com,981thehawk.com,983thesnake.com,987jack.com,987kissfmsanangelo.com,987thebomb.com,987thegrand.com,995theapple.com,999bigskysports.com,999ktdy.com,999thepoint.com,99wfmk.com,addapinch.com,advocate.com,allhitskzmk.com,alpin.de,alternativemissoula.com,anothermag.com,antena3.com,antennamag.com,armageddonexpo.com,averiecooks.com,awesome98.com,b100quadcities.com,b1027.com,b105country.com,b921hits.com,b93.net,b985.fm,banana1015.com,bigcat921.com,bigcat953.com,bigcountry969.com,bigfrog104.com,bigstack1039.com,billingsmix.com,bitcoinmagazine.nl,bnn.de,bolina.it,bozemanskissfm.com,btvradio.bg,caspercowboy.com,catcountry1029.com,catcountry1073.com,catcountryutah.com,catfishtuscaloosa.com,cgchannel.com,classicfm.bg,classicrock1051.com,classicrock961.com,club937.com,cnynews.com,codigoqro.mx,cool987fm.com,culture.pl,dakotacountry961.com,danburycountry.com,dave1077.com,deghi.it,diariolasamericas.com,dreadcentral.com,eagle1023fm.com,eagle933.com,ebu.io,elancasti.com.ar,espn960sanangelo.com,espnquadcities.com,espnsiouxfalls.com,espnwesterncolorado.com,finance.yahoo.com,finanzfluss.de,fortune.com,foxsports1510.com,foxsportsutahradio.com,freefrontend.com,fullfact.org,fun1043.com,fun107.com,fun947.com,gator995.com,gimmedelicious.com,global.espreso.tv,hannity.com,highway989.com,hot1047.com,hot975fm.com,hot991.com,hudsonvalleycountry.com,i24news.tv,i95rock.com,i95rocks.com,idsnews.com,imlive.com,insurancejournal.com,jackfmcasper.com,jobrapido.com,jstor.org,juan925fm.com,juanhudsonvalley.com,justjared.com,k2radio.com,k923.fm,k945.com,k96fm.com,k99.com,k99hits.com,katsfm.com,kbat.com,kbulnewstalk.com,kcrr.com,kdat.com,kdhlradio.com,keanradio.com,kekbfm.com,keyj.com,keyw.com,keyzradio.com,kezj.com,kffm.com,kfilradio.com,kfmx.com,kfox95.com,kfyo.com,kgab.com,kgrzmissoula.com,khak.com,khmoradio.com,kickam1530.com,kicks105.com,kidotalkradio.com,kikn.com,king-mag.com,kingfm.com,kisscasper.com,kisselpaso.com,kissfm1053.com,kissfm969.com,kissin977.com,kixs.com,kkam.com,kkyr.com,klaq.com,klaw.com,klubtejano.com,kmhk.com,kmmsam.com,knowledge.wharton.upenn.edu,knue.com,koel.com,kool1017.com,kool1079.com,kool929fm.com,kool965.com,koolfmabilene.com,kowb1290.com,kpel965.com,kpq.com,kqvt.com,krfofm.com,krforadio.com,krna.com,kroc.com,krocnews.com,krod.com,ksenam.com,ksfa860.com,ksisradio.com,ksub590.com,ktemnews.com,kubcthecanyon.com,kw3.com,kwcdcountry.com,kxkx.com,kxrb.com,kxtl.com,kygl.com,kyssfm.com,lifestyle.bg,lite987.com,litefm955.com,liteonline.com,live959.com,lmneuquen.com,lonestar923.com,lonestar995fm.com,loudwire.com,marketplace.org,maxim.com,may9.ru,med.stanford.edu,mega993online.com,meteosafe.com,metro.us,minnesotasnewcountry.com,mix1043fm.com,mix106radio.com,mix108.com,mix931fm.com,mix941kmxj.com,mix949.com,mix951.com,mix957gr.com,mix979fm.com,mobilesyrup.com,money.bg,montanastatenews.com,mooseradio.com,mothership.blog,moviemaker.com,my1053wjlt.com,myb106.com,mybeachradio.com,mycountry955.com,myjuan1017.com,mykiss1031.com,mykisscountry937.com,mymagicgr.com,mymajic933.com,mymix923.com,mymodernmet.com,myq1075.com,nationalactionnetwork.net,nau.ch,nerfnow.com,netwerk24.com,news.bg,news24.com,newsmaxbalkans.al,newsmaxbalkans.com,newsmaxpolska.pl,newsradio1310.com,newstalk1280.com,newstalk1290.com,newstalk870.am,newstalk940.com,newstalkkgvo.com,newstalkkit.com,nj1015.com,noisecreep.com,northlandfan.com,oann.com,orizzontescuola.it,out.com,overwolf.com,passioneturchia.it,pocketgamer.biz,popcrush.com,power1029noco.com,power959.com,power96radio.com,powerboise.com,praise933.com,pydantic.dev,q1057.com,q1065.fm,q1077.com,q961.com,q985.fm,q985online.com,quantamagazine.org,quickcountry.com,retro1025.com,river967.com,rivergrandrapids.com,rock1041.com,rock967online.com,rocketbeans.tv,salzburg24.at,san.com,saturdayeveningpost.com,screencrush.com,searchnowweb.com,serieturche.eu,sfist.com,shark1053.com,skinnyms.com,soaps.sheknows.com,sojo1049.com,son.co.za,sportsradio977.com,squatchrocks.com,star939.com,star981.com,steamhype.com,supertalk1270.com,talk1067.com,talk1470.com,talkradio960.com,tasteofcountry.com,theboot.com,thebullamarillo.com,thedailystar.net,theeagleonline.com,thegame730am.com,thequake1021.com,theriver979.com,therockofrochester.com,thunder981.com,tide1009.com,topsport.bg,trustradio.com.ng,tuasaude.com,ultimateclassicrock.com,upworthy.com,us103.com,us1033.com,us1049quadcities.com,us105fm.com,utoronto.ca,wakingtimes.com,wantedonline.co.za,wbckfm.com,wbkr.com,wblk.com,wblm.com,wbsm.com,wbxxfm.com,wchram.com,wcrz.com,wcyy.com,wdbqam.com,wdea.am,wfnt.com,wfpg.com,wgna.com,wgrd.com,wibx950.com,wijwedden.net,witl.com,wjbq.com,wjimam.com,wjon.com,wkdq.com,wkfr.com,wkmi.com,wmmq.com,wnaw.com,wnbf.com,wobm.com,wokq.com,womiowensboro.com,wour.com,wpdh.com,wpst.com,wral.com,wrkr.com,wrrv.com,wsbs.com,wsrkfm.com,wtug.com,wupe.com,wyrk.com,wzozfm.com,xlcountry.com,xxlmag.com,y105fm.com,y105music.com,y95country.com,z100missoula.com,z1073.com,z94.com,zoey1039.com##.social-links
 1019therock.com,101theeagle.com,1023thebullfm.com,1025kiss.com,1027kord.com,1033thegoat.com,1035kissfmboise.com,1037theloon.com,1037theriver.com,103gbfrocks.com,103kkcn.com,103wjod.com,1043wowcountry.com,1045theteam.com,1051theblock.com,1057thehawk.com,1061evansville.com,1063nowfm.com,1063thebuzz.com,1073kissfmtexas.com,1073popcrush.com,1075thepeak.com,1079ishot.com,107jamz.com,1130thetiger.com,1340thehawk.com,1390granitecitysports.com,1420wbec.com,1440wrok.com,1470kyyw.com,1520theticket.com,560kmon.com,610kona.com,710keel.com,890kdxu.com,925kaar.com,925theranch.com,929nin.com,929thebull.com,929thelake.com,929theticket.com,92moose.fm,943litefm.com,943thepoint.com,945maxcountry.com,949whom.com,94kix.com,953thebear.com,955kmbr.com,95rockfm.com,961theeagle.com,963theblaze.com,965kvki.com,965therock.com,965thewalleye.com,967theeagle.net,969zoofm.com,973espn.com,973kkrc.com,973thedawg.com,975kgkl.com,975now.com,979kickfm.com,97rockonline.com,97x.com,97zokonline.com,981thehawk.com,983thesnake.com,987jack.com,987kissfmsanangelo.com,987thebomb.com,987thegrand.com,995theapple.com,999bigskysports.com,999ktdy.com,999thepoint.com,99wfmk.com,allhitskzmk.com,alternativemissoula.com,antennamag.com,artnews.com,awesome98.com,b100quadcities.com,b1027.com,b105country.com,b921hits.com,b93.net,b985.fm,banana1015.com,bigcat921.com,bigcat953.com,bigcountry969.com,bigfrog104.com,bigstack1039.com,billingsmix.com,bozemanskissfm.com,businessinsider.de,caspercowboy.com,catcountry1029.com,catcountry1073.com,catcountryutah.com,catfishtuscaloosa.com,classicrock1051.com,classicrock961.com,club937.com,cnynews.com,coindesk.com,cool987fm.com,crn.com,cyberscoop.com,dakotacountry961.com,danburycountry.com,dave1077.com,defensescoop.com,eagle1023fm.com,eagle933.com,edscoop.com,espn960sanangelo.com,espnquadcities.com,espnsiouxfalls.com,espnwesterncolorado.com,euromaidanpress.com,fedscoop.com,foxsports1510.com,foxsportsutahradio.com,freepressjournal.in,fun1043.com,fun107.com,fun947.com,gadgets360.com,gator995.com,highway989.com,hot1047.com,hot975fm.com,hot991.com,hudsonvalleycountry.com,i95rock.com,i95rocks.com,jackfmcasper.com,juan925fm.com,juanhudsonvalley.com,k2radio.com,k923.fm,k945.com,k96fm.com,k99.com,k99hits.com,katsfm.com,kbat.com,kbulnewstalk.com,kcrr.com,kdat.com,kdhlradio.com,keanradio.com,kekbfm.com,keyj.com,keyw.com,keyzradio.com,kezj.com,kffm.com,kfilradio.com,kfmx.com,kfox95.com,kfyo.com,kgab.com,kgrzmissoula.com,khak.com,khmoradio.com,kickam1530.com,kicks105.com,kidotalkradio.com,kikn.com,king-mag.com,kingfm.com,kisscasper.com,kisselpaso.com,kissfm1053.com,kissfm969.com,kissin977.com,kixs.com,kkam.com,kkyr.com,klaq.com,klaw.com,klubtejano.com,kmhk.com,kmmsam.com,knue.com,koel.com,kool1017.com,kool1079.com,kool929fm.com,kool965.com,koolfmabilene.com,kowb1290.com,kpel965.com,kpq.com,kqvt.com,krfofm.com,krforadio.com,krna.com,kroc.com,krocnews.com,krod.com,ksenam.com,ksfa860.com,ksisradio.com,ksub590.com,ktemnews.com,kubcthecanyon.com,kw3.com,kwcdcountry.com,kxkx.com,kxrb.com,kxtl.com,kygl.com,kyssfm.com,lavoz.com.ar,lite987.com,litefm955.com,liteonline.com,live959.com,lonestar923.com,lonestar995fm.com,loudwire.com,mega993online.com,minnesotasnewcountry.com,mix1043fm.com,mix106radio.com,mix108.com,mix931fm.com,mix941kmxj.com,mix949.com,mix951.com,mix957gr.com,mix979fm.com,montanastatenews.com,mooseradio.com,my1053wjlt.com,myb106.com,mybeachradio.com,mycountry955.com,myjuan1017.com,mykiss1031.com,mykisscountry937.com,mymagicgr.com,mymajic933.com,mymix923.com,myq1075.com,newsradio1310.com,newstalk1280.com,newstalk1290.com,newstalk870.am,newstalk940.com,newstalkkgvo.com,newstalkkit.com,nj1015.com,noisecreep.com,northlandfan.com,pdpc.gov.sg,popcrush.com,power1029noco.com,power959.com,power96radio.com,powerboise.com,praise933.com,q1057.com,q1065.fm,q1077.com,q961.com,q985.fm,q985online.com,quickcountry.com,retro1025.com,river967.com,rivergrandrapids.com,rock1041.com,rock967online.com,screencrush.com,shark1053.com,sojo1049.com,sportsradio977.com,squatchrocks.com,star939.com,star981.com,statescoop.com,supertalk1270.com,talk1067.com,talk1470.com,talkradio960.com,tasteofcountry.com,theboot.com,thebullamarillo.com,thegame730am.com,thehill.com,theinertia.com,thequake1021.com,theriver979.com,therockofrochester.com,thunder981.com,tide1009.com,ultimateclassicrock.com,us103.com,us1033.com,us1049quadcities.com,us105fm.com,vancouversun.com,variety.com,vt.co,wbckfm.com,wbkr.com,wblk.com,wblm.com,wbsm.com,wbxxfm.com,wchram.com,wcrz.com,wcyy.com,wdbqam.com,wdea.am,wfnt.com,wfpg.com,wgna.com,wgrd.com,wibx950.com,winnipegsun.com,witl.com,wjbq.com,wjimam.com,wjon.com,wkdq.com,wkfr.com,wkmi.com,wmmq.com,wnaw.com,wnbf.com,wobm.com,wokq.com,womiowensboro.com,wour.com,wpdh.com,wpst.com,wrkr.com,wrrv.com,wsbs.com,wsrkfm.com,wtug.com,wupe.com,wyrk.com,wzozfm.com,xlcountry.com,xxlmag.com,y105fm.com,y105music.com,y95country.com,z100missoula.com,z1073.com,z94.com,zoey1039.com##.social-share
 1019therock.com,101theeagle.com,1023thebullfm.com,1025kiss.com,1027kord.com,1033thegoat.com,1035kissfmboise.com,1037theloon.com,1037theriver.com,103gbfrocks.com,103kkcn.com,103wjod.com,1043wowcountry.com,1045theteam.com,1051theblock.com,1057thehawk.com,1061evansville.com,1063nowfm.com,1063thebuzz.com,1073kissfmtexas.com,1073popcrush.com,1075thepeak.com,1079ishot.com,107jamz.com,1130thetiger.com,1340thehawk.com,1390granitecitysports.com,1420wbec.com,1440wrok.com,1470kyyw.com,1520theticket.com,560kmon.com,610kona.com,710keel.com,890kdxu.com,925kaar.com,925theranch.com,929nin.com,929thebull.com,929thelake.com,929theticket.com,92moose.fm,943litefm.com,943thepoint.com,945maxcountry.com,949whom.com,94kix.com,953thebear.com,955kmbr.com,95rockfm.com,961theeagle.com,963theblaze.com,965kvki.com,965therock.com,965thewalleye.com,967theeagle.net,969zoofm.com,973espn.com,973kkrc.com,973thedawg.com,975kgkl.com,975now.com,979kickfm.com,97rockonline.com,97x.com,97zokonline.com,981thehawk.com,983thesnake.com,987jack.com,987kissfmsanangelo.com,987thebomb.com,987thegrand.com,995theapple.com,999bigskysports.com,999ktdy.com,999thepoint.com,99wfmk.com,allhitskzmk.com,alternativemissoula.com,antennamag.com,awesome98.com,b100quadcities.com,b1027.com,b105country.com,b921hits.com,b93.net,b985.fm,banana1015.com,bigcat921.com,bigcat953.com,bigcountry969.com,bigfrog104.com,bigstack1039.com,billingsmix.com,bozemanskissfm.com,caspercowboy.com,catcountry1029.com,catcountry1073.com,catcountryutah.com,catfishtuscaloosa.com,classicrock1051.com,classicrock961.com,club937.com,cnynews.com,cool987fm.com,dakotacountry961.com,danburycountry.com,dave1077.com,eagle1023fm.com,eagle933.com,espn960sanangelo.com,espnquadcities.com,espnsiouxfalls.com,espnwesterncolorado.com,foxsports1510.com,foxsportsutahradio.com,fun1043.com,fun107.com,fun947.com,gator995.com,highway989.com,hot1047.com,hot975fm.com,hot991.com,hudsonvalleycountry.com,i95rock.com,i95rocks.com,jackfmcasper.com,juan925fm.com,juanhudsonvalley.com,k2radio.com,k923.fm,k945.com,k96fm.com,k99.com,k99hits.com,katsfm.com,kbat.com,kbulnewstalk.com,kcrr.com,kdat.com,kdhlradio.com,keanradio.com,kekbfm.com,keyj.com,keyw.com,keyzradio.com,kezj.com,kffm.com,kfilradio.com,kfmx.com,kfox95.com,kfyo.com,kgab.com,kgrzmissoula.com,khak.com,khmoradio.com,kickam1530.com,kicks105.com,kidotalkradio.com,kikn.com,kingfm.com,kisscasper.com,kisselpaso.com,kissfm1053.com,kissfm969.com,kissin977.com,kixs.com,kkam.com,kkyr.com,klaq.com,klaw.com,klubtejano.com,kmhk.com,kmmsam.com,knue.com,koel.com,kool1017.com,kool1079.com,kool929fm.com,kool965.com,koolfmabilene.com,kowb1290.com,kpel965.com,kpq.com,kqvt.com,krfofm.com,krforadio.com,krna.com,kroc.com,krocnews.com,krod.com,ksenam.com,ksfa860.com,ksisradio.com,ksub590.com,ktemnews.com,kubcthecanyon.com,kw3.com,kwcdcountry.com,kxkx.com,kxrb.com,kxtl.com,kygl.com,kyssfm.com,lite987.com,litefm955.com,liteonline.com,live959.com,lonestar923.com,lonestar995fm.com,mega993online.com,minnesotasnewcountry.com,mix1043fm.com,mix106radio.com,mix108.com,mix931fm.com,mix941kmxj.com,mix949.com,mix951.com,mix957gr.com,mix979fm.com,montanastatenews.com,mooseradio.com,my1053wjlt.com,myb106.com,mybeachradio.com,mycountry955.com,myjuan1017.com,mykiss1031.com,mykisscountry937.com,mymagicgr.com,mymajic933.com,mymix923.com,myq1075.com,newsradio1310.com,newstalk1280.com,newstalk1290.com,newstalk870.am,newstalk940.com,newstalkkgvo.com,newstalkkit.com,nj1015.com,northlandfan.com,popcrush.com,power1029noco.com,power959.com,power96radio.com,powerboise.com,praise933.com,q1057.com,q1065.fm,q1077.com,q961.com,q985.fm,q985online.com,quickcountry.com,retro1025.com,river967.com,rivergrandrapids.com,rock1041.com,rock967online.com,screencrush.com,shark1053.com,sojo1049.com,sportsradio977.com,squatchrocks.com,star939.com,star981.com,supertalk1270.com,talk1067.com,talk1470.com,talkradio960.com,tasteofcountry.com,theboot.com,thebullamarillo.com,thegame730am.com,thequake1021.com,theriver979.com,therockofrochester.com,thunder981.com,tide1009.com,ultimateclassicrock.com,us103.com,us1033.com,us1049quadcities.com,us105fm.com,wbckfm.com,wbkr.com,wblk.com,wblm.com,wbsm.com,wbxxfm.com,wchram.com,wcrz.com,wcyy.com,wdbqam.com,wdea.am,wfnt.com,wfpg.com,wgna.com,wgrd.com,wibx950.com,witl.com,wjbq.com,wjimam.com,wjon.com,wkdq.com,wkfr.com,wkmi.com,wmmq.com,wnaw.com,wnbf.com,wobm.comm,wokq.com,womiowensboro.com,wour.com,wpdh.com,wpst.com,wrkr.com,wrrv.com,wsbs.com,wsrkfm.com,wtug.com,wupe.com,wyrk.com,wzozfm.com,xlcountry.com,y105fm.com,y105music.com,y95country.com,z100missoula.com,z1073.com,z94.com,zoey1039.com##.widget-branded_app_promo
 101cookbooks.com##.browsemore
@@ -228853,7 +228666,7 @@ autoscout24.*#%#//scriptlet('abort-on-stack-trace', 'document.createElement', 'H
 autoscout24.com##.detailpage-content-banner
 autoscout24.com,autoscout24.de###as24-cmp-popup
 autoscout24.it##.app-banner-fragment
-autoscout24.it,dailynews24.in,m.calciomercato.com,mygwork.com,prioritypass.com,similarweb.com,spooncast.net,substack.com,whosampled.com##.app-banner
+autoscout24.it,dailynews24.in,m.calciomercato.com,mygwork.com,newsmaxbalkans.al,newsmaxbalkans.com,newsmaxpolska.pl,prioritypass.com,similarweb.com,spooncast.net,substack.com,whosampled.com##.app-banner
 autosolar.es##.cookie-configuration
 autosport.com##.ms-ap-native
 autosport.com##.ms-apb
@@ -232247,7 +232060,7 @@ boredbro.com###AdBox728
 boredpanda.*#%#//scriptlet('set-local-storage-item', 'bp-analytics', '$remove$')
 boredpanda.com##+js(set-local-storage-item, bp-analytics, $remove$)
 boredpanda.com,citizen.com,coincodex.com##.get-app
-boredpanda.com,criticalthreats.org,lasexta.com,supermarketnews.co.nz,varesenews.it,vat19.com,wolverine.com##.social-box
+boredpanda.com,criticalthreats.org,lasexta.com,newsmaxbalkans.al,newsmaxbalkans.com,newsmaxpolska.pl,supermarketnews.co.nz,varesenews.it,vat19.com,wolverine.com##.social-box
 boredpanda.com,todayonline.com##.subscription-block
 borelioza.vegie.pl###menubar
 borfilm.com,hronika.info##.count
@@ -233635,6 +233448,7 @@ canadianlisted.com###adcsacl
 canadianlisted.com##.pageclwideadv
 canadianrealestatemagazine.ca##.new-topice-wrapper
 canadiantire.ca##.nl-backToTop
+canadiantire.ca##.nl-product__content[id^="ad"]
 canadiantire.ca##.sponsoredproductcarousel
 canadiantire.ca##li[data-testid="product-grids"]:has(.nl-product-card__sponsored)
 canadiantire.ca#%#//scriptlet('set-local-storage-item', 'signifydSessionIdInfo', '$remove$')
@@ -268647,6 +268461,8 @@ newsmax.com##.nmsponsorlink
 newsmax.com##.nmsponsorlink + [class]
 newsmax.com##div[class^="dfp-article-ad-"]
 newsmax.com#?##nmLeftColumn > div.nmNewsfrontStory:has(> div.sponsorLink)
+newsmaxbalkans.al,newsmaxbalkans.com,newsmaxpolska.pl##.app-social-box
+newsmaxbalkans.al,newsmaxbalkans.com,newsmaxpolska.pl##.single-news-share
 newsmed.pl##.ad-aside
 newsmed.pl##.bli-ad
 newsmed.pl##.page-layout > div.page-box:has(> div.wrapper > aside.ad-aside)
@@ -268928,7 +268744,7 @@ nhentai.to##.site-content:has(> a[target="_blank"]:only-child > img)
 nhentai.to##a[target="_blank"]#nb-band
 nhentai.to#%#//scriptlet('prevent-addEventListener', 'DOMContentLoaded', 'adsbygoogle')
 nhentai.to,boyfriend.tv,mirrored.to,strmup.*,mega4upload.com#%#//scriptlet('prevent-addEventListener', 'click', 'window.open')
-nhentai.to,jmcomic-zzz.one,jmcomic-zzz.*,balbums.st,mangaraw.lc,mangaraw.*,shikotch.in,18jav.tv,batcave.biz,camslib.com,traingon.top,momon-ga.com,nyahentai.*,hentai-moon.com,animefire.io,animefire.*,pxp.farm,pxp.guru,pxp.*,upload18.org,luciferdonghua.in,25img.com,netfapx.com,pornleaks.in,twitchnosub.com,fc2ppv.me,fc2ppv.stream,fc2ppv.*,livecamrips.to,camsrip.com,brazz.org,playmogo.com,thotchicks.com,gelbooru.com,lewdzone.com,r-34.xyz,simply-hentai.com,turbo.cr,upload18.com,luluvids.top,paipancon.com,verhentai.top,muchohentai.com,mangago.me,turbovid.*,javx357.com,animebr.org,celebritydeeplink.com,japaneseholes.com,javlab.net,javmeta.com,vipserije.com,javideo.net,advertape.net,cyberdrop.*,popjav.in,vevocloud.com,x-fetish.tube,myvidplay.com,arigl.com,saint2.*,imgbox.com,mens1069.com,simpcity.*,javfan.one,jmanga.golf,javfc2.xyz,nukibooks.com,jpg6.su,luluvid.com,jav.si,javtiful.com,pornslash.com,hentai2w.com,javpas.com,nsfwr34.com,luluvdoo.com,tojav.net,ekasiwap.com,xxgasm.com,javmenu.com,porntin.com,asianporn.li,javfor.tv,shinshi-manga.net,asmr18.fans,b-hentai.com,jav-fun.cc,rawkuma.net,spoilerplus.tv,daftporn.com,thefappeningblog.com,javboys.com,empressleak.biz,ddd-smart.net,rule34.*,archivebate.*,apkhosto.com,jpg5.su,nsfwyoutube.com,thefappening.pro,javhd.*,javhdz.today,fapeza.com,xmalay1.net,animeworld.*,natomanga.com,play.playkrx18.site,missavtv.com,poapan.xyz,nudogram.com,watchadsontape.com,streamtape.com,18comic.vip,18comic-gquu.vip,mitaku.net,hitomi.la,klmanga.app,mangarawjp.tv,javmix.tv,hentai2read.com,sxyprn.com,xmoviesforyou.com,fapfappy.com,jav.direct,syosetu.*,kissjav.li,lovingsiren.com,mesex.pro,xanimeporn.com#%#//scriptlet('abort-current-inline-script', 'WebAssembly', 'atob')
+nhentai.to,jmcomic-zzz.one,jmcomic-zzz.*,balbums.st,mangaraw.lc,mangaraw.*,shikotch.in,18jav.tv,batcave.biz,camslib.com,traingon.top,momon-ga.com,nyahentai.*,hentai-moon.com,animefire.io,animefire.*,pxp.farm,pxp.guru,pxp.*,upload18.org,luciferdonghua.in,25img.com,netfapx.com,pornleaks.in,twitchnosub.com,fc2ppv.me,fc2ppv.stream,fc2ppv.*,livecamrips.to,camsrip.com,brazz.org,playmogo.com,thotchicks.com,gelbooru.com,lewdzone.com,r-34.xyz,simply-hentai.com,turbo.cr,upload18.com,luluvids.top,paipancon.com,verhentai.top,muchohentai.com,mangago.me,turbovid.*,javx357.com,animebr.org,celebritydeeplink.com,japaneseholes.com,javlab.net,javmeta.com,vipserije.com,javideo.net,advertape.net,cyberdrop.*,popjav.in,vevocloud.com,x-fetish.tube,myvidplay.com,arigl.com,saint2.*,imgbox.com,mens1069.com,simpcity.*,javfan.one,jmanga.cloud,javfc2.xyz,nukibooks.com,jpg6.su,luluvid.com,jav.si,javtiful.com,pornslash.com,hentai2w.com,javpas.com,nsfwr34.com,luluvdoo.com,tojav.net,ekasiwap.com,xxgasm.com,javmenu.com,porntin.com,asianporn.li,javfor.tv,shinshi-manga.net,asmr18.fans,b-hentai.com,jav-fun.cc,rawkuma.net,spoilerplus.tv,daftporn.com,thefappeningblog.com,javboys.com,empressleak.biz,ddd-smart.net,rule34.*,archivebate.*,apkhosto.com,jpg5.su,nsfwyoutube.com,thefappening.pro,javhd.*,javhdz.today,fapeza.com,xmalay1.net,animeworld.*,natomanga.com,play.playkrx18.site,missavtv.com,poapan.xyz,nudogram.com,watchadsontape.com,streamtape.com,18comic.vip,18comic-gquu.vip,mitaku.net,hitomi.la,klmanga.app,mangarawjp.tv,javmix.tv,hentai2read.com,sxyprn.com,xmoviesforyou.com,fapfappy.com,jav.direct,syosetu.*,kissjav.li,lovingsiren.com,mesex.pro,xanimeporn.com#%#//scriptlet('abort-current-inline-script', 'WebAssembly', 'atob')
 nhentai.website##[href="//daftsex.eu"]
 nhentai.website##[href="https://animemafia.to"]
 nhentai.website##a[href^="https://1xbet.onelink.me"]
@@ -275492,6 +275308,8 @@ producthunt.com##[data-test^="homepage-section-"] > section:not([class])
 producthunt.com##article:has(> div.cursor-pointer > img)
 producthunt.com##article:has(img[alt="Promoted"])
 producthunt.com##div.cursor-pointer.overflow-hidden:has(> img.object-contain)
+producthunt.com##div.my-4.flex-1.rounded-md.border-2.border-gray-200
+producthunt.com##div.rounded-lg.bg-gray-50.p-3
 producthunt.com##div[class="my-2 flex cursor-pointer flex-row items-center gap-4 rounded-lg bg-gray-50 p-3"]:has(a[href="/sponsor"])
 producthunt.com##div[class="my-2 flex cursor-pointer flex-row items-center gap-4 rounded-lg bg-gray-50 p-3"]:has(img[src="/i/33b26ee8f2668842e38841253cfde42aa203585e395ff731f21aebffbb38c8e5"])
 producthunt.com##div[class="my-2 flex cursor-pointer flex-row items-center gap-4 rounded-lg bg-gray-50 p-3"]:has(img[src^="/i/"])
@@ -275503,6 +275321,7 @@ producthunt.com##div[data-test] > section:has(img[src="/i/299a62819c7092e196f7fc
 producthunt.com##div[data-test]:not([data-test^="homepage-section-"]) > section[data-test^="post-item-"]
 producthunt.com##div[data-test^="ad-slot"]
 producthunt.com##div[data-test^="ad-slot-"]
+producthunt.com##main > div:has(> div.-mt-px.justify-end.pr-4)
 producthunt.com##main > div[data-sentry-component="Ad"]
 producthunt.com##section.group + div > section.group
 producthunt.com##section:has(> div > div > span.rounded-b-xl.bg-brand-500)
@@ -275511,6 +275330,7 @@ producthunt.com#?#.cursor-pointer:has-text(Promoted)
 producthunt.com#?#.layoutSidebar div[class^="styles_item"]:has(> div > img + div.flex > div.flex > a[href="/sponsor"])
 producthunt.com#?#.text-12:contains(Promoted)
 producthunt.com#?#.text-12:has-text(Promoted)
+producthunt.com#?#[data-test^="homepage-section-"] > section[data-container]:xpath(self::*[not(contains("0123456789", substring(normalize-space(.),1,1)))])
 producthunt.com#?#article:contains(Promoted)
 producthunt.com#?#article:has-text(Promoted)
 producthunt.com#?#div[class*="style_direction-row__"]:has(a[href="/sponsor"])
@@ -286839,6 +286659,7 @@ thegatewaypundit.com#%#//scriptlet('abort-current-inline-script', 'document.crea
 thegatewaypundit.com,wersm.com##.essb_links
 thegatewaypundit.com,westernjournal.com,wnd.com##.persistent-footer
 thegay.com##.bottom-adv
+thegay.com##.listing-item.nopop
 thegay.com##.navigation  > ul.primary > li > a[href][target="_blank"]
 thegay.com##.poper_show
 thegay.com##.underplayer__info > div:not([class])
@@ -288960,6 +288781,7 @@ topsmerch.com##.advertisement-2-box
 topsmerch.com##.affix-placeholder
 topsmerch.com##.padding-50px
 topsmerch.com##.padding-top-20px.br-t
+topsort.com###ts-consent-banner
 topspeed.sk#%#//scriptlet('abort-current-inline-script', '$', 'adBlockDetected')
 topsport.bg#%#//scriptlet('remove-node-text', 'script', 'baitTest')
 topsporter.net###fl-ai-widget-placement
