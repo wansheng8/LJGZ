@@ -3,293 +3,11 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-11-09 05:38:08 +0800
-! Last Modified: 2026-11-09 05:38:08 +0800 (北京时间 UTC+8)
+! Version: 2026-11-09 13:18:01 +0800
+! Last Modified: 2026-11-09 13:18:01 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 310898
+! Rules: 310653
 
-email.lc.trustcapitalalliance.com$image
-email.lc.trustcontractorsnewhomes.com$image
-email.lc.trustdemand.com$image
-email.lc.trustednyccontractor.com$image
-email.lc.trustedsolarsolutionsusa.com$image
-email.lc.trusthomebuyer.com$image
-email.lc.trustlocalseo.com$image
-email.lc.trustmailmojo.com$image
-email.lc.trustspectrumcarpet.com$image
-email.lc.truterra-group.com$image
-email.lc.truthlovebyroza.com$image
-email.lc.try-astra.com$image
-email.lc.trya3solutions.com$image
-email.lc.tryapexos.com$image
-email.lc.tryautonomous.com$image
-email.lc.trydebtgpt.com$image
-email.lc.tryeasternanalytics.com$image
-email.lc.tryfor5days.com$image
-email.lc.tryggconsulting.com$image
-email.lc.tryhoneyguide.com$image
-email.lc.trynextchef.com$image
-email.lc.tryshiftnow.com$image
-email.lc.trysqueeze.ai$image
-email.lc.trystartingblocks.com$image
-email.lc.trysuscosoftware.com$image
-email.lc.trytpsmt.com$image
-email.lc.trytractionconsulting.com$image
-email.lc.tryviralize.com$image
-email.lc.trywolfpackcrm.com$image
-email.lc.tryxcellerated.com$image
-email.lc.tsavo.group$image
-email.lc.tsconsultations.com$image
-email.lc.tsdance.com.au$image
-email.lc.tsmx.io$image
-email.lc.tsunami-solutions.com$image
-email.lc.tuagentemichell.com$image
-email.lc.tucareia.com$image
-email.lc.tuckedaway20.com$image
-email.lc.tuckerray.com$image
-email.lc.tudormorari.ai$image
-email.lc.tueasyvisa.com$image
-email.lc.tulicenciausacorp.com$image
-email.lc.tulipmd.com$image
-email.lc.tulsareia.com$image
-email.lc.tuprimercontrato.net$image
-email.lc.turbochargeleads.com$image
-email.lc.turfforce.com.au$image
-email.lc.turkchamkr.org$image
-email.lc.turkingtondavis.co.uk$image
-email.lc.turkinmortgage.com$image
-email.lc.turnerdogtraining.co.uk$image
-email.lc.turnkeybuyshouses.com$image
-email.lc.turnkeydm.com$image
-email.lc.tuscansalon.com$image
-email.lc.tuseo360.es$image
-email.lc.tuskragency.com$image
-email.lc.tuxedosocietyinnercircle.com$image
-email.lc.twagnerinsurance.com$image
-email.lc.twcmdrummoyne.com.au$image
-email.lc.twda.uk$image
-email.lc.twelve20.com.au$image
-email.lc.twenty20media.net$image
-email.lc.twickenhamhouse.com$image
-email.lc.twincitiesfenceandgate.com$image
-email.lc.twinparks.org$image
-email.lc.twinpeakslodgebrightonutah.com$image
-email.lc.twistedpairtec.com$image
-email.lc.twoeyecopy.com$image
-email.lc.twotrackwelding.com$image
-email.lc.twwdsupply.com$image
-email.lc.tx.fitness$image
-email.lc.txabovegroundpool.com$image
-email.lc.txmedlifesolutions.com$image
-email.lc.txplatinumautofilms.com$image
-email.lc.txranchhome.com$image
-email.lc.txsupercleaning.com$image
-email.lc.txt2create.com$image
-email.lc.tyandbella.com$image
-email.lc.tyconnect-crm.com$image
-email.lc.tycoonfinance.com.au$image
-email.lc.tyeshasearcynotary.com$image
-email.lc.tyhealthspan.com$image
-email.lc.tylerchastainagency.com$image
-email.lc.tylevettproductions.com$image
-email.lc.tymcsparranachanotary.com$image
-email.lc.tyndallsglass.com.au$image
-email.lc.typegrowth.com$image
-email.lc.tyrprotectiondogs.com$image
-email.lc.u8os.com$image
-email.lc.ubakc.com$image
-email.lc.uflow.co.uk$image
-email.lc.uglyscott.com$image
-email.lc.uhavereached.com$image
-email.lc.ukflair.com$image
-email.lc.ulmplasticsurgery.com$image
-email.lc.ultimatebaliholidays.com$image
-email.lc.ultimatebusinesssuite.com$image
-email.lc.ultimatehomeseller.com$image
-email.lc.ultimateivyleagueguide.com$image
-email.lc.ultimatelandscapeacademy.com$image
-email.lc.ultimoprint.com$image
-email.lc.ultimuttologist.com$image
-email.lc.ultrasoundunlocked.com$image
-email.lc.umairmalikaman.com$image
-email.lc.umasinc.com$image
-email.lc.unbeatabletech.com$image
-email.lc.unbroker.com$image
-email.lc.unclejoshgardens.com$image
-email.lc.uncommondelights.com$image
-email.lc.uncommonvacationsolutions.com$image
-email.lc.undercutmachining.com$image
-email.lc.underoneroofir.com$image
-email.lc.unewebclases.com$image
-email.lc.unfoldid.com$image
-email.lc.ungarointeriors.com$image
-email.lc.uniacc.net$image
-email.lc.uniburger.com$image
-email.lc.unifiedwell.com$image
-email.lc.unifiedws.com$image
-email.lc.unikassistance.ca$image
-email.lc.unikomradios.org$image
-email.lc.unionaisystems.com$image
-email.lc.unioncoded.com$image
-email.lc.unionstationdeli.com$image
-email.lc.uniquenotarypro.com$image
-email.lc.unitedfpadvisors.com$image
-email.lc.uniurgentcare.com$image
-email.lc.universalimpactpress.com$image
-email.lc.universalproducersgroup.info$image
-email.lc.unlayer.me$image
-email.lc.unleashuniversity.com$image
-email.lc.unlimefunnels.com$image
-email.lc.unlimitedcfs.com$image
-email.lc.unlimitedclosings.com$image
-email.lc.unloadmyhome.com$image
-email.lc.unlockingmathmysteries.com$image
-email.lc.unmatched-marketing.com$image
-email.lc.unmessstudio.com$image
-email.lc.unoaunoseguros.com$image
-email.lc.unscared.fitness$image
-email.lc.untamedtech.co.za$image
-email.lc.untappededge.co.za$image
-email.lc.until.co.uk$image
-email.lc.up-caf.com$image
-email.lc.up4excel.com$image
-email.lc.upaboveadventures.com$image
-email.lc.upbuildglobal.com$image
-email.lc.upcademy.com$image
-email.lc.upcapweekly.com$image
-email.lc.updogsigns.com$image
-email.lc.uplevelingyourbusiness.com$image
-email.lc.upliftwomensummit.com$image
-email.lc.upnex.com$image
-email.lc.upnorthvip.com$image
-email.lc.uppercervicalcare.com$image
-email.lc.upperedgedrone.com$image
-email.lc.upperviewmedia.com$image
-email.lc.upranksend.com$image
-email.lc.upriserz.ro$image
-email.lc.uprogressdigital.com$image
-email.lc.upscaleauthority.com$image
-email.lc.upscoreapp.com$image
-email.lc.upskillai.ph$image
-email.lc.upstanderpropertyandhomeservices.com$image
-email.lc.uptownlocators.com$image
-email.lc.upwardentertainmentmarketing.com$image
-email.lc.upworkmastermind.com$image
-email.lc.urbanairmilwaukee.com$image
-email.lc.urbanairplantationfl.com$image
-email.lc.urbanairtulsaok.com$image
-email.lc.urbanedgeaz.com$image
-email.lc.urbanholdings.co.uk$image
-email.lc.urbanpromotion.info$image
-email.lc.urbantechcoop.com$image
-email.lc.urcrochetbabe.com$image
-email.lc.us-journey.com$image
-email.lc.usaclaimfunding.com$image
-email.lc.usaconcretecoatingsstx.com$image
-email.lc.usacontainers.co$image
-email.lc.usamobilenotaryservices.com$image
-email.lc.usaprays.com$image
-email.lc.usaprimenortheast.com$image
-email.lc.usatravelguru.com$image
-email.lc.usavsdebt.com$image
-email.lc.usawire.com$image
-email.lc.uscapitalmgmt.com$image
-email.lc.useadept.net$image
-email.lc.usecareconnect.com$image
-email.lc.usemagicprompt.com$image
-email.lc.useveltrixmarketing.com$image
-email.lc.ushacapital.com$image
-email.lc.uslocalai.com$image
-email.lc.usmiledentalcenters.com$image
-email.lc.uspave.com$image
-email.lc.usrealestaterelief.org$image
-email.lc.ustyleenglish.com$image
-email.lc.utahdiver.com$image
-email.lc.utahreia.org$image
-email.lc.utahspinalworks.com$image
-email.lc.utbchamber.com$image
-email.lc.uturnanxiety.com.au$image
-email.lc.uvtransinc.com$image
-email.lc.v2strategy.com$image
-email.lc.vaagency.in$image
-email.lc.vabenefitsnavigator.ai$image
-email.lc.vacanzedelsorriso.it$image
-email.lc.vacationotrips.com$image
-email.lc.vadoinafrica.com$image
-email.lc.vagyrejuvenation.com$image
-email.lc.valangadiclienti.com$image
-email.lc.valdezwelding.com$image
-email.lc.valefitmama.com$image
-email.lc.valenciabakernotary.com$image
-email.lc.valentinaarsene.ro$image
-email.lc.valentinaferrario.com$image
-email.lc.valentinapolitopsicologa.com$image
-email.lc.valeriapadronenutrizionista.it$image
-email.lc.valerie-johnson.com$image
-email.lc.valeriegreennotary.com$image
-email.lc.valerieharrisnotary.com$image
-email.lc.valerierichardsonnotary.com$image
-email.lc.valerietosi.com$image
-email.lc.valhousa.com$image
-email.lc.valiantdigital.com.au$image
-email.lc.valiatrav.com$image
-email.lc.valisinternational.com$image
-email.lc.vallartacares.com$image
-email.lc.vallcreations.com$image
-email.lc.valledelsolcabo.com$image
-email.lc.valleysgaslimited.co.uk$image
-email.lc.valleyshinecleaningpros.com$image
-email.lc.valltravel.com$image
-email.lc.valo-pm.com$image
-email.lc.valoanpilot.com$image
-email.lc.valomate.co.za$image
-email.lc.valoreis.fr$image
-email.lc.valorisfinancial.com$image
-email.lc.valticaestudio.com$image
-email.lc.valtorte.com$image
-email.lc.valueforklifts.com$image
-email.lc.valueremodelinginc.com$image
-email.lc.valuetaxservice.com$image
-email.lc.valusolutions.com$image
-email.lc.vamprenovations.com$image
-email.lc.van.city$image
-email.lc.vanandsonsfencing.com$image
-email.lc.vancouverwabookkeeper.com$image
-email.lc.vandelaymsp.com$image
-email.lc.vanderspa.com$image
-email.lc.vanessadavolio.com$image
-email.lc.vanessafilardi.consulenzapmu.it$image
-email.lc.vanessajenkinsnotary.com$image
-email.lc.vanessasalcido.com$image
-email.lc.vanguardconsultantsgroup.com$image
-email.lc.vanguardsmp.com$image
-email.lc.vanitystok.com$image
-email.lc.vannrapid.com$image
-email.lc.vantyxcoatings.com$image
-email.lc.vanwertbedrooms.com$image
-email.lc.vanxfunnels.co.za$image
-email.lc.vargasdigital.us$image
-email.lc.variantroofing.com$image
-email.lc.varmlandslakarna.se$image
-email.lc.vasaltnow.com$image
-email.lc.vasectomytoowoomba.com.au$image
-email.lc.vasocial.co.za$image
-email.lc.vastathletes.com$image
-email.lc.vault-bg.com$image
-email.lc.vaultedhub.com$image
-email.lc.vaultsevenstudio.com$image
-email.lc.vb-sc.com$image
-email.lc.vcicoach.com$image
-email.lc.vcsaude.com$image
-email.lc.vcsimplified.com$image
-email.lc.vdp360.com$image
-email.lc.vdsupport.com$image
-email.lc.veebokcarrentals.com$image
-email.lc.veenaayurveda.com$image
-email.lc.veersant.com$image
-email.lc.vegamediaco.com$image
-email.lc.vegansquadcoaching.com$image
-email.lc.vegasflexteam.com$image
 email.lc.vegasforathletes.org$image
 email.lc.vegreg.com$image
 email.lc.velkautomation.com$image
@@ -150376,6 +150094,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||app.dhgate.com/mobileApiWeb/biz-FeedBack-log.do
 ||app.dhgate.com/musr/logodata.do
 ||app.diagnoseo.com/tools/common-js/dsn.js
+||app.dub.co^$third-party
 ||app.easy.tools/api/stats
 ||app.elitedomains.de/js/service/statistics.service.js
 ||app.factori.ai/personica.js
@@ -150408,6 +150127,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||app.partnerboost.com/brand/track.2.0.min.js
 ||app.pendo.io/data/$image
 ||app.pep.work/api/analytics
+||app.planhat.com/analytics/plantrack.min.js
 ||app.polymersearch.com/dataunlocker.js
 ||app.posthog.com/e/?compression=
 ||app.posthog.com/e/?ip=
@@ -150427,6 +150147,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||app.shopimind.com^$third-party
 ||app.shoptarget.com.br^$third-party
 ||app.simplelogin.io/static/js/an.js
+||app.smartemailing.cz/js/tracking/tracker.js
 ||app.snov.io/back/track-first-visit
 ||app.suckmongif.com^$all
 ||app.tag-plus.com/ja/api/v1/unison_planet/heat_map
@@ -150636,6 +150357,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||asadcdn.com^$script,domain=welt.de,important
 ||asahibeer.co.jp/tracking.js
 ||asanradio.az/apa_baner/
+||asaptickets.com/tracker/
 ||asayer.io/tracker.js
 ||asb.co.nz/analytics/
 ||ascc.javquick.com^$popup
@@ -150660,6 +150382,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||asia-northeast1-co-comix.cloudfunctions.net/trackView
 ||asia2tv.co/wp-content/themes/*/assets/js/adsvideos.js
 ||asiae.co.kr/js/asia_fcm.js
+||asiafilm.org^$popup
 ||asianbutterflies.com/potd/
 ||asiandolls.co.uk/images/banners/
 ||asianmilfhub.com/wp-content/uploads/ad/
@@ -150689,6 +150412,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||aspku.com/images/vz360.jpg
 ||aspku.com/z/
 ||asqconn.com^$popup
+||assemblymag.com/4f8s/
 ||asserts.avple.tv/file/avple-asserts/ad.js
 ||asset*.coupangcdn.com/customjs/coupang-web-log/*/web-log.umd.min.js$domain=login.coupang.com
 ||asset*.coupangcdn.com/customjs/mycoupang/fingerprint2/
@@ -150785,6 +150509,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||assets.shop.hisense.com/ta.js
 ||assets.sky.com/js/thirdparty/sessioncam5-5.js
 ||assets.springserve.com^$media,domain=app.plex.tv,redirect=noopmp3-0.1s
+||assets.sprocket.bz/trackers/
 ||assets.stuff.co.nz/static/stuff-adtech-sdk/ads-sdk/
 ||assets.systemrequirementslabs.net/srl/wwwroot/js/stake-takeover.js
 ||assets.targetimg1.com/webui/scripts/ads-safeframe/$domain=target.com
@@ -150814,6 +150539,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||astrokompas.com^$popup
 ||astrologyanswers.com/gtmmetrics/
 ||astrologybacklightsinless.com^$popup
+||astroved.com/avdatavault/
 ||asuracomic.net/api/ads/
 ||asurascans.com/wp-content/uploads/*/immortaltaoist.gif
 ||asurascans.com/wp-content/uploads/2021/03/panda_gif_large.gif
@@ -153013,6 +152739,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||ccleaner.lol^$all
 ||ccleaner.mom^$all
 ||ccm19.atradior.de/public/app.js
+||ccmbg.com^$third-party
 ||ccmp.eu^$third-party
 ||ccoo.cn/mystat.asp
 ||ccp.digitaltrends.com/go/ccp/products/*/offers
@@ -153178,6 +152905,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||cdn.dopc.cz^$media,domain=iprima.cz
 ||cdn.dotaoutpost.com/stable/js/wowhead.js
 ||cdn.drama-online.tv/wp-content/plugins/eeacab.js
+||cdn.drda.io/scripts/analytics/
 ||cdn.dsmcdn.com/frontend/web/production/dom-event-tracker-
 ||cdn.dsmcdn.com/sfint/production/demeter-prod-*.umd.js
 ||cdn.dsmcdn.com/sfx/mergen/
@@ -154820,6 +154548,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||contx.net/ingest/res/i/collect
 ||contx.net/ingest/res/i/tag/trk
 ||conversationexchange.com/javaScript/checkBlock.js
+||conversions.flowcode.com/pixel-tracker/
 ||convert.guru/pageview^
 ||convert2mp3.club/dr/
 ||convertflow.co^*/visitors/
@@ -155988,6 +155717,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||dio99.com/images/*.gif
 ||dioguitar23.*/images/*.gif
 ||dioimg.net/images/*.gif
+||dior.com/contcdc/
 ||dipperflightrecommend.com^$all
 ||dir.bg/js_ext.php?placeid=*&affiliate_id=*
 ||direct.hdzog.com/contents/lejpppwud/
@@ -156469,6 +156199,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||duba.com/wangmeng/
 ||duba.net/skins/2009/images/db300_250.gif
 ||dubcdn.com/analytics/
+||dubcdn.com^$third-party
 ||dubox.com/api/analytics
 ||dubox.com/statistics^
 ||dubz.co/analytics/
@@ -158472,6 +158203,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||fux.com/nativeexternal/
 ||fuxtool.netlify.app/js/adsblock.js
 ||fvrd.ca/*/AppMeasurement.js$redirect=noopjs
+||fw-cdn.com^$third-party
 ||fw.tv/embed/impressions
 ||fwbntw.com^$popup
 ||fwcdn.pl/el/kk/player/032020/672.html
@@ -162701,6 +162433,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||jit.su/frame$third-party
 ||jitapu.com/inc/adv
 ||jitashe.org/template/jitashe/image/bc/3
+||jitsu.www1.ru/api/s/track
 ||jiuwert.online^$popup
 ||jivo.ru/sounds/
 ||jivosite.com/sounds/
@@ -162822,6 +162555,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||js.dropmms.net/adprovider.js
 ||js.dsp.bance.jp/bncdmp.js
 ||js.ea3w.com/pv.js
+||js.eruptr.io/epd.js
 ||js.gleam.io/*/trk.js
 ||js.glossom.jp^$third-party
 ||js.go2sdk.com/v2/tune.js
@@ -163348,6 +163082,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||knowunity.com/ads/
 ||knowunity.com/events^
 ||knowunity.com/pixels/
+||knshow.com/ab?
 ||ko-fi.com/cdn/widget/$third-party
 ||ko44.ru^$cookie=uniqueid
 ||kobe-np.co.jp/api/audience-data
@@ -163770,6 +163505,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||lepoint.fr/img-l/$image
 ||lequipe.fr/*/prebid.js$redirect-rule=noopjs
 ||lequipe.fr/_nuxt/Share.
+||leroymerlin.co.za/fokt/
 ||lesbian8.com/*/frot_lod.js
 ||lesbian8.com/frd5/
 ||lesbian8.com/frd5/s/s/sum.php
@@ -164850,6 +164586,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||massivecams.com/api/v1/activity
 ||masterani.me/static/neenee/*-*.$image
 ||masteranime.tv/api/pop.php$xhr,1p
+||masterclass.com/qz6s/
 ||masternodes.online/baseimages/
 ||masutabe.info/js/access.js
 ||mat.chasedream.com^*.gif
@@ -164858,6 +164595,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||mat1.gtimg.com/cq/flash/
 ||mat1.gtimg.com/ent/flash/*300
 ||mat6tube.com/api/stats?
+||matalan.co.uk/track
 ||matas.dk/internal/Tracking/
 ||matcher.one^$all
 ||matchid.adfox.yandex.ru/getcookie$domain=vseinstrumenti.ru|kp.ru
@@ -165424,6 +165162,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||mipengine.baidu.com/common?
 ||miracle.magic-connect.net^$doc
 ||miraculum.ml/includes/assets/fairuse.js
+||mirakl.net/mtag.min.js
 ||mirrorace.org/*.gif$image
 ||mirtesen.ru/js/ms.js
 ||mis.ig.com/tracking/
@@ -167559,6 +167298,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||p.ost2.fyi/event^
 ||p.pstatp.com/origin/$domain=pianba.tv|pianba.net
 ||p.qlogo.cn^$domain=jumi.tv
+||p.relay-t.io/wh.js
 ||p.sfx.ms/is/invis.gif
 ||p.typekit.net/p.css^$css,domain=athleticpropulsionlabs.com|browserstack.com|bungie.net|petsafe.com|robertsspaceindustries.com,redirect=noop.css,important
 ||p.typekit.net/p.css^$css,redirect=noop.css
@@ -168475,6 +168215,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||play-lg.com^$popup
 ||play-lustgoddess.com^$all
 ||play.*.com/vendor/$domain=play.aetv.com|play.mylifetime.com
+||play.astrogame.org/qw4d/
 ||play.funfourmob.com^$all
 ||play.gamepix.com/player/assets/js/prebid.js$script,redirect=noopjs,domain=play.gamepix.com
 ||play.gamezop.com^$domain=gplinks.co
@@ -169163,6 +168904,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||prod.adobeccstatic.com/unav/*/AnalyticsProvider.
 ||prod.benchmarkemail.com/tracker.bundle.js
 ||prod.danawa.com/info/ajax/getAdSmartProductList.ajax.php
+||prod.empathy.co/public/visit
 ||prod.outgoing.prod.webservices.mozgcp.net/v1/$urlskip=/\/v1\/\w+\/(http.+)$/ -uricomponent +https
 ||prod.tools.shortbread.aws.dev/1x1.png?
 ||prod.uidapi.com^$third-party
@@ -169983,6 +169725,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||rbtfit.com^$popup
 ||rbxtrk.com^$popup
 ||rcdn-web.com^$popup
+||rcdn.kervinteractive.com/pixels/
 ||rcgroups.net/adjsc.php
 ||rcp.evolok.net^$third-party
 ||rcs.mako.co.il/js/neo/hpstats.js
@@ -170015,6 +169758,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||readme.ru/informer/
 ||readmng.com/dist/img/banner*$image,1p
 ||readserv.com^$popup
+||readtargeting.com^$third-party
 ||readthedocs.*/javascript/readthedocs-analytics.js
 ||readwn.com/*/ad/
 ||readyf1.click^$all
@@ -172297,7 +172041,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||socialsex.com^$popup
 ||socialxup.com/api/sale-accounts
 ||socialxup.com/api/track
-||socialxup.com/go/products$uritransform=/go\/products//
+||socialxup.com/go/$uritransform=/go\/.*//
 ||societe-des-avis-garantis.fr/wp-content/*/widgets/$third-party
 ||socital.com^*/socital.js
 ||sock*-goguardian.pusher.com^
@@ -172847,6 +172591,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||stat.enter-system.com^$third-party
 ||stat.i3.dmm.com/plus/tracking.js
 ||stat.tildaapi.com/event/
+||statad.ru/tracker.js
 ||statcounter.com/counter/*.js
 ||statcounter.com^$third-party
 ||static*.365inews.com^
@@ -177515,6 +177260,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||www-winbank-lfremhmida*.codeanyapp.com^$doc
 ||www.*.icu^$doc,ipaddress=/^(13\.227\.254\.\d{2}|2600:9000:2(00a|1d1):[a-z0-9]{2}00:1[1c]:(7b7c|2741):(1ac|2d0)0:93a1)$/
 ||www.*.vip^$doc,ipaddress=/^(13\.227\.254\.\d{2}|2600:9000:2(00a|1d1):[a-z0-9]{2}00:1[1c]:(7b7c|2741):(1ac|2d0)0:93a1)$/
+||www.airbnb.*/gtg/$script
 ||www.amazon.*/gp/*.html?*&U=http$doc,urlskip=?U
 ||www.amazon.*/page/$doc,removeparam=ingress
 ||www.amazon.*/page/$doc,removeparam=lp_context_asin
@@ -177536,6 +177282,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||www.ebay.$removeparam=sssrc
 ||www.ebay.$removeparam=ssuid
 ||www.ebay.*/gh/dfpsvc?
+||www.eventim.*/orchestra/
 ||www.fuze-hill*.xyz^
 ||www.fuze-hill*.xyz^$popup
 ||www.fuze-sea*.xyz^
@@ -177557,6 +177304,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||www.techpowerup.com/reviyuu/
 ||www.urami.net^$doc
 ||www.uz/counter/collect?
+||www.vivastreet.*/cfgtg/
 ||www.whitemagic.jp^$doc
 ||www.youtube.com/@melonitysoft/$doc
 ||www.youtube.com/@pengwincheat/$doc
@@ -281834,8 +281582,7 @@ socialmediagirls.com##a[href^="https://www.rabbitsreviews.com/"]
 socialmediagirls.com#%#//scriptlet('prevent-addEventListener', 'load', 'puHref')
 socialpress.pl##article > .image-wraper + div[style^="width: 300px; height: auto;"]
 socialstyrelsen.se##.sos-ck-cnsnt-mgnr
-socialxup.com##[style*="cursor:"]
-socialxup.com#?#[style*="cursor:"]:upward(1)
+socialxup.com##.cursor-pointer
 society19.com##div[style*="margin:"][style*="text-align:"][style*="display:"]:has(> div[id^="div-gpt-"])
 socigames.com##.socig-floating-footer
 socigames.com##a[href="https://lewdvideo.com/"]
@@ -287896,6 +287643,14 @@ tikmate.app#%#//scriptlet('trusted-replace-node-text', 'script', 'downloadHD(thi
 tikmate.app#%#//scriptlet('trusted-replace-node-text', 'script', 'function downloadHD', '/(function downloadHD\(obj\) {)[\s\S]*?(datahref.*)[\s\S]*?(window.location.href = datahref;)[\s\S]*/', '$1$2$3}')
 tikpornk.com##.mr-1
 tiktits.com##.callback-bt
+tiktok.com##+js(set, AppLogBridge.hasStarted, trueFunc)
+tiktok.com##+js(set, AppLogBridge.onEventV3, noopFunc)
+tiktok.com##+js(set, AppLogBridge.profileAppend, noopFunc)
+tiktok.com##+js(set, AppLogBridge.profileIncrement, noopFunc)
+tiktok.com##+js(set, AppLogBridge.profileSet, noopFunc)
+tiktok.com##+js(set, AppLogBridge.profileSetOnce, noopFunc)
+tiktok.com##+js(set, AppLogBridge.profileUnset, noopFunc)
+tiktok.com##+js(set-local-storage-item, /__tea_cache_events_.*/, $remove$)
 tiktok.com##.app-promotion
 tiktok.com##.css-bu8whx-DivBannerContainer
 tiktok.com##.e1ynhqbi1
@@ -293756,10 +293511,10 @@ web.de##div[data-service-slot-initialized]
 web.de#@#.ad
 web.dev##web-snackbar
 web.facebook.com,www.facebook.com###seo_pivots ~ div > div[style^="max-width"] > div[class] > div[style^="max-width"]:has(a[href^="/ads/about/?"])
-web.facebook.com,www.facebook.com##+js(json-edit, ..data.viewer..nodes.*[?.__typename=="AdsSideFeedUnit"], matches, AdsSideFeedUnit)
+web.facebook.com,www.facebook.com##+js(json-edit, ..data.viewer..nodes.*[?.__typename=="AdsSideFeedUnit"])
 web.facebook.com,www.facebook.com##+js(json-edit, ..node[?.*.__typename=="SponsoredData"], matches, '/^.{1000,}/')
-web.facebook.com,www.facebook.com##+js(json-edit, ..node[?.__typename=="MarketplaceFeedAdStory"], matches, MarketplaceFeedAdStory)
-web.facebook.com,www.facebook.com##+js(json-edit, ..nodes.*[?.sponsored_data], matches, sponsored_data)
+web.facebook.com,www.facebook.com##+js(json-edit, ..node[?.__typename=="MarketplaceFeedAdStory"])
+web.facebook.com,www.facebook.com##+js(json-edit, ..nodes.*[?.sponsored_data])
 web.facebook.com,www.facebook.com##+js(json-prune, require.0.3.0.__bbox.require.[].3.1.__bbox.result.data.marketplace_search.feed_units.edges.[-].node.story.sponsored_data.ad_id)
 web.facebook.com,www.facebook.com##+js(json-prune, require.0.3.0.__bbox.require.[].3.1.__bbox.result.data.node, require.0.3.0.__bbox.require.[].3.1.__bbox.result.data.node.story.sponsored_data.ad_id)
 web.facebook.com,www.facebook.com##+js(json-prune, require.0.3.0.__bbox.require.[].3.1.__bbox.result.data.serpResponse.results.edges.[-].relay_rendering_strategy.view_model.story.sponsored_data.ad_id)
