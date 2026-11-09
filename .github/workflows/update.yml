@@ -69,6 +69,17 @@ jobs:
         continue-on-error: true
         run: python benchmark.py --out output/benchmark.json
 
+      # 扩展建议 1: Live benchmark — 真实浏览器跑分, 非阻断 (失败不影响推送)
+      # 与独立的 live-benchmark.yml (每周日) 互补, 每次更新都跑一次轻量版
+      - name: 真实浏览器跑分 (非阻断)
+        continue-on-error: true
+        run: |
+          python -m pip install --upgrade pip -q
+          pip install playwright -q
+          python -m playwright install --with-deps chromium 2>/dev/null || \
+            python -m playwright install chromium
+          python tools/live_benchmark.py --out output/live-benchmark.json
+
       - name: 提交并推送 (带重试, 防非快进竞态)
         id: publish
         run: |

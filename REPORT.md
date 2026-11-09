@@ -148,9 +148,9 @@ adblock-tester.com##[data-ads]:            ✓ 匹配 1 个元素
 
 ### 4.2 扩展建议（中期）
 
-1. **Live benchmark**: 已有 `.github/workflows/live-benchmark.yml`，但未被 CI 触发 — 建议接入 `tools/live_benchmark.py` 做真实浏览器端验证（adblock-tester.com 实测分数）
-2. **规则质量门控**: 206 项测试通过即可推送，建议加一条"未知修饰符数量不超过 N"作为 hard gate
-3. **镜像覆盖率持续监控**: 当上游某个源出现新的 `$all` 域且无父域覆盖时，自动生成镜像并在 `all_compat_mirrors` 里体现，当前只是被动等待上游补齐
+1. ~~**Live benchmark**: 已有 `.github/workflows/live-benchmark.yml`，但未被 CI 触发~~ → **已接入**: update.yml 新增"真实浏览器跑分（非阻断）"步骤，每次更新都跑一次 `tools/live_benchmark.py`（Playwright + Chromium，约 5 分钟），结果写入 `output/live-benchmark.json`；独立 `live-benchmark.yml` 保留每周日全量跑分 + 截图
+2. ~~**规则质量门控**: 206 项测试通过即可推送~~ → **已实现**: 新增 `tests/test_quality_gate.py`（5 个用例），stats.json 产出 `unknown_mods_total` + `unknown_mods_top`。当前门限 `≤ 300`（实测 223，含约 50 条 `[aria-label` 解析边界噪音），测试在 update.yml 的"运行测试"步骤自动执行，**超过门限直接阻断推送**
+3. ~~**镜像覆盖率持续监控**: 当上游某个源出现新的 `$all` 域且无父域覆盖时自动生成镜像~~ → **已扩展**: stats.json 新增 `all_coverage` 字典，四元组 `pure_all_total/covered/mirrored/uncovered`。当前快照: 上游 1340 条纯 `$all` 域，1229 被父域裸规则覆盖，89 条补了镜像，**22 条真缺口**（多为 IP 段等无法镜像）。`test_quality_gate.py` 硬门限 ≤ 30，超过则 fail
 
 ### 4.3 已解决问题（本轮修复）
 

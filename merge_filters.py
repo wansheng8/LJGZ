@@ -24,6 +24,7 @@ import sys
 import urllib.error
 import urllib.request
 from glob import glob
+from collections import Counter
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta, timezone
 from typing import Dict, Iterable, List, Optional, Set, Tuple
@@ -535,6 +536,31 @@ def parse_line(line: str, source: str = "") -> Rule:
 _DNS_NET_MODS = {"dnsrewrite", "dnstype", "client", "ctag", "important", "denyallow"}
 
 
+# ABP / uBO / AdGuard 三家引擎公开文档里的全部官方修饰符 (key 名, 不含 =值)。
+# 用于规则质量门控: 上游规则里出现不在此集的 token → 客户端会把整行当无效
+# 丢弃 (拦不住), 数量持续监控。引擎专有修饰符 ($all / $cookie / $stealth) 也
+# 在集内 —— 它们只是跨引擎不生效, 不是非法 token (不会导致整行被丢弃)。
+_OFFICIAL_MODS = {
+    # ABP / uBO / AdGuard 通用 (请求类型 + 通用修饰符)
+    "script", "image", "stylesheet", "object", "subdocument",
+    "xmlhttprequest", "xhr", "websocket", "webrtc",
+    "ping", "beacon", "other", "doc", "document", "iframe", "frame",
+    "font", "media", "popup", "popunder", "csp", "important", "badfilter",
+    "domain", "third-party", "3p", "first-party", "1p", "all",
+    "match-case", "rewrite", "redirect", "redirect-rule",
+    "generichide", "ghide", "elemhide", "ehide", "stealth",
+    "genericblock",
+    # uBO / AdGuard
+    "referrerpolicy", "removeparam", "queryprune", "jsonprune", "hidemethod",
+    "strict1p", "strict3p",
+    # AdGuard 专有 (DNS + 高级)
+    "cookie", "dnsrewrite", "dnstype", "denyallow", "client", "ctag",
+    "csspath", "replace", "uritransform", "css", "inline-script",
+    "network", "permission", "all-other", "all-redirect",
+    "ipaddress", "urlskip", "to", "from",
+}
+
+
 # 可被"裸域名块 ||d^"完全覆盖的纯请求类型/上下文修饰符。
 # 这些标签只是收窄"拦哪种资源", 而裸 ||d^ 已拦该域所有请求 → 同域窄规则冗余。
 # 凡含 =值(domain=/to=)、~否定、redirect/rewrite、$all、$important、denyallow
@@ -603,12 +629,22 @@ class Merger:
         self._stats_dropped = 0
         self._local_count = 0
         self._subsumed_count = 0
+        self._unknown_mods: Counter = Counter()   # 未知修饰符 token → 出现次数
+        self._all_coverage: Dict[str, int] = {}
 
     # -- 收集 ------------------------------------------------------------
     def add_rule(self, rule: Rule) -> None:
         if rule.dropped:
             self._stats_dropped += 1
             return
+        # 未知修饰符统计: 只对网络规则 + 例外规则做 (cosmetic / domain 无修饰符)
+        if rule.modifiers and rule.kind in (K_NETWORK, K_EXCEPTION):
+            for m in split_mod_tokens(rule.modifiers.lower()):
+                key = m.split("=", 1)[0].strip()
+                if key.startswith("~"):
+                    key = key[1:]
+                if key and key not in _OFFICIAL_MODS:
+                    self._unknown_mods[key] += 1
         if rule.source == "local-additions":
             self._local_count += 1
         if rule.kind == K_DOMAIN:
@@ -720,11 +756,21 @@ class Merger:
         纯域形态 `||d^$all` 只在该域尚无其它全类型拦截时才补 (否则上千条
         冗余); 路径/正则/带 `domain=` 等复合形态按原式去 $all 补一条。
 
+        同时记录镜像覆盖率指标到 `self._all_coverage`:
+          pure_all_total       —— 全部上游纯 $all 域 (不含 badfilter)
+          pure_all_covered     —— 其中被父域裸规则覆盖, 无需镜像
+          pure_all_mirrored    —— 其中补了镜像
+          pure_all_uncovered   —— 真缺口: 既无父域覆盖又没补镜像 (IP 段等)
+        监控这个指标可发现上游新 $all 域 / 父域规则被删导致的覆盖率下降。
+
         返回 (域名镜像, 网络镜像)。
         """
         blocked = {d for d, _, _ in items}
         dom_mirrors = []
         net_mirrors = []
+        pure_all_total = 0
+        pure_all_covered = 0
+        pure_all_mirrored = 0
         for raw in net_candidates:
             pattern, mods = _split_modifiers(raw)
             toks = _split_mods_raw(mods)
@@ -737,13 +783,22 @@ class Merger:
             m = _ANCHOR_RE.match(pattern)
             if m and not body:
                 d = norm_domain(m.group(1))
-                if (_is_domain(d) and not self._has_numeric_label(d)
-                        and not _covered(d, blocked)):
+                pure_all_total += 1
+                if _covered(d, blocked):
+                    pure_all_covered += 1
+                elif _is_domain(d) and not self._has_numeric_label(d):
                     dom_mirrors.append((d, False, "||{}^".format(d)))
+                    pure_all_mirrored += 1
                 continue
             mirror = pattern + ("$" + body if body else "")
             if mirror != raw:
                 net_mirrors.append(mirror)
+        self._all_coverage = {
+            "pure_all_total": pure_all_total,
+            "pure_all_covered": pure_all_covered,
+            "pure_all_mirrored": pure_all_mirrored,
+            "pure_all_uncovered": pure_all_total - pure_all_covered - pure_all_mirrored,
+        }
         return dom_mirrors, net_mirrors
 
     def finalize(self) -> MergeResult:
@@ -874,6 +929,11 @@ class Merger:
             "dropped_bare_exceptions": bare_whole_domain,
             "subsumed_type_rules": self._subsumed_count,
             "all_compat_mirrors": len(dom_mirrors) + net_added,
+            # 扩展建议 2: 规则质量门控 —— 未知修饰符 (客户端会丢弃整行)
+            "unknown_mods_total": sum(self._unknown_mods.values()),
+            "unknown_mods_top": dict(self._unknown_mods.most_common(10)),
+            # 扩展建议 3: $all 镜像覆盖率 —— 上游 $all 域被父域/镜像覆盖的比例
+            "all_coverage": self._all_coverage,
         }
         return res
 
