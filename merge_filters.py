@@ -187,24 +187,66 @@ def _split_modifiers(s: str) -> Tuple[str, str]:
     return s, ""
 
 
-def split_mod_tokens(mods: str):
-    """按未转义逗号切分修饰符 (值中 `\,` 不切)。"""
+def _split_top_level(s: str, sep: str = ",") -> List[str]:
+    """按顶层分隔符切分; `'string'` / `"string"` / `/regex/` 字面量内的
+    分隔符不切。反斜杠转义统一跳过。用于修饰符切分 —— `replace='...JS 里
+    的逗号...'`、`ipaddress=/^(.*)$/` 这类值里天然含逗号, 朴素 split 会
+    把它们切成垃圾 token (P5)。
+
+    字面量起始规则:
+      · `'` / `"` 任何位置都是字面量起始 (修饰符值里的字符串引号绝不可能
+        是别的东西, 如 replace='...')
+      · `/` 只在 `=`, `,` 或字符串开头后才视为正则起始 —— 避免把正则闭
+        合后 URL 路径里的 `//` 误判为下一个正则的开头
+    """
     out, buf, i = [], [], 0
-    while i < len(mods):
-        c = mods[i]
-        if c == "\\" and i + 1 < len(mods):
-            buf.append(mods[i + 1])
+    n = len(s)
+    quote = None  # None | "'" | '"' | "/"
+    while i < n:
+        c = s[i]
+        # 反斜杠转义: 吞掉下一个字符 (无论是否在引号内)
+        if c == "\\" and i + 1 < n:
+            buf.append(s[i:i + 2])
             i += 2
             continue
-        if c == ",":
+        # 顶层分隔符 (不在任何字面量内) → 切
+        if c == sep and quote is None:
             out.append("".join(buf))
             buf = []
-        else:
+            i += 1
+            continue
+        # 进入字面量 (顶层才进)
+        if quote is None:
+            if c in ("'", '"'):
+                quote = c
+                buf.append(c)
+                i += 1
+                continue
+            if c == "/":
+                # 正则起始判据: 前一个有效字符是 `=`, `,` 或开头
+                prev_ok = (i == 0) or (s[i - 1] in ("=", ","))
+                if prev_ok:
+                    quote = "/"
+                    buf.append(c)
+                    i += 1
+                    continue
+                # 否则 `/` 是 URL 路径的一部分 (如 `//`), 不当作字面量
+        # 退出字面量
+        if quote is not None and c == quote:
+            quote = None
             buf.append(c)
+            i += 1
+            continue
+        buf.append(c)
         i += 1
     if buf:
         out.append("".join(buf))
-    return [t.strip() for t in out if t.strip()]
+    return out
+
+
+def split_mod_tokens(mods: str):
+    """按顶层逗号切分修饰符 (字面量内的逗号不切)。"""
+    return [t.strip() for t in _split_top_level(mods, ",") if t.strip()]
 
 
 def _mods_subset_of(mods: str, allowed) -> bool:
@@ -221,23 +263,8 @@ _NON_SEMANTIC_MOD_PREFIXES = ("reason=",)
 
 
 def _split_mods_raw(mods: str):
-    """按未转义逗号切分, 但保留原文 (含 `\\,` 转义), 便于原样拼回。"""
-    out, buf, i = [], [], 0
-    while i < len(mods):
-        c = mods[i]
-        if c == "\\" and i + 1 < len(mods):
-            buf.append(mods[i:i + 2])
-            i += 2
-            continue
-        if c == ",":
-            out.append("".join(buf))
-            buf = []
-        else:
-            buf.append(c)
-        i += 1
-    if buf:
-        out.append("".join(buf))
-    return out
+    """按顶层逗号切分, 保留原文 (含 `\\,` 转义 / 字面量内逗号), 便于原样拼回。"""
+    return _split_top_level(mods, ",")
 
 
 def _sanitize_modifiers(mods: str) -> str:

@@ -144,7 +144,7 @@ adblock-tester.com##[data-ads]:            ✓ 匹配 1 个元素
 | **P2** | 上游源中混入明显恶意 payload 片段（`%3C?php%20echo%20substr(md5(microtime()))$popup` 等 2 条 PHP 后门片段），客户端能解析语法但正常站点绝不可能发这种 URL | ✅ 已修复 |
 | **P3** | Benchmark 只测 28 个 must_block / 33 个 must_not_block，覆盖面有限 | ✅ 已修复 |
 | **P4** | ~~`hosts.txt` / `domains.txt` 不携带 `$important` 修饰符~~ → **已确认不是 bug**: adguard.txt 完整保留了 44 条纯域名 `||d^$important` 规则（与 all.txt 一致，DNS 折叠未丢任何 important 域）；hosts/domains 格式（`0.0.0.0 d` / 纯域名列表）按行业定义本身不支持修饰符，订阅这两种格式的客户端（Pi-hole、系统 hosts）也没有"优先级压过白名单"的语义，故无实际损失。需重要性语义的 DNS 用户应订阅 adguard.txt | ✅ 已修复 (adguard.txt 已承担该职责) |
-| **P5** | 3 条上游 `o` token 实际是正则 `/foo$/bar/` 被 `$` 切分误判 | 无实际影响 | 修饰符 token 识别前先排除正则字面量 |
+| **P5** | ~~3 条上游 `o` token 实际是正则 `/foo$/bar/` 被 `$` 切分误判~~ → **已修复**: 实际根因是 `split_mod_tokens` 朴素按逗号切分修饰符, 不认 `'string'` / `"string"` / `/regex/` 字面量 —— `$replace='...JS 代码里天然含逗号 (n,o,w)=>{}...'`、`$ipaddress=/^(1(72\.67\..*|04\.21\..*)\..*)$/` 这类值被切穿后产生 `'o'`、`'w'`、`'4})$/'` 等垃圾 token, 影响去重键构造和 DNS 能力判定。新增 `_split_top_level()` 按顶层分隔符切分, 只在 `=`, `,` 或字符串开头后才把 `/` 判为正则起始 (避免 URL 里 `//` 误触), 引号内外的逗号不再切 | ✅ 已修复 |
 
 ### 4.2 扩展建议（中期）
 
