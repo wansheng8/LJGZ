@@ -1,7 +1,7 @@
-# LJGZ 拦截规则完整质量报告
+﻿# LJGZ 拦截规则完整质量报告
 
 **生成时间**: 2026-11-09  
-**依据**: `output/all.txt`（988,003 行）、`benchmarks/expectations.json`、`tests/data/adblock-tester.html` 离线快照、206 项单元测试  
+**依据**: `output/all.txt`（988,003 行）、`benchmarks/expectations.json`、`tests/data/adblock-tester.html` 离线快照、218 项单元测试  
 **引擎覆盖**: AdGuard Home / uBlock Origin / AdGuard Browser Extension / Pi-hole / Hosts
 
 ---
@@ -102,7 +102,7 @@ adblock-tester.com##[data-ads]:            ✓ 匹配 1 个元素
 
 ### 2.3 单元测试
 
-**206/206 全过**。覆盖范围：
+**218/218 全过**。覆盖范围：
 
 | 测试套件 | 覆盖 |
 |---|---|
@@ -140,11 +140,11 @@ adblock-tester.com##[data-ads]:            ✓ 匹配 1 个元素
 
 | # | 问题 | 影响 | 建议 |
 |---|---|---|---|
-| **P1** | ~~3 条 scriptlet/##^ 进程式规则被 balanced() 误判为"括号不配对"~~ → **已修复**：审计脚本的朴素 balanced() 没跳过正则字面量/字符类，导致 96 条合法规则被误报；真正的问题是上游列表里有 33 条 scriptlet/##^ 规则参数体被截断（`localStorage['\x)`、`(function(){...});` 等），客户端拿到也会整行跳过。已在 `parse_line()` 里对含 scriptlet/##^ 标记的元素隐藏规则加 `_parens_balanced` 校验，截断规则直接 dropped，保留规则 9035 条 → 清掉 33 条坏规则 → 清掉 33 条坏规则。好规则（含正则参数、##^ HTML 过滤、普通 CSS 选择器）无一误杀 | ✅ 已修复 (commit ) |
-| **P2** | 上游源中混入明显恶意 payload 片段（`%3C?php%20echo%20substr(md5(microtime()))$popup` 等 2 条 PHP 后门片段），客户端能解析语法但正常站点绝不可能发这种 URL | ✅ 已修复 |
-| **P3** | Benchmark 只测 28 个 must_block / 33 个 must_not_block，覆盖面有限 | ✅ 已修复 |
-| **P4** | ~~`hosts.txt` / `domains.txt` 不携带 `$important` 修饰符~~ → **已确认不是 bug**: adguard.txt 完整保留了 44 条纯域名 `||d^$important` 规则（与 all.txt 一致，DNS 折叠未丢任何 important 域）；hosts/domains 格式（`0.0.0.0 d` / 纯域名列表）按行业定义本身不支持修饰符，订阅这两种格式的客户端（Pi-hole、系统 hosts）也没有"优先级压过白名单"的语义，故无实际损失。需重要性语义的 DNS 用户应订阅 adguard.txt | ✅ 已修复 (adguard.txt 已承担该职责) |
-| **P5** | ~~3 条上游 `o` token 实际是正则 `/foo$/bar/` 被 `$` 切分误判~~ → **已修复**: 实际根因是 `split_mod_tokens` 朴素按逗号切分修饰符, 不认 `'string'` / `"string"` / `/regex/` 字面量 —— `$replace='...JS 代码里天然含逗号 (n,o,w)=>{}...'`、`$ipaddress=/^(1(72\.67\..*|04\.21\..*)\..*)$/` 这类值被切穿后产生 `'o'`、`'w'`、`'4})$/'` 等垃圾 token, 影响去重键构造和 DNS 能力判定。新增 `_split_top_level()` 按顶层分隔符切分, 只在 `=`, `,` 或字符串开头后才把 `/` 判为正则起始 (避免 URL 里 `//` 误触), 引号内外的逗号不再切 | ✅ 已修复 |
+| **P1** | ~~3 条 scriptlet/##^ 进程式规则被 balanced() 误判为"括号不配对"~~ → **已修复**：审计脚本的朴素 balanced() 没跳过正则字面量/字符类，导致 96 条合法规则被误报；真正的问题是上游列表里有 33 条 scriptlet/##^ 规则参数体被截断（`localStorage['\x)`、`(function(){...});` 等），客户端拿到也会整行跳过。已在 `parse_line()` 里对含 scriptlet/##^ 标记的元素隐藏规则加 `_parens_balanced` 校验，截断规则直接 dropped，保留规则 9035 条 → 好规则（含正则参数、##^ HTML 过滤、普通 CSS 选择器）无一误杀 | ✅ 已修复 (commit `6337d5f`) |
+| **P2** | 上游源中混入明显恶意 payload 片段（`%3C?php%20echo%20substr(md5(microtime()))$popup` 等 2 条 PHP 后门片段），客户端能解析语法但正常站点绝不可能发这种 URL | ✅ 已修复 (commit `186db61`) |
+| **P3** | Benchmark 只测 28 个 must_block / 33 个 must_not_block，覆盖面有限 | ✅ 已修复 (commit `5e8a0ed`) |
+| **P4** | ~~`hosts.txt` / `domains.txt` 不携带 `$important` 修饰符~~ → **已确认不是 bug**: adguard.txt 完整保留了 44 条纯域名 `||d^$important` 规则（与 all.txt 一致，DNS 折叠未丢任何 important 域）；hosts/domains 格式（`0.0.0.0 d` / 纯域名列表）按行业定义本身不支持修饰符，订阅这两种格式的客户端（Pi-hole、系统 hosts）也没有"优先级压过白名单"的语义，故无实际损失。需重要性语义的 DNS 用户应订阅 adguard.txt | ✅ 已修复 (commit `52ca847`) |
+| **P5** | ~~3 条上游 `o` token 实际是正则 `/foo$/bar/` 被 `$` 切分误判~~ → **已修复**: 实际根因是 `split_mod_tokens` 朴素按逗号切分修饰符, 不认 `'string'` / `"string"` / `/regex/` 字面量 —— `$replace='...JS 代码里天然含逗号 (n,o,w)=>{}...'`、`$ipaddress=/^(1(72\.67\..*|04\.21\..*)\..*)$/` 这类值被切穿后产生 `'o'`、`'w'`、`'4})$/'` 等垃圾 token, 影响去重键构造和 DNS 能力判定。新增 `_split_top_level()` 按顶层分隔符切分, 只在 `=`, `,` 或字符串开头后才把 `/` 判为正则起始 (避免 URL 里 `//` 误触), 引号内外的逗号不再切 | ✅ 已修复 (commit `2084d23`) |
 
 ### 4.2 扩展建议（中期）
 

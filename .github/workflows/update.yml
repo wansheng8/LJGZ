@@ -65,6 +65,11 @@ jobs:
       - name: 下载并合并规则
         run: python merge_filters.py --config config.json --outdir output
 
+      # 扩展建议 2: 规则质量门控 —— 依赖 output/stats.json, 必须在 merge 之后
+      # 跑。门限硬约束: 超过即 fail → 阻断推送。
+      - name: 规则质量门控 (阻断)
+        run: python -m unittest tests.test_quality_gate.TestQualityGate -v
+
       - name: 离线覆盖率跑分 (非阻断)
         continue-on-error: true
         run: python benchmark.py --out output/benchmark.json
