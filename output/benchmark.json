@@ -1,9 +1,9 @@
 {
   "coverage": {
-    "hit": 27,
+    "hit": 34,
     "missing": [],
     "rate": 100.0,
-    "total": 27
+    "total": 34
   },
   "proxy_missed": {
     "hit": 30,
@@ -13,12 +13,68 @@
   "rules": {
     "exceptions": 28,
     "modifier_domains": 5881,
-    "pure_domains": 507264
+    "pure_domains": 507266
   },
   "safety": {
     "false_positives": [],
     "rate": 100.0,
-    "total": 33
+    "total": 35
   },
-  "score": 99.4
+  "score": 99.7,
+  "selectors": {
+    "all": [
+      {
+        "expect_min": 1,
+        "got": 1,
+        "ok": true,
+        "selector": ".adsbygoogle"
+      },
+      {
+        "expect_min": 1,
+        "got": 1,
+        "ok": true,
+        "selector": "div[data-ads=\"\"]"
+      },
+      {
+        "expect_min": 1,
+        "got": 1,
+        "ok": true,
+        "selector": "object[type=\"application/x-shockwave-flash\"]"
+      },
+      {
+        "expect_min": 1,
+        "got": 1,
+        "ok": true,
+        "selector": "embed[type=\"application/x-shockwave-flash\"]"
+      },
+      {
+        "expect_min": 1,
+        "got": 1,
+        "ok": true,
+        "selector": "param[name=\"movie\"][value*=\"banners\"]"
+      },
+      {
+        "expect_min": 2,
+        "got": 2,
+        "ok": true,
+        "selector": "img[src*=\"banners/\"]"
+      },
+      {
+        "expect_min": 1,
+        "got": 1,
+        "ok": true,
+        "selector": "object[data*=\"banners\"]"
+      },
+      {
+        "expect_min": 1,
+        "got": 1,
+        "ok": true,
+        "selector": "embed[src*=\"banners\"]"
+      }
+    ],
+    "hit": 8,
+    "miss": [],
+    "rate": 100.0,
+    "total": 8
+  }
 }
