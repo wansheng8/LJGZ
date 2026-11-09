@@ -101,6 +101,29 @@ _PIHOLE_SUB_RE = re.compile(
 # ^a\.b$ 形状
 _PIHOLE_EXACT_RE = re.compile(r"^\^((?:[a-z0-9-]+\\\.)*[a-z0-9-]+)\$$", re.IGNORECASE)
 
+# 规则体里不应出现的恶意 payload 特征 (URL 编码或明文的 PHP/JS 后门片段)。
+# 只对"子串/通配网络规则"启用: 锚点域 ||d^ / 正则 / hosts 等不做这层过滤 ——
+# 它们的 pattern 由语法形态约束, 不可能被植入这类片段。
+_MALICIOUS_PAYLOADS = [
+    re.compile(r"%3[cC]\?php"),                            # URL 编码 <?php
+    re.compile(r"%3[cC]script"),                           # URL 编码 <script
+    re.compile(r"<\?php", re.IGNORECASE),                  # 明文 <?php
+    re.compile(r"substr\s*\(\s*md5\s*\(\s*microtime\s*\(\s*\)\s*\)",
+               re.IGNORECASE),                              # spam 注册 token 生成
+    re.compile(r"base64_decode\s*\(\s*[""']?[A-Za-z0-9+/=]{40,}",
+               re.IGNORECASE),                              # 大块 base64 后门
+    re.compile(r"gzinflate\s*\(\s*[""']?[A-Za-z0-9+/=]{40,}",
+               re.IGNORECASE),                              # gzinflate 后门
+]
+
+
+def _payload_suspicious(pattern: str) -> bool:
+    """URL 模式是否含恶意 payload 特征。只应在不含锚点/正则的子串规则上调用。"""
+    for rx in _MALICIOUS_PAYLOADS:
+        if rx.search(pattern):
+            return True
+    return False
+
 
 @dataclass
 class Rule:
@@ -388,6 +411,12 @@ def _parse_single_token(s: str, source: str = "") -> Rule:
             return Rule(raw=s, kind=K_DOMAIN, domains=(d,), domain=d, source=source)
 
     # 其余一律按网络规则保留 (子串模式/正则/带修饰符)
+    # —— 但不含锚点/正则的纯子串规则如果藏恶意 payload, 客户端同样会
+    #     尝试拦它 (语法合法), 只是正常站点绝不可能发这种 URL — 直接丢弃。
+    if (not pattern.startswith("||")
+            and not pattern.startswith("/")
+            and _payload_suspicious(pattern)):
+        return Rule(raw=s, kind=K_INVALID, dropped=True, source=source)
     return Rule(raw=s, kind=K_NETWORK, pattern=pattern, modifiers=mods,
                 important="important" in lower_mods, source=source)
 

@@ -124,6 +124,57 @@ class TestCosmetic(unittest.TestCase):
             self.assertEqual(r.kind, mf.K_INVALID)
 
 
+class TestMaliciousPayloadFilter(unittest.TestCase):
+    """上游源偶尔混进 PHP 后门片段 / base64 大块等 payload 规则。
+
+    语法上合法, 客户端拿到也会尝试匹配 — 但正常站点绝不可能发这种 URL。
+    parse_line 在不含锚点/正则的纯子串网络规则上应直接丢弃。
+    """
+
+    def test_php_microtime_token_substring_dropped(self):
+        """spam 注册器生成的 md5(microtime()) URL 片段 (AdGuard 上游曾混入)。"""
+        for line in (
+            "%3C?php%20echo%20substr(md5(microtime()))$popup",
+            "%3C?php%20echo%20substr(md5(microtime()),0,rand(10,30));?%3E&$doc",
+        ):
+            r = mf.parse_line(line)
+            self.assertTrue(r.dropped, line)
+            self.assertEqual(r.kind, mf.K_INVALID)
+
+    def test_plain_php_tag_dropped(self):
+        """明文 <?php 出现在 URL 片段里 — 正常站点绝不发送这种请求。"""
+        r = mf.parse_line("example.com/?cmd=<?php eval($_GET[x]); ?>$script")
+        self.assertTrue(r.dropped)
+        self.assertEqual(r.kind, mf.K_INVALID)
+
+    def test_base64_decode_backdoor_dropped(self):
+        """base64_decode(大块 payload) — RFI / webshell 特征。"""
+        payload = "YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXowMTIzNDU2Nzg5" * 5
+        r = mf.parse_line(f"checkout.example.com/?k=base64_decode('{payload}')$script")
+        self.assertTrue(r.dropped)
+
+    def test_anchor_domain_and_regex_not_filtered(self):
+        """锚点域 / 正则规则不做 payload 过滤 — 它们的 pattern 由语法形态约束,
+        不可能被植入恶意片段, 误杀风险高。"""
+        for line in ("||example.com^",
+                     "/^https?:\\/\\/(?:www\\.)?ad\\./"):
+            r = mf.parse_line(line)
+            self.assertFalse(r.dropped, line)
+            self.assertNotEqual(r.kind, mf.K_INVALID, line)
+
+    def test_extra_rules_not_filtered(self):
+        """本地 extra_rules 里所有规则不得被 payload 过滤误杀 — FORBIDDEN /
+        EXPECTED_SAFE / adblock-tester 相关规则都走 parse_line。"""
+        import json
+        cfg_path = os.path.abspath(os.path.join(os.path.dirname(__file__),
+                                                "..", "config.json"))
+        cfg = json.load(open(cfg_path, encoding="utf-8"))
+        for rule in cfg.get("extra_rules", []):
+            r = mf.parse_line(rule)
+            self.assertFalse(r.dropped,
+                             f"P2 payload 过滤误杀 extra_rules 里的 {rule!r}")
+
+
 class TestDomainRules(unittest.TestCase):
     """`||domain^`、裸域名、*.domain、hosts 行、Pi-hole 正则 —— 归并为域名规则。"""
 

@@ -68,7 +68,7 @@ flowchart LR
 | ③ 合并 | `Merger` | 精确去重 + 修饰符排序后语义去重，`$badfilter` 失效，`@@` 例外保护 |
 | ④ 仲裁 | `finalize()` | 子域折叠、同域 type 规则消解、DNS 能力筛选 |
 | ⑤ 输出 | `write_outputs()` | 5 种格式、stats.json、徽章 SVG |
-| ⑥ 发布 | `update.yml` | 208 项测试 → 合并 → 跑分（非阻断）→ 无变化跳过提交（定时跳过部署）→ commit/push → 部署 Pages |
+| ⑥ 发布 | `update.yml` | 213 项测试 → 合并 → 跑分（非阻断）→ 无变化跳过提交（定时跳过部署）→ commit/push → 部署 Pages |
 
 ## 产物
 
@@ -172,14 +172,14 @@ flowchart LR
 - **scriptlet 强校验** — 必须形如 `<域名>##+js(<内置名>, <参数>)` 或 `#%#//scriptlet(...)`；校验域名合法性、括号配对、scriptlet 名称非空。任一失败直接 `ValueError`，CI 阻断发布。订阅只能调用客户端内置 scriptlet，无法下发任意 JS。
 - **源下载** — 23 个上游全部成功才发布；4xx 不重试，网络错误指数退避重试。
 - **分卷** — 按行累积切卷，阈值 18,000,000 字节并预留 4096 字节头部余量，保证单卷不超过 18MB；每卷自带完整头部与 `[Adblock Plus 2.0]`，多卷全订阅 == 完整 `all.txt`，用于受限客户端；每轮清理过期分卷。
-- **自检** — `python merge_filters.py --test` 跑内置冒烟用例；`python -m unittest discover -s tests` 跑 208 项离线测试。
+- **自检** — `python merge_filters.py --test` 跑内置冒烟用例；`python -m unittest discover -s tests` 跑 213 项离线测试。
 - **零依赖** — 纯 stdlib 单文件，`python merge_filters.py` 即跑。
 
 <details>
 <summary><b>🚀 自动更新与部署</b></summary>
 
 - 工作流：`.github/workflows/update.yml`（cron `0 0 * * *` + `0 12 * * *` UTC = 北京 08:00 / 20:00，`TZ=Asia/Shanghai`）
-- 流程：208 项测试 → 下载 23 源 → 合并 → 无变化跳过提交，有变化自动 commit + push → 部署 Pages（定时触发且无变化时跳过，push / 手动触发始终部署）
+- 流程：213 项测试 → 下载 23 源 → 合并 → 无变化跳过提交，有变化自动 commit + push → 部署 Pages（定时触发且无变化时跳过，push / 手动触发始终部署）
 - 另有两个纯清理 cron（06:00 / 18:00 UTC），只删旧 Actions 历史，保留最新 3 条
 - 输出头部含 `! Last Modified: ... (北京时间 UTC+8)` 与 `! Expires: 12 hours`
 - 徽章 SVG 由引擎每次运行重新生成，数字始终与最新合并一致
@@ -204,7 +204,7 @@ tools/live_benchmark.py        # 真实 Chromium 页面级跑分
 tools/triage_issue.py          # Issue 自动初筛
 docs/index.html                # 在线订阅中心 (GitHub Pages)
 docs/logo.svg                  # Logo
-tests/                         # 208 项测试, 全部无网络
+tests/                         # 213 项测试, 全部无网络
   data/adblock-tester.html     #   adblock-tester 页面快照 (浏览器跑分输入)
   data/mobileproxy-missed.json #   移动端漏拦样本 (proxy 跑分输入)
   test_parsing.py              #   词法分类
@@ -243,7 +243,7 @@ git clone https://github.com/wansheng8/LJGZ.git
 cd LJGZ
 
 python merge_filters.py --test              # 冒烟自检
-python -m unittest discover -s tests         # 208 项测试
+python -m unittest discover -s tests         # 213 项测试
 python merge_filters.py                      # 下载合并 → ./output/
 python benchmark.py --out output/benchmark.json   # 离线覆盖率跑分
 ```
