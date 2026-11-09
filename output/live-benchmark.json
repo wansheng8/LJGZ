@@ -1,0 +1,22 @@
+{
+  "requests": {
+    "blocked_requests": 13,
+    "total_requests": 22
+  },
+  "score": 100,
+  "selectors": {
+    ".adsbygoogle": 0,
+    ".include": 0,
+    ".includeWrapper": 0,
+    "div[data-ads=\"\"]": 0,
+    "div[id^=\"yandex_rtb_\"]": 0,
+    "embed[src*=\"banners\"]": 0,
+    "embed[type=\"application/x-shockwave-flash\"]": 0,
+    "img[src*=\"banners/\"]": 0,
+    "img[src*=\"pr_advertising_ads_banner\"]": 0,
+    "object[data*=\"banners\"]": 0,
+    "object[type=\"application/x-shockwave-flash\"]": 0,
+    "param[name=\"movie\"][value*=\"banners\"]": 0
+  },
+  "visible_ad_elements": 0
+}
