@@ -90,6 +90,39 @@ class TestCosmetic(unittest.TestCase):
             self.assertFalse(r.dropped, line)
             self.assertEqual(r.kind, mf.K_COSMETIC, line)
 
+    def test_scriptlet_with_regex_param_kept(self):
+        """scriptlet 参数含正则字面量 /.../ 不应触发括号配对误判。"""
+        lines = [
+            "example.com##+js(acs, localStorage.removeItem, /^(ad|utm)/, 'gi')",
+            "example.com##+js(rpnt, script, /url:.*?foo/, url: 'x')",
+            "example.com##^script:has-text(/popunder|\\(\\)\\{/)",
+            "example.com##div:has-text(/foo|bar/)",
+        ]
+        for line in lines:
+            r = mf.parse_line(line)
+            self.assertFalse(r.dropped, line)
+            self.assertEqual(r.kind, mf.K_COSMETIC, line)
+
+    def test_truncated_scriptlet_dropped(self):
+        """上游截断的 scriptlet (参数体半截 / 引号未闭合) 客户端会整行跳过,
+        留着只占体积 — parse_line 应直接丢弃。"""
+        lines = [
+            # 参数体被截断在字符串字面量里 ('\x 是随机哈希, 后面没有闭合引号)
+            r"example.com##+js(acs, Math, localStorage['\x)",
+            # rpnt 尾部残缺 (逗号和结束括号被截)
+            r"example.com##+js(rpnt, script, /url:.*?'\,/, url: ''\,)",
+            # HTML 过滤 + 正则片段未闭合
+            r"example.com##^script:has-text(/popunder|\(\)\{try\{",
+            # JS 片段参数未闭合
+            r"example.com##+js(trusted-rpnt, script, (function($), '(function(){x()}));",
+        ]
+        for line in lines:
+            r = mf.parse_line(line)
+            self.assertTrue(r.dropped,
+                            "截断 scriptlet 应被丢弃, 但 parse_line 返回 kind=%s: %s"
+                            % (r.kind, line))
+            self.assertEqual(r.kind, mf.K_INVALID)
+
 
 class TestDomainRules(unittest.TestCase):
     """`||domain^`、裸域名、*.domain、hosts 行、Pi-hole 正则 —— 归并为域名规则。"""

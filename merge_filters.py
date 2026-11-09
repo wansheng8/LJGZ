@@ -424,6 +424,16 @@ def parse_line(line: str, source: str = "") -> Rule:
     # 元素隐藏/CSS/JS/HTML 注入类 — 最早分隔符 + 合法域名前缀
     idx = _find_cosmetic(s)
     if idx is not None:
+        # scriptlet (##+js, #%#//scriptlet) 与 HTML 过滤 (##^) 含 JS 片段参数,
+        # 括号/引号不配对的截断规则客户端会整体跳过, 留着只占体积。
+        # 普通 CSS 选择器 (##, #$#, #?#, $@# 等) 不做这层校验 — _parens_balanced
+        # 会把 :has-text(/\(/) 这种含括号的正则字面量里的括号当成规则括号计数,
+        # 那会误杀合法规则。
+        marker = next((m for m in ("##+js(", "##+js?", "##+abp",
+                                   "#%#//scriptlet(", "##^")
+                       if m in s), None)
+        if marker is not None and not _parens_balanced(s):
+            return Rule(raw=s, kind=K_INVALID, dropped=True, source=source)
         return Rule(raw=s, kind=K_COSMETIC, source=source)
 
     # 列表头 [Adblock Plus 2.0] / [uBlock Origin ...]

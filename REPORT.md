@@ -140,7 +140,7 @@ adblock-tester.com##[data-ads]:            ✓ 匹配 1 个元素
 
 | # | 问题 | 影响 | 建议 |
 |---|---|---|---|
-| **P1** | 3 条 scriptlet/`##^` 进程式规则被 balanced() 误判为"括号不配对" | 无实际影响（客户端能正常解析） | 放宽 balanced() 对 `##+js` 和 `##^` 的括号校验 |
+| **P1** | ~~3 条 scriptlet/##^ 进程式规则被 balanced() 误判为"括号不配对"~~ → **已修复**：审计脚本的朴素 balanced() 没跳过正则字面量/字符类，导致 96 条合法规则被误报；真正的问题是上游列表里有 33 条 scriptlet/##^ 规则参数体被截断（`localStorage['\x)`、`(function(){...});` 等），客户端拿到也会整行跳过。已在 `parse_line()` 里对含 scriptlet/##^ 标记的元素隐藏规则加 `_parens_balanced` 校验，截断规则直接 dropped，保留规则 9035 条 → 清掉 33 条坏规则 → 清掉 33 条坏规则。好规则（含正则参数、##^ HTML 过滤、普通 CSS 选择器）无一误杀 | ✅ 已修复 (commit ) |
 | **P2** | 341,778 条"其它/子串"规则（无锚点）中混入上游脏数据 | 这些规则不影响正常使用，但会增加体积 | 定期抽样清洗，剔除 `%3C?php%20echo%20substr(...)` 这类明显恶意的子串 |
 | **P3** | Benchmark 只测 26 个 must_block 域和 33 个 must_not_block 域 | 覆盖面有限 | 扩展 `benchmarks/expectations.json` 纳入更多 adblock-tester 检测项 |
 | **P4** | `hosts.txt` / `domains.txt` 不包含 `||domain^$important` 的域名（折叠只保留裸域） | DNS 层丢失 `$important` 语义 | 在 adguard.txt 里同步保留带 `$important` 的规则（当前已有） |
