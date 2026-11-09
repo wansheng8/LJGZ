@@ -1,18 +1,37 @@
 {
   "all_compat_mirrors": 346,
+  "all_coverage": {
+    "pure_all_covered": 1229,
+    "pure_all_mirrored": 89,
+    "pure_all_total": 1340,
+    "pure_all_uncovered": 22
+  },
   "badfilter_targets": 299,
   "cosmetic_unique": 119268,
-  "domains_lines": 572597,
-  "domains_unique": 507101,
+  "domains_lines": 572609,
+  "domains_unique": 507113,
   "dropped": 44263,
   "dropped_bare_exceptions": 326,
   "exceptions_unique": 12820,
   "local_additions": 132,
-  "network_unique": 350488,
+  "network_unique": 350489,
   "scriptlet_rules": 8983,
   "sources_failed": 0,
   "sources_ok": 23,
   "sources_total": 23,
   "subsumed_type_rules": 9891,
+  "unknown_mods_top": {
+    "/,/^moonfile-[a-z0-9-]+\\.com$/": 2,
+    "/^[0-9a-z]{5,8}\\.(art|cfd|fun|icu|info|live|pro|sbs|world)$/": 2,
+    "1\\.1 google$/": 2,
+    "[aria-label": 51,
+    "cname": 27,
+    "header": 24,
+    "method": 27,
+    "path": 22,
+    "permissions": 18,
+    "urlblock": 4
+  },
+  "unknown_mods_total": 223,
   "whitelist_unique": 1
 }
