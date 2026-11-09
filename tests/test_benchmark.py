@@ -55,7 +55,9 @@ class TestScoring(unittest.TestCase):
                               "must_not_block": ["safe.test"]})
         self.assertEqual(50.0, res["coverage"]["rate"])
         self.assertEqual(100.0, res["safety"]["rate"])
-        self.assertEqual(55.0, res["score"])  # 50*0.5 + 100*0.3 + 无样本*0.2
+        # 权重: must_block 0.4 + must_not 0.25 + proxy 0.1 + selector 0.25
+        # 无 proxy/selector 样本时, score = 50*0.4 + 100*0.25 = 45
+        self.assertEqual(45.0, res["score"])
 
     def test_missing_domains_reported(self):
         res = self._evaluate("||ad.test^\n", {"must_block": ["ad.test", "gone.test"]})

@@ -1,4 +1,5 @@
 {
+  "snapshot": "tests/data/adblock-tester.html",
   "must_block": [
     "doubleclick.net",
     "googlesyndication.com",
@@ -26,7 +27,14 @@
     "openx.net",
     "casalemedia.com",
     "quantserve.com",
-    "zedo.com"
+    "zedo.com",
+    "sentry.io",
+    "browser.sentry-cdn.com",
+    "js.sentry-cdn.com",
+    "mc.yandex.ru",
+    "pagead2.googlesyndication.com",
+    "an.yandex.ru",
+    "static.hotjar.com"
   ],
   "must_not_block": [
     "google.com",
@@ -61,7 +69,19 @@
     "xiaohongshu.com",
     "meituan.com",
     "dianping.com",
-    "ctrip.com"
+    "ctrip.com",
+    "googleapis.com",
+    "cloudfront.net"
+  ],
+  "must_block_selectors": [
+    {"selector": ".adsbygoogle", "expect_min": 1},
+    {"selector": "div[data-ads=\"\"]", "expect_min": 1},
+    {"selector": "object[type=\"application/x-shockwave-flash\"]", "expect_min": 1},
+    {"selector": "embed[type=\"application/x-shockwave-flash\"]", "expect_min": 1},
+    {"selector": "param[name=\"movie\"][value*=\"banners\"]", "expect_min": 1},
+    {"selector": "img[src*=\"banners/\"]", "expect_min": 2},
+    {"selector": "object[data*=\"banners\"]", "expect_min": 1},
+    {"selector": "embed[src*=\"banners\"]", "expect_min": 1}
   ],
   "proxy_snapshot": "tests/data/mobileproxy-missed.json",
   "proxy_exclude": [

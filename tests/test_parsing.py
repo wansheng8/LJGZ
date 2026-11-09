@@ -168,7 +168,8 @@ class TestMaliciousPayloadFilter(unittest.TestCase):
         import json
         cfg_path = os.path.abspath(os.path.join(os.path.dirname(__file__),
                                                 "..", "config.json"))
-        cfg = json.load(open(cfg_path, encoding="utf-8"))
+        with open(cfg_path, encoding="utf-8") as fh:
+            cfg = json.load(fh)
         for rule in cfg.get("extra_rules", []):
             r = mf.parse_line(rule)
             self.assertFalse(r.dropped,
