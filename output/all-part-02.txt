@@ -3,11 +3,16 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-11-11 03:00:53 +0800
-! Last Modified: 2026-11-11 03:00:53 +0800 (北京时间 UTC+8)
+! Version: 2026-11-11 06:46:33 +0800
+! Last Modified: 2026-11-11 06:46:33 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 308768
+! Rules: 308773
 
+email.levelezes.picigurman.hu$image
+email.levelezes.scrummasterlab.hu$image
+email.levelezes.talon-marketing-agency.com$image
+email.levelforecast.com$image
+email.levelfrenzy.com$image
 email.levelinguplab.parkerbeth.com$image
 email.levelnook.com$image
 email.levelo.ampmetropole.fr$image
@@ -148737,6 +148742,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||assistant.watson.appdomain.cloud/analytics/
 ||assoc-amazon.*^
 ||assuredwhoa.com^$domain=gry-online.pl
+||astatic.ccmbg.com/hz.js
 ||aster-dex.run^$doc
 ||asterpix.com/tagcloudview/
 ||astian.org/?push_notification_sw
@@ -150936,7 +150942,6 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||ccleaner.lol^$all
 ||ccleaner.mom^$all
 ||ccm19.atradior.de/public/app.js
-||ccmbg.com^$third-party
 ||ccmp.eu^$third-party
 ||ccoo.cn/mystat.asp
 ||ccp.digitaltrends.com/go/ccp/products/*/offers
@@ -238155,7 +238160,7 @@ doctor.webmd.com##.search-bottom-ad
 doctor.webmd.com##.seo-footerad
 doctornerdlove.com,ofdollarsanddata.com,whitecoatinvestor.com##.widget_convertkit_form
 doctorofcredit.com#@#.wpdiscuz-subscribe-bar
-doctorpiter.ru,marieclaire.ru,maximonline.ru,mcmaison.ru,parents.ru,starhit.ru,the-day.ru,thegirl.ru,vokrugsveta.ru,woman.ru##.cookiesPopup
+doctorpiter.ru,marieclaire.ru,maximonline.ru,mcmaison.ru,parents.ru,psychologies.ru,starhit.ru,the-day.ru,thegirl.ru,vokrugsveta.ru,woman.ru##.cookiesPopup
 doctorrouter.ru##.jgcabd-container
 documentaryheaven.com##aside[style^="padding: 17px 0 12px 0!important;"][style*="overflow:hidden;"]
 documentation.insp.gouv.fr##.cookies-management
