@@ -1,15 +1,15 @@
 {
-  "all_compat_mirrors": 357,
+  "all_compat_mirrors": 356,
   "all_coverage": {
-    "pure_all_covered": 1222,
-    "pure_all_mirrored": 101,
+    "pure_all_covered": 1223,
+    "pure_all_mirrored": 100,
     "pure_all_total": 1345,
     "pure_all_uncovered": 22
   },
   "badfilter_targets": 300,
   "cosmetic_unique": 119293,
-  "domains_lines": 568657,
-  "domains_unique": 503147,
+  "domains_lines": 569056,
+  "domains_unique": 503559,
   "dropped": 44311,
   "dropped_bare_exceptions": 327,
   "exceptions_unique": 12815,
@@ -19,7 +19,7 @@
   "sources_failed": 0,
   "sources_ok": 23,
   "sources_total": 23,
-  "subsumed_type_rules": 9971,
+  "subsumed_type_rules": 9972,
   "unknown_mods_top": {
     "/,/^moonfile-[a-z0-9-]+\\.com$/": 2,
     "/^[0-9a-z]{5,8}\\.(art|cfd|fun|icu|info|live|pro|sbs|world)$/": 2,
