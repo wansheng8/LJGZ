@@ -3,11 +3,80 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-11-14 21:23:05 +0800
-! Last Modified: 2026-11-14 21:23:05 +0800 (北京时间 UTC+8)
+! Version: 2026-11-15 01:27:00 +0800
+! Last Modified: 2026-11-15 01:27:00 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 308692
+! Rules: 308766
 
+email.lfecr.com$image
+email.lfgconnections.com$image
+email.lfghost.net$image
+email.lfj.timoreillylaw.com$image
+email.lfn.alliancehypnose.com$image
+email.lfnllc.com$image
+email.lfo.lasfisicasdelopositor.com$image
+email.lform.com$image
+email.lfsj.fr$image
+email.lftrmx.com$image
+email.lfx.com.mx$image
+email.lg-samsung-appliance-expert.com$image
+email.lg.8snap.com$image
+email.lg.a1drywallandstucco.com$image
+email.lg.bwg.com.br$image
+email.lg.elriograndemexrest.com$image
+email.lg.givenheart.com$image
+email.lg.growwithtml.com$image
+email.lg.herextraordinarylifebydesign.co$image
+email.lg.ike38.com$image
+email.lg.ilpuntorestaurant.com$image
+email.lg.jantonucci.com$image
+email.lg.jvtsolutions.com$image
+email.lg.lakesidegrowth.us$image
+email.lg.lauraguvener.de$image
+email.lg.localleadgenexperts.com$image
+email.lg.logicalgrowth.com$image
+email.lg.mcempirenetwork.com$image
+email.lg.mobilebyebye.net$image
+email.lg.osinoffgrp.com$image
+email.lg.phyllisbrowning.com$image
+email.lg.ppcadviser.com$image
+email.lg.qwertyc.com$image
+email.lg.rooftoppowerco.com$image
+email.lg.shearmadnessinmccall.com$image
+email.lg.stratique.com$image
+email.lg.thekonnectedpractice.com$image
+email.lg.uk-indevagroup.co.uk$image
+email.lgbtech.com$image
+email.lgbtqchamber.com$image
+email.lgc.letsgetcaking.com$image
+email.lgdlfn.enchantagency.com$image
+email.lgg.media$image
+email.lgl.aboutrsi.org$image
+email.lgl.thinkwildco.org$image
+email.lgl2-dev.reply.mirakl.net$image
+email.lgn.legionsandiego.com$image
+email.lgnews.lge.com$image
+email.lgpoa.net$image
+email.lgproperties.fr$image
+email.lgrliterary.com$image
+email.lgs-srl.it$image
+email.lgtbase.playmetrics.com$image
+email.lh.antex-e.ru$image
+email.lh.artificialsupergrass.co.uk$image
+email.lh.baptist-health.org$image
+email.lh.betterpage.io$image
+email.lh.braveology.ro$image
+email.lh.cfmtg.com$image
+email.lh.citymarket.com$image
+email.lh.covenanthealth.com$image
+email.lh.dillons.com$image
+email.lh.ecommunity.com$image
+email.lh.farmiya.ru$image
+email.lh.freseniuskidneycare.com$image
+email.lh.gerbes.com$image
+email.lh.grovecapitalfinance.com$image
+email.lh.harristeeter.com$image
+email.lh.igrotime.ru$image
 email.lh.jaycfoods.com$image
 email.lh.kingsoopers.com$image
 email.lh.kroger.com$image
@@ -156930,6 +156999,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||glugherg.net^$all
 ||glutenfreeonashoestring.com/wp-content/*/analytics*.min.js
 ||glzy8.com/img/ceo/js.js
+||gmai.com^$all
 ||gmarket.co.kr/js/common/uuid.js
 ||gmarket.co.kr^$cookie=cna
 ||gmarket.co.kr^$cookie=sca
@@ -163126,6 +163196,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||microsoft-notifcation.com^$all
 ||microsoft-update.support^$all
 ||microsoft-verify.glitch.me^$all
+||microsoft-winupdate.com^$all
 ||microsoft.com/beacon/
 ||microsoft.com/echo/etc.clientlibs/cascade.component.authoring/clientlibs/clientlib-jquery-cookie.*.min.js
 ||microsoft.com/echo/etc.clientlibs/microsoft/clientlibs/cookie-compliance-manager.*.min.js
@@ -169059,6 +169130,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||securecloud-sml.com^$popup
 ||secureclouddt-cd.com^$popup
 ||secured.dailymail.co.uk/feeds/commercial/topVideos.json
+||securedoc.*.workers.dev^$doc
 ||securedsmcd.com^$popup
 ||securedt-sm.com^$popup
 ||securegfm.com^$popup
@@ -218257,6 +218329,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ##body > #__nuxt:first-child > div > .container > div[class^="pg-"] > div[style*="important"]
 ##body > #__nuxt:first-child ~ div[class] > div > div > button[aria-label] + div[class]
 ##body > #adfox-cover[style^="position: fixed; top: 0px; left: 0px; width: 100vw; height: 100vh; z-index: 2147483647; background-color:"]
+##body > #rcOverlay > #rcCard
 ##body > .app + #htmlContenthtml
 ##body > .cf-page-wrap
 ##body > .cf-root
@@ -233632,7 +233705,7 @@ coasttocoastam.com##.coast-zone
 coasttocoastam.com##.component-header-ad
 coating-converting.de,umweltwirtschaft.com###footer-middle
 coating-converting.de,umweltwirtschaft.com###social-icon-col
-cobephim.fit##.sspp-area
+cobephim.ink##.sspp-area
 coccine-shop.eu###megacookieeu
 coccinella.bz.it###privacy-win
 coches.net,milanuncios.com##.sui-TcfFirstLayer
@@ -250216,6 +250289,7 @@ historiapoznania.pl,pcformat.pl,parenting.pl,informacje.wp.pl,deliciousmagazine.
 historic-uk.com#?#.article-sidebar:contains(Advertisement)
 historic-uk.com#?#.article-sidebar:has-text(Advertisement)
 historicaerials.com###bot_container
+historicaerials.com###historicaerials_g_728x90_ATF
 historicaerials.com###top_container
 historicaerials.com##+js(aeld, load, showFallbackModal)
 historicaerials.com##+js(trusted-create-html, #historicaerials_g_728x90_ATF, <div id="google_ads_iframe_/22597447651/historicaerials_g_728x90_ATF_0__container__"><iframe id="google_ads_iframe_/22597447651/historicaerials_g_728x90_ATF_0" width="2" height="2" data-load-complete="true"></iframe></div>)
