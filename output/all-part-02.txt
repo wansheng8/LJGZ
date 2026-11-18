@@ -3,11 +3,40 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-11-18 23:30:42 +0800
-! Last Modified: 2026-11-18 23:30:42 +0800 (北京时间 UTC+8)
+! Version: 2026-11-19 03:43:18 +0800
+! Last Modified: 2026-11-19 03:43:18 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 323453
+! Rules: 323482
 
+email.lc.alfacorpinmobiliaria.com$image
+email.lc.alfredovillapol.com$image
+email.lc.alginsuranceagency.com$image
+email.lc.algomap.io$image
+email.lc.ali-daioub.com$image
+email.lc.ali-elzein.com$image
+email.lc.aliatifpro.com$image
+email.lc.alicefuzileira.com.br$image
+email.lc.alicegodfreynutr.com$image
+email.lc.aliceterry.com$image
+email.lc.alicetew.com$image
+email.lc.aliciamuniznotary.com$image
+email.lc.aliciasdigitaljourneytothrive.com$image
+email.lc.aliciastingley.com$image
+email.lc.aliconacher.com$image
+email.lc.aliflynn.com$image
+email.lc.alignapillow.com$image
+email.lc.aligned-money-moves.com$image
+email.lc.alignedabundantpro.com$image
+email.lc.alignedassent.com$image
+email.lc.alignedlifechiropractic.com$image
+email.lc.alignedposition.com$image
+email.lc.alignerconfidence.co.uk$image
+email.lc.alinepamplona.com.br$image
+email.lc.aliner.com$image
+email.lc.alisiddiq.com$image
+email.lc.alisonfishmannotary.com$image
+email.lc.alisonjanecalligraphy.com$image
+email.lc.alisonshawhealthandfitness.com$image
 email.lc.alitsparkinthedark.com$image
 email.lc.alive-experience.com$image
 email.lc.aliyafreightbilling.com$image
@@ -178590,6 +178619,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||naszemiasto.pl/ads/_uuid/?id=pubcid
 ||nate.com/stat/
 ||natgeomedia.com/js/ads-parallax.
+||native.tportal.hr/black-friday/
 ||nativesurge.net/wp-content/uploads/csh/surge.js
 ||nativetimes.com/images/banners/
 ||natomanga.com/js/ads/
@@ -179699,6 +179729,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||optiklink.com/arlinablock.js
 ||optimism-lab.network^$doc
 ||optimizely.com/client_storage/
+||optimizely.com/js/$script,redirect=optimizely.js
 ||optimizely.com/js/geo.js
 ||optimizely.com/log
 ||optimizely.com/public/
@@ -183255,6 +183286,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||s3.glbimg.com/cdn/libs/element-tracker/*/element-tracker.min.js$domain=globo.com
 ||s3.us-east-2.amazonaws.com/telemetry.bydata/
 ||s3a.pstatp.com/toutiao/push.js
+||s3blog.org^$3p
 ||s3g6.com^$popup
 ||s3media.247sports.com/Scripts/Bundle/*/videoPlayer.js^$script,1p,replace=/;if\(!\([a-z]+\|\|\(null===[^{]+/;if(false)/
 ||s3wfg.com/js/vortexloader.js
@@ -193065,7 +193097,6 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ###adb_bottom
 ###adbackground
 ###adbanner-container
-###adbanner1
 ###adbannerbox
 ###adbannerdiv
 ###adbannerleft
@@ -193088,9 +193119,6 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ###adblock-overlay
 ###adblock-small
 ###adblock-warning
-###adblock1
-###adblock2
-###adblock4
 ###adblockDetect
 ###adblockWrap
 ###adblock_detected
@@ -259050,8 +259078,8 @@ foxnews.com##.sticky-pre-header-inner
 foxnews.com##article[class|="article story"]:has(.sponsored-by)
 foxnews.com#$#.sticky-pre-header { display: none !important; }
 foxnews.com#%#//scriptlet('set-local-storage-item', 'anon_fpid', '$remove$')
-foxnews.com#%#//scriptlet('ubo-aeld', '/load|error/', ',G=null),clearTimeout(K),!')
-foxnews.com#%#//scriptlet('ubo-nostif', ',G=null),clearTimeout(K),!')
+foxnews.com#%#//scriptlet('ubo-aeld', '/load|error/', ', G=null), clearTimeout(K), !')
+foxnews.com#%#//scriptlet('ubo-nostif', ', G=null), clearTimeout(K), !')
 foxnews.com#%#//scriptlet('ubo-set-constant', 'admrlWpJsonP', 'emptyObj')
 foxnews.com#?#.advanced.embed-media:has-text(Get a daily look)
 foxnews.com#?#.article-footer > .vendor-unit:has(> .OUTBRAIN)
@@ -287168,6 +287196,7 @@ pornzona.com##.ntv
 pornzona.com##.suggestions
 pornzona.com,javseen.com,neowin.net##.footer-banner
 poro.gg#?#.porogg div.flex:has(> div#rich-media-placement)
+porofessor.gg##.cards-list > li:has(> div.inline-video-player)
 porofessor.gg##div[class^="vertical-ad-"]
 porofessor.gg,mobafire.com,leagueofgraphs.com#%#//scriptlet('set-constant', '__bt_intrnl.aaDetectionResults.ab', 'false')
 porque.com.br###termos_analytics
