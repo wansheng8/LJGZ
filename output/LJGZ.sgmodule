@@ -1,6 +1,6 @@
 #!name=AdFilter Merge
 #!desc=多上游广告/追踪域名合并拦截, DOMAIN-SUFFIX → REJECT (白名单 1 条优先 DIRECT)
-# 自动生成 · 2026-11-20 15:21:46 +0800 (北京时间 UTC+8) · 共 500901 条规则
+# 自动生成 · 2026-11-20 15:24:35 +0800 (北京时间 UTC+8) · 共 500904 条规则
 # 仅域名级拦截。元素隐藏/scriptlet 属浏览器层规则, 模块无法表达,
 # 需要请订阅 all.txt 并配合 Safari 内容拦截器。
 [Rule]
@@ -34900,6 +34900,7 @@ DOMAIN-SUFFIX,aiyaphormai.live,REJECT
 DOMAIN-SUFFIX,aiyaphormtrade.com,REJECT
 DOMAIN-SUFFIX,aiyouji.xyz,REJECT
 DOMAIN-SUFFIX,aiyrmwheuqzla.website,REJECT
+DOMAIN-SUFFIX,aizaruzyzipdj.website,REJECT
 DOMAIN-SUFFIX,aizdiharai.pro,REJECT
 DOMAIN-SUFFIX,aizhantj.com,REJECT
 DOMAIN-SUFFIX,aizhigu.com.cn,REJECT
@@ -233509,6 +233510,7 @@ DOMAIN-SUFFIX,letterwolves.com,REJECT
 DOMAIN-SUFFIX,lettevesic.store,REJECT
 DOMAIN-SUFFIX,letthemeatplastic.com,REJECT
 DOMAIN-SUFFIX,lettheupgradebegin.com,REJECT
+DOMAIN-SUFFIX,letticearbotacyborgs.cfd,REJECT
 DOMAIN-SUFFIX,letticolivean.com,REJECT
 DOMAIN-SUFFIX,lettileroute.com,REJECT
 DOMAIN-SUFFIX,lettingpredictableadulthood.com,REJECT
@@ -499843,6 +499845,7 @@ DOMAIN-SUFFIX,ztpdcg.stroilioro.com,REJECT
 DOMAIN-SUFFIX,ztpq.luxador24.com,REJECT
 DOMAIN-SUFFIX,ztpsapgmajlex.site,REJECT
 DOMAIN-SUFFIX,ztqbj.rattandirect.co.uk,REJECT
+DOMAIN-SUFFIX,ztqfswmhcjuca.online,REJECT
 DOMAIN-SUFFIX,ztqid.nonomobaby.com,REJECT
 DOMAIN-SUFFIX,ztqnls.lojasrenner.com.br,REJECT
 DOMAIN-SUFFIX,ztqxksahputnq.website,REJECT
