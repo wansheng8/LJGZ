@@ -3,11 +3,13 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-11-20 14:37:46 +0800
-! Last Modified: 2026-11-20 14:37:46 +0800 (北京时间 UTC+8)
+! Version: 2026-11-20 15:05:03 +0800
+! Last Modified: 2026-11-20 15:05:03 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 312169
+! Rules: 312173
 
+email.lc.teambuildstaffing.co.uk$image
+email.lc.teamcaldera.com$image
 email.lc.teamclearedgemortgage.com$image
 email.lc.teamengage.com$image
 email.lc.teamgrizzlyusa.com$image
@@ -241969,6 +241971,8 @@ dramaflix.cc#$#body { overflow: auto !important; }
 dramaflix.cc#%#//scriptlet('abort-on-stack-trace', 'document.createElement', 'loadPopunder')
 dramaflix.cc#%#//scriptlet('prevent-fetch', 'adsbygoogle')
 dramaflix.cc#%#//scriptlet('prevent-setTimeout', 'offsetHeight')
+dramafren.org###safePopupArea
+dramafren.org#%#//scriptlet('prevent-addEventListener', 'load', 'initSafePopup')
 dramafren.org#%#//scriptlet('prevent-eval-if', 'pagead2.googlesyndication.com')
 dramakrsubindo.blogspot.com##+js(aopr, open)
 dramaviki.com##.blogdata_stt + div[id][class*=" "]

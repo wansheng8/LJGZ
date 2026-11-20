@@ -3,10 +3,10 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-11-20 14:37:46 +0800
-! Last Modified: 2026-11-20 14:37:46 +0800 (北京时间 UTC+8)
+! Version: 2026-11-20 15:05:03 +0800
+! Last Modified: 2026-11-20 15:05:03 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 988906
+! Rules: 988911
 
 ||0--4.com^
 ||0--d.com^
@@ -80761,6 +80761,7 @@
 ||bouncingbuzz.com^
 ||bouncy-castle.1462172.n4.goasrv.com^
 ||bouncyarrow.me^
+||bouncymango.com^
 ||bouncyproperty.com^
 ||bouncyridge.com^
 ||boundariespriuussed.info^
@@ -137771,6 +137772,7 @@
 ||dps.shouji56.com^
 ||dps.wtdtjs.com^
 ||dpsecuredinvestments.com^
+||dpsjicvnvoziq.online^
 ||dpsmhx.zxte.bid^
 ||dpsq2uzakdgqz.cloudfront.net^
 ||dpst35vkvd2u3.cloudfront.net^
@@ -299409,6 +299411,7 @@
 ||nzksrbk0sq.data.adobedc.net^
 ||nzl10041oa.com^
 ||nzlji.sokolovelaw.com^
+||nzlvnypmdkjsd.online^
 ||nzme-ads-production.s3.amazonaws.com^
 ||nzme-ads.co.nz^
 ||nzmkzl.mytheresa.com^
@@ -918706,6 +918709,8 @@ dramaflix.cc#$#body { overflow: auto !important; }
 dramaflix.cc#%#//scriptlet('abort-on-stack-trace', 'document.createElement', 'loadPopunder')
 dramaflix.cc#%#//scriptlet('prevent-fetch', 'adsbygoogle')
 dramaflix.cc#%#//scriptlet('prevent-setTimeout', 'offsetHeight')
+dramafren.org###safePopupArea
+dramafren.org#%#//scriptlet('prevent-addEventListener', 'load', 'initSafePopup')
 dramafren.org#%#//scriptlet('prevent-eval-if', 'pagead2.googlesyndication.com')
 dramakrsubindo.blogspot.com##+js(aopr, open)
 dramaviki.com##.blogdata_stt + div[id][class*=" "]

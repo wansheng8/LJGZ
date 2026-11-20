@@ -1,7 +1,7 @@
 ﻿# LJGZ 拦截规则完整质量报告
 
 **生成时间**: 2026-11-09  
-**依据**: `output/all.txt`（988,003 行）、`benchmarks/expectations.json`、`tests/data/adblock-tester.html` 离线快照、219 项单元测试  
+**依据**: `output/all.txt`（988,003 行）、`benchmarks/expectations.json`、`tests/data/adblock-tester.html` 离线快照、224 项单元测试  
 **引擎覆盖**: AdGuard Home / uBlock Origin / AdGuard Browser Extension / Pi-hole / Hosts
 
 ---

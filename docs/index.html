@@ -110,6 +110,13 @@ const P = [
   d:'仅收录 DNS 可兑现的 @@||d^$important 例外（子域随父域一并放行）；$document 等浏览器例外留在 all.txt 由客户端仲裁。',
   u:[['CDN 备选', CDN+'whitelist.txt'], ['最短', PAGES+'whitelist.txt'], ['备用', RAW+'whitelist.txt']],
   t:'在 AdGuard Home 中作为第二个过滤器订阅（类型：精确/例外）'},
+ {i:'🚀', n:'Shadowrocket 模块', a:'Shadowrocket · Surge · Loon', f:'LJGZ-part-01.sgmodule',
+  d:'[Rule] 段按 DOMAIN-SUFFIX → REJECT 生成（约 50 万条），白名单域名以 DIRECT 排在 REJECT 之前。按 18MB 分卷。',
+  u:[['分卷 1/2', PAGES+'LJGZ-part-01.sgmodule'],
+     ['分卷 2/2', PAGES+'LJGZ-part-02.sgmodule'],
+     ['CDN 备选', CDN+'LJGZ-part-01.sgmodule'],
+     ['备用', RAW+'LJGZ-part-01.sgmodule']],
+  t:'Shadowrocket → 配置 → 模块 → 添加，两卷必须同时导入并启用，缺一会漏掉约 2.7MB 规则。模块语法不含元素隐藏与 scriptlet，浏览器层请另配 Safari 内容拦截器订阅 all.txt。'},
 ];
 const grid = document.getElementById('grid');
 for (const p of P) {

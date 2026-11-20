@@ -29,8 +29,11 @@
 | 🕳 **Pi-hole / hosts**<br><sub>Pi-hole · SwitchHosts · 路由器</sub> | [hosts.txt](https://wansheng8.github.io/LJGZ/hosts.txt) | [hosts.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/hosts.txt) | [hosts.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/hosts.txt) |
 | 📃 **纯域名列表**<br><sub>Cloudflare Gateway · NextDNS</sub> | [domains.txt](https://wansheng8.github.io/LJGZ/domains.txt) | [domains.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/domains.txt) | [domains.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/domains.txt) |
 | ✅ **DNS 白名单**<br><sub>误拦截放行 · 例外列表</sub> | [whitelist.txt](https://wansheng8.github.io/LJGZ/whitelist.txt) | [whitelist.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/whitelist.txt) | [whitelist.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/whitelist.txt) |
+| 🚀 **Shadowrocket 模块**<br><sub>Shadowrocket · Surge · Loon</sub> | [**LJGZ-part-01.sgmodule**](https://wansheng8.github.io/LJGZ/LJGZ-part-01.sgmodule)<br><sub>分卷：[1](https://wansheng8.github.io/LJGZ/LJGZ-part-01.sgmodule) + [2](https://wansheng8.github.io/LJGZ/LJGZ-part-02.sgmodule)<br>两卷必须**同时导入并启用**</sub> | [LJGZ-part-01.sgmodule](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/LJGZ-part-01.sgmodule) | [LJGZ-part-01.sgmodule](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/LJGZ-part-01.sgmodule) |
 
 > **浏览器扩展优先用 Pages 的 `all.txt`（唯一完整单文件）。** 完整版约 29MB，超出 jsDelivr 单文件 20MB 上限（会返回 `Failed to fetch`），备选改用 statically 单文件镜像。客户端限制单文件大小时，把 Pages 的 `all-part-01.txt` + `all-part-02.txt` **两卷一起加**，缺一卷会少一半规则。分卷同样不要走 jsDelivr——实测 18MB 分卷也会返回 `Failed to fetch`。
+>
+> **Shadowrocket 模块只承载域名级拦截**（约 50 万条 `DOMAIN-SUFFIX → REJECT`）。模块语法（`.sgmodule`）没有元素隐藏与 scriptlet 段位，浏览器层规则请另配 Safari 内容拦截器订阅 `all.txt`。模块按 18MB 分卷，两卷缺一不可。
 
 ## 规模
 
@@ -68,7 +71,7 @@ flowchart LR
 | ③ 合并 | `Merger` | 精确去重 + 修饰符排序后语义去重，`$badfilter` 失效，`@@` 例外保护 |
 | ④ 仲裁 | `finalize()` | 子域折叠、同域 type 规则消解、DNS 能力筛选 |
 | ⑤ 输出 | `write_outputs()` | 5 种格式、stats.json、徽章 SVG |
-| ⑥ 发布 | `update.yml` | 219 项测试 → 合并 → 跑分（非阻断）→ 无变化跳过提交（定时跳过部署）→ commit/push → 部署 Pages |
+| ⑥ 发布 | `update.yml` | 225 项测试 → 合并 → 跑分（非阻断）→ 无变化跳过提交（定时跳过部署）→ commit/push → 部署 Pages |
 
 ## 产物
 
@@ -80,6 +83,7 @@ flowchart LR
 | `hosts.txt` | hosts | Pi-hole / 路由器 | `0.0.0.0 domain`，按主机名精确匹配（子域各自单独成条） |
 | `domains.txt` | 纯域名 | Cloudflare / NextDNS | 一行一域，排序去重 |
 | `whitelist.txt` | `@@\|\|d^$important` 例外 | 误拦截放行 | 一行一域，配合 DNS 列表订阅；`\|\|d^` 语义下子域随父域一并放行 |
+| `LJGZ-part-01/02.sgmodule` | Shadowrocket 模块 | Shadowrocket / Surge / Loon | `[Rule]` 段仅 `DOMAIN-SUFFIX,域名,REJECT`（父域优先 DIRECT 白名单），按 18MB 分卷，两卷都要启用 |
 | `stats.json` | JSON | 站点 / 调试 | 各分类计数，每次运行刷新 |
 | `badge-*.svg` / `badge-*.json` | 徽章 | README / 站点 | 静态 SVG；`badge-rules` / `badge-domains` / `badge-updated` 另附 shields.io endpoint JSON |
 | `benchmark.json` | JSON | 离线跑分 | 应拦 / 不应拦 / 漏拦覆盖率与总分 |
@@ -172,14 +176,14 @@ flowchart LR
 - **scriptlet 强校验** — 必须形如 `<域名>##+js(<内置名>, <参数>)` 或 `#%#//scriptlet(...)`；校验域名合法性、括号配对、scriptlet 名称非空。任一失败直接 `ValueError`，CI 阻断发布。订阅只能调用客户端内置 scriptlet，无法下发任意 JS。
 - **源下载** — 23 个上游全部成功才发布；4xx 不重试，网络错误指数退避重试。
 - **分卷** — 按行累积切卷，阈值 18,000,000 字节并预留 4096 字节头部余量，保证单卷不超过 18MB；每卷自带完整头部与 `[Adblock Plus 2.0]`，多卷全订阅 == 完整 `all.txt`，用于受限客户端；每轮清理过期分卷。
-- **自检** — `python merge_filters.py --test` 跑内置冒烟用例；`python -m unittest discover -s tests` 跑 219 项离线测试。
+- **自检** — `python merge_filters.py --test` 跑内置冒烟用例；`python -m unittest discover -s tests` 跑 225 项离线测试。
 - **零依赖** — 纯 stdlib 单文件，`python merge_filters.py` 即跑。
 
 <details>
 <summary><b>🚀 自动更新与部署</b></summary>
 
 - 工作流：`.github/workflows/update.yml`（cron `0 0 * * *` + `0 12 * * *` UTC = 北京 08:00 / 20:00，`TZ=Asia/Shanghai`）
-- 流程：219 项测试 → 下载 23 源 → 合并 → 无变化跳过提交，有变化自动 commit + push → 部署 Pages（定时触发且无变化时跳过，push / 手动触发始终部署）
+- 流程：225 项测试 → 下载 23 源 → 合并 → 无变化跳过提交，有变化自动 commit + push → 部署 Pages（定时触发且无变化时跳过，push / 手动触发始终部署）
 - 另有两个纯清理 cron（06:00 / 18:00 UTC），只删旧 Actions 历史，保留最新 3 条
 - 输出头部含 `! Last Modified: ... (北京时间 UTC+8)` 与 `! Expires: 12 hours`
 - 徽章 SVG 由引擎每次运行重新生成，数字始终与最新合并一致
@@ -204,7 +208,7 @@ tools/live_benchmark.py        # 真实 Chromium 页面级跑分
 tools/triage_issue.py          # Issue 自动初筛
 docs/index.html                # 在线订阅中心 (GitHub Pages)
 docs/logo.svg                  # Logo
-tests/                         # 219 项测试, 全部无网络
+tests/                         # 225 项测试, 全部无网络
   data/adblock-tester.html     #   adblock-tester 页面快照 (浏览器跑分输入)
   data/mobileproxy-missed.json #   移动端漏拦样本 (proxy 跑分输入)
   test_parsing.py              #   词法分类
@@ -243,7 +247,7 @@ git clone https://github.com/wansheng8/LJGZ.git
 cd LJGZ
 
 python merge_filters.py --test              # 冒烟自检
-python -m unittest discover -s tests         # 219 项测试
+python -m unittest discover -s tests         # 225 项测试
 python merge_filters.py                      # 下载合并 → ./output/
 python benchmark.py --out output/benchmark.json   # 离线覆盖率跑分
 ```
