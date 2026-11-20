@@ -64,12 +64,12 @@ class TestCdnParts(unittest.TestCase):
         chunks = mf._chunk_by_bytes(["aaaa"] * 10, max_bytes=12)
         self.assertGreater(len(chunks), 1)
         for c in chunks:
-            self.assertLessEqual(sum(len(l) + 1 for l in c), 12)
+            self.assertLessEqual(sum(len(line) + 1 for line in c), 12)
 
     def test_chunk_preserves_all_lines_in_order(self):
         lines = ["line-{:03}".format(i) for i in range(50)]
         chunks = mf._chunk_by_bytes(lines, max_bytes=100)
-        flat = [l for c in chunks for l in c]
+        flat = [line for c in chunks for line in c]
         self.assertEqual(flat, lines)
 
     def test_write_outputs_splits_all_for_cdn(self):
@@ -85,14 +85,14 @@ class TestCdnParts(unittest.TestCase):
                 self.assertTrue(content.startswith(ABP_HEADER + "\n"), k)
                 body = content.splitlines()[1:]
                 # 去掉分卷自己的 ! 头部行
-                body = [l for l in body
-                        if not l.startswith("!") and l != ""]
+                body = [line for line in body
+                        if not line.startswith("!") and line != ""]
                 bodies.append(body)
             # 并集 == all.txt 正文 (去掉 ABP 头与 ! 注释后; 顺序无关比对)
             with open(paths["all"], encoding="utf-8") as f:
-                all_body = [l for l in f.read().splitlines()[1:]
-                            if not l.startswith("!") and l != ""]
-            flat = [l for b in bodies for l in b]
+                all_body = [line for line in f.read().splitlines()[1:]
+                            if not line.startswith("!") and line != ""]
+            flat = [line for b in bodies for line in b]
             self.assertEqual(sorted(flat), sorted(all_body))
             self.assertEqual(len(flat), len(all_body))
 

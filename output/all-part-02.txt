@@ -3,27 +3,11 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-11-20 15:24:35 +0800
-! Last Modified: 2026-11-20 15:24:35 +0800 (北京时间 UTC+8)
+! Version: 2026-11-20 16:02:53 +0800
+! Last Modified: 2026-11-20 16:02:53 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 312178
+! Rules: 312158
 
-email.lc.team-superhuman.com$image
-email.lc.teamalexpecora.com$image
-email.lc.teamallwoodisdabomb.com$image
-email.lc.teamarnazfinancial.com$image
-email.lc.teambuildstaffing.co.uk$image
-email.lc.teamcaldera.com$image
-email.lc.teamclearedgemortgage.com$image
-email.lc.teamengage.com$image
-email.lc.teamgrizzlyusa.com$image
-email.lc.teamifg.com$image
-email.lc.teamkellydawson.com$image
-email.lc.teamlogicatx.com$image
-email.lc.teamlogicaustin.com$image
-email.lc.teamriseup.biz$image
-email.lc.teamsba.net$image
-email.lc.teamsilvamortgage.com$image
 email.lc.teamsonpurpose.com.au$image
 email.lc.teamstackd.com$image
 email.lc.teamstreamsolutions.com$image
@@ -153005,7 +152989,6 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||blitzquotidiano.it^*/System24_
 ||blizzboygames.net/sw.js$script,1p
 ||blob.cammpaign.com/popup.min.js$domain=xsanime.com
-||blob.core.windows.net/$web/*index.html$doc
 ||blobopics.biz^$domain=picbank.tk
 ||blocchecker*.pages.dev^
 ||blocchecker*.pages.dev^$all
@@ -174110,7 +174093,6 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||static.xx.fbcdn.net/rsrc.php/$script,domain=web.facebook.com|www.facebook.com,replace=/return r instanceof ArrayBuffer/return r.constructor.name==="ArrayBuffer"/
 ||static.xx.fbcdn.net/rsrc.php/v*.js$script,replace=/=document\.body\|\|document\.documentElement;/=document.body||document.documentElement;return false;/
 ||static.xx.fbcdn.net/rsrc.php/v*.js$script,replace=/return [a-zA-Z]\(JSON\.parse\([a-z]\(?\)?\)\)/return false/
-||static.xx.fbcdn.net/rsrc.php/v*.js$script,replace=/var n=s\(t\.call\(JSON\.parse\)\),/return false;var n=s(t.call(JSON.parse)),/
 ||static.xxxbunker.com/preroll/*$media,1p
 ||static.yandex.net/browser-updater/stripe/script.js
 ||static.youku.com/*/index/js/iresearch.js
@@ -300790,7 +300772,6 @@ zzzyk.com###Tinfo
 @@||aliyun.com/nocaptcha/analyze.js
 @@||aliyun.com/scratchCardSlide/analyze.jsonp?
 @@||aliyundrive.com^*/share_link/$xmlhttprequest
-@@||alkalimetricsink-pa.clients6.google.com/$rpc/google.internal.alkali.applications.metricsink.v1.MetricService/RecordMetrics$domain=matrix.itasoftware.com,stealth=referrer
 @@||all3dp.com/gpt.min.js
 @@||allabout.co.jp/mtx_cnt.js$script,~third-party
 @@||allkaicerteam.com^$ghide
@@ -311572,7 +311553,6 @@ zzzyk.com###Tinfo
 @@||w88.espn.com/id?$domain=espn.com
 @@||w88.go.com/id?$domain=espn.com
 @@||w88.go.com^$domain=abc.go.com
-@@||waa-pa.clients6.google.com/$rpc/google.internal.waa.v1.Waa/Create$domain=matrix.itasoftware.com,stealth=referrer
 @@||waaw.to/adv/ads/popunder.js$script
 @@||waaw.tv/js/adv/fuckadblock.js
 @@||waiting.info/rad_singlepageapp.js^$domain=waiting.info

@@ -1,6 +1,6 @@
 #!name=AdFilter Merge
 #!desc=多上游广告/追踪域名合并拦截, DOMAIN-SUFFIX → REJECT (白名单 1 条优先 DIRECT)
-# 自动生成 · 2026-11-20 15:24:35 +0800 (北京时间 UTC+8) · 共 500904 条规则
+# 自动生成 · 2026-11-20 16:02:53 +0800 (北京时间 UTC+8) · 共 500912 条规则
 # 仅域名级拦截。元素隐藏/scriptlet 属浏览器层规则, 模块无法表达,
 # 需要请订阅 all.txt 并配合 Safari 内容拦截器。
 [Rule]
@@ -39313,6 +39313,7 @@ DOMAIN-SUFFIX,altsdentifier.site,REJECT
 DOMAIN-SUFFIX,altsforyou.org,REJECT
 DOMAIN-SUFFIX,altsouth.org,REJECT
 DOMAIN-SUFFIX,alttcoin.com,REJECT
+DOMAIN-SUFFIX,altunsheria.com,REJECT
 DOMAIN-SUFFIX,altuntuval.com,REJECT
 DOMAIN-SUFFIX,altunvidanjor.com,REJECT
 DOMAIN-SUFFIX,altura-advertising.s3.eu-west-2.amazonaws.com,REJECT
@@ -84736,6 +84737,7 @@ DOMAIN-SUFFIX,bzerklonfra.web.app,REJECT
 DOMAIN-SUFFIX,bzeumtbg.shop,REJECT
 DOMAIN-SUFFIX,bzfzlj.blackrouge.co.kr,REJECT
 DOMAIN-SUFFIX,bzgmcqqfxd.com,REJECT
+DOMAIN-SUFFIX,bzgwjzrgipzwx.space,REJECT
 DOMAIN-SUFFIX,bzhualin.com,REJECT
 DOMAIN-SUFFIX,bzilcoese.firebaseapp.com,REJECT
 DOMAIN-SUFFIX,bzilcoese.web.app,REJECT
@@ -113317,6 +113319,7 @@ DOMAIN-SUFFIX,cyhyvei.pro,REJECT
 DOMAIN-SUFFIX,cyicbayqmbz.com,REJECT
 DOMAIN-SUFFIX,cyiihoobjuxlx.space,REJECT
 DOMAIN-SUFFIX,cyitjpwmockuc.online,REJECT
+DOMAIN-SUFFIX,cyivtomkjckbf.online,REJECT
 DOMAIN-SUFFIX,cyjbdyvaebhfk.site,REJECT
 DOMAIN-SUFFIX,cyjzstlbndlby.online,REJECT
 DOMAIN-SUFFIX,cykahax.net,REJECT
@@ -141188,6 +141191,7 @@ DOMAIN-SUFFIX,eboxrcvjhxgcm.online,REJECT
 DOMAIN-SUFFIX,ebp.renren.com,REJECT
 DOMAIN-SUFFIX,ebpay.cash,REJECT
 DOMAIN-SUFFIX,ebpdjt.style--plus.jp,REJECT
+DOMAIN-SUFFIX,ebpsqbrlnhdqa.space,REJECT
 DOMAIN-SUFFIX,ebqdvizwnogbp.site,REJECT
 DOMAIN-SUFFIX,ebqonaidz.com,REJECT
 DOMAIN-SUFFIX,ebqutkzji.com,REJECT
@@ -156671,6 +156675,7 @@ DOMAIN-SUFFIX,felixspin-official.fr,REJECT
 DOMAIN-SUFFIX,felixspin1.fr,REJECT
 DOMAIN-SUFFIX,felixspinjouer.fr,REJECT
 DOMAIN-SUFFIX,fellanigroup.com,REJECT
+DOMAIN-SUFFIX,felledpasillo.com,REJECT
 DOMAIN-SUFFIX,fellefondholm-nl.com,REJECT
 DOMAIN-SUFFIX,fellefondholm.com,REJECT
 DOMAIN-SUFFIX,fellestmatweed.com,REJECT
@@ -295010,6 +295015,7 @@ DOMAIN-SUFFIX,nutantvirific.com,REJECT
 DOMAIN-SUFFIX,nutatedtriol.com,REJECT
 DOMAIN-SUFFIX,nutatelust.com,REJECT
 DOMAIN-SUFFIX,nutateshazanim.com,REJECT
+DOMAIN-SUFFIX,nutcakesinking.click,REJECT
 DOMAIN-SUFFIX,nutcasescrews.com,REJECT
 DOMAIN-SUFFIX,nutchaungong.com,REJECT
 DOMAIN-SUFFIX,nutcrackeripe.shop,REJECT
@@ -298729,6 +298735,7 @@ DOMAIN-SUFFIX,ogb2.natessance.com,REJECT
 DOMAIN-SUFFIX,ogb2.sobio-etic.com,REJECT
 DOMAIN-SUFFIX,ogbonistore.de,REJECT
 DOMAIN-SUFFIX,ogbxutcuujpev.site,REJECT
+DOMAIN-SUFFIX,ogccvmwwimlzf.online,REJECT
 DOMAIN-SUFFIX,ogclick.com,REJECT
 DOMAIN-SUFFIX,ogcmfzvcicpon.site,REJECT
 DOMAIN-SUFFIX,ogcmwh.alinda.cz,REJECT
@@ -455320,6 +455327,7 @@ DOMAIN-SUFFIX,udszpipk.bospanien.dk,REJECT
 DOMAIN-SUFFIX,udtickets.space,REJECT
 DOMAIN-SUFFIX,udtnjdhtdb.com,REJECT
 DOMAIN-SUFFIX,udtodhygy2vx9bz.zestapexbooks.com,REJECT
+DOMAIN-SUFFIX,udtpazbzuxgvw.website,REJECT
 DOMAIN-SUFFIX,udtyqelksf7yuqehwsf-qyasigkvawejds78932wehn.teemill.com,REJECT
 DOMAIN-SUFFIX,uduogbako.gq,REJECT
 DOMAIN-SUFFIX,udusidieu.w3spaces.com,REJECT

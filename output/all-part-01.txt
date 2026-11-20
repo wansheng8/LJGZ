@@ -3,10 +3,10 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 1/2
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-11-20 15:24:35 +0800
-! Last Modified: 2026-11-20 15:24:35 +0800 (北京时间 UTC+8)
+! Version: 2026-11-20 16:02:53 +0800
+! Last Modified: 2026-11-20 16:02:53 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 676739
+! Rules: 676761
 
 ||0--4.com^
 ||0--d.com^
@@ -41024,6 +41024,7 @@
 ||altsforyou.org^
 ||altsouth.org^
 ||alttcoin.com^
+||altunsheria.com^
 ||altuntuval.com^
 ||altunvidanjor.com^
 ||altura-advertising.s3.eu-west-2.amazonaws.com^
@@ -86904,6 +86905,7 @@
 ||bzeumtbg.shop^
 ||bzfzlj.blackrouge.co.kr^
 ||bzgmcqqfxd.com^
+||bzgwjzrgipzwx.space^
 ||bzhualin.com^
 ||bzilcoese.firebaseapp.com^
 ||bzilcoese.web.app^
@@ -115742,6 +115744,7 @@
 ||cyicbayqmbz.com^
 ||cyiihoobjuxlx.space^
 ||cyitjpwmockuc.online^
+||cyivtomkjckbf.online^
 ||cyjbdyvaebhfk.site^
 ||cyjzstlbndlby.online^
 ||cykahax.net^
@@ -143739,6 +143742,7 @@
 ||ebp.renren.com^
 ||ebpay.cash^
 ||ebpdjt.style--plus.jp^
+||ebpsqbrlnhdqa.space^
 ||ebqdvizwnogbp.site^
 ||ebqonaidz.com^
 ||ebqutkzji.com^
@@ -159348,6 +159352,7 @@
 ||felixspin1.fr^
 ||felixspinjouer.fr^
 ||fellanigroup.com^
+||felledpasillo.com^
 ||fellefondholm-nl.com^
 ||fellefondholm.com^
 ||fellestmatweed.com^
@@ -298677,6 +298682,7 @@
 ||nutatedtriol.com^
 ||nutatelust.com^
 ||nutateshazanim.com^
+||nutcakesinking.click^
 ||nutcasescrews.com^
 ||nutchaungong.com^
 ||nutcrackeripe.shop^
@@ -302439,6 +302445,7 @@
 ||ogb2.sobio-etic.com^
 ||ogbonistore.de^
 ||ogbxutcuujpev.site^
+||ogccvmwwimlzf.online^
 ||ogclick.com^
 ||ogcmfzvcicpon.site^
 ||ogcmwh.alinda.cz^
@@ -459712,6 +459719,7 @@
 ||udtickets.space^
 ||udtnjdhtdb.com^
 ||udtodhygy2vx9bz.zestapexbooks.com^
+||udtpazbzuxgvw.website^
 ||udtyqelksf7yuqehwsf-qyasigkvawejds78932wehn.teemill.com^
 ||uduogbako.gq^
 ||udusidieu.w3spaces.com^
@@ -509138,10 +509146,8 @@ $~third-party,xmlhttprequest,script,redirect-rule=nooptext,domain=zertalious.xyz
 /^https:\/\/[0-9a-z]{7,25}\.com\/(?:assets|build|bundles|chunks|dist|files|j|public|scripts|static)?\/?(?:js\/)?[0-9_a-z]{6,16}\/?[0-9_a-z]{5,120}(?:[-.](?:app|bundle|ma?in|module|prod|index|v\d|vendor))?(?:\.js)?(?:\?r=\d)?$/$script,3p,match-case,redirect=noopjs,to=com|~adatoolbar.com|~aswpsdkus.com|~chimpstatic.com|~clickiocmp.com|~mojirater.com|~polldaddy.com|~squareoffs.com|~succeedscene.com|~tallysight.com|~veraviews.com,from=komonews.com|wpgh53.com
 /^https:\/\/[0-9a-z]{7,25}\.com\/(?:assets|build|bundles|chunks|dist|files|j|public|scripts|static)?\/?(?:js\/)?[0-9_a-z]{6,16}\/?[0-9_a-z]{5,120}(?:[-.](?:app|bundle|ma?in|module|prod|index|v\d|vendor))?(?:\.js)?(?:\?r=\d)?$/$script,3p,match-case,to=com|~adatoolbar.com|~aswpsdkus.com|~chimpstatic.com|~clickiocmp.com|~mojirater.com|~polldaddy.com|~squareoffs.com|~succeedscene.com|~tallysight.com|~veraviews.com,redirect=noopjs,ipaddress=/^(3[45]\.\d+\.\d{2,3}\.\d{2,3}|2600:1901:0:[a-f0-9]{3,4}::1)$/
 /^https:\/\/[0-9a-z]{7,25}\.com\/(?:assets|build|bundles|chunks|dist|files|j|public|scripts|static)?\/?(?:js\/)?[0-9_a-z]{6,16}\/?[0-9_a-z]{5,120}(?:[-.](?:app|bundle|ma?in|module|prod|index|v\d|vendor))?(?:\.js)?(?:\?r=\d)?$/$script,3p,match-case,to=~adatoolbar.com|~aswpsdkus.com|~chimpstatic.com|~clickiocmp.com|~mojirater.com|~polldaddy.com|~squareoffs.com|~succeedscene.com|~tallysight.com|~veraviews.com,header=etag:/^W\/"[0-9a-f]{64}"$/
-/^https:\/\/[0-9a-z]{7,25}\.com\/(?:assets|build|bundles|chunks|dist|files|j|public|scripts|static)?\/?(?:js\/)?[0-9_a-z]{6,16}\/?[0-9_a-z]{5,120}(?:[-.](?:app|bundle|ma?in|module|prod|index|v\d|vendor))?(?:\.js)?(?:\?r=\d)?$/$script,3p,match-case,to=~adatoolbar.com|~aswpsdkus.com|~chimpstatic.com|~clickiocmp.com|~mojirater.com|~polldaddy.com|~squareoffs.com|~succeedscene.com|~tallysight.com|~veraviews.com,header=via:/, 1\.1 google$/
 /^https:\/\/[0-9a-z]{7,25}\.com\/v2(?:\/0\/)?(?=[-_0-9a-z]{0,84}[A-Z])(?=[-_a-zA-Z]{0,84}[0-9])[-_0-9a-zA-Z]{54,85}(#\?v=[0-9a-f]{32})?$/$script,xhr,3p,match-case
 /^https:\/\/[0-9a-z]{7,25}\.net\/(?:assets|build|bundles|chunks|dist|files|j|public|scripts|static)?\/?(?:js\/)?[0-9_a-z]{6,16}\/?[0-9_a-z]{5,120}(?:[-.](?:app|bundle|ma?in|module|prod|index|v\d|vendor))?(?:\.js)?(?:\?r=\d)?$/$script,3p,match-case,header=etag:/^W\/"[0-9a-f]{64}"$/
-/^https:\/\/[0-9a-z]{7,25}\.net\/(?:assets|build|bundles|chunks|dist|files|j|public|scripts|static)?\/?(?:js\/)?[0-9_a-z]{6,16}\/?[0-9_a-z]{5,120}(?:[-.](?:app|bundle|ma?in|module|prod|index|v\d|vendor))?(?:\.js)?(?:\?r=\d)?$/$script,3p,match-case,header=via:/, 1\.1 google$/
 /^https:\/\/[0-9a-z]{7}\.([0-9a-z]{7})\.top\/[0-9a-z]{7}\?t=\1&cid=[0-9a-z]+/$doc,to=top,match-case
 /^https:\/\/[^.]+\.codeanyapp\.com\/wp-content\/.+\/spo[a-z]{2}i\//$doc,to=codeanyapp.com
 /^https:\/\/[a-z-]{5,13}\.[a-z]{2,7}\/[a-z0-9]{1,20}\?[A-Za-z0-9]{15,26}=(?=.*[A-Z])[A-Za-z0-9%]{35,2000}$/$xmlhttprequest,third-party,match-case
@@ -676747,3 +676753,19 @@ email.lc.teachmeguy.com$image
 email.lc.teaganfea.com$image
 email.lc.teaguelawfirm.com$image
 email.lc.team-law-group.com$image
+email.lc.team-superhuman.com$image
+email.lc.teamalexpecora.com$image
+email.lc.teamallwoodisdabomb.com$image
+email.lc.teamarnazfinancial.com$image
+email.lc.teambuildstaffing.co.uk$image
+email.lc.teamcaldera.com$image
+email.lc.teamclearedgemortgage.com$image
+email.lc.teamengage.com$image
+email.lc.teamgrizzlyusa.com$image
+email.lc.teamifg.com$image
+email.lc.teamkellydawson.com$image
+email.lc.teamlogicatx.com$image
+email.lc.teamlogicaustin.com$image
+email.lc.teamriseup.biz$image
+email.lc.teamsba.net$image
+email.lc.teamsilvamortgage.com$image

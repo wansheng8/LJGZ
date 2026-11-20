@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
 """下载层与输出层测试: fetch 重试 / 输出文件 / 北京时间头部 (TDD — 先于实现编写)。"""
-import io
 import os
 import sys
 import tempfile
 import unittest
-from datetime import datetime
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
 

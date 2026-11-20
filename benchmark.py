@@ -54,6 +54,19 @@ def load_rules(path):
     return pure, mod, exc
 
 
+def is_blocked_any(domain, pure, mod, exc):
+    """同 is_blocked, 但带修饰符的域名规则也算命中 (真实客户端的拦截范围)。"""
+    domain = domain.lower()
+    parts = domain.split(".")
+    for i in range(len(parts) - 1):
+        suffix = ".".join(parts[i:])
+        if suffix in exc:
+            return False
+        if suffix in pure or suffix in mod:
+            return True
+    return False
+
+
 def is_blocked(domain, pure, exc):
     """||d^ 会连带拦截子域: 自身或任一上级域命中即视为已拦; 例外同理。"""
     domain = domain.lower()
@@ -187,7 +200,7 @@ def evaluate(all_path, expect_path=DEFAULT_EXPECT, snapshot=None):
             exclude = {d.lower() for d in exp.get("proxy_exclude", [])}
             targets = [d for d in cases if d not in exclude]
             proxy_total = len(targets)
-            proxy_hit = sum(1 for d in targets if d in pure or d in mod)
+            proxy_hit = sum(1 for d in targets if is_blocked_any(d, pure, mod, exc))
 
     block_rate = _rate(len(blocked), len(must_block))
     safe_rate = _rate(len(must_not) - len(false_pos), len(must_not))

@@ -631,7 +631,15 @@ _OFFICIAL_MODS = {
     "csspath", "replace", "uritransform", "css", "inline-script",
     "network", "permission", "all-other", "all-redirect",
     "ipaddress", "urlskip", "to", "from",
+    # uBO 专有: 例外规则里绕过 CNAME 反解拦截 (Firefox MV2-only)
+    "cname",
 }
+
+# 合法修饰符 token 形状: 可选 ~ 取反 + 名称, 或 name=value。
+# 含 / * 空格 反斜杠 的"名称"只可能是上游 URL 里的字面 $ 被当成了修饰符分隔符
+# (如 ||host/$web/*index.html$doc、@@||host/$rpc/google...$domain=...)。
+# 这类规则客户端解析后修饰符非法, 整行会被丢弃 → 我们同样不保留 (纯占体积)。
+_MOD_KEY_RE = re.compile(r"^~?[a-z0-9][a-z0-9_-]*$")
 
 
 # 可被"裸域名块 ||d^"完全覆盖的纯请求类型/上下文修饰符。
@@ -700,6 +708,7 @@ class Merger:
         self._exc: Dict[str, Rule] = {}           # 例外原文 → Rule
         self._badfilter_targets: Set[str] = set()
         self._stats_dropped = 0
+        self._dead_mod_dropped = 0   # 修饰符被字面 $ 切坏、客户端必然整行丢弃的规则
         self._local_count = 0
         self._subsumed_count = 0
         self._unknown_mods: Counter = Counter()   # 未知修饰符 token → 出现次数
@@ -717,6 +726,14 @@ class Merger:
         if rule.dropped:
             self._stats_dropped += 1
             return
+        # 修饰符名称含 / * 空格 反斜杠 → 上游 URL 里的字面 $ 被误当分隔符,
+        # 客户端解析后修饰符非法、整行丢弃, 我们同样不保留
+        if rule.modifiers and rule.kind in (K_NETWORK, K_EXCEPTION):
+            toks = split_mod_tokens(rule.modifiers.lower())
+            if any(not _MOD_KEY_RE.match(m.split("=", 1)[0].strip()) for m in toks):
+                self._stats_dropped += 1
+                self._dead_mod_dropped += 1
+                return
         # 未知修饰符统计: 只对网络规则 + 例外规则做 (cosmetic / domain 无修饰符)
         if rule.modifiers and rule.kind in (K_NETWORK, K_EXCEPTION):
             for m in split_mod_tokens(rule.modifiers.lower()):
@@ -1006,6 +1023,7 @@ class Merger:
             "whitelist_unique": len(res.whitelist),
             "badfilter_targets": len(bad),
             "dropped": self._stats_dropped,
+            "dropped_dead_mods": self._dead_mod_dropped,
             "dropped_bare_exceptions": bare_whole_domain,
             "subsumed_type_rules": self._subsumed_count,
             "all_compat_mirrors": len(dom_mirrors) + net_added,

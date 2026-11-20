@@ -34,8 +34,8 @@ class SubscriptionLinksTest(unittest.TestCase):
 
     def test_pages_is_listed_first_in_readme(self):
         """README 表格表头: 首选列必须是 GitHub Pages。"""
-        header = next((l for l in self.readme.splitlines()
-                       if l.startswith("| 场景")), "")
+        header = next((line for line in self.readme.splitlines()
+                       if line.startswith("| 场景")), "")
         self.assertIn("首选", header, "README 订阅表头缺少「首选」列: %r" % header)
         self.assertLess(header.index("Pages"), header.index("jsDelivr"),
                         "README 必须把 GitHub Pages 排在 jsDelivr 之前")

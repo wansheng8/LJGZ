@@ -6,8 +6,10 @@
     客户端会把整行当无效丢弃 (拦不住)。merge_filters.py 维护
     _OFFICIAL_MODS 白名单 + Merger._unknown_mods 计数器, 产出 stats 里的
     unknown_mods_total / unknown_mods_top 字段。
-  · 门限 ≤ 60: 当前实测 33, 其中 27 条是上游 `@@||x^$cname` (三家引擎均
-    未收录 cname, 属真实待确认数据), 其余为解析边界残渣。留约 2 倍余量。
+  · 门限 ≤ 10: 当前实测 0。历史上 33 个"未知"里, 27 条是 uBO 官方修饰符
+    `$cname` (白名单漏收, 已补), 5 条是上游 URL 里的字面 $ 被当分隔符切坏
+    (客户端同样丢弃, 已按死规则剔除), 1 条是切分残渣。留少量余量给上游新增
+    官方修饰符, 超出即说明白名单需要跟进。
 
 扩展建议 3 的覆盖率指标也一并检查:
   · pure_all_uncovered (真缺口) 应 ≤ 30 —— 上游 $all 域必须被父域裸规则
@@ -25,7 +27,7 @@ import merge_filters as mf  # noqa: E402
 _STATS_PATH = os.path.join(os.path.dirname(__file__), "..", "output", "stats.json")
 
 # 门限: 可根据上游数据质量调整, 但调完必须在 REPORT.md 里记录原因
-_UNKNOWN_MODS_MAX = 60
+_UNKNOWN_MODS_MAX = 10
 _ALL_UNCOVERED_MAX = 30
 
 
@@ -67,6 +69,28 @@ class TestOfficialModsWhitelist(unittest.TestCase):
         ))
         self.assertEqual(merger._unknown_mods.get("notarealmod", 0), 1)
         self.assertEqual(sum(merger._unknown_mods.values()), 1)
+
+    def test_cname_is_recognized(self):
+        """$cname 是 uBO 官方修饰符 (例外规则绕过 CNAME 反解拦截), 不应计入未知。"""
+        merger = mf.Merger()
+        merger.add_rule(mf.Rule(
+            raw="@@||animepahe.com^$cname",
+            kind=mf.K_EXCEPTION, pattern="||animepahe.com^",
+            modifiers="cname", domain="animepahe.com",
+        ))
+        self.assertIn("cname", mf._OFFICIAL_MODS)
+        self.assertEqual(sum(merger._unknown_mods.values()), 0)
+
+    def test_rule_with_literal_dollar_in_path_dropped(self):
+        """上游 URL 内的字面 $ 会让修饰符非法, 客户端整行丢弃 → 我们也剔除。"""
+        merger = mf.Merger()
+        merger.add_rule(mf.Rule(
+            raw="||blob.core.windows.net/$web/*index.html$doc",
+            kind=mf.K_NETWORK, pattern="||blob.core.windows.net/",
+            modifiers="web/*index.html$doc", domain="blob.core.windows.net",
+        ))
+        self.assertEqual(merger._net, {})
+        self.assertEqual(merger._dead_mod_dropped, 1)
 
 
 @unittest.skipUnless(os.path.exists(_STATS_PATH),

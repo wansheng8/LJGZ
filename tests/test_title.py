@@ -12,12 +12,12 @@ import merge_filters as mf  # noqa: E402
 class TestTitleFormatting(unittest.TestCase):
     def test_no_duplicate_title(self):
         lines = mf._header_lines("MyList", "2026-09-27 00:00", 1, "全格式")
-        title = next(l for l in lines if l.startswith("! Title:"))
+        title = next(line for line in lines if line.startswith("! Title:"))
         self.assertEqual(title, "! Title: MyList · 全格式")
 
     def test_default_title_when_empty(self):
         lines = mf._header_lines("", "t", 1, "hosts")
-        title = next(l for l in lines if l.startswith("! Title"))
+        title = next(line for line in lines if line.startswith("! Title"))
         self.assertEqual(title, "! Title: AdFilter Merge Base · hosts")
 
 

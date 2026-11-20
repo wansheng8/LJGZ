@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 """真实浏览器跑分的规则匹配与页面选择器 (不启动 Chromium)。"""
-import json
 import os
 import sys
 import tempfile
@@ -67,10 +66,12 @@ class TestRuleMatching(unittest.TestCase):
             with open(p, "w", encoding="utf-8") as f:
                 f.write("||site.test^$third-party\n")
             pure, paths, scoped, exc = lb.load_blocklist(p)
-            self.assertTrue(lb.is_blocked("https://api.site.test/x", pure, paths, exc,
-                                          scoped, "xhr", "https://other.test/"))
-            self.assertFalse(lb.is_blocked("https://api.site.test/x", pure, paths, exc,
-                                          scoped, "xhr", "https://www.site.test/"))
+            self.assertTrue(
+                lb.is_blocked("https://api.site.test/x", pure, paths, exc,
+                              scoped, "xhr", "https://other.test/"))
+            self.assertFalse(
+                lb.is_blocked("https://api.site.test/x", pure, paths, exc,
+                              scoped, "xhr", "https://www.site.test/"))
 
     def test_domain_scoped_rule_respects_page(self):
         with tempfile.TemporaryDirectory() as td:

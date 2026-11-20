@@ -6,21 +6,21 @@
     "total": 34
   },
   "proxy_missed": {
-    "hit": 30,
-    "rate": 96.8,
+    "hit": 31,
+    "rate": 100.0,
     "total": 31
   },
   "rules": {
     "exceptions": 28,
     "modifier_domains": 5818,
-    "pure_domains": 506192
+    "pure_domains": 506201
   },
   "safety": {
     "false_positives": [],
     "rate": 100.0,
     "total": 35
   },
-  "score": 99.7,
+  "score": 100.0,
   "selectors": {
     "all": [
       {

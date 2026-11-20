@@ -1,7 +1,7 @@
 ﻿# LJGZ 拦截规则完整质量报告
 
-**生成时间**: 2026-11-09  
-**依据**: `output/all.txt`（988,003 行）、`benchmarks/expectations.json`、`tests/data/adblock-tester.html` 离线快照、224 项单元测试  
+**生成时间**: 2026-11-20  
+**依据**: `output/all.txt`（988,928 条规则）、`benchmarks/expectations.json`、`tests/data/adblock-tester.html` 离线快照、227 项单元测试  
 **引擎覆盖**: AdGuard Home / uBlock Origin / AdGuard Browser Extension / Pi-hole / Hosts
 
 ---
@@ -102,7 +102,7 @@ adblock-tester.com##[data-ads]:            ✓ 匹配 1 个元素
 
 ### 2.3 单元测试
 
-**218/218 全过**。覆盖范围：
+**227/227 全过**。覆盖范围：
 
 | 测试套件 | 覆盖 |
 |---|---|
@@ -123,7 +123,7 @@ adblock-tester.com##[data-ads]:            ✓ 匹配 1 个元素
 - **$all 镜像机制**: 跨引擎兼容自动化，不抬优先级、不压站点白名单
 
 ### 3.2 覆盖深度
-- **51.3 万锚点域** + **11.9 万元素隐藏** + **34.1 万 URL 片段**，三级拦截
+- **50.6 万锚点域** + **12.0 万元素隐藏** + **35.1 万网络规则**，三级拦截
 - **35% 的元素隐藏是通用 `##`** — 可在未见过的第三方站点生效
 - 23 个源全部拉齐（0 failed），无缺源
 
@@ -142,14 +142,14 @@ adblock-tester.com##[data-ads]:            ✓ 匹配 1 个元素
 |---|---|---|---|
 | **P1** | ~~3 条 scriptlet/##^ 进程式规则被 balanced() 误判为"括号不配对"~~ → **已修复**：审计脚本的朴素 balanced() 没跳过正则字面量/字符类，导致 96 条合法规则被误报；真正的问题是上游列表里有 33 条 scriptlet/##^ 规则参数体被截断（`localStorage['\x)`、`(function(){...});` 等），客户端拿到也会整行跳过。已在 `parse_line()` 里对含 scriptlet/##^ 标记的元素隐藏规则加 `_parens_balanced` 校验，截断规则直接 dropped，保留规则 9035 条 → 好规则（含正则参数、##^ HTML 过滤、普通 CSS 选择器）无一误杀 | ✅ 已修复 (commit `6337d5f`) |
 | **P2** | 上游源中混入明显恶意 payload 片段（`%3C?php%20echo%20substr(md5(microtime()))$popup` 等 2 条 PHP 后门片段），客户端能解析语法但正常站点绝不可能发这种 URL | ✅ 已修复 (commit `186db61`) |
-| **P3** | Benchmark 只测 28 个 must_block / 33 个 must_not_block，覆盖面有限 | ✅ 已修复 (commit `5e8a0ed`) |
+| **P3** | Benchmark 只测 28 个 must_block / 33 个 must_not_block，覆盖面有限 | ✅ 已修复 (commit `5e8a0ed`)，当前样本 34 个 must_block / 35 个 must_not_block / 8 个选择器 |
 | **P4** | ~~`hosts.txt` / `domains.txt` 不携带 `$important` 修饰符~~ → **已确认不是 bug**: adguard.txt 完整保留了 44 条纯域名 `||d^$important` 规则（与 all.txt 一致，DNS 折叠未丢任何 important 域）；hosts/domains 格式（`0.0.0.0 d` / 纯域名列表）按行业定义本身不支持修饰符，订阅这两种格式的客户端（Pi-hole、系统 hosts）也没有"优先级压过白名单"的语义，故无实际损失。需重要性语义的 DNS 用户应订阅 adguard.txt | ✅ 已修复 (commit `52ca847`) |
 | **P5** | ~~3 条上游 `o` token 实际是正则 `/foo$/bar/` 被 `$` 切分误判~~ → **已修复**: 实际根因是 `split_mod_tokens` 朴素按逗号切分修饰符, 不认 `'string'` / `"string"` / `/regex/` 字面量 —— `$replace='...JS 代码里天然含逗号 (n,o,w)=>{}...'`、`$ipaddress=/^(1(72\.67\..*|04\.21\..*)\..*)$/` 这类值被切穿后产生 `'o'`、`'w'`、`'4})$/'` 等垃圾 token, 影响去重键构造和 DNS 能力判定。新增 `_split_top_level()` 按顶层分隔符切分, 只在 `=`, `,` 或字符串开头后才把 `/` 判为正则起始 (避免 URL 里 `//` 误触), 引号内外的逗号不再切 | ✅ 已修复 (commit `2084d23`) |
 
 ### 4.2 扩展建议（中期）
 
 1. ~~**Live benchmark**: 已有 `.github/workflows/live-benchmark.yml`，但未被 CI 触发~~ → **已接入**: update.yml 新增"真实浏览器跑分（非阻断）"步骤，每次更新都跑一次 `tools/live_benchmark.py`（Playwright + Chromium，约 5 分钟），结果写入 `output/live-benchmark.json`；独立 `live-benchmark.yml` 保留每周日全量跑分 + 截图
-2. ~~**规则质量门控**: 206 项测试通过即可推送~~ → **已实现**: 新增 `tests/test_quality_gate.py`（5 个用例），stats.json 产出 `unknown_mods_total` + `unknown_mods_top`。当前门限 `≤ 60`（实测 33），测试在 update.yml 的"规则质量门控（阻断）"独立步骤执行，**超过门限直接阻断推送**
+2. ~~**规则质量门控**: 206 项测试通过即可推送~~ → **已实现**: 新增 `tests/test_quality_gate.py`（7 个用例），stats.json 产出 `unknown_mods_total` + `unknown_mods_top`。当前门限 `≤ 10`（实测 0）；`$cname` 已收录官方白名单，上游 URL 字面 `$` 切坏的 6 条死规则已剔除（`dropped_dead_mods`）。测试在 update.yml 的"规则质量门控（阻断）"独立步骤执行，**超过门限直接阻断推送**
 3. ~~**镜像覆盖率持续监控**: 当上游某个源出现新的 `$all` 域且无父域覆盖时自动生成镜像~~ → **已扩展**: stats.json 新增 `all_coverage` 字典，四元组 `pure_all_total/covered/mirrored/uncovered`（自洽校验：total = covered + mirrored + uncovered）。当前快照: 上游 1348 条纯 `$all` 域，1218 被父域裸规则覆盖，108 条补了镜像，**22 条真缺口**（多为 IP 段等无法镜像）。`test_quality_gate.py` 硬门限 ≤ 30，超过则 fail
 
 ### 4.3 代码审核（2026-11-20）
@@ -157,10 +157,10 @@ adblock-tester.com##[data-ads]:            ✓ 匹配 1 个元素
 | 级别 | 问题 | 处理 |
 |---|---|---|
 | 高 | AdGuard 修饰符块前缀元素隐藏规则（`[$path=/x/]a.com##.ad`、`[$domain=a.com,path=/ads]##`、`[$url=/.../]#%#//scriptlet`）被误判为网络规则：朴素 `p.split(",")` 会切碎含逗号的 `/regex/` 域段；`path=/adsmanager` 这类无闭合 `/` 的普通路径值被误当正则；首个 `]` 落在正则字符类里导致前缀剥离过早 | 新增 `_strip_cosmetic_mod_blocks()`（按字面量扫描括号块）+ `_closing_slash()`（区分正则与普通路径）+ `_is_host_or_idn()`（IDN 域名转 punycode 校验），域段统一用 `_split_top_level` 切分。产物中该错误由 18 条降为 0；同一上游快照下元素隐藏 +17 条、网络规则 −18 条 |
-| 中 | 质量门控指标假阳性：`_OFFICIAL_MODS` 漏 `method` / `header` / `removeheader` / `permissions` / `content` / `extension` / `jsinject` / `urlblock` / `specifichide` / `shide` 等官方修饰符，未知修饰符数被 223 虚高 | 补全白名单，指标 223 → 33；门限由 300 收紧至 60（剩余 27 条为上游 `$cname`，三家引擎均未收录，保留为真实待确认信号） |
+| 中 | 质量门控指标假阳性：`_OFFICIAL_MODS` 漏 `method` / `header` / `removeheader` / `permissions` / `content` / `extension` / `jsinject` / `urlblock` / `specifichide` / `shide` / `cname` 等官方修饰符，未知修饰符数被 223 虚高 | 补全白名单，指标 223 → 33 → 0；上游 URL 字面 `$` 切坏的 6 条死规则按客户端行为剔除；门限由 300 收紧至 10（当前实测 0） |
 | 中 | 门控形同虚设：`all_coverage` 缺失时测试用 `.get(..., 0)` 静默通过 | `Merger.__init__` 预置覆盖率四元组；测试改为断言字段必须存在，并校验 `total = covered + mirrored + uncovered` |
-| 低 | README.md / REPORT.md 被 PowerShell 改写后叠加 4 个 U+FEFF，文档测试数停留在 218 | 清理为单个 BOM，测试数同步为 219（`test_docs_test_count_matches_reality` 覆盖） |
-| 低 | `test_quality_gate` 文档写"≤ 10"，实际常量 30 | 文档与常量对齐，补充门限依据 |
+| 低 | README.md / REPORT.md 被 PowerShell 改写后叠加 4 个 U+FEFF，文档测试数停留在 218 | 清理为单个 BOM，测试数同步为 227（`test_docs_test_count_matches_reality` 覆盖） |
+| 低 | `test_quality_gate` 文档门限与常量不一致 | 门限统一为 10（实测 0），文档与常量对齐 |
 
 ### 4.4 已解决问题（前几轮修复）
 
@@ -177,15 +177,19 @@ adblock-tester.com##[data-ads]:            ✓ 匹配 1 个元素
 ```
 sources_ok           = 23
 sources_failed       = 0
-domains_unique       = 505,517  (折叠后域名规则条数)
-domains_lines        = 570,758  (hosts/domains 文件行数，精确匹配语义)
-network_unique       = 350,389
-cosmetic_unique      = 119,267
+domains_unique       = 506,032  (折叠后域名规则条数)
+domains_lines        = 571,833  (hosts/domains 文件行数，精确匹配语义)
+network_unique       = 350,554
+cosmetic_unique      = 119,524
 local_additions      = 132
-exceptions_unique    = 12,820
+exceptions_unique    = 12,809
 badfilter_targets    = 299
-all_compat_mirrors   = 0  (当前快照无 $all 真缺口)
-subsumed_type_rules  = 9,929
+all_compat_mirrors   = 362   ($all 兼容镜像条数)
+all_coverage         = 1348 total / 1218 covered / 108 mirrored / 22 uncovered
+subsumed_type_rules  = 9,956
+shadowrocket_rules   = 500,912
+dropped              = 44,323  (其中死修饰符规则 6 条)
+unknown_mods_total   = 0
 ```
 
 所有数字来自 `output/stats.json`，与 `output/all.txt` 实际行数一致。

@@ -21,7 +21,7 @@
 import re
 import unittest
 
-from merge_filters import Merger, parse_line, K_EXCEPTION
+from merge_filters import Merger
 
 
 class BareExceptionArbitrationTest(unittest.TestCase):

@@ -43,8 +43,8 @@ class TestStatsSemantics(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             paths = mf.write_outputs(res, td, title="t", now="x")
             with open(paths["domains"], encoding="utf-8") as f:
-                body = [l for l in f.read().splitlines()
-                        if l and not l.startswith("#")]
+                body = [line for line in f.read().splitlines()
+                        if line and not line.startswith("#")]
             with open(paths["badge-domains"], encoding="utf-8") as f:
                 badge = json.load(f)
         self.assertEqual(len(body), res.stats["domains_lines"])
@@ -58,7 +58,8 @@ class TestStatsSemantics(unittest.TestCase):
             paths = mf.write_outputs(res, td, title="t", now="x")
             with open(paths["all"], encoding="utf-8") as f:
                 lines = f.read().splitlines()
-        rule_lines = [l for l in lines[1:] if l and not l.startswith("!")]
+        rule_lines = [line for line in lines[1:]
+                      if line and not line.startswith("!")]
         st = res.stats
         self.assertEqual(
             st["domains_unique"] + st["network_unique"] +
