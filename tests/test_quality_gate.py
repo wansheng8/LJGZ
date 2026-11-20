@@ -3,15 +3,15 @@
 
 质量门控的核心假设:
   · 上游规则里出现 ABP/uBO/AdGuard 三家引擎都不认的修饰符 token →
-    客户端会把整行当无效丢弃 (拦不住)。merge_filters.py 新增
+    客户端会把整行当无效丢弃 (拦不住)。merge_filters.py 维护
     _OFFICIAL_MODS 白名单 + Merger._unknown_mods 计数器, 产出 stats 里的
     unknown_mods_total / unknown_mods_top 字段。
-  · 阈值 ≤ 300: 包含了上游偶尔混入的脏数据 + 解析边界噪音 (约 50 条
-    [aria-label 这种被错切的元素隐藏选择器片段), 持续监控, 超过则 fail。
+  · 门限 ≤ 60: 当前实测 33, 其中 27 条是上游 `@@||x^$cname` (三家引擎均
+    未收录 cname, 属真实待确认数据), 其余为解析边界残渣。留约 2 倍余量。
 
 扩展建议 3 的覆盖率指标也一并检查:
-  · pure_all_uncovered (真缺口) 应 ≤ 10 —— 上游 $all 域必须被父域裸规则
-    覆盖或由镜像兜底。
+  · pure_all_uncovered (真缺口) 应 ≤ 30 —— 上游 $all 域必须被父域裸规则
+    覆盖或由镜像兜底。当前约 22, 多为 IP 段等无法镜像的形态。
 """
 import json
 import os
@@ -25,7 +25,7 @@ import merge_filters as mf  # noqa: E402
 _STATS_PATH = os.path.join(os.path.dirname(__file__), "..", "output", "stats.json")
 
 # 门限: 可根据上游数据质量调整, 但调完必须在 REPORT.md 里记录原因
-_UNKNOWN_MODS_MAX = 300
+_UNKNOWN_MODS_MAX = 60
 _ALL_UNCOVERED_MAX = 30
 
 
@@ -80,7 +80,9 @@ class TestQualityGate(unittest.TestCase):
             cls.stats = json.load(f)
 
     def test_unknown_mods_within_threshold(self):
-        total = self.stats.get("unknown_mods_total", 0)
+        # 指标缺失视为门控失效, 不能当成 0 缺口静默放行
+        self.assertIn("unknown_mods_total", self.stats)
+        total = self.stats["unknown_mods_total"]
         top = self.stats.get("unknown_mods_top", {})
         msg = (
             f"未知修饰符总数 {total} 超过门限 {_UNKNOWN_MODS_MAX}\n"
@@ -89,13 +91,23 @@ class TestQualityGate(unittest.TestCase):
         self.assertLessEqual(total, _UNKNOWN_MODS_MAX, msg)
 
     def test_all_mirror_uncovered_within_threshold(self):
-        cov = self.stats.get("all_coverage") or {}
-        uncovered = cov.get("pure_all_uncovered", 0)
+        self.assertIn("all_coverage", self.stats,
+                      "stats.json 缺少 all_coverage 字段 (镜像覆盖率指标未生成)")
+        cov = self.stats["all_coverage"]
+        for key in ("pure_all_total", "pure_all_covered",
+                    "pure_all_mirrored", "pure_all_uncovered"):
+            self.assertIn(key, cov, f"all_coverage 缺字段 {key}")
+        uncovered = cov["pure_all_uncovered"]
         msg = (
             f"$all 镜像未覆盖数 {uncovered} 超过门限 {_ALL_UNCOVERED_MAX}\n"
             f"coverage: {json.dumps(cov, indent=2)}"
         )
         self.assertLessEqual(uncovered, _ALL_UNCOVERED_MAX, msg)
+        self.assertEqual(
+            cov["pure_all_total"],
+            cov["pure_all_covered"] + cov["pure_all_mirrored"] + uncovered,
+            "覆盖率四元组不自洽 (total ≠ covered + mirrored + uncovered)",
+        )
 
 
 if __name__ == "__main__":

@@ -1,7 +1,7 @@
 ﻿# LJGZ 拦截规则完整质量报告
 
 **生成时间**: 2026-11-09  
-**依据**: `output/all.txt`（988,003 行）、`benchmarks/expectations.json`、`tests/data/adblock-tester.html` 离线快照、218 项单元测试  
+**依据**: `output/all.txt`（988,003 行）、`benchmarks/expectations.json`、`tests/data/adblock-tester.html` 离线快照、219 项单元测试  
 **引擎覆盖**: AdGuard Home / uBlock Origin / AdGuard Browser Extension / Pi-hole / Hosts
 
 ---
@@ -149,10 +149,20 @@ adblock-tester.com##[data-ads]:            ✓ 匹配 1 个元素
 ### 4.2 扩展建议（中期）
 
 1. ~~**Live benchmark**: 已有 `.github/workflows/live-benchmark.yml`，但未被 CI 触发~~ → **已接入**: update.yml 新增"真实浏览器跑分（非阻断）"步骤，每次更新都跑一次 `tools/live_benchmark.py`（Playwright + Chromium，约 5 分钟），结果写入 `output/live-benchmark.json`；独立 `live-benchmark.yml` 保留每周日全量跑分 + 截图
-2. ~~**规则质量门控**: 206 项测试通过即可推送~~ → **已实现**: 新增 `tests/test_quality_gate.py`（5 个用例），stats.json 产出 `unknown_mods_total` + `unknown_mods_top`。当前门限 `≤ 300`（实测 223，含约 50 条 `[aria-label` 解析边界噪音），测试在 update.yml 的"运行测试"步骤自动执行，**超过门限直接阻断推送**
-3. ~~**镜像覆盖率持续监控**: 当上游某个源出现新的 `$all` 域且无父域覆盖时自动生成镜像~~ → **已扩展**: stats.json 新增 `all_coverage` 字典，四元组 `pure_all_total/covered/mirrored/uncovered`。当前快照: 上游 1340 条纯 `$all` 域，1229 被父域裸规则覆盖，89 条补了镜像，**22 条真缺口**（多为 IP 段等无法镜像）。`test_quality_gate.py` 硬门限 ≤ 30，超过则 fail
+2. ~~**规则质量门控**: 206 项测试通过即可推送~~ → **已实现**: 新增 `tests/test_quality_gate.py`（5 个用例），stats.json 产出 `unknown_mods_total` + `unknown_mods_top`。当前门限 `≤ 60`（实测 33），测试在 update.yml 的"规则质量门控（阻断）"独立步骤执行，**超过门限直接阻断推送**
+3. ~~**镜像覆盖率持续监控**: 当上游某个源出现新的 `$all` 域且无父域覆盖时自动生成镜像~~ → **已扩展**: stats.json 新增 `all_coverage` 字典，四元组 `pure_all_total/covered/mirrored/uncovered`（自洽校验：total = covered + mirrored + uncovered）。当前快照: 上游 1348 条纯 `$all` 域，1218 被父域裸规则覆盖，108 条补了镜像，**22 条真缺口**（多为 IP 段等无法镜像）。`test_quality_gate.py` 硬门限 ≤ 30，超过则 fail
 
-### 4.3 已解决问题（本轮修复）
+### 4.3 代码审核（2026-11-20）
+
+| 级别 | 问题 | 处理 |
+|---|---|---|
+| 高 | AdGuard 修饰符块前缀元素隐藏规则（`[$path=/x/]a.com##.ad`、`[$domain=a.com,path=/ads]##`、`[$url=/.../]#%#//scriptlet`）被误判为网络规则：朴素 `p.split(",")` 会切碎含逗号的 `/regex/` 域段；`path=/adsmanager` 这类无闭合 `/` 的普通路径值被误当正则；首个 `]` 落在正则字符类里导致前缀剥离过早 | 新增 `_strip_cosmetic_mod_blocks()`（按字面量扫描括号块）+ `_closing_slash()`（区分正则与普通路径）+ `_is_host_or_idn()`（IDN 域名转 punycode 校验），域段统一用 `_split_top_level` 切分。产物中该错误由 18 条降为 0；同一上游快照下元素隐藏 +17 条、网络规则 −18 条 |
+| 中 | 质量门控指标假阳性：`_OFFICIAL_MODS` 漏 `method` / `header` / `removeheader` / `permissions` / `content` / `extension` / `jsinject` / `urlblock` / `specifichide` / `shide` 等官方修饰符，未知修饰符数被 223 虚高 | 补全白名单，指标 223 → 33；门限由 300 收紧至 60（剩余 27 条为上游 `$cname`，三家引擎均未收录，保留为真实待确认信号） |
+| 中 | 门控形同虚设：`all_coverage` 缺失时测试用 `.get(..., 0)` 静默通过 | `Merger.__init__` 预置覆盖率四元组；测试改为断言字段必须存在，并校验 `total = covered + mirrored + uncovered` |
+| 低 | README.md / REPORT.md 被 PowerShell 改写后叠加 4 个 U+FEFF，文档测试数停留在 218 | 清理为单个 BOM，测试数同步为 219（`test_docs_test_count_matches_reality` 覆盖） |
+| 低 | `test_quality_gate` 文档写"≤ 10"，实际常量 30 | 文档与常量对齐，补充门限依据 |
+
+### 4.4 已解决问题（前几轮修复）
 
 - ✅ 上游混入的 `_____` / `reason=` 非官方 token → 解析层自动清洗
 - ✅ `$important` 被 `_fold_redundant()` 折叠吞掉 → 父域需同等强度才折叠

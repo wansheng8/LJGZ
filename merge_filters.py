@@ -40,7 +40,7 @@ K_HEADER = "header"        # [Adblock Plus 2.0] 列表头 — 丢弃
 K_COSMETIC = "cosmetic"   # ## 元素隐藏 / #$# CSS / #%# JS / ##+js / $$ HTML — 原样保留
 K_DOMAIN = "domain"       # 可归并为 DNS 域名语义的规则 (||d^ / 裸域名 / hosts / *.d)
 K_NETWORK = "network"     # 网络规则 (带内容类型/行为修饰符或正则/子串模式) — 原样保留
-K_EXCEPTION = "exception" # @@ 例外规则 — 原样保留, 且 dns_relevant 者进 DNS 白名单
+K_EXCEPTION = "exception"  # @@ 例外规则 — 原样保留, 且 dns_relevant 者进 DNS 白名单
 K_INVALID = "invalid"     # 无法解析的行 — 丢弃
 
 # ---------------------------------------------------------------------------
@@ -188,6 +188,24 @@ def _split_modifiers(s: str) -> Tuple[str, str]:
     return s, ""
 
 
+def _closing_slash(s: str, i: int) -> int:
+    """从 i+1 起找未转义的 `/`, 找不到返回 -1。
+
+    用来判断一个 `/` 到底是正则字面量的开头, 还是普通路径值的一部分
+    (如 `$path=/adsmanager` 没有闭合 `/`, 不是正则)。
+    """
+    j = i + 1
+    while j < len(s):
+        c = s[j]
+        if c == "\\" and j + 1 < len(s):
+            j += 2
+            continue
+        if c == "/":
+            return j
+        j += 1
+    return -1
+
+
 def _split_top_level(s: str, sep: str = ",") -> List[str]:
     """按顶层分隔符切分; `'string'` / `"string"` / `/regex/` 字面量内的
     分隔符不切。反斜杠转义统一跳过。用于修饰符切分 —— `replace='...JS 里
@@ -197,8 +215,9 @@ def _split_top_level(s: str, sep: str = ",") -> List[str]:
     字面量起始规则:
       · `'` / `"` 任何位置都是字面量起始 (修饰符值里的字符串引号绝不可能
         是别的东西, 如 replace='...')
-      · `/` 只在 `=`, `,` 或字符串开头后才视为正则起始 —— 避免把正则闭
-        合后 URL 路径里的 `//` 误判为下一个正则的开头
+      · `/` 只在 `=`, `,` 或字符串开头后才视为正则起始, 且要求后面存在
+        未转义的闭合 `/` —— 避免把 URL 路径里的 `//`、`path=/adsmanager`
+        这类普通路径值误判为正则开头
     """
     out, buf, i = [], [], 0
     n = len(s)
@@ -224,9 +243,11 @@ def _split_top_level(s: str, sep: str = ",") -> List[str]:
                 i += 1
                 continue
             if c == "/":
-                # 正则起始判据: 前一个有效字符是 `=`, `,` 或开头
+                # 正则起始判据: 前一个有效字符是 `=`, `,` 或开头,
+                # 且后面确实存在未转义的闭合 `/` —— `path=/adsmanager`
+                # 这类普通路径值不算正则
                 prev_ok = (i == 0) or (s[i - 1] in ("=", ","))
-                if prev_ok:
+                if prev_ok and _closing_slash(s, i) >= 0:
                     quote = "/"
                     buf.append(c)
                     i += 1
@@ -305,12 +326,13 @@ def _find_cosmetic(s: str) -> Optional[int]:
 
 def _valid_cosmetic_prefix(p: str) -> bool:
     """元素隐藏分隔符之前的部分须为: 空 / * / 域名列表 / [$...] 修饰符 / 主机名正则。"""
-    p = p.strip()
+    p = _strip_cosmetic_mod_blocks(p.strip())
     if p == "" or p == "*":
         return True
-    if p.startswith("[") and p.endswith("]") and p.startswith("[$"):
-        return True
-    for part in p.split(","):
+    # 域列表里可能混入含逗号的 /^moon(?:-x)?-embed\.com$/ 主机名正则,
+    # 必须用字面量感知的切分 (朴素 split 会把正则切碎 → 整条规则降级成
+    # 非法网络规则, 元素隐藏彻底失效)
+    for part in _split_top_level(p, ","):
         part = part.strip()
         if part.startswith("~"):
             part = part[1:]
@@ -321,9 +343,57 @@ def _valid_cosmetic_prefix(p: str) -> bool:
         core = part.split("/")[0]          # example.org/checkout → example.org
         if core.endswith(".*"):
             core = core[:-2]               # 实体通配 google.* → google
-        if not _is_host(core):
+        if not _is_host_or_idn(core):
             return False
     return True
+
+
+def _strip_cosmetic_mod_blocks(p: str) -> str:
+    """剥掉行首连续的 AdGuard 修饰符块 `[$path=...]` / `[$url=...]`。
+
+    块内值可以是 /regex/ (含 `[0-9a-z]` 字符类), 所以不能直接找第一个 `]`。
+    返回剥完后的剩余部分 (通常是域名列表; 也可能是空)。
+    """
+    while p.startswith("[$"):
+        i = 2
+        quote = None                       # None | "/" | "'" | '"'
+        end = -1
+        while i < len(p):
+            c = p[i]
+            if c == "\\" and i + 1 < len(p):
+                i += 2
+                continue
+            if quote is not None:
+                if c == quote:
+                    quote = None
+                i += 1
+                continue
+            if c in ("'", '"'):
+                quote = c
+                i += 1
+                continue
+            if c == "/" and p[i - 1] in ("=", ",") and _closing_slash(p, i) >= 0:
+                quote = "/"
+                i += 1
+                continue
+            if c == "]":
+                end = i
+                break
+            i += 1
+        if end < 0:
+            return p                       # 括号块不闭合: 交给后续校验判否
+        p = p[end + 1:].strip()
+    return p
+
+
+def _is_host_or_idn(host: str) -> bool:
+    """主机名校验: ASCII 直接校验; 含非 ASCII 的 IDN 先转 punycode 再校验。"""
+    if _is_host(host):
+        return True
+    try:
+        return _is_host(host.encode("idna").decode("ascii"))
+    except Exception:
+        return False
 
 
 def _is_reserved_arpa(d: str) -> bool:
@@ -552,7 +622,9 @@ _OFFICIAL_MODS = {
     "genericblock",
     # uBO / AdGuard
     "referrerpolicy", "removeparam", "queryprune", "jsonprune", "hidemethod",
-    "strict1p", "strict3p",
+    "strict1p", "strict3p", "method", "header", "removeheader", "permissions",
+    # AdGuard 内容修饰符 (DNS 过滤站不兑现, 但属官方语法, 不是无效 token)
+    "content", "extension", "jsinject", "urlblock", "specifichide", "shide",
     # AdGuard 专有 (DNS + 高级)
     "cookie", "dnsrewrite", "dnstype", "denyallow", "client", "ctag",
     "csspath", "replace", "uritransform", "css", "inline-script",
@@ -630,7 +702,14 @@ class Merger:
         self._local_count = 0
         self._subsumed_count = 0
         self._unknown_mods: Counter = Counter()   # 未知修饰符 token → 出现次数
-        self._all_coverage: Dict[str, int] = {}
+        # $all 镜像覆盖率: 默认全 0, 让 stats 字段始终存在 (质量门控据此判断
+        # 指标缺失, 而不是把缺失当成"0 缺口"静默放行)
+        self._all_coverage: Dict[str, int] = {
+            "pure_all_total": 0,
+            "pure_all_covered": 0,
+            "pure_all_mirrored": 0,
+            "pure_all_uncovered": 0,
+        }
 
     # -- 收集 ------------------------------------------------------------
     def add_rule(self, rule: Rule) -> None:
@@ -1026,7 +1105,8 @@ def sanitize_url(url: str) -> str:
     if not url:
         return ""
     return url.strip().strip("`").strip("'").strip('"').strip()
-         
+
+
 def load_sources(path: str) -> List[dict]:
     """读取配置文件, 返回启用的 sources 列表 (按 URL 去重, 保序)。"""
     import json
@@ -1196,7 +1276,7 @@ def _header_lines(title: str, now: str, count: int, kind: str,
         "! Licence: 各上游列表许可证的并集, 见 README 致谢部分",
         f"! Version: {now}",
         f"! Last Modified: {now} (北京时间 UTC+8)",
-        f"! Expires: 12 hours",
+        "! Expires: 12 hours",
         f"! Rules: {count}",
         "",
     ]
@@ -1262,7 +1342,8 @@ def _svg_badge(label: str, message: str, color: str) -> str:
     lw = _text_w(label, fs) + pad * 2
     mw = _text_w(message, fs) + pad * 2
     W = lw + mw
-    AMP = chr(38); LT = chr(60); GT = chr(62); QUOT = chr(34)
+    AMP, LT, GT, QUOT = chr(38), chr(60), chr(62), chr(34)
+
     def esc(s: str) -> str:
         return (s.replace(AMP, AMP + "amp;").replace(LT, AMP + "lt;")
                 .replace(GT, AMP + "gt;").replace(QUOT, AMP + "quot;"))
@@ -1535,7 +1616,7 @@ def _selftest() -> int:
     import json as _json
     print(_json.dumps(res.stats, ensure_ascii=False, indent=2))
     print(f"domains={res.domains}")
-    print(f"selftest OK")
+    print("selftest OK")
     return 0
 
 

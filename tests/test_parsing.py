@@ -90,6 +90,31 @@ class TestCosmetic(unittest.TestCase):
             self.assertFalse(r.dropped, line)
             self.assertEqual(r.kind, mf.K_COSMETIC, line)
 
+    def test_cosmetic_prefix_with_regex_list_and_idn(self):
+        """域列表里混入含逗号的 /regex/ 段、IDN 域名、[$path=...] 前缀时,
+        规则仍是元素隐藏 —— 否则会降级成非法网络规则 (客户端丢弃, 隐藏失效)。"""
+        lines = [
+            # 域列表里含逗号的正则段 (朴素 split 会把正则切碎)
+            r"a.com,b.com,/^moon(?:-[a-z0-9]+)?-embed\.com$/,/^[0-9a-z]{5,8}\.(art|cfd)$/##.ad",
+            # AdGuard 修饰符前缀 + 域名列表
+            r"[$path=/\/$/]cinejosh.com##.ad",
+            r"[$path=/\/(movies|shows)\/play\//]monster###ad-slot",
+            # 一个括号块内多个修饰符, 且 path 值是不闭合的普通路径
+            r"[$domain=facebook.com,path=/adsmanager]#$#body { display: block !important; }",
+            # $url 前缀里含 /regex/ 与字符类
+            r"[$url=/^https:\/\/[0-9a-z]{5}\.com\/e\/[0-9A-Za-z]{10}$/]"
+            r"#%#//scriptlet('prevent-addEventListener', 'click')",
+            # IDN (非 ASCII) 域名
+            "przesył-energii.pl,example.com##.banner",
+            # 选择器里含 $ 属性运算符, 不能把整行当网络规则
+            r'example.com##a[aria-label$=" ad"]',
+        ]
+        for line in lines:
+            r = mf.parse_line(line)
+            self.assertFalse(r.dropped, line)
+            self.assertEqual(r.kind, mf.K_COSMETIC,
+                             "应为元素隐藏, 实际 kind=%s: %s" % (r.kind, line))
+
     def test_scriptlet_with_regex_param_kept(self):
         """scriptlet 参数含正则字面量 /.../ 不应触发括号配对误判。"""
         lines = [
