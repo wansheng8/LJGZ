@@ -53,9 +53,9 @@ jobs:
     env:
       TZ: Asia/Shanghai            # 作业内所有时间戳走北京时间
     steps:
-      - uses: actions/checkout@v4.4.0
+      - uses: actions/checkout@v7.0.1
 
-      - uses: actions/setup-python@v5.6.0
+      - uses: actions/setup-python@v7.1.0
         with:
           python-version: "3.11"
 
@@ -143,7 +143,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4.4.0
+      - uses: actions/checkout@v7.0.1
         with:
           ref: ${{ needs.update.outputs.commit }}
       - name: 组装站点 (订阅中心 + 全部订阅文件)
@@ -152,12 +152,12 @@ jobs:
           cp docs/index.html docs/logo.svg site/
           cp output/*.txt output/*.sgmodule output/stats.json output/badge-*.json output/badge-*.svg site/
           cp output/benchmark.json site/ || true
-      - uses: actions/configure-pages@v5.0.0
-      - uses: actions/upload-pages-artifact@v3.0.0
+      - uses: actions/configure-pages@v6.0.0
+      - uses: actions/upload-pages-artifact@v5.0.0
         with:
           path: site
       - id: deployment
-        uses: actions/deploy-pages@v4.0.0
+        uses: actions/deploy-pages@v5.0.1
 
   # 定时清理 Actions 历史: 保留最新 3 条, 删除更早的 (防 run 列表无限膨胀)
   cleanup-actions:
