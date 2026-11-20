@@ -29,11 +29,11 @@
 | 🕳 **Pi-hole / hosts**<br><sub>Pi-hole · SwitchHosts · 路由器</sub> | [hosts.txt](https://wansheng8.github.io/LJGZ/hosts.txt) | [hosts.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/hosts.txt) | [hosts.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/hosts.txt) |
 | 📃 **纯域名列表**<br><sub>Cloudflare Gateway · NextDNS</sub> | [domains.txt](https://wansheng8.github.io/LJGZ/domains.txt) | [domains.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/domains.txt) | [domains.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/domains.txt) |
 | ✅ **DNS 白名单**<br><sub>误拦截放行 · 例外列表</sub> | [whitelist.txt](https://wansheng8.github.io/LJGZ/whitelist.txt) | [whitelist.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/whitelist.txt) | [whitelist.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/whitelist.txt) |
-| 🚀 **Shadowrocket 模块**<br><sub>Shadowrocket · Surge · Loon</sub> | [**LJGZ-part-01.sgmodule**](https://wansheng8.github.io/LJGZ/LJGZ-part-01.sgmodule)<br><sub>分卷：[1](https://wansheng8.github.io/LJGZ/LJGZ-part-01.sgmodule) + [2](https://wansheng8.github.io/LJGZ/LJGZ-part-02.sgmodule)<br>两卷必须**同时导入并启用**</sub> | [LJGZ-part-01.sgmodule](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/LJGZ-part-01.sgmodule) | [LJGZ-part-01.sgmodule](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/LJGZ-part-01.sgmodule) |
+| 🚀 **Shadowrocket 模块**<br><sub>Shadowrocket · Surge · Loon</sub> | [**LJGZ.sgmodule**](https://wansheng8.github.io/LJGZ/LJGZ.sgmodule)<br><sub>单文件 · 约 20MB</sub> | [LJGZ.sgmodule](https://cdn.statically.io/gh/wansheng8/LJGZ/main/output/LJGZ.sgmodule) | [LJGZ.sgmodule](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/LJGZ.sgmodule) |
 
 > **浏览器扩展优先用 Pages 的 `all.txt`（唯一完整单文件）。** 完整版约 29MB，超出 jsDelivr 单文件 20MB 上限（会返回 `Failed to fetch`），备选改用 statically 单文件镜像。客户端限制单文件大小时，把 Pages 的 `all-part-01.txt` + `all-part-02.txt` **两卷一起加**，缺一卷会少一半规则。分卷同样不要走 jsDelivr——实测 18MB 分卷也会返回 `Failed to fetch`。
 >
-> **Shadowrocket 模块只承载域名级拦截**（约 50 万条 `DOMAIN-SUFFIX → REJECT`）。模块语法（`.sgmodule`）没有元素隐藏与 scriptlet 段位，浏览器层规则请另配 Safari 内容拦截器订阅 `all.txt`。模块按 18MB 分卷，两卷缺一不可。
+> **Shadowrocket 模块只承载域名级拦截**（约 50 万条 `DOMAIN-SUFFIX → REJECT`）。模块语法（`.sgmodule`）没有元素隐藏与 scriptlet 段位，浏览器层规则请另配 Safari 内容拦截器订阅 `all.txt`。单文件约 20MB，超出 jsDelivr 单文件上限，请用 Pages / statically；规则量继续增长超 24MB 时会自动退回分卷。
 
 ## 规模
 
@@ -83,7 +83,7 @@ flowchart LR
 | `hosts.txt` | hosts | Pi-hole / 路由器 | `0.0.0.0 domain`，按主机名精确匹配（子域各自单独成条） |
 | `domains.txt` | 纯域名 | Cloudflare / NextDNS | 一行一域，排序去重 |
 | `whitelist.txt` | `@@\|\|d^$important` 例外 | 误拦截放行 | 一行一域，配合 DNS 列表订阅；`\|\|d^` 语义下子域随父域一并放行 |
-| `LJGZ-part-01/02.sgmodule` | Shadowrocket 模块 | Shadowrocket / Surge / Loon | `[Rule]` 段仅 `DOMAIN-SUFFIX,域名,REJECT`（父域优先 DIRECT 白名单），按 18MB 分卷，两卷都要启用 |
+| `LJGZ.sgmodule` | Shadowrocket 模块 | Shadowrocket / Surge / Loon | `[Rule]` 段仅 `DOMAIN-SUFFIX,域名,REJECT`（白名单域名以 DIRECT 排在前面），单文件约 20MB；超过 24MB 才自动分卷 |
 | `stats.json` | JSON | 站点 / 调试 | 各分类计数，每次运行刷新 |
 | `badge-*.svg` / `badge-*.json` | 徽章 | README / 站点 | 静态 SVG；`badge-rules` / `badge-domains` / `badge-updated` 另附 shields.io endpoint JSON |
 | `benchmark.json` | JSON | 离线跑分 | 应拦 / 不应拦 / 漏拦覆盖率与总分 |

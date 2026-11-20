@@ -1469,7 +1469,7 @@ def _drop_covered(domains: Set[str]) -> List[str]:
 
 def write_shadowrocket_module(res: MergeResult, outdir: str, title: str,
                               now: str,
-                              max_part_bytes: int = 18_000_000) -> Dict[str, str]:
+                              max_part_bytes: int = 24_000_000) -> Dict[str, str]:
     """生成 Shadowrocket 模块 (.sgmodule)。
 
     模块语法 (Surge 兼容, 扩展名 .sgmodule): 顶部 `#!name` / `#!desc`
@@ -1477,9 +1477,10 @@ def write_shadowrocket_module(res: MergeResult, outdir: str, title: str,
     Shadowrocket 只吃域名级拦截; 元素隐藏 (##) 与 scriptlet (#%#) 属浏览器层,
     模块无法表达 —— 头部注释明确指回 all.txt + Safari 内容拦截器。
 
-    规则量约 50 万条, 单文件会超过 jsDelivr 的 20MB 上限, 因此复用与
-    all-part-* 相同的分卷策略: 超过 max_part_bytes 就写成
-    LJGZ-part-01.sgmodule / LJGZ-part-02.sgmodule …, 全部启用才完整。
+    默认输出单文件 LJGZ.sgmodule (约 20MB)。jsDelivr 单文件上限 20MB, 这条
+    链路本来就不适合本模块, 文档里指向 Pages / statically; 分卷只为防未来
+    规则量继续膨胀时单文件失控 (超过 max_part_bytes 才切成 LJGZ-part-*.sgmodule,
+    此时 Shadowrocket 里必须启用全部分卷才完整)。
     """
     rules = shadowrocket_rule_lines(res)
     n_direct = sum(1 for r in rules if r.endswith(",DIRECT"))
@@ -1491,9 +1492,11 @@ def write_shadowrocket_module(res: MergeResult, outdir: str, title: str,
         "# 需要请订阅 all.txt 并配合 Safari 内容拦截器。",
     ]
 
-    # 清理上一轮遗留的分卷
-    for old in glob(os.path.join(outdir, "LJGZ-part-*.sgmodule")):
-        os.remove(old)
+    # 清理上一轮遗留 (单文件 <-> 分卷 切换时不留残骸)
+    for old in [os.path.join(outdir, "LJGZ.sgmodule")] + \
+            glob(os.path.join(outdir, "LJGZ-part-*.sgmodule")):
+        if os.path.exists(old):
+            os.remove(old)
 
     body = ["[Rule]"] + rules
     size = sum(len(ln.encode("utf-8")) + 1 for ln in body)
@@ -1585,8 +1588,7 @@ def write_outputs(res: MergeResult, outdir: str, *, title: str,
            _header_lines(title, now, len(res.whitelist), "DNS 白名单", abp=True)
            + res.whitelist)
 
-    paths.update(write_shadowrocket_module(res, outdir, title, now,
-                                           max_part_bytes=max_part_bytes))
+    paths.update(write_shadowrocket_module(res, outdir, title, now))
 
     paths["stats"] = os.path.join(outdir, "stats.json")
     import json as _json
