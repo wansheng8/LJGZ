@@ -1,6 +1,6 @@
 #!name=AdFilter Merge (1/2)
 #!desc=多上游广告/追踪域名合并拦截, DOMAIN-SUFFIX → REJECT (白名单 1 条优先 DIRECT)
-# 自动生成 · 2026-11-20 15:05:03 +0800 (北京时间 UTC+8) · 共 500899 条规则
+# 自动生成 · 2026-11-20 15:09:02 +0800 (北京时间 UTC+8) · 共 500901 条规则
 # 仅域名级拦截。元素隐藏/scriptlet 属浏览器层规则, 模块无法表达,
 # 需要请订阅 all.txt 并配合 Safari 内容拦截器。
 # 分卷 1/2: 必须在 Shadowrocket 中启用全部分卷才完整
@@ -214247,6 +214247,7 @@ DOMAIN-SUFFIX,iyvlwbhwfe.com,REJECT
 DOMAIN-SUFFIX,iyvzbbqlo.com,REJECT
 DOMAIN-SUFFIX,iyvzqt.agabangmall.com,REJECT
 DOMAIN-SUFFIX,iywiyboiomivc.site,REJECT
+DOMAIN-SUFFIX,iywkdmptymjja.space,REJECT
 DOMAIN-SUFFIX,iyww.cn,REJECT
 DOMAIN-SUFFIX,iyxkoshoagpfc.website,REJECT
 DOMAIN-SUFFIX,iyyfj0g7m.com,REJECT
@@ -225658,6 +225659,7 @@ DOMAIN-SUFFIX,klvadvvrbusee.website,REJECT
 DOMAIN-SUFFIX,klvhyleakhttd.space,REJECT
 DOMAIN-SUFFIX,klvkv.blossomperfumery.co.uk,REJECT
 DOMAIN-SUFFIX,klvt.cn,REJECT
+DOMAIN-SUFFIX,klwsdumuugohi.space,REJECT
 DOMAIN-SUFFIX,klwuhp.daehyuninside.com,REJECT
 DOMAIN-SUFFIX,klwwhrhlnsyoa.website,REJECT
 DOMAIN-SUFFIX,klwwxepxnqnhr.website,REJECT
@@ -435933,5 +435935,3 @@ DOMAIN-SUFFIX,thetspark.site,REJECT
 DOMAIN-SUFFIX,thetuitioncentre.co.za,REJECT
 DOMAIN-SUFFIX,thetwave.site,REJECT
 DOMAIN-SUFFIX,thetwine.app,REJECT
-DOMAIN-SUFFIX,theubergroups.com,REJECT
-DOMAIN-SUFFIX,theukjobfinder.com,REJECT

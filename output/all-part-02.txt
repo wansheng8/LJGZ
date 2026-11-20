@@ -3,11 +3,12 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-11-20 15:05:03 +0800
-! Last Modified: 2026-11-20 15:05:03 +0800 (北京时间 UTC+8)
+! Version: 2026-11-20 15:09:02 +0800
+! Last Modified: 2026-11-20 15:09:02 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 312173
+! Rules: 312175
 
+email.lc.teamarnazfinancial.com$image
 email.lc.teambuildstaffing.co.uk$image
 email.lc.teamcaldera.com$image
 email.lc.teamclearedgemortgage.com$image
@@ -174729,6 +174730,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||sycamore.com.br/pixel/
 ||sycow.pl/a/cookie.js
 ||syl.ru/misc/js/global/tracker.js
+||symbaloo.com/static/banners/
 ||symbaloo.com/static/banners/*/fsHomepage.js
 ||symbaloo.com/static/banners/*/pwAnalytics-*.js
 ||symbaloo.com/static/banners/*/pwHomepage.js
