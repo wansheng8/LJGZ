@@ -1,11 +1,9 @@
 #!name=AdFilter Merge (2/2)
 #!desc=多上游广告/追踪域名合并拦截, DOMAIN-SUFFIX → REJECT (白名单 1 条优先 DIRECT)
-# 自动生成 · 2026-11-20 15:10:30 +0800 (北京时间 UTC+8) · 共 500901 条规则
+# 自动生成 · 2026-11-20 15:18:02 +0800 (北京时间 UTC+8) · 共 500903 条规则
 # 仅域名级拦截。元素隐藏/scriptlet 属浏览器层规则, 模块无法表达,
 # 需要请订阅 all.txt 并配合 Safari 内容拦截器。
 # 分卷 2/2: 必须在 Shadowrocket 中启用全部分卷才完整
-DOMAIN-SUFFIX,theubergroups.com,REJECT
-DOMAIN-SUFFIX,theukjobfinder.com,REJECT
 DOMAIN-SUFFIX,theukmap.com,REJECT
 DOMAIN-SUFFIX,theultimate-carcollection.com,REJECT
 DOMAIN-SUFFIX,theunbreakableco.com,REJECT
@@ -3133,6 +3131,7 @@ DOMAIN-SUFFIX,tmeamh.com,REJECT
 DOMAIN-SUFFIX,tmearn.net,REJECT
 DOMAIN-SUFFIX,tmedapgqtmqhs.store,REJECT
 DOMAIN-SUFFIX,tmedk.idlespeedwatersports.co,REJECT
+DOMAIN-SUFFIX,tmerisimdijital.live,REJECT
 DOMAIN-SUFFIX,tmeses.aldeasinapin.qpon,REJECT
 DOMAIN-SUFFIX,tmetisvalidate.pages.dev,REJECT
 DOMAIN-SUFFIX,tmetrics.hdfcbank.com,REJECT
@@ -15425,6 +15424,7 @@ DOMAIN-SUFFIX,truly6-cupiditate24.cfd,REJECT
 DOMAIN-SUFFIX,truly6-dolorem87.cfd,REJECT
 DOMAIN-SUFFIX,truly6-et42.cfd,REJECT
 DOMAIN-SUFFIX,truly6-in12.cfd,REJECT
+DOMAIN-SUFFIX,truly6-in33.cfd,REJECT
 DOMAIN-SUFFIX,truly6-iste41.cfd,REJECT
 DOMAIN-SUFFIX,truly6-modi87.cfd,REJECT
 DOMAIN-SUFFIX,truly6-molestiae15.cfd,REJECT
@@ -15451,6 +15451,7 @@ DOMAIN-SUFFIX,truly7-est32.cfd,REJECT
 DOMAIN-SUFFIX,truly7-et31.cfd,REJECT
 DOMAIN-SUFFIX,truly7-eveniet53.cfd,REJECT
 DOMAIN-SUFFIX,truly7-ipsum94.cfd,REJECT
+DOMAIN-SUFFIX,truly7-molestiae55.cfd,REJECT
 DOMAIN-SUFFIX,truly7-nisi19.cfd,REJECT
 DOMAIN-SUFFIX,truly7-quas93.cfd,REJECT
 DOMAIN-SUFFIX,truly7-qui99.cfd,REJECT
@@ -16830,7 +16831,6 @@ DOMAIN-SUFFIX,tui.weibo.com,REJECT
 DOMAIN-SUFFIX,tui1999.com,REJECT
 DOMAIN-SUFFIX,tui98.cn,REJECT
 DOMAIN-SUFFIX,tuia.cn,REJECT
-DOMAIN-SUFFIX,tuifish.com,REJECT
 DOMAIN-SUFFIX,tuifly.be.data.adobedc.net,REJECT
 DOMAIN-SUFFIX,tuigoo.com,REJECT
 DOMAIN-SUFFIX,tuiguang.baidu.com,REJECT
@@ -27480,6 +27480,7 @@ DOMAIN-SUFFIX,valtreviaapp.live,REJECT
 DOMAIN-SUFFIX,valtrex.7h.com,REJECT
 DOMAIN-SUFFIX,valtrinoxamaxsoftware.com,REJECT
 DOMAIN-SUFFIX,valtrionex.ink,REJECT
+DOMAIN-SUFFIX,valtrionex.site,REJECT
 DOMAIN-SUFFIX,valtrix-nexusai.nl,REJECT
 DOMAIN-SUFFIX,valtrix.pro,REJECT
 DOMAIN-SUFFIX,valtrixnexus-ai.nl,REJECT
@@ -39476,6 +39477,7 @@ DOMAIN-SUFFIX,weavebalancex.live,REJECT
 DOMAIN-SUFFIX,weaveradrenaline.com,REJECT
 DOMAIN-SUFFIX,weaversprinkle.com,REJECT
 DOMAIN-SUFFIX,weaveworkingheaviness.com,REJECT
+DOMAIN-SUFFIX,web-01-28b806.subhub.tr,REJECT
 DOMAIN-SUFFIX,web-01-gbl.com,REJECT
 DOMAIN-SUFFIX,web-activateddcard.firebaseapp.com,REJECT
 DOMAIN-SUFFIX,web-activateddcard.web.app,REJECT
