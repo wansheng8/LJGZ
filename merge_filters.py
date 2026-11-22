@@ -654,7 +654,7 @@ _OFFICIAL_MODS = {
     # AdGuard 专有 (DNS + 高级)
     "cookie", "dnsrewrite", "dnstype", "denyallow", "client", "ctag",
     "csspath", "replace", "uritransform", "css", "inline-script",
-    "network", "permission", "all-other", "all-redirect",
+    "network", "permission", "app", "all-other", "all-redirect",
     "ipaddress", "urlskip", "to", "from",
     # uBO 专有: 例外规则里绕过 CNAME 反解拦截 (Firefox MV2-only)
     "cname",

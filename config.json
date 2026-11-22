@@ -85,6 +85,21 @@
       "enabled": true
     },
     {
+      "name": "adguard-mobile",
+      "url": "https://filters.adtidy.org/extension/chromium/filters/11.txt",
+      "enabled": true
+    },
+    {
+      "name": "adguard-url-tracking",
+      "url": "https://filters.adtidy.org/extension/chromium/filters/17.txt",
+      "enabled": true
+    },
+    {
+      "name": "adguard-social",
+      "url": "https://filters.adtidy.org/extension/chromium/filters/4.txt",
+      "enabled": true
+    },
+    {
       "name": "fanboy-annoyance",
       "url": "https://easylist.to/easylist/fanboy-annoyance.txt",
       "enabled": true

@@ -3,10 +3,10 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — AdGuard Home DNS
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-11-22 23:35:43 +0800
-! Last Modified: 2026-11-22 23:35:43 +0800 (北京时间 UTC+8)
+! Version: 2026-11-22 23:50:22 +0800
+! Last Modified: 2026-11-22 23:50:22 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 508772
+! Rules: 508776
 
 ||0--4.com^
 ||0--d.com^
@@ -14512,6 +14512,7 @@
 ||8820.pandasuite.io^
 ||88210212.com^
 ||882793fb7a.com^
+||883.engine.mobileapptracking.com^
 ||883387.xyz^
 ||88362zubo95838.com^
 ||883zy.com^
@@ -94582,6 +94583,7 @@
 ||cdmnmrgwdltpe.site^
 ||cdmsoymau.com^
 ||cdmswj.com^
+||cdmvwwwusfbrq.website^
 ||cdmweb.info^
 ||cdn-01.gravityfield.ai^
 ||cdn-10049480.file.myqcloud.com^
@@ -224665,6 +224667,7 @@
 ||jrrea.eddiebauer.ca^
 ||jrrmojsntectt.site^
 ||jrrswcrteqcdu.website^
+||jrrxbicxeekny.online^
 ||jrs-huya.hl.cn^
 ||jrs.freshrules.agency^
 ||jrs2018.net^
@@ -380767,6 +380770,7 @@
 ||sheabutterworld.com^
 ||sheafsdeck.cyou^
 ||shealapish.com^
+||shealsunrow.com^
 ||shealth-analytics-api.samsunghealth.com^
 ||shealth-analytics-stg-api.samsunghealth.com^
 ||sheareasygoingcommerce.com^
