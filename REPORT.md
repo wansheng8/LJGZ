@@ -1,7 +1,7 @@
 ﻿# LJGZ 拦截规则完整质量报告
 
 **生成时间**: 2026-11-20  
-**依据**: `output/all.txt`（988,928 条规则）、`benchmarks/expectations.json`、`tests/data/adblock-tester.html` 离线快照、227 项单元测试  
+**依据**: `output/all.txt`（991,635 条规则）、`benchmarks/expectations.json`、`tests/data/adblock-tester.html` 离线快照、222 项单元测试  
 **引擎覆盖**: AdGuard Home / uBlock Origin / AdGuard Browser Extension / Pi-hole / Hosts
 
 ---
@@ -16,19 +16,21 @@
 
 | 家族 | 行数 | 说明 |
 |---|---|---|
-| `||domain^` 锚点域名 | 513,298 | DNS 层可兑现的整域拦截，跨引擎通用 |
-| 元素隐藏 `##` / 进程式 / JS 注入 | 119,237 | 含 `##` 104,779 / `#%#` 6,018（AdGuard JS）/ `#?#` 3,735（uBO 过程式）/ `##+js` / `##^` HTML 过滤 |
-| `@@` 例外规则 | 12,820 | 浏览器层放行，站点自己的白名单机制 |
-| 子串/通配模式 | 341,778 | 无 `||` 锚点的 URL 片段拦截，含 `$cookie=/.../` 等 AdGuard 专有形式 |
-| 纯修饰符行 `$` | 727 | 如 `$cookie=/.../domain=...`，AdGuard 专有过滤形式 |
-| 正则 `/.../` | 76 | `||domain^` 以外的完整正则 |
+| `||domain^` 锚点域名 | 515,306 | DNS 层可兑现的整域拦截（其中纯裸域 `||d^` 508,935），跨引擎通用 |
+| 元素隐藏 `##` / 进程式 / JS 注入 | 119,556 | 含 `##` 106,478 / `#%#` 6,069（AdGuard JS）/ `#?#` 3,734（uBO 过程式）/ `##+js` 3,223 / `##^` 68 HTML 过滤 |
+| `@@` 例外规则 | 12,788 | 浏览器层放行，站点自己的白名单机制 |
+| 子串/通配模式 | 342,717 | 无 `||` 锚点的 URL 片段拦截，含 `$cookie=/.../` 等 AdGuard 专有形式 |
+| 纯修饰符行 `$` | 726 | 如 `$cookie=/.../domain=...`，AdGuard 专有过滤形式 |
+| 正则 `/.../` | 542 | `||domain^` 以外的完整正则 |
+
+合计 991,635 条，与 `all.txt` 头部 `! Rules` 及 stats 四类之和一致。
 
 ### 1.3 元素隐藏细节
 
 - **空选择器**: 0 条。所有 `##` 分隔符后都有非空选择器。
 - **未知 `#` 分隔符**: 0 种。仅出现官方的 10 种：`##`、`#@#`、`#?#`、`#@?#`、`#$#`、`#@$#`、`#$?#`、`#@$?#`、`#%#`、`#@%#`。
-- **域名限定 vs 通用**: 通用 `##` 42,332 条（可在任意第三方站点生效），域名限定 76,905 条。**通用规则占比 35%**，是跨站拦截能力的核心。
-- **CSS 括号/引号不配对**: 3 条。均来自上游列表的 `##+js(acs, Math, localStorage['\x)` 和 `##^script:has-text(/popunder|...)` 这种进程式规则——括号配对校验器对 scriptlet/HTML 过滤规则过于严格，这不是语法错误，客户端能正常解析。
+- **域名限定 vs 通用**: 通用 `##` 42,308 条（可在任意第三方站点生效），域名限定 64,170 条。**通用规则占比 40%**，是跨站拦截能力的核心。
+- **CSS 括号/引号配对**: 仅对纯 CSS 选择器做启发式校验；`##+js(...)`、`##^script:has-text(...)` 等进程式/HTML 过滤规则天然含括号与引号，不参与该项，避免误报。
 
 ### 1.4 修饰符审计
 
@@ -36,20 +38,22 @@
 
 | 修饰符 | 使用次数 | 来源 |
 |---|---|---|
-| `$image` | 310,425 | ABP/uBO/AdGuard 通用 |
-| `$domain=` | 10,214 | 通用 |
-| `$script` | 4,414 | 通用 |
-| `$popup` | 3,164 | 通用 |
-| `$third-party` | 2,743 | 通用 |
-| `$all` | 1,619 | **AdGuard 专有** |
-| `$redirect` | 1,447 | uBO/AdGuard |
-| `$important` | 733 | 通用 |
-| `$cookie` | 628 | AdGuard 专有 |
-| `$stealth` | 1,880 | AdGuard Stealth 模式专有 |
+| `$image` | 310,396 | ABP/uBO/AdGuard 通用 |
+| `$domain=` | 10,382 | 通用 |
+| `$script` | 4,337 | 通用 |
+| `$popup` | 3,168 | 通用 |
+| `$third-party` | 2,787 | 通用 |
+| `$stealth` | 1,886 | AdGuard Stealth 模式专有 |
+| `$all` | 1,626 | **AdGuard 专有** |
+| `$redirect` | 1,455 | uBO/AdGuard |
+| `$doc` | 1,222 | 通用 |
+| `$cookie` | 1,134 | AdGuard 专有 |
+
+`$important` 733 次，紧随其后。
 
 **已清洗的非官方 token**: 本轮合并前，上游列表混入的 `_____` 占位符和 `reason=tracker` 说明字段会被客户端当作未知修饰符直接丢弃整行。合并器已自动清除，产物中这两类 token 为 0 条。
 
-**仅有的"边缘修饰符"**: `css` 33 条（AdGuard `$css` 注入）、`inline-script` / `popunder` 各 15 / 1 条（AdGuard 专有），均属官方专有修饰符。`o` 3 条是上游正则 `/foo$/bar/` 被 `$` 切分误判，实际不存在单独 `o` 修饰符。
+**仅有的"边缘修饰符"**: `css` 32 条（AdGuard `$css` 注入）、`inline-script` 1 条、`popunder` 15 条（均 AdGuard 专有官方修饰符）。`o` 35 条是上游正则 `/foo$/bar/` 被 `$` 切分误判，实际不存在单独 `o` 修饰符。
 
 ### 1.5 `$all` 跨引擎兼容性分析
 
@@ -59,56 +63,65 @@
 |---|---|
 | 上游原行 `||d^$all` | 保留不改 — AdGuard 侧有独立语义 |
 | 合并器镜像 `||d^` | 若父域无全类型拦截，则自动补裸 `||d^` 规则作为 uBO/ABP 等价物 |
-| **当前快照镜像覆盖率** | **42 个纯 `$all` 域中有 41 个已被父域裸规则覆盖，1 个是 IP 地址** → **当前产物无真缺口** |
+| **当前快照镜像覆盖率** | **1,348 个纯 `$all` 域中：1,217 个已被父域裸规则覆盖，109 个补了镜像，22 个无法镜像（IP 段等）** → **真缺口 22** |
 
-合并器统计字段 `all_compat_mirrors` 在"全源拉齐"状态下为 0，在"部分源"状态下可达 350 条——逻辑正确，当前只是上游源足够全而已。
+合并器统计字段 `all_compat_mirrors` 当前为 363 条（109 条纯域镜像 + 254 条网络/复合形态镜像）；`all_coverage` 四元组自洽，由 `test_quality_gate` 的硬门限持续监控（未覆盖 ≤ 30）。
 
 ---
 
 ## 二、拦截有效性测试
 
-### 2.1 Benchmark 总分: 99.4 / 100
+### 2.1 Benchmark 总分: 100.0 / 100
 
 ```json
 {
-  "score": 99.4,
-  "must_block": { "pass": 26, "total": 26, "miss": [] },
-  "must_not_block": { "pass": 33, "total": 33, "hit": [] },
-  "safety": { "false_positives": [], "rate": 100.0, "total": 33 }
+  "score": 100.0,
+  "coverage": { "hit": 34, "total": 34, "missing": [] },
+  "safety": { "false_positives": [], "rate": 100.0, "total": 35 },
+  "proxy_missed": { "hit": 31, "total": 31, "rate": 100.0 },
+  "selectors": { "hit": 8, "total": 8, "miss": [], "rate": 100.0 }
 }
 ```
 
-- **26/26 必须拦**: 上游所有目标域名全部命中拦截
-- **33/33 必须放行**: 无假阳性、无误伤
+- **34/34 必须拦**: 上游所有目标域名全部命中拦截
+- **35/35 必须放行**: 无假阳性、无误伤
+- **31/31 代理漏拦样本**: 统一由父域 `$important` 覆盖（后缀语义命中）
+- **8/8 元素选择器**: 离线 DOM 快照全部命中
 - **Safety 假阳性**: 0 项。通用服务主域（impact.com、mailchimp.com、connect.facebook.net 等）无一被误伤
 
 ### 2.2 adblock-tester.com 离线快照 DOM 实测
 
 项目自带 adblock-tester.com HTML 快照，用 HTMLParser 解析后逐条核对 extra_rules 里的元素隐藏选择器。
 
-**adblock-tester.com 相关规则**: 14 条元素隐藏 + 1 条网络拦截，全部快照命中。
+**adblock-tester.com 相关规则**: 12 条站点级元素隐藏 + 79 条通用 `##` + 41 条网络/通配规则，站点级选择器全部快照命中。
 
 ```
-adblock-tester.com###ads-custom:           ✓ 匹配 2 个元素
-adblock-tester.com###banners:              ✓ 匹配 2 个元素
-adblock-tester.com##.ads-anchor:           ✓ 匹配 4 个元素
-adblock-tester.com##div[id^="ads:"]:       ✓ 匹配 0 个（快照里 <input> 元素） — 已修正为 ##input
-adblock-tester.com##div[id^="banner:"]:    ✓ 匹配 0 个（同上） — 已修正
-adblock-tester.com##[data-ads]:            ✓ 匹配 1 个元素
-||adblock-tester.com/banners/$important:    ✓（网络层，快照含 banners/*.gif）
+adblock-tester.com##.include:                          ✓ 匹配 6 个元素
+adblock-tester.com##.includeWrapper:                   ✓ 匹配 6 个元素
+adblock-tester.com##div[data-ads=""]:                  ✓ 匹配 1 个元素
+adblock-tester.com##.adsbygoogle:                      ✓ 匹配 1 个元素
+adblock-tester.com##div[id^="yandex_rtb_"]:            ✓ 匹配 1 个元素
+adblock-tester.com##object[type="application/x-shockwave-flash"]:  ✓ 1 个
+adblock-tester.com##embed[type="application/x-shockwave-flash"]:   ✓ 1 个
+adblock-tester.com##param[name="movie"][value*="banners"]:         ✓ 1 个
+adblock-tester.com##img[src*="banners/"]:              ✓ 匹配 2 个元素
+adblock-tester.com##img[src*="pr_advertising_ads_banner"]: ✓ 2 个
+adblock-tester.com##object[data*="banners"]:           ✓ 匹配 1 个元素
+adblock-tester.com##embed[src*="banners"]:             ✓ 匹配 1 个元素
+||adblock-tester.com/banners/$important:               ✓（网络层，快照含 banners/*.gif）
 ```
 
-**通用元素隐藏规则**: extra_rules 中 120+ 条通用 `##class` 规则，在 adblock-tester 快照里命中 4 条（该站点本身用的 DOM 结构有限）。
+**通用元素隐藏规则**: extra_rules 中 79 条通用 `##` 规则，在 adblock-tester 快照里命中 16 条（该站点本身用的 DOM 结构有限）。
 
 ### 2.3 单元测试
 
-**227/227 全过**。覆盖范围：
+**222/222 全过**。覆盖范围：
 
 | 测试套件 | 覆盖 |
 |---|---|
-| test_safe_tracking_domains | FORBIDDEN 22 项未被误伤、EXPECTED_SAFE 36 项全部存在且带 `$important` |
+| test_safe_tracking_domains | FORBIDDEN 22 项未被误伤、EXPECTED_SAFE 35 项全部存在且带 `$important` |
 | test_merging | 折叠/展开、type 消解、重要性折叠、$all 镜像等边界场景 |
-| test_adblock_tester | 14 条 DOM 选择器真实命中、不命中页面开关控件 |
+| test_adblock_tester | 12 条站点级 DOM 选择器真实命中、不命中页面开关控件 |
 | test_parsing | 所有合法/非法/边界输入的词法解析 |
 | test_e2e | 全量端到端生成 |
 | test_scriptlets | scriptlet 语法与来源 |
@@ -123,8 +136,8 @@ adblock-tester.com##[data-ads]:            ✓ 匹配 1 个元素
 - **$all 镜像机制**: 跨引擎兼容自动化，不抬优先级、不压站点白名单
 
 ### 3.2 覆盖深度
-- **50.6 万锚点域** + **12.0 万元素隐藏** + **35.1 万网络规则**，三级拦截
-- **35% 的元素隐藏是通用 `##`** — 可在未见过的第三方站点生效
+- **50.9 万锚点域** + **12.0 万元素隐藏** + **35.1 万网络规则**，三级拦截
+- **40% 的元素隐藏是通用 `##`** — 可在未见过的第三方站点生效
 - 23 个源全部拉齐（0 failed），无缺源
 
 ### 3.3 安全边界
@@ -150,7 +163,7 @@ adblock-tester.com##[data-ads]:            ✓ 匹配 1 个元素
 
 1. ~~**Live benchmark**: 已有 `.github/workflows/live-benchmark.yml`，但未被 CI 触发~~ → **已接入**: update.yml 新增"真实浏览器跑分（非阻断）"步骤，每次更新都跑一次 `tools/live_benchmark.py`（Playwright + Chromium，约 5 分钟），结果写入 `output/live-benchmark.json`；独立 `live-benchmark.yml` 保留每周日全量跑分 + 截图
 2. ~~**规则质量门控**: 206 项测试通过即可推送~~ → **已实现**: 新增 `tests/test_quality_gate.py`（7 个用例），stats.json 产出 `unknown_mods_total` + `unknown_mods_top`。当前门限 `≤ 10`（实测 0）；`$cname` 已收录官方白名单，上游 URL 字面 `$` 切坏的 6 条死规则已剔除（`dropped_dead_mods`）。测试在 update.yml 的"规则质量门控（阻断）"独立步骤执行，**超过门限直接阻断推送**
-3. ~~**镜像覆盖率持续监控**: 当上游某个源出现新的 `$all` 域且无父域覆盖时自动生成镜像~~ → **已扩展**: stats.json 新增 `all_coverage` 字典，四元组 `pure_all_total/covered/mirrored/uncovered`（自洽校验：total = covered + mirrored + uncovered）。当前快照: 上游 1348 条纯 `$all` 域，1218 被父域裸规则覆盖，108 条补了镜像，**22 条真缺口**（多为 IP 段等无法镜像）。`test_quality_gate.py` 硬门限 ≤ 30，超过则 fail
+3. ~~**镜像覆盖率持续监控**: 当上游某个源出现新的 `$all` 域且无父域覆盖时自动生成镜像~~ → **已扩展**: stats.json 新增 `all_coverage` 字典，四元组 `pure_all_total/covered/mirrored/uncovered`（自洽校验：total = covered + mirrored + uncovered）。当前快照: 上游 1348 条纯 `$all` 域，1217 被父域裸规则覆盖，109 条补了镜像，**22 条真缺口**（多为 IP 段等无法镜像）。`test_quality_gate.py` 硬门限 ≤ 30，超过则 fail
 
 ### 4.3 代码审核（2026-11-20）
 
@@ -159,7 +172,7 @@ adblock-tester.com##[data-ads]:            ✓ 匹配 1 个元素
 | 高 | AdGuard 修饰符块前缀元素隐藏规则（`[$path=/x/]a.com##.ad`、`[$domain=a.com,path=/ads]##`、`[$url=/.../]#%#//scriptlet`）被误判为网络规则：朴素 `p.split(",")` 会切碎含逗号的 `/regex/` 域段；`path=/adsmanager` 这类无闭合 `/` 的普通路径值被误当正则；首个 `]` 落在正则字符类里导致前缀剥离过早 | 新增 `_strip_cosmetic_mod_blocks()`（按字面量扫描括号块）+ `_closing_slash()`（区分正则与普通路径）+ `_is_host_or_idn()`（IDN 域名转 punycode 校验），域段统一用 `_split_top_level` 切分。产物中该错误由 18 条降为 0；同一上游快照下元素隐藏 +17 条、网络规则 −18 条 |
 | 中 | 质量门控指标假阳性：`_OFFICIAL_MODS` 漏 `method` / `header` / `removeheader` / `permissions` / `content` / `extension` / `jsinject` / `urlblock` / `specifichide` / `shide` / `cname` 等官方修饰符，未知修饰符数被 223 虚高 | 补全白名单，指标 223 → 33 → 0；上游 URL 字面 `$` 切坏的 6 条死规则按客户端行为剔除；门限由 300 收紧至 10（当前实测 0） |
 | 中 | 门控形同虚设：`all_coverage` 缺失时测试用 `.get(..., 0)` 静默通过 | `Merger.__init__` 预置覆盖率四元组；测试改为断言字段必须存在，并校验 `total = covered + mirrored + uncovered` |
-| 低 | README.md / REPORT.md 被 PowerShell 改写后叠加 4 个 U+FEFF，文档测试数停留在 218 | 清理为单个 BOM，测试数同步为 227（`test_docs_test_count_matches_reality` 覆盖） |
+| 低 | README.md / REPORT.md 被 PowerShell 改写后叠加 4 个 U+FEFF，文档测试数停留在 218 | 清理为单个 BOM，测试数同步为 222（`test_docs_test_count_matches_reality` 覆盖） |
 | 低 | `test_quality_gate` 文档门限与常量不一致 | 门限统一为 10（实测 0），文档与常量对齐 |
 
 ### 4.4 已解决问题（前几轮修复）
@@ -177,18 +190,17 @@ adblock-tester.com##[data-ads]:            ✓ 匹配 1 个元素
 ```
 sources_ok           = 23
 sources_failed       = 0
-domains_unique       = 506,032  (折叠后域名规则条数)
-domains_lines        = 571,833  (hosts/domains 文件行数，精确匹配语义)
-network_unique       = 350,554
-cosmetic_unique      = 119,524
+domains_unique       = 508,766  (折叠后域名规则条数)
+domains_lines        = 575,106  (hosts/domains 文件行数，精确匹配语义)
+network_unique       = 350,526
+cosmetic_unique      = 119,555
 local_additions      = 132
-exceptions_unique    = 12,809
-badfilter_targets    = 299
-all_compat_mirrors   = 362   ($all 兼容镜像条数)
-all_coverage         = 1348 total / 1218 covered / 108 mirrored / 22 uncovered
-subsumed_type_rules  = 9,956
-shadowrocket_rules   = 500,912
-dropped              = 44,323  (其中死修饰符规则 6 条)
+exceptions_unique    = 12,788
+badfilter_targets    = 302
+all_compat_mirrors   = 363   ($all 兼容镜像条数)
+all_coverage         = 1348 total / 1217 covered / 109 mirrored / 22 uncovered
+subsumed_type_rules  = 9,960
+dropped              = 44,338  (其中死修饰符规则 6 条)
 unknown_mods_total   = 0
 ```
 

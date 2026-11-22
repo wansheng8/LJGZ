@@ -150,7 +150,7 @@ jobs:
         run: |
           mkdir -p site
           cp docs/index.html docs/logo.svg site/
-          cp output/*.txt output/*.sgmodule output/stats.json output/badge-*.json output/badge-*.svg site/
+          cp output/*.txt output/stats.json output/badge-*.json output/badge-*.svg site/
           cp output/benchmark.json site/ || true
       - uses: actions/configure-pages@v6.0.0
       - uses: actions/upload-pages-artifact@v5.0.0

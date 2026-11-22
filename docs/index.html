@@ -110,12 +110,6 @@ const P = [
   d:'仅收录 DNS 可兑现的 @@||d^$important 例外（子域随父域一并放行）；$document 等浏览器例外留在 all.txt 由客户端仲裁。',
   u:[['CDN 备选', CDN+'whitelist.txt'], ['最短', PAGES+'whitelist.txt'], ['备用', RAW+'whitelist.txt']],
   t:'在 AdGuard Home 中作为第二个过滤器订阅（类型：精确/例外）'},
- {i:'🚀', n:'Shadowrocket 模块', a:'Shadowrocket · Surge · Loon', f:'LJGZ.sgmodule',
-  d:'[Rule] 段按 DOMAIN-SUFFIX → REJECT 生成（约 50 万条），白名单域名以 DIRECT 排在 REJECT 之前。单文件约 20MB。',
-  u:[['⭐ 首选', PAGES+'LJGZ.sgmodule'],
-     ['CDN 备选', 'https://cdn.statically.io/gh/wansheng8/LJGZ/main/output/LJGZ.sgmodule'],
-     ['备用', RAW+'LJGZ.sgmodule']],
-  t:'Shadowrocket → 配置 → 模块 → 添加，粘贴地址即可。单文件约 20MB，超出 jsDelivr 单文件上限，请用 Pages / statically。模块语法不含元素隐藏与 scriptlet，浏览器层请另配 Safari 内容拦截器订阅 all.txt。'},
 ];
 const grid = document.getElementById('grid');
 for (const p of P) {

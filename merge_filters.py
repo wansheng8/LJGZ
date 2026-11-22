@@ -18,7 +18,6 @@ merge_filters — 广告过滤规则收集·转换·合并·去重引擎
 """
 from __future__ import annotations
 
-import ipaddress
 import os
 import re
 import sys
@@ -291,16 +290,42 @@ def _split_mods_raw(mods: str):
 
 
 def _sanitize_modifiers(mods: str) -> str:
-    """去掉非语义修饰符; 未命中时原样返回, 不做无谓改写。"""
+    """去掉非语义修饰符并修复重复前缀; 未命中时原样返回, 不做无谓改写。"""
     if not mods:
         return mods
     parts = _split_mods_raw(mods)
-    keep = [p for p in parts
+    keep = [_fix_doubled_mod_prefix(p) for p in parts
             if p.strip().lower() not in _NON_SEMANTIC_MOD_TOKENS
             and not p.strip().lower().startswith(_NON_SEMANTIC_MOD_PREFIXES)]
-    if len(keep) == len(parts):
+    if len(keep) == len(parts) and all(a == b for a, b in zip(keep, parts)):
         return mods
     return ",".join(keep).strip()
+
+
+def _fix_doubled_mod_prefix(part: str) -> str:
+    """修复上游把修饰符前缀重复写进值里的笔误: `domain=$domain=a|b` → `domain=a|b`。
+
+    重复前缀会让首项变成非法域名, 客户端要么忽略该项要么整条例外失效;
+    只对官方修饰符生效, 其他键的值一律不动。
+    """
+    if "=" not in part:
+        return part
+    key, val = part.split("=", 1)
+    k = key.strip()
+    if k.lower() not in _OFFICIAL_MODS:
+        return part
+    changed = False
+    while True:
+        low = val.lower()
+        if low.startswith("$" + k.lower() + "="):
+            val = val[len(k) + 2:]
+            changed = True
+        elif low.startswith(k.lower() + "="):
+            val = val[len(k) + 1:]
+            changed = True
+        else:
+            break
+    return key + "=" + val if changed else part
 
 
 def _find_cosmetic(s: str) -> Optional[int]:
@@ -1428,118 +1453,6 @@ def write_badge_files(outdir: str, stats: dict, now: str,
     return paths
 
 
-def _anchor_domain(rule: str) -> Optional[str]:
-    """从 `||domain^` / `||domain^$important` / `@@||domain^` 中取纯域名。
-
-    只接受主机名形态; 含通配、正则、IP、路径的一律返回 None (这些无法
-    直接翻译成 Surge 系的 DOMAIN-SUFFIX 规则 —— IP 必须写 IP-CIDR)。
-    """
-    s = rule[2:] if rule.startswith("@@") else rule
-    if not s.startswith("||"):
-        return None
-    host = s[2:].split("^", 1)[0]
-    if not host or any(c in host for c in "*/|^"):
-        return None
-    try:
-        ipaddress.ip_address(host)
-        return None                       # IP 不能当域名后缀
-    except ValueError:
-        return host
-
-
-def shadowrocket_rule_lines(res: MergeResult) -> List[str]:
-    """把域名级结果翻译成 Shadowrocket/Surge 的 [Rule] 行。
-
-    顺序是关键: 白名单 (DIRECT) 必须整体排在拦截 (REJECT) 之前。Surge 系
-    规则引擎首个命中生效, DOMAIN-SUFFIX 会连带子域 —— 若先写父域 REJECT,
-    子域上的例外就永远命中不到。
-    """
-    direct_dom: Set[str] = set()
-    for raw in res.whitelist:
-        d = _anchor_domain(raw)
-        if d:
-            direct_dom.add(d)
-    reject_dom: Set[str] = set()
-    for raw in res.adguard_blocks:
-        d = _anchor_domain(raw)
-        if d and d not in direct_dom:
-            reject_dom.add(d)
-    direct = [f"DOMAIN-SUFFIX,{d},DIRECT" for d in _drop_covered(direct_dom)]
-    reject = [f"DOMAIN-SUFFIX,{d},REJECT" for d in _drop_covered(reject_dom)]
-    return direct + reject
-
-
-def _drop_covered(domains: Set[str]) -> List[str]:
-    """去掉同角色下被祖先覆盖的域名行 (DOMAIN-SUFFIX 已连带子域)。
-
-    上游折叠按 $important 分级, 会留下少量 "子域与父域同在" 的条目;
-    模块里它们是纯冗余, 这里再按后缀语义收敛一次。
-    """
-    out: List[str] = []
-    for d in sorted(domains):
-        parent = d.split(".", 1)[1] if "." in d else ""
-        while parent and parent not in domains:
-            parent = parent.split(".", 1)[1] if "." in parent else ""
-        if not parent:
-            out.append(d)
-    return out
-
-
-def write_shadowrocket_module(res: MergeResult, outdir: str, title: str,
-                              now: str,
-                              max_part_bytes: int = 24_000_000) -> Dict[str, str]:
-    """生成 Shadowrocket 模块 (.sgmodule)。
-
-    模块语法 (Surge 兼容, 扩展名 .sgmodule): 顶部 `#!name` / `#!desc`
-    元信息, 之后是段落头 `[Rule]`, 规则写 `DOMAIN-SUFFIX,域名,REJECT|DIRECT`。
-    Shadowrocket 只吃域名级拦截; 元素隐藏 (##) 与 scriptlet (#%#) 属浏览器层,
-    模块无法表达 —— 头部注释明确指回 all.txt + Safari 内容拦截器。
-
-    默认输出单文件 LJGZ.sgmodule (约 20MB)。jsDelivr 单文件上限 20MB, 这条
-    链路本来就不适合本模块, 文档里指向 Pages / statically; 分卷只为防未来
-    规则量继续膨胀时单文件失控 (超过 max_part_bytes 才切成 LJGZ-part-*.sgmodule,
-    此时 Shadowrocket 里必须启用全部分卷才完整)。
-    """
-    rules = shadowrocket_rule_lines(res)
-    n_direct = sum(1 for r in rules if r.endswith(",DIRECT"))
-    head = [
-        "#!desc=多上游广告/追踪域名合并拦截, DOMAIN-SUFFIX → REJECT"
-        " (白名单 %d 条优先 DIRECT)" % n_direct,
-        f"# 自动生成 · {now} (北京时间 UTC+8) · 共 {len(rules)} 条规则",
-        "# 仅域名级拦截。元素隐藏/scriptlet 属浏览器层规则, 模块无法表达,",
-        "# 需要请订阅 all.txt 并配合 Safari 内容拦截器。",
-    ]
-
-    # 清理上一轮遗留 (单文件 <-> 分卷 切换时不留残骸)
-    for old in [os.path.join(outdir, "LJGZ.sgmodule")] + \
-            glob(os.path.join(outdir, "LJGZ-part-*.sgmodule")):
-        if os.path.exists(old):
-            os.remove(old)
-
-    body = ["[Rule]"] + rules
-    size = sum(len(ln.encode("utf-8")) + 1 for ln in body)
-    paths: Dict[str, str] = {}
-    if size <= max_part_bytes:
-        path = os.path.join(outdir, "LJGZ.sgmodule")
-        _write(path, [f"#!name={title}"] + head + body)
-        paths["shadowrocket"] = path
-        res.stats["shadowrocket_rules"] = len(rules)
-        res.stats["shadowrocket_parts"] = 1
-        return paths
-
-    chunks = _chunk_by_bytes(body, max_bytes=max_part_bytes - 1024)
-    for ix, chunk in enumerate(chunks, 1):
-        key = f"LJGZ-part-{ix:02d}"
-        path = os.path.join(outdir, key + ".sgmodule")
-        _write(path, [f"#!name={title} ({ix}/{len(chunks)})"] + head + [
-            f"# 分卷 {ix}/{len(chunks)}: 必须在 Shadowrocket 中启用全部分卷才完整",
-        ] + chunk)
-        paths[f"shadowrocket-part-{ix:02d}"] = path
-    res.stats["shadowrocket_rules"] = len(rules)
-    res.stats["shadowrocket_parts"] = len(chunks)
-    return paths
-
-
 def write_outputs(res: MergeResult, outdir: str, *, title: str,
                   now: Optional[str] = None,
                   max_part_bytes: int = 18_000_000) -> Dict[str, str]:
@@ -1548,7 +1461,6 @@ def write_outputs(res: MergeResult, outdir: str, *, title: str,
     · all.txt: 全格式 (域名拦截 + 网络规则 + 元素隐藏 + 例外)
     · adguard.txt: AdGuard Home DNS 订阅
     · hosts.txt / domains.txt / whitelist.txt: DNS 层与纯域名
-    · LJGZ.sgmodule (或分卷): Shadowrocket/Surge 模块, 仅域名级拦截
     all-part-*.txt: 把 all.txt 正文按 max_part_bytes 切卷, 每卷自带完整头部
     (含 [Adblock Plus 2.0] 首行), 多卷全部订阅 == 完整 all.txt;
     用于绕过 jsDelivr 20MB 单文件上限。
@@ -1605,8 +1517,6 @@ def write_outputs(res: MergeResult, outdir: str, *, title: str,
     _write(paths["whitelist"],
            _header_lines(title, now, len(res.whitelist), "DNS 白名单", abp=True)
            + res.whitelist)
-
-    paths.update(write_shadowrocket_module(res, outdir, title, now))
 
     paths["stats"] = os.path.join(outdir, "stats.json")
     import json as _json

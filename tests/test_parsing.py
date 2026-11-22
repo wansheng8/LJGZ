@@ -290,6 +290,12 @@ class TestNetworkRules(unittest.TestCase):
         self.assertIn("script", r.modifiers)
         self.assertIn("domain=foo.com", r.modifiers)
 
+    def test_doubled_domain_prefix_normalized(self):
+        """上游笔误 domain=$domain=a|b 会让首项非法, 应剥掉重复前缀。"""
+        r = mf.parse_line(
+            "@@||consent.truste.com/notice$domain=$domain=fortune.com|hsl.fi")
+        self.assertEqual("domain=fortune.com|hsl.fi", r.modifiers)
+
     def test_regex_pattern(self):
         r = mf.parse_line(r"/banner\d+/")
         self.assertEqual(r.kind, mf.K_NETWORK)
