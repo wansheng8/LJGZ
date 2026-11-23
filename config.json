@@ -133,6 +133,21 @@
       "name": "ea-antiadblock",
       "url": "https://easylist-downloads.adblockplus.org/antiadblockfilters.txt",
       "enabled": true
+    },
+    {
+      "name": "peter-lowe",
+      "url": "https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext",
+      "enabled": true
+    },
+    {
+      "name": "hagezi-pro-plus",
+      "url": "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.plus.txt",
+      "enabled": true
+    },
+    {
+      "name": "mvps-hosts",
+      "url": "https://winhelp2002.mvps.org/hosts.txt",
+      "enabled": true
     }
   ],
   "scriptlet_file": "scriptlets/custom.txt",

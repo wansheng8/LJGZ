@@ -4,7 +4,7 @@
 
 # LJGZ · 广告过滤规则聚合
 
-**26 个上游每日聚合 · 语义级去重 · 一份订阅覆盖全场景**
+**29 个上游每日聚合 · 语义级去重 · 一份订阅覆盖全场景**
 
 <img src="https://wansheng8.github.io/LJGZ/badge-rules.svg" alt="规则总数"/>
 <img src="https://wansheng8.github.io/LJGZ/badge-domains.svg" alt="拦截域名"/>
@@ -24,25 +24,25 @@
 
 | 场景 | 首选 (GitHub Pages) | 备选 (jsDelivr / CDN) | 备用 (raw) |
 |---|---|---|---|
-| 🧩 **浏览器扩展**<br><sub>uBlock Origin · AdGuard · Adblock Plus</sub> | [**all.txt**](https://wansheng8.github.io/LJGZ/all.txt)<br><sub>完整版 · 约 32MB</sub><br><sub>分卷：[1](https://wansheng8.github.io/LJGZ/all-part-01.txt) + [2](https://wansheng8.github.io/LJGZ/all-part-02.txt)</sub> | [all.txt](https://cdn.statically.io/gh/wansheng8/LJGZ/main/output/all.txt) | [all.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/all.txt) |
+| 🧩 **浏览器扩展**<br><sub>uBlock Origin · AdGuard · Adblock Plus</sub> | [**all.txt**](https://wansheng8.github.io/LJGZ/all.txt)<br><sub>完整版 · 约 33MB</sub><br><sub>分卷：[1](https://wansheng8.github.io/LJGZ/all-part-01.txt) + [2](https://wansheng8.github.io/LJGZ/all-part-02.txt)</sub> | [all.txt](https://cdn.statically.io/gh/wansheng8/LJGZ/main/output/all.txt) | [all.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/all.txt) |
 | 🏠 **AdGuard Home**<br><sub>AdGuard Home · AdGuard DNS</sub> | [adguard.txt](https://wansheng8.github.io/LJGZ/adguard.txt) | [adguard.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/adguard.txt) | [adguard.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/adguard.txt) |
 | 🕳 **Pi-hole / hosts**<br><sub>Pi-hole · SwitchHosts · 路由器</sub> | [hosts.txt](https://wansheng8.github.io/LJGZ/hosts.txt) | [hosts.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/hosts.txt) | [hosts.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/hosts.txt) |
 | 📃 **纯域名列表**<br><sub>Cloudflare Gateway · NextDNS</sub> | [domains.txt](https://wansheng8.github.io/LJGZ/domains.txt) | [domains.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/domains.txt) | [domains.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/domains.txt) |
 | ✅ **DNS 白名单**<br><sub>误拦截放行 · 例外列表</sub> | [whitelist.txt](https://wansheng8.github.io/LJGZ/whitelist.txt) | [whitelist.txt](https://cdn.jsdelivr.net/gh/wansheng8/LJGZ@main/output/whitelist.txt) | [whitelist.txt](https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/whitelist.txt) |
 
-> **浏览器扩展优先用 Pages 的 `all.txt`（唯一完整单文件）。** 完整版约 32MB，超出 jsDelivr 单文件 20MB 上限（会返回 `Failed to fetch`），备选改用 statically 单文件镜像。客户端限制单文件大小时，把 Pages 的 `all-part-01.txt` + `all-part-02.txt` **两卷一起加**，缺一卷会少一半规则。分卷同样不要走 jsDelivr——实测 18MB 分卷也会返回 `Failed to fetch`。
+> **浏览器扩展优先用 Pages 的 `all.txt`（唯一完整单文件）。** 完整版约 33MB，超出 jsDelivr 单文件 20MB 上限（会返回 `Failed to fetch`），备选改用 statically 单文件镜像。客户端限制单文件大小时，把 Pages 的 `all-part-01.txt` + `all-part-02.txt` **两卷一起加**，缺一卷会少一半规则。分卷同样不要走 jsDelivr——实测 18MB 分卷也会返回 `Failed to fetch`。
 
 ## 规模
 
 | 指标 | 当前值 |
 |---|---|
-| 上游源 | **26 个**（全部成功才发布） |
-| 拦截域名 | **约 57.5 万**（去重主机名数，= `domains.txt` 行数） |
-| 规则总数 | **约 101.7 万**（域名 + 网络 + 元素隐藏 + 例外） |
-| 全格式文件 | **约 32MB / 101.7 万行** |
+| 上游源 | **29 个**（全部成功才发布） |
+| 拦截域名 | **约 59.8 万**（去重主机名数，= `domains.txt` 行数） |
+| 规则总数 | **约 103.6 万**（域名 + 网络 + 元素隐藏 + 例外） |
+| 全格式文件 | **约 33MB / 103.6 万行** |
 | 更新时间 | **每日北京时间 08:00 / 20:00** |
 
-口径说明：「拦截域名」= `domains_lines`，即去重后的主机名数量，与 `domains.txt` / `hosts.txt` 的规则行数一致（不含文件头注释），可直接对着文件数出来。「规则总数」四类之和 = `all.txt` 头部 `! Rules` 所报行数；其中 `domains_unique` 是**折叠后**的域名规则条数（约 50.9 万），比 `domains_lines` 少的正是被父域覆盖掉的子域（约 6.6 万），两者不是同一个指标。
+口径说明：「拦截域名」= `domains_lines`，即去重后的主机名数量，与 `domains.txt` / `hosts.txt` 的规则行数一致（不含文件头注释），可直接对着文件数出来。「规则总数」四类之和 = `all.txt` 头部 `! Rules` 所报行数；其中 `domains_unique` 是**折叠后**的域名规则条数（约 52.7 万），比 `domains_lines` 少的正是被父域覆盖掉的子域（约 7.0 万），两者不是同一个指标。
 
 覆盖广告、隐私追踪、恶意软件、钓鱼、挖矿、烦恼元素、移动广告与中文专项。
 
@@ -50,7 +50,7 @@
 
 ```mermaid
 flowchart LR
-    A["26 个上游<br/>EasyList · uBO · AdGuard · OISD · hagezi …"]
+    A["29 个上游<br/>EasyList · uBO · AdGuard · OISD · hagezi …"]
     B["并发下载<br/>6 线程 · 退避重试"]
     C["parse_line()<br/>八类词法分诊"]
     D["Merger<br/>语义去重 · badfilter · 例外仲裁"]
@@ -171,7 +171,7 @@ flowchart LR
 ### 校验与失败策略
 
 - **scriptlet 强校验** — 必须形如 `<域名>##+js(<内置名>, <参数>)` 或 `#%#//scriptlet(...)`；校验域名合法性、括号配对、scriptlet 名称非空。任一失败直接 `ValueError`，CI 阻断发布。订阅只能调用客户端内置 scriptlet，无法下发任意 JS。
-- **源下载** — 26 个上游全部成功才发布；4xx 不重试，网络错误指数退避重试。
+- **源下载** — 29 个上游全部成功才发布；4xx 不重试，网络错误指数退避重试。
 - **分卷** — 按行累积切卷，阈值 18,000,000 字节并预留 4096 字节头部余量，保证单卷不超过 18MB；每卷自带完整头部与 `[Adblock Plus 2.0]`，多卷全订阅 == 完整 `all.txt`，用于受限客户端；每轮清理过期分卷。
 - **自检** — `python merge_filters.py --test` 跑内置冒烟用例；`python -m unittest discover -s tests` 跑 237 项离线测试，其中 `test_abp_testpages.py` 按 ABP 官方测试页语法（路径拦截、元素隐藏、扩展选择器、remove/inline-css、资源类型、例外、CSP、rewrite、sitekey、snippets）做回归，并对 `tests/data/abp-testcase-subscription.txt` 官网订阅快照做全量解析。
 - **零依赖** — 纯 stdlib 单文件，`python merge_filters.py` 即跑。
@@ -180,7 +180,7 @@ flowchart LR
 <summary><b>🚀 自动更新与部署</b></summary>
 
 - 工作流：`.github/workflows/update.yml`（cron `0 0 * * *` + `0 12 * * *` UTC = 北京 08:00 / 20:00，`TZ=Asia/Shanghai`）
-- 流程：237 项测试 → ABP 官方测试订阅语法检查（拉官网最新版，新增未知语法即阻断；网络失败回退离线快照）→ 下载 26 源 → 合并 → 无变化跳过提交，有变化自动 commit + push → 部署 Pages（定时触发且无变化时跳过，push / 手动触发始终部署）
+- 流程：237 项测试 → ABP 官方测试订阅语法检查（拉官网最新版，新增未知语法即阻断；网络失败回退离线快照）→ 下载 29 源 → 合并 → 无变化跳过提交，有变化自动 commit + push → 部署 Pages（定时触发且无变化时跳过，push / 手动触发始终部署）
 - 另有两个纯清理 cron（06:00 / 18:00 UTC），只删本工作流的旧 Actions 历史，保留最新 3 条
 - 输出头部含 `! Last Modified: ... (北京时间 UTC+8)` 与 `! Expires: 12 hours`
 - 徽章 SVG 由引擎每次运行重新生成，数字始终与最新合并一致
@@ -267,9 +267,9 @@ python benchmark.py --out output/benchmark.json   # 离线覆盖率跑分
 </details>
 
 <details>
-<summary><b>为什么 `all.txt` 有 32MB？</b></summary>
+<summary><b>为什么 `all.txt` 有 33MB？</b></summary>
 
-全格式包含全部域名（精确域集合约 57.5 万，子域折叠后约 50.9 万条）、网络规则、元素隐藏与例外，且不再做域名截断。首次导入较慢，之后按 `! Expires: 12 hours` 增量检查。
+全格式包含全部域名（精确域集合约 59.8 万，子域折叠后约 52.7 万条）、网络规则、元素隐藏与例外，且不再做域名截断。首次导入较慢，之后按 `! Expires: 12 hours` 增量检查。
 
 </details>
 
@@ -292,7 +292,9 @@ python benchmark.py --out output/benchmark.json   # 离线覆盖率跑分
 | [OISD](https://oisd.nl/) Full | DNS 综合拦截 |
 | [anti-AD](https://github.com/privacy-protection-tools/anti-AD) | 中文广告 / 追踪域名 |
 | [StevenBlack hosts](https://github.com/StevenBlack/hosts) | 综合 hosts |
-| [hagezi DNS blocklists](https://github.com/hagezi/dns-blocklists) Pro | DNS 综合拦截 |
+| [hagezi DNS blocklists](https://github.com/hagezi/dns-blocklists) Pro / Pro++ | DNS 综合拦截（Pro++ 更激进，覆盖更多轮换广告域） |
+| [Peter Lowe's Ad and tracking server list](https://pgl.yoyo.org/adservers/) | 经典广告 / 追踪 hosts |
+| [MVPS Hosts](https://winhelp2002.mvps.org/hosts.htm) | 经典广告 hosts |
 | [CJX list](https://github.com/cjx82630/cjxlist) | 中文烦恼元素 |
 | [Blackbook](https://github.com/stamparm/blackbook) | 恶意软件 / 钓鱼 |
 | [NoCoin](https://github.com/hoshsadiq/adblock-nocoin-list) | 挖矿脚本 |

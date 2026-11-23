@@ -1,7 +1,7 @@
 ﻿# LJGZ 拦截规则完整质量报告
 
-**生成时间**: 2026-11-22  
-**依据**: `output/all.txt`（1,017,284 条规则）、`benchmarks/expectations.json`、`tests/data/adblock-tester.html` 离线快照、237 项单元测试  
+**生成时间**: 2026-11-24  
+**依据**: `output/all.txt`（1,035,746 条规则）、`benchmarks/expectations.json`、`tests/data/adblock-tester.html` 离线快照、237 项单元测试  
 **引擎覆盖**: AdGuard Home / uBlock Origin / AdGuard Browser Extension / Pi-hole / Hosts
 
 ---
@@ -16,20 +16,20 @@
 
 | 家族 | 行数 | 说明 |
 |---|---|---|
-| `||domain^` 锚点域名 | 517,048 | DNS 层可兑现的整域拦截（其中纯裸域 `||d^` 508,951），跨引擎通用 |
-| 元素隐藏 `##` / 进程式 / JS 注入 | 141,478 | 含 `##` 124,155 / `#%#` 6,263（AdGuard JS）/ `#?#` 5,369（uBO 过程式）/ `##+js` 3,223 / `##^` 68 HTML 过滤 |
-| `@@` 例外规则 | 13,187 | 浏览器层放行，站点自己的白名单机制 |
-| 子串/通配模式 | 343,981 | 无 `||` 锚点的 URL 片段拦截，含 `$cookie=/.../` 等 AdGuard 专有形式 |
+| `||domain^` 锚点域名 | 535,416 | DNS 层可兑现的整域拦截（其中纯裸域 `||d^` 527,288），跨引擎通用 |
+| 元素隐藏 `##` / 进程式 / JS 注入 | 141,529 | 含 `##` 125,993 / `#%#` 6,270（AdGuard JS）/ `#?#` 5,369（uBO 过程式）/ `##+js` 3,223 / `##^` 68 HTML 过滤 |
+| `@@` 例外规则 | 13,191 | 浏览器层放行，站点自己的白名单机制 |
+| 子串/通配模式 | 344,019 | 无 `||` 锚点的 URL 片段拦截，含 `$cookie=/.../` 等 AdGuard 专有形式 |
 | 纯修饰符行 `$` | 1,039 | 如 `$cookie=/.../domain=...`，AdGuard 专有过滤形式 |
 | 正则 `/.../` | 551 | `||domain^` 以外的完整正则 |
 
-合计 1,017,284 条，与 `all.txt` 头部 `! Rules` 及 stats 四类之和一致。
+合计 1,035,746 条，与 `all.txt` 头部 `! Rules` 及 stats 四类之和一致。
 
 ### 1.3 元素隐藏细节
 
 - **空选择器**: 0 条。所有 `##` 分隔符后都有非空选择器。
-- **未知 `#` 分隔符**: 0 种。仅出现官方的 10 种：`##`、`#@#`、`#?#`、`#@?#`、`#$#`、`#@$#`、`#$?#`、`#@$?#`、`#%#`、`#@%#`。
-- **域名限定 vs 通用**: 通用 `##` 42,903 条（可在任意第三方站点生效），域名限定 81,252 条。**通用规则占比 35%**，是跨站拦截能力的核心。
+- **未知 `#` 分隔符**: 0 种。仅使用官方的 10 种形态：`##`、`#@#`、`#?#`、`#@?#`、`#$#`、`#@$#`、`#$?#`、`#@$?#`、`#%#`、`#@%#`（`#@$?#` 当前为 0 条）。
+- **域名限定 vs 通用**: 通用 `##` 42,903 条（可在任意第三方站点生效），域名限定 83,090 条。**通用规则占比 34%**，是跨站拦截能力的核心。
 - **CSS 括号/引号配对**: 仅对纯 CSS 选择器做启发式校验；`##+js(...)`、`##^script:has-text(...)` 等进程式/HTML 过滤规则天然含括号与引号，不参与该项，避免误报。
 
 ### 1.4 修饰符审计
@@ -38,14 +38,14 @@
 
 | 修饰符 | 使用次数 | 来源 |
 |---|---|---|
-| `$image` | 310,009 | ABP/uBO/AdGuard 通用 |
-| `$domain=` | 10,137 | 通用 |
-| `$script` | 4,001 | 通用 |
+| `$image` | 310,008 | ABP/uBO/AdGuard 通用 |
+| `$domain=` | 10,141 | 通用 |
+| `$script` | 4,004 | 通用 |
 | `$popup` | 3,102 | 通用 |
 | `$removeparam` | 2,902 | uBO/AdGuard 官方（URL Tracking 源） |
-| `$third-party` | 2,709 | 通用 |
+| `$third-party` | 2,747 | 通用 |
 | `$stealth` | 1,770 | AdGuard Stealth 模式专有 |
-| `$all` | 1,604 | **AdGuard 专有** |
+| `$all` | 1,605 | **AdGuard 专有** |
 | `$redirect` | 1,444 | uBO/AdGuard |
 | `$cookie` | 1,136 | AdGuard 专有 |
 
@@ -63,7 +63,7 @@
 |---|---|
 | 上游原行 `||d^$all` | 保留不改 — AdGuard 侧有独立语义 |
 | 合并器镜像 `||d^` | 若父域无全类型拦截，则自动补裸 `||d^` 规则作为 uBO/ABP 等价物 |
-| **当前快照镜像覆盖率** | **1,348 个纯 `$all` 域中：1,217 个已被父域裸规则覆盖，109 个补了镜像，22 个无法镜像（IP 段等）** → **真缺口 22** |
+| **当前快照镜像覆盖率** | **1,349 个纯 `$all` 域中：1,218 个已被父域裸规则覆盖，109 个补了镜像，22 个无法镜像（IP 段等）** → **真缺口 22** |
 
 合并器统计字段 `all_compat_mirrors` 当前为 363 条（109 条纯域镜像 + 254 条网络/复合形态镜像）；`all_coverage` 四元组自洽，由 `test_quality_gate` 的硬门限持续监控（未覆盖 ≤ 30）。
 
@@ -137,9 +137,9 @@ adblock-tester.com##embed[src*="banners"]:             ✓ 匹配 1 个元素
 - **$all 镜像机制**: 跨引擎兼容自动化，不抬优先级、不压站点白名单
 
 ### 3.2 覆盖深度
-- **50.9 万锚点域** + **14.1 万元素隐藏** + **35.4 万网络规则**，三级拦截
-- **35% 的元素隐藏是通用 `##`** — 可在未见过的第三方站点生效
-- 26 个源全部拉齐（0 failed），无缺源
+- **52.7 万锚点域** + **14.2 万元素隐藏** + **35.4 万网络规则**，三级拦截
+- **34% 的元素隐藏是通用 `##`** — 可在未见过的第三方站点生效
+- 29 个源全部拉齐（0 failed），无缺源
 
 ### 3.3 安全边界
 - **FORBIDDEN 22 项**（通用服务主域）被锁死不能拦截
@@ -189,19 +189,19 @@ adblock-tester.com##embed[src*="banners"]:             ✓ 匹配 1 个元素
 ## 五、产物校验快照
 
 ```
-sources_ok           = 26
+sources_ok           = 29
 sources_failed       = 0
-domains_unique       = 508,771  (折叠后域名规则条数)
-domains_lines        = 575,116  (hosts/domains 文件行数，精确匹配语义)
-network_unique       = 353,849
-cosmetic_unique      = 141,477
+domains_unique       = 527,119  (折叠后域名规则条数)
+domains_lines        = 597,509  (hosts/domains 文件行数，精确匹配语义)
+network_unique       = 353,907
+cosmetic_unique      = 141,529
 local_additions      = 132
-exceptions_unique    = 13,187
+exceptions_unique    = 13,191
 badfilter_targets    = 302
 all_compat_mirrors   = 363   ($all 兼容镜像条数)
-all_coverage         = 1348 total / 1217 covered / 109 mirrored / 22 uncovered
-subsumed_type_rules  = 9,992
-dropped              = 47,711  (其中死修饰符规则 6 条)
+all_coverage         = 1349 total / 1218 covered / 109 mirrored / 22 uncovered
+subsumed_type_rules  = 9,955
+dropped              = 48,988  (其中死修饰符规则 6 条)
 unknown_mods_total   = 0
 ```
 
