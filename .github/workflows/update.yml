@@ -6,13 +6,13 @@ on:
     # 每天北京时间 08:00 / 20:00 更新 (UTC 00:00 / 12:00)
     - cron: "0 0 * * *"
     - cron: "0 12 * * *"
-    # 每 6 小时清一次 Actions 历史 (06:00 / 18:00 UTC, 北京时间 14:00 / 02:00)
+    # 每 6 小时清一次本工作流历史 (06:00 / 18:00 UTC, 北京时间 14:00 / 02:00)
     - cron: "0 6 * * *"
     - cron: "0 18 * * *"
   workflow_dispatch:
     inputs:
       cleanup_only:
-        description: "仅清理 Actions 历史 (保留最新 3 条)"
+        description: "仅清理本工作流历史 (保留最新 3 条)"
         required: false
         default: false
   push:
@@ -27,13 +27,6 @@ on:
       - "benchmarks/**"
       - "benchmark.py"
       - ".github/workflows/update.yml"
-
-permissions:
-  contents: write
-  pages: write
-  id-token: write
-  # 删除历史 Actions run 需要
-  actions: write
 
 concurrency:
   group: update-rules
@@ -51,6 +44,8 @@ jobs:
       && !(github.event_name == 'workflow_dispatch' && inputs.cleanup_only == 'true')
     runs-on: ubuntu-24.04
     timeout-minutes: 30
+    permissions:
+      contents: write           # 提交并推送更新后的产物
     env:
       TZ: Asia/Shanghai            # 作业内所有时间戳走北京时间
     steps:
@@ -58,7 +53,7 @@ jobs:
 
       - uses: actions/setup-python@v7.1.0
         with:
-          python-version: "3.11"
+          python-version: "3.12"
 
       - name: 运行测试
         run: python -m unittest discover -s tests -v
@@ -80,23 +75,14 @@ jobs:
         continue-on-error: true
         run: python benchmark.py --out output/benchmark.json
 
-      # 扩展建议 1: Live benchmark — 真实浏览器跑分, 非阻断 (失败不影响推送)
-      # 与独立的 live-benchmark.yml (每周日) 互补, 每次更新都跑一次轻量版
-      - name: 真实浏览器跑分 (非阻断)
-        continue-on-error: true
-        run: |
-          python -m pip install --upgrade pip -q
-          pip install playwright -q
-          python -m playwright install --with-deps chromium 2>/dev/null || \
-            python -m playwright install chromium
-          python tools/live_benchmark.py --out output/live-benchmark.json
-
       - name: 提交并推送 (带重试, 防非快进竞态)
         id: publish
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add output/
+          # 显式列出产物, 避免把本地调试文件 (截图等) 误提交
+          git add output/*.txt output/stats.json output/benchmark.json \
+                  output/badge-*.json output/badge-*.svg
           # 只比对"实质内容": 每份产物头部都写 Version / Last Modified 时间戳,
           # badge-updated.* 也带时间 —— 直接 git diff 永远非空, 于是"无变化跳过"
           # 从未生效 (实测 240 次提交里 182 次是这种噪音提交)。
@@ -145,6 +131,10 @@ jobs:
       && (github.event_name != 'schedule' || needs.update.outputs.changed == 'true')
     runs-on: ubuntu-24.04
     timeout-minutes: 15
+    permissions:
+      contents: read            # checkout 产物
+      pages: write              # 发布 Pages
+      id-token: write           # Pages OIDC
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -165,7 +155,7 @@ jobs:
       - id: deployment
         uses: actions/deploy-pages@v5.0.1
 
-  # 定时清理 Actions 历史: 保留最新 3 条, 删除更早的 (防 run 列表无限膨胀)
+  # 定时清理本工作流历史: 保留最新 3 条, 删除更早的 (防 run 列表无限膨胀)
   cleanup-actions:
     # 仅在: 定时 06:00/18:00 UTC + 手动勾选 cleanup_only
     if: |
@@ -174,6 +164,8 @@ jobs:
       || (github.event_name == 'workflow_dispatch' && inputs.cleanup_only == 'true')
     runs-on: ubuntu-24.04
     timeout-minutes: 5
+    permissions:
+      actions: write            # 删除本工作流的历史 run
     concurrency:
       group: cleanup-actions
       cancel-in-progress: false
@@ -186,10 +178,10 @@ jobs:
           KEEP=3
           page=1
           total=0
-          # 分页收集 run (每行 "<id>\t<status>", API 默认最新在前 = 保留顺序)
+          # 分页收集本工作流 run (每行 "<id>\t<status>", API 默认最新在前 = 保留顺序)
           while :; do
             resp=$(curl -sS -H "Authorization: Bearer $TOKEN" -H "Accept: application/vnd.github+json" \
-                   "https://api.github.com/repos/$REPO/actions/runs?per_page=100&page=$page")
+                   "https://api.github.com/repos/$REPO/actions/workflows/update.yml/runs?per_page=100&page=$page")
             rows=$(printf '%s' "$resp" | jq -r '.workflow_runs[] | "\(.id)\t\(.status)"')
             cnt=$(printf '%s\n' "$rows" | grep -c . || true)
             total=$((total+cnt))

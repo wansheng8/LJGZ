@@ -162,7 +162,7 @@ adblock-tester.com##embed[src*="banners"]:             ✓ 匹配 1 个元素
 
 ### 4.2 扩展建议（中期）
 
-1. ~~**Live benchmark**: 已有 `.github/workflows/live-benchmark.yml`，但未被 CI 触发~~ → **已接入**: update.yml 新增"真实浏览器跑分（非阻断）"步骤，每次更新都跑一次 `tools/live_benchmark.py`（Playwright + Chromium，约 5 分钟），结果写入 `output/live-benchmark.json`；独立 `live-benchmark.yml` 保留每周日全量跑分 + 截图
+1. **Live benchmark**: 已从 `update.yml` 移除每次更新的浏览器跑分 —— Playwright/Chromium 安装耗时，且分数波动会制造无意义提交；统一由 `live-benchmark.yml` 每周日跑分并只上传 Actions Artifact，`output/live-benchmark.json` 不再入库
 2. ~~**规则质量门控**: 206 项测试通过即可推送~~ → **已实现**: 新增 `tests/test_quality_gate.py`（7 个用例），stats.json 产出 `unknown_mods_total` + `unknown_mods_top`。当前门限 `≤ 10`（实测 0）；`$cname` 已收录官方白名单，上游 URL 字面 `$` 切坏的 6 条死规则已剔除（`dropped_dead_mods`）。测试在 update.yml 的"规则质量门控（阻断）"独立步骤执行，**超过门限直接阻断推送**
 3. ~~**镜像覆盖率持续监控**: 当上游某个源出现新的 `$all` 域且无父域覆盖时自动生成镜像~~ → **已扩展**: stats.json 新增 `all_coverage` 字典，四元组 `pure_all_total/covered/mirrored/uncovered`（自洽校验：total = covered + mirrored + uncovered）。当前快照: 上游 1348 条纯 `$all` 域，1217 被父域裸规则覆盖，109 条补了镜像，**22 条真缺口**（多为 IP 段等无法镜像）。`test_quality_gate.py` 硬门限 ≤ 30，超过则 fail
 

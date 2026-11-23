@@ -181,7 +181,7 @@ flowchart LR
 
 - 工作流：`.github/workflows/update.yml`（cron `0 0 * * *` + `0 12 * * *` UTC = 北京 08:00 / 20:00，`TZ=Asia/Shanghai`）
 - 流程：237 项测试 → ABP 官方测试订阅语法检查（拉官网最新版，新增未知语法即阻断；网络失败回退离线快照）→ 下载 26 源 → 合并 → 无变化跳过提交，有变化自动 commit + push → 部署 Pages（定时触发且无变化时跳过，push / 手动触发始终部署）
-- 另有两个纯清理 cron（06:00 / 18:00 UTC），只删旧 Actions 历史，保留最新 3 条
+- 另有两个纯清理 cron（06:00 / 18:00 UTC），只删本工作流的旧 Actions 历史，保留最新 3 条
 - 输出头部含 `! Last Modified: ... (北京时间 UTC+8)` 与 `! Expires: 12 hours`
 - 徽章 SVG 由引擎每次运行重新生成，数字始终与最新合并一致
 
