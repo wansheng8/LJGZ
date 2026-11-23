@@ -22,6 +22,7 @@ on:
       - "config.json"
       - "docs/**"
       - "tests/**"
+      - "tools/**"
       - "scriptlets/**"
       - "benchmarks/**"
       - "benchmark.py"
@@ -61,6 +62,11 @@ jobs:
 
       - name: 运行测试
         run: python -m unittest discover -s tests -v
+
+      # ABP 官方测试订阅: 拉最新版逐条解析。官网新增语法若引擎不支持会阻断发布;
+      # 网络不可达时自动回退 tests/data 快照, 不阻断。
+      - name: ABP 官方测试订阅语法检查 (阻断)
+        run: python tools/abp_testpages_check.py --snapshot tests/data/abp-testcase-subscription.txt
 
       - name: 下载并合并规则
         run: python merge_filters.py --config config.json --outdir output

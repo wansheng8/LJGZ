@@ -646,6 +646,9 @@ _OFFICIAL_MODS = {
     "match-case", "rewrite", "redirect", "redirect-rule",
     "generichide", "ghide", "elemhide", "ehide", "stealth",
     "genericblock",
+    # ABP 官方扩展选项: sitekey 例外常写作 @@$document,sitekey=... (无 pattern);
+    # object-subrequest 是 ABP 旧版资源类型别名, inline-font 为 uBO 类型。
+    "sitekey", "object-subrequest", "inline-font",
     # uBO / AdGuard
     "referrerpolicy", "removeparam", "queryprune", "jsonprune", "hidemethod",
     "strict1p", "strict3p", "method", "header", "removeheader", "permissions",
@@ -1468,8 +1471,8 @@ def write_outputs(res: MergeResult, outdir: str, *, title: str,
     os.makedirs(outdir, exist_ok=True)
     now = now or now_bjt()
 
-    n_all = (len(res.all_blocks) + len(res.all_network) +
-             len(res.all_cosmetic) + len(res.all_exceptions))
+    n_all = (len(res.all_blocks) + len(res.all_network)
+             + len(res.all_cosmetic) + len(res.all_exceptions))
     n_dns = len(res.adguard_dns)
     n_hosts = len(res.hosts)
     n_dom = len(res.domains)

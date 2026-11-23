@@ -1,7 +1,7 @@
 ﻿# LJGZ 拦截规则完整质量报告
 
 **生成时间**: 2026-11-22  
-**依据**: `output/all.txt`（1,017,284 条规则）、`benchmarks/expectations.json`、`tests/data/adblock-tester.html` 离线快照、222 项单元测试  
+**依据**: `output/all.txt`（1,017,284 条规则）、`benchmarks/expectations.json`、`tests/data/adblock-tester.html` 离线快照、237 项单元测试  
 **引擎覆盖**: AdGuard Home / uBlock Origin / AdGuard Browser Extension / Pi-hole / Hosts
 
 ---
@@ -115,7 +115,7 @@ adblock-tester.com##embed[src*="banners"]:             ✓ 匹配 1 个元素
 
 ### 2.3 单元测试
 
-**222/222 全过**。覆盖范围：
+**237/237 全过**。覆盖范围：
 
 | 测试套件 | 覆盖 |
 |---|---|
@@ -123,6 +123,7 @@ adblock-tester.com##embed[src*="banners"]:             ✓ 匹配 1 个元素
 | test_merging | 折叠/展开、type 消解、重要性折叠、$all 镜像等边界场景 |
 | test_adblock_tester | 12 条站点级 DOM 选择器真实命中、不命中页面开关控件 |
 | test_parsing | 所有合法/非法/边界输入的词法解析 |
+| test_abp_testpages | ABP 官方测试页语法：路径拦截、元素隐藏、扩展选择器、remove/inline-css、资源类型、例外、CSP、rewrite、sitekey、snippets；官网订阅离线快照全量解析 |
 | test_e2e | 全量端到端生成 |
 | test_scriptlets | scriptlet 语法与来源 |
 
@@ -172,7 +173,7 @@ adblock-tester.com##embed[src*="banners"]:             ✓ 匹配 1 个元素
 | 高 | AdGuard 修饰符块前缀元素隐藏规则（`[$path=/x/]a.com##.ad`、`[$domain=a.com,path=/ads]##`、`[$url=/.../]#%#//scriptlet`）被误判为网络规则：朴素 `p.split(",")` 会切碎含逗号的 `/regex/` 域段；`path=/adsmanager` 这类无闭合 `/` 的普通路径值被误当正则；首个 `]` 落在正则字符类里导致前缀剥离过早 | 新增 `_strip_cosmetic_mod_blocks()`（按字面量扫描括号块）+ `_closing_slash()`（区分正则与普通路径）+ `_is_host_or_idn()`（IDN 域名转 punycode 校验），域段统一用 `_split_top_level` 切分。产物中该错误由 18 条降为 0；同一上游快照下元素隐藏 +17 条、网络规则 −18 条 |
 | 中 | 质量门控指标假阳性：`_OFFICIAL_MODS` 漏 `method` / `header` / `removeheader` / `permissions` / `content` / `extension` / `jsinject` / `urlblock` / `specifichide` / `shide` / `cname` 等官方修饰符，未知修饰符数被 223 虚高 | 补全白名单，指标 223 → 33 → 0；上游 URL 字面 `$` 切坏的 6 条死规则按客户端行为剔除；门限由 300 收紧至 10（当前实测 0） |
 | 中 | 门控形同虚设：`all_coverage` 缺失时测试用 `.get(..., 0)` 静默通过 | `Merger.__init__` 预置覆盖率四元组；测试改为断言字段必须存在，并校验 `total = covered + mirrored + uncovered` |
-| 低 | README.md / REPORT.md 被 PowerShell 改写后叠加 4 个 U+FEFF，文档测试数停留在 218 | 清理为单个 BOM，测试数同步为 222（`test_docs_test_count_matches_reality` 覆盖） |
+| 低 | README.md / REPORT.md 被 PowerShell 改写后叠加 4 个 U+FEFF，文档测试数停留在 218 | 清理为单个 BOM，测试数同步为 237（`test_docs_test_count_matches_reality` 覆盖） |
 | 低 | `test_quality_gate` 文档门限与常量不一致 | 门限统一为 10（实测 0），文档与常量对齐 |
 
 ### 4.4 已解决问题（前几轮修复）
