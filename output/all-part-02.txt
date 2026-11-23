@@ -3,11 +3,48 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-11-24 01:56:28 +0800
-! Last Modified: 2026-11-24 01:56:28 +0800 (北京时间 UTC+8)
+! Version: 2026-11-24 07:01:24 +0800
+! Last Modified: 2026-11-24 07:01:24 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 374362
+! Rules: 374402
 
+email.k.kinetixintelligence.com$image
+email.k.kingdompethospital.com$image
+email.k.kjprime.com$image
+email.k.knorooms.io$image
+email.k.konacleaners.com$image
+email.k.kptaxsol.com$image
+email.k.kristinklakring.com$image
+email.k.kta.education$image
+email.k.mandryedu.com$image
+email.k.myfastrx.com$image
+email.k.riverspiritmedia.com$image
+email.k.v.kaushikventures.com$image
+email.k.wyattventuresllc.com$image
+email.k1nd4sus.it$image
+email.k1s7k0d1b6.myrealsend.com$image
+email.k2automation.com$image
+email.k2b7n3l0o8.myrealsend.com$image
+email.k2design.gr$image
+email.k2w7g4b7e7.myrealsend.com$image
+email.k2wash.fr$image
+email.k2windows.mywindowsupgrade.co.uk$image
+email.k3l0b8b6u0.myrealsend.com$image
+email.k3m.exposureprocrm.com$image
+email.k4us.net$image
+email.k6q6w9t2r2.myrealsend.com$image
+email.k8c3j1z4y2.myrealsend.com$image
+email.k8g8b9e8u9.myrealsend.com$image
+email.k9electronics.com$image
+email.k9fitnessquiz.com$image
+email.k9vitaminshop.com$image
+email.ka.justcabins.co.nz$image
+email.ka.kala-adeona.co.uk$image
+email.ka.mjmoxie.com$image
+email.kaab.carpediemhub.com$image
+email.kaabousa.com$image
+email.kabannas.com$image
+email.kabas.be$image
 email.kabayanhomes.com$image
 email.kabbalahland.com$image
 email.kabelreparatur.eu$image
@@ -206212,6 +206249,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||nex.163.com/q?
 ||nexon.com/api/nxlog/
 ||nexon.com/nxlog-collect/
+||nexosmods.com^$doc
 ||nexstardigital.net/segment.js
 ||next-immo.com/js/cookies.1.min.js
 ||next.rikunabi.com/api/logRecommendRealtimeI2AV2
@@ -291167,14 +291205,13 @@ famitsu.com###socialBookMark
 famitsu.com###yahoo-banner
 famitsu.com##.banner-header-video-container
 famitsu.com##.banner-window-jack-wrapper
-famitsu.com##div[class^="ArticleDetailMiddleRectangle-"]
+famitsu.com##div[class*="_container"]:has(> div[class$="_banner"] > div[id$="_gam"])
 famitsu.com##div[class^="ArticleDetailMiddleRectangle_container_"]
 famitsu.com##div[class^="ArticleDetail_articleMainFooter__"] > div[class^="CommonParts_commonPartsContainer__"] > div > div[style*="background-color: #fdf2f3;"]
 famitsu.com##div[class^="ArticleDetail_headerBanner"]
 famitsu.com##div[class^="ArticleDetail_share"]
 famitsu.com##div[class^="BasicLayout_articleDetailJackBanner_"]
 famitsu.com##div[class^="BasicLayout_movieBanner_"]
-famitsu.com##div[class^="HeaderBannerForSp-"]
 famitsu.com##div[class^="HeaderBannerForSp_container_"]
 famitsu.com##div[class^="MiddleBanner_"]
 famitsu.com##div[class^="RectangleBanner"]
@@ -309748,6 +309785,7 @@ knowyourmeme.com##hr[data-label="Advertisement"]
 knowyourmeme.com#$#body[data-ad-page-type] { padding-bottom: 0 !important; }
 knowyourmeme.com,gameranx.com###ctoolbar
 knowyourmeme.com,ndtv.com###cboxOverlay
+knshow.com#%#//scriptlet('remove-node-text', 'script', 'abwall')
 knt.co.jp##.st2-sns
 knubel.de##.floating
 ko-fi.com##.js-trigger-share-link-modal
@@ -342769,6 +342807,7 @@ studyfinds.org##.top-hat--has-socials
 studyfinds.org,teleport2001.ru,vashvkus.ru,oricon.co.jp##.block-social-share
 studygolang.com###ad-right1
 studyguideindia.com##.fleft > div[style^="width: 300px; margin-right:"]
+studyhacker.net##.share-preview
 studying.jp,enterprisezine.jp,astv.ru,dp.ru,metanit.com,gorod48.ru##.socialBlock
 studyinjapan.go.jp##.cookieConsentLayout
 studylib.net##.above-content
@@ -357866,8 +357905,8 @@ x.com##.u12-data-protection-notice
 x.com##[data-reactroot] > [class] + [class]:last-child
 x.com##[id^="urt"] > ul > li:has([class*="data-ad-disclosure"])
 x.com##[id^="urt"] > ul > li:has([target="_blank"][href*="?twclid="])
-x.com##[id^="urt"]>ul>li:has([class*="data-ad-disclosure"])
 x.com##header[role="banner"] > ._3oxnid3o._3f2NsD-H
+x.com#%#//scriptlet('json-prune', 'data.*.home_timeline_urt.instructions.*.entries.[-].content.content.promoted_metadata')
 x.com#%#//scriptlet('prevent-fetch', '/i/api/1.1/flow/viewer.json')
 x.com#?#.css-175oi2r.r-12vffkv[style^="position: absolute; bottom: 0px; width: 100%;"]:has-text(data protection)
 x.com#?#.css-175oi2r[data-testid="BottomBar"]:has-text(Did someone say)
@@ -368962,6 +369001,7 @@ zzzyk.com###Tinfo
 @@||lenovo.com/_ui/desktop/common/js/AdobeAnalyticsEvent.js$script,~third-party
 @@||lenovo.com/fea/js/adobeAnalytics/$script,~third-party,xmlhttprequest
 @@||lensfrontend-pa.clients6.google.*/v*/crupload$stealth=referrer
+@@||lensfrontend-pa.clients6.google.com/v1/gsessionid$xmlhttprequest,stealth
 @@||leonoticias.com^$ghide
 @@||lequipe.fr^$cname
 @@||lesmoutonsrebelles.com^$ghide
