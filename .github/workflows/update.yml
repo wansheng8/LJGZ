@@ -40,7 +40,7 @@ jobs:
     # 06/18 定时与 cleanup_only dispatch 是纯清理, 若这里也跑 update, 会同一 run
     # 里 "git push + 部署 + 删历史 run" 互相叠加; 排除它们即消除该冲突。
     if: |
-      !(github.event_name == 'schedule' && (github.event.cron == '0 6 * * *' || github.event.cron == '0 18 * * *'))
+      !(github.event_name == 'schedule' && (github.event.schedule == '0 6 * * *' || github.event.schedule == '0 18 * * *'))
       && !(github.event_name == 'workflow_dispatch' && inputs.cleanup_only == 'true')
     runs-on: ubuntu-24.04
     timeout-minutes: 30
@@ -159,8 +159,8 @@ jobs:
   cleanup-actions:
     # 仅在: 定时 06:00/18:00 UTC + 手动勾选 cleanup_only
     if: |
-      (github.event_name == 'schedule' && github.event.cron == '0 6 * * *')
-      || (github.event_name == 'schedule' && github.event.cron == '0 18 * * *')
+      (github.event_name == 'schedule' && github.event.schedule == '0 6 * * *')
+      || (github.event_name == 'schedule' && github.event.schedule == '0 18 * * *')
       || (github.event_name == 'workflow_dispatch' && inputs.cleanup_only == 'true')
     runs-on: ubuntu-24.04
     timeout-minutes: 5
