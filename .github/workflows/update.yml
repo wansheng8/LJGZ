@@ -137,7 +137,7 @@ jobs:
       id-token: write           # Pages OIDC
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment_first.outputs.page_url }}
     steps:
       - uses: actions/checkout@v7.0.1
         with:
@@ -152,7 +152,17 @@ jobs:
       - uses: actions/upload-pages-artifact@v5.0.0
         with:
           path: site
+      # GitHub 的 artifact 元数据偶发延迟: upload 刚结束就查询会得到
+      # "Found 0 artifact(s)" (实测 4 次失败均发生在 upload 与 deploy
+      # 同一秒内)。首次部署失败时等待片刻重试一次, 避免整条流水线变红。
+      - id: deployment_first
+        uses: actions/deploy-pages@v5.0.1
+        continue-on-error: true
+      - name: 等待 artifact 元数据可见
+        if: steps.deployment_first.outcome == 'failure'
+        run: sleep 15
       - id: deployment
+        if: steps.deployment_first.outcome == 'failure'
         uses: actions/deploy-pages@v5.0.1
 
   # 定时清理本工作流历史: 保留最新 3 条, 删除更早的 (防 run 列表无限膨胀)
