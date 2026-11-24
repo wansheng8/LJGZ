@@ -119,7 +119,7 @@ class SafeTrackingDomainsTest(unittest.TestCase):
     def test_missed_snapshot_accounted_for(self):
         """43 个漏网域名必须都有明确结论: 已加 或 明确列为不拦。"""
         if not os.path.exists(MISSED):
-            self.SkipTest("缺少漏网快照")
+            self.skipTest("缺少漏网快照")
         with open(MISSED, encoding="utf-8") as f:
             missed = json.load(f)
         unaccounted = [m for _, m in missed

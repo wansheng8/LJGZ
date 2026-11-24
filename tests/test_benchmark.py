@@ -59,9 +59,26 @@ class TestScoring(unittest.TestCase):
         # 无 proxy/selector 样本时, score = 50*0.4 + 100*0.25 = 45
         self.assertEqual(45.0, res["score"])
 
+    def test_parent_exception_covers_blocked_subdomain(self):
+        """父域例外优先于子域拦截, 与合并引擎的整域放行语义一致。"""
+        res = self._evaluate("||metrics.huntington.com^\n@@||huntington.com^$document\n",
+                             {"must_block": [], "must_not_block": ["metrics.huntington.com"]})
+        self.assertEqual([], res["safety"]["false_positives"])
+
     def test_missing_domains_reported(self):
         res = self._evaluate("||ad.test^\n", {"must_block": ["ad.test", "gone.test"]})
         self.assertEqual(["gone.test"], res["coverage"]["missing"])
+
+
+class TestSelectorMatching(unittest.TestCase):
+    def test_id_selector_must_match_exactly(self):
+        tags = [("div", {"id": "ad-slot"}), ("div", {"id": "content"}), ("div", {})]
+        self.assertEqual(1, benchmark.selector_hit_count(tags, "div#ad-slot"))
+        self.assertEqual(0, benchmark.selector_hit_count([("div", {})], "div#ad-slot"))
+
+    def test_class_selector_still_matches(self):
+        tags = [("div", {"class": "ad banner"}), ("div", {"class": "content"})]
+        self.assertEqual(1, benchmark.selector_hit_count(tags, "div.ad"))
 
 
 class TestRealOutput(unittest.TestCase):

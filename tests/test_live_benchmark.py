@@ -86,6 +86,18 @@ class TestRuleMatching(unittest.TestCase):
             self.assertFalse(lb.is_blocked("https://tracker.test/p", pure, paths, exc,
                                            scoped, "script", "https://c.test/"))
 
+    def test_parent_exception_covers_blocked_subdomain(self):
+        """父域例外优先级高于子域拦截, 与 merge_filters._excepted 一致。"""
+        self.assertFalse(lb.is_blocked("https://smetrics.huntington.com/x",
+                                       {"smetrics.huntington.com"}, [], {"huntington.com"}))
+
+    def test_main_document_only_allowed_for_main_frame(self):
+        """在线模式只放行主框架文档, iframe 的 document 仍参与拦截判定。"""
+        self.assertTrue(lb.allow_document("document", "main", "main"))
+        self.assertFalse(lb.allow_document("document", "iframe", "main"))
+        self.assertFalse(lb.allow_document("script", "main", "main"))
+        self.assertFalse(lb.allow_document("document", None, "main"))
+
 
 class TestCosmetic(unittest.TestCase):
     def test_parse_skips_scriptlet_and_html_filtering(self):
@@ -110,6 +122,21 @@ class TestCosmetic(unittest.TestCase):
         css = lb.build_css({".banner"}, [], {("site.test", ".banner")}, "www.site.test")
         self.assertNotIn(".banner", css)
 
+    def test_generic_cosmetic_exception_removes_selector(self):
+        """无域名的 #@# 是通用例外, 不能反过来变成隐藏规则。"""
+        with tempfile.TemporaryDirectory() as td:
+            p = os.path.join(td, "all.txt")
+            with open(p, "w", encoding="utf-8") as f:
+                f.write("##.ad-box\n#@#.ad-box\n")
+            generic, scoped, exc = lb.load_cosmetic(p)
+        self.assertIn(("", ".ad-box"), exc)
+        self.assertNotIn(".ad-box", lb.build_css(generic, scoped, exc, "any.test"))
+
+    def test_negated_domain_applies_outside_excluded_site(self):
+        """~site.test##sel 的语义是除该域外都生效。"""
+        css = lb.build_css(set(), [("~site.test", ".banner")], set(), "other.test")
+        self.assertIn(".banner{display:none!important}", css)
+
     def test_real_lists_yield_usable_css(self):
         generic, scoped, _ = lb.load_cosmetic(os.path.join(REPO, "output", "all.txt"),
                                               os.path.join(REPO, "config.json"))
@@ -125,6 +152,36 @@ class TestSelectors(unittest.TestCase):
         self.assertGreaterEqual(len(sels), 5, "元素隐藏选择器过少, 跑分失去意义")
         for s in sels:
             self.assertNotIn("##", s)
+
+
+class TestScoring(unittest.TestCase):
+    def test_empty_selectors_is_error_not_full_score(self):
+        r = lb.score_visible([], {})
+        self.assertEqual(0, r["score"])
+        self.assertTrue(r["errors"])
+
+    def test_unparsable_selector_is_error(self):
+        r = lb.score_visible(["##bad"], {"##bad": None})
+        self.assertEqual(0, r["score"])
+        self.assertTrue(r["errors"])
+
+    def test_unmatched_selector_is_error(self):
+        r = lb.score_visible(["div.ad"],
+                             {"div.ad": {"matched": 0, "visible": 0, "non_rendered": 0}})
+        self.assertEqual(0, r["score"])
+        self.assertTrue(any("0 个元素" in e for e in r["errors"]))
+
+    def test_non_rendered_selector_is_reported_not_counted_as_leak(self):
+        r = lb.score_visible(["param"],
+                             {"param": {"matched": 2, "visible": 0, "non_rendered": 2}})
+        self.assertEqual(100, r["score"])
+        self.assertEqual({"param": 2}, r["non_rendered_selectors"])
+
+    def test_visible_ads_reduce_score(self):
+        r = lb.score_visible(["div.ad"],
+                             {"div.ad": {"matched": 3, "visible": 2, "non_rendered": 0}})
+        self.assertEqual(80, r["score"])
+        self.assertEqual(2, r["visible_ad_elements"])
 
 
 if __name__ == "__main__":

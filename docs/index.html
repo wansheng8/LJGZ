@@ -128,16 +128,23 @@ for (const p of P) {
 }
 grid.addEventListener('click', async e => {
   const b = e.target.closest('button'); if (!b) return;
-  try { await navigator.clipboard.writeText(b.dataset.u); }
+  let ok = false;
+  try { await navigator.clipboard.writeText(b.dataset.u); ok = true; }
   catch (_) {
     const t = document.createElement('textarea');
     t.value = b.dataset.u; document.body.appendChild(t);
-    t.select(); document.execCommand('copy'); t.remove();
+    t.select();
+    try { ok = document.execCommand('copy'); } catch (_) { ok = false; }
+    t.remove();
   }
-  b.textContent = '✓ 已复制'; b.classList.add('ok');
-  setTimeout(() => { b.textContent = '复制'; b.classList.remove('ok'); }, 1400);
+  b.textContent = ok ? '✓ 已复制' : '复制失败';
+  b.classList.add(ok ? 'ok' : 'fail');
+  setTimeout(() => { b.textContent = '复制'; b.classList.remove('ok', 'fail'); }, 1400);
 });
-fetch('stats.json').then(r => r.json()).then(s => {
+fetch('stats.json').then(r => {
+  if (!r.ok) throw new Error('HTTP ' + r.status);
+  return r.json();
+}).then(s => {
   const el = document.getElementById('stats'); el.hidden = false;
   const f = n => n >= 10000 ? (n / 10000).toFixed(1) + '万' : String(n);
   const total = (s.domains_unique || 0) + (s.network_unique || 0) +
@@ -147,7 +154,10 @@ fetch('stats.json').then(r => r.json()).then(s => {
     `<span><b>${f(total)}</b>规则总数</span>` +
     `<span><b>${s.sources_total || '…'}</b>上游源</span>` +
     `<span><b>2 ×/日</b>北京时间更新</span>`;
-}).catch(() => {});
+}).catch(err => {
+  const el = document.getElementById('stats'); el.hidden = false;
+  el.innerHTML = `<span><b>统计暂不可用</b>${err && err.message ? err.message : '加载失败'}</span>`;
+});
 </script>
 </body>
 </html>

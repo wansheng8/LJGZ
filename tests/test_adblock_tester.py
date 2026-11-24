@@ -44,15 +44,18 @@ class _Collector(HTMLParser):
 
 
 def _matches(tag, attrs, selector):
-    """最小 CSS 选择器实现: 覆盖 tag / .class / [attr] / [attr=v] / *= ^= $=。"""
+    """最小 CSS 选择器实现: 覆盖 tag / .class / #id / [attr] / [attr=v] / *= ^= $=。"""
     m = re.match(r"^([\w-]+)?((?:[.#][\w-]+)*)((?:\[[^\]]+\])*)$", selector)
     if not m:
         raise ValueError("无法解析的选择器: %r" % selector)
     stag, rest, attr_part = m.group(1), m.group(2) or "", m.group(3) or ""
     if stag and tag != stag:
         return False
-    for cls in re.findall(r"\.([\w-]+)", rest):
-        if cls not in (attrs.get("class") or "").split():
+    for tok in re.findall(r"([.#][\w-]+)", rest):
+        if tok.startswith("#"):
+            if attrs.get("id") != tok[1:]:
+                return False
+        elif tok[1:] not in (attrs.get("class") or "").split():
             return False
     for a in re.findall(r"\[([^\]]+)\]", attr_part):
         hit = False
@@ -74,6 +77,17 @@ def _matches(tag, attrs, selector):
         if not hit:
             return False
     return True
+
+
+class SelectorMatcherTest(unittest.TestCase):
+    def test_id_constraint_is_enforced(self):
+        self.assertTrue(_matches("div", {"id": "ad-slot"}, "div#ad-slot"))
+        self.assertFalse(_matches("div", {"id": "content"}, "div#ad-slot"))
+        self.assertFalse(_matches("div", {}, "div#ad-slot"))
+
+    def test_class_constraint_still_works(self):
+        self.assertTrue(_matches("div", {"class": "ad x"}, ".ad"))
+        self.assertFalse(_matches("div", {"class": "content"}, ".ad"))
 
 
 class AdblockTesterRulesTest(unittest.TestCase):

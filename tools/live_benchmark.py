@@ -154,12 +154,12 @@ def is_blocked(url, pure, paths, exc, scoped=(), resource_type=None, page_url=No
     if not host:
         return False
     parts = host.split(".")
-    for i in range(len(parts) - 1):
-        suffix = ".".join(parts[i:])
-        if suffix in exc:
-            return False
-        if suffix in pure:
-            return True
+    suffixes = [".".join(parts[i:]) for i in range(len(parts) - 1)]
+    # 例外优先: 任一上级域在例外集中即放行, 与 merge_filters._excepted 一致
+    if any(s in exc for s in suffixes):
+        return False
+    if any(s in pure for s in suffixes):
+        return True
     path = u.path or "/"
     if any(_host_match(host, h) and path.startswith(p) for h, p in paths):
         return True
@@ -211,14 +211,16 @@ def load_cosmetic(all_path, config_path=None):
         if not parsed:
             continue
         marker, doms, sel = parsed
+        if marker.startswith("#@"):
+            # 无域名的通用例外用空域名表示, 由 build_css 无条件剔除
+            for d in (doms or [""]):
+                exc.add((d, sel))
+            continue
         if not doms:
             generic.add(sel)
-        elif marker.startswith("#@"):
-            for d in doms:
-                exc.add((d, sel))
-        else:
-            for d in doms:
-                scoped.append((d, sel))
+            continue
+        for d in doms:
+            scoped.append((d, sel))
     return generic, scoped, exc
 
 
@@ -229,17 +231,45 @@ def build_css(generic, scoped, exceptions, page_host):
     for dom, sel in scoped:
         negated = dom.startswith("~")
         base = dom.lstrip("~")
-        if not host or not _host_match(host, base):
-            continue
+        matched = bool(host) and _host_match(host, base)
         if negated:
-            sels.discard(sel)
-        else:
+            # ~domain 的语义是"除该域外都生效"
+            if not matched:
+                sels.add(sel)
+        elif matched:
             sels.add(sel)
     for dom, sel in exceptions:
-        base = dom.lstrip("~")
-        if host and _host_match(host, base):
+        if not dom or (host and _host_match(host, dom.lstrip("~"))):
             sels.discard(sel)
     return "".join(s + "{display:none!important}\n" for s in sorted(sels))
+
+
+def allow_document(resource_type, frame, main_frame):
+    """在线模式只放行主框架文档; 子框架的 document 仍交给 is_blocked 裁决。"""
+    return resource_type == "document" and frame is not None and frame == main_frame
+
+
+def score_visible(selectors, visible):
+    """把页面统计换算成分数; 空基线或解析失败视为不可信, 直接判 0。"""
+    errors = []
+    if not selectors:
+        errors.append("评分选择器列表为空")
+    bad = sorted(s for s, v in visible.items() if not v)
+    if bad:
+        errors.append("选择器无法解析: " + ", ".join(bad))
+    unmatched = sorted(s for s, v in visible.items() if v and v["matched"] == 0)
+    if unmatched:
+        errors.append("选择器在页面中匹配 0 个元素: " + ", ".join(unmatched))
+    non_rendered = {s: v["non_rendered"] for s, v in visible.items()
+                    if v and v["visible"] == 0 and v["non_rendered"] > 0}
+    leaked = sum(v["visible"] for v in visible.values() if v)
+    return {
+        "score": 0 if errors else max(0, 100 - leaked * 10),
+        "visible_ad_elements": leaked,
+        "errors": errors,
+        "non_rendered_selectors": non_rendered,
+        "selectors": {s: (v if v else "unparsable") for s, v in visible.items()},
+    }
 
 
 def run(html_path, all_path, config_path, out_path, shot_path=None, channel=None, url=None):
@@ -252,53 +282,57 @@ def run(html_path, all_path, config_path, out_path, shot_path=None, channel=None
 
     with sync_playwright() as pw:
         browser = pw.chromium.launch(channel=channel)
-        page = browser.new_page()
+        try:
+            page = browser.new_page()
 
-        def route(r):
-            stats["total_requests"] += 1
-            # 实测线上站点时放行主文档, 否则页面本身被拦会直接打不开
-            if url and r.request.resource_type == "document":
-                r.continue_()
-                return
-            if is_blocked(r.request.url, pure, paths, exc, scoped,
-                          r.request.resource_type, page.url):
-                stats["blocked_requests"] += 1
-                r.abort()
-            else:
-                r.continue_()
+            def route(r):
+                stats["total_requests"] += 1
+                # 实测线上站点时放行主文档, 否则页面本身被拦会直接打不开
+                if url and allow_document(r.request.resource_type,
+                                          r.request.frame, page.main_frame):
+                    r.continue_()
+                    return
+                if is_blocked(r.request.url, pure, paths, exc, scoped,
+                              r.request.resource_type, page.url):
+                    stats["blocked_requests"] += 1
+                    r.abort()
+                else:
+                    r.continue_()
 
-        page.route("**/*", route)
-        target = url or Path(html_path).resolve().as_uri()
-        page.goto(target, wait_until="load", timeout=60000)
+            page.route("**/*", route)
+            target = url or Path(html_path).resolve().as_uri()
+            page.goto(target, wait_until="load", timeout=60000)
 
-        # 本地快照是 adblock-tester.com 的镜像, 用该域名代入, 否则元素隐藏规则无从命中
-        page_host = urlparse(target).hostname or ("adblock-tester.com" if not url else "")
-        page.add_style_tag(content=build_css(generic, cosmetic_scoped,
-                                             cosmetic_exc, page_host))
-        page.wait_for_timeout(1500)
+            # 本地快照是 adblock-tester.com 的镜像, 用该域名代入, 否则元素隐藏规则无从命中
+            page_host = urlparse(target).hostname or ("adblock-tester.com" if not url else "")
+            page.add_style_tag(content=build_css(generic, cosmetic_scoped,
+                                                 cosmetic_exc, page_host))
+            page.wait_for_timeout(1500)
 
-        visible = page.evaluate(
-            """(sels) => {
-                const out = {};
-                for (const s of sels) {
-                    try {
-                        out[s] = [...document.querySelectorAll(s)]
-                            .filter(el => el.offsetParent !== null).length;
-                    } catch (e) { out[s] = -1; }
-                }
-                return out;
-            }""", selectors)
-        if shot_path:
-            page.screenshot(path=shot_path, full_page=True)
-        browser.close()
+            visible = page.evaluate(
+                """(sels) => {
+                    const out = {};
+                    for (const s of sels) {
+                        try {
+                            const els = [...document.querySelectorAll(s)];
+                            out[s] = {
+                                matched: els.length,
+                                visible: els.filter(el => el.offsetParent !== null
+                                    || el.getClientRects().length > 0).length,
+                                non_rendered: els.filter(el =>
+                                    el.getClientRects().length === 0).length,
+                            };
+                        } catch (e) { out[s] = null; }
+                    }
+                    return out;
+                }""", selectors)
+            if shot_path:
+                page.screenshot(path=shot_path, full_page=True)
+        finally:
+            browser.close()
 
-    leaked = sum(v for v in visible.values() if v > 0)
-    result = {
-        "score": max(0, 100 - leaked * 10),
-        "visible_ad_elements": leaked,
-        "selectors": visible,
-        "requests": stats,
-    }
+    result = score_visible(selectors, visible)
+    result["requests"] = stats
     os.makedirs(os.path.dirname(os.path.abspath(out_path)), exist_ok=True)
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2, sort_keys=True)
@@ -319,7 +353,7 @@ def main(argv=None):
     result = run(args.html, args.all, args.config, args.out, args.screenshot,
                  args.channel, args.url)
     print(json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True))
-    return 0
+    return 2 if result.get("errors") else 0
 
 
 if __name__ == "__main__":

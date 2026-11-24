@@ -54,30 +54,27 @@ def load_rules(path):
     return pure, mod, exc
 
 
+def _suffixes(domain):
+    """自身及各级上级域, 从最长到最短 (不含单标签 TLD)。"""
+    parts = domain.lower().split(".")
+    return [".".join(parts[i:]) for i in range(len(parts) - 1)]
+
+
 def is_blocked_any(domain, pure, mod, exc):
     """同 is_blocked, 但带修饰符的域名规则也算命中 (真实客户端的拦截范围)。"""
-    domain = domain.lower()
-    parts = domain.split(".")
-    for i in range(len(parts) - 1):
-        suffix = ".".join(parts[i:])
-        if suffix in exc:
-            return False
-        if suffix in pure or suffix in mod:
-            return True
-    return False
+    suffixes = _suffixes(domain)
+    # 例外优先: 任一上级域在例外集中即放行, 与 merge_filters._excepted 一致
+    if any(s in exc for s in suffixes):
+        return False
+    return any(s in pure or s in mod for s in suffixes)
 
 
 def is_blocked(domain, pure, exc):
     """||d^ 会连带拦截子域: 自身或任一上级域命中即视为已拦; 例外同理。"""
-    domain = domain.lower()
-    parts = domain.split(".")
-    for i in range(len(parts) - 1):
-        suffix = ".".join(parts[i:])
-        if suffix in exc:
-            return False
-        if suffix in pure:
-            return True
-    return False
+    suffixes = _suffixes(domain)
+    if any(s in exc for s in suffixes):
+        return False
+    return any(s in pure for s in suffixes)
 
 
 # ---------------------------------------------------------------------------
@@ -103,8 +100,10 @@ def _parse_css_sel(selector):
     m = re.match(r"^([\w-]+)?((?:[.#][\w-]+)*)((?:\[[^\]]+\])*)$", selector)
     if not m:
         return None
+    # #id 保留 # 前缀供 _sel_matches 区分, .class 去掉点
+    tokens = re.findall(r"([.#][\w-]+)", m.group(2) or "")
     return (m.group(1),
-            re.findall(r"\.([\w-]+)", m.group(2) or ""),
+            [t[1:] if t.startswith(".") else t for t in tokens],
             re.findall(r"\[([^\]]+)\]", m.group(3) or ""))
 
 
