@@ -141,6 +141,7 @@ jobs:
       contents: read            # checkout 产物
       pages: write              # 发布 Pages
       id-token: write           # Pages OIDC
+      actions: read             # 轮询本次 run 的 artifact 元数据
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url || steps.deployment_first.outputs.page_url }}
@@ -160,7 +161,27 @@ jobs:
           path: site
       # GitHub 的 artifact 元数据偶发延迟: upload 刚结束就查询会得到
       # "Found 0 artifact(s)" (实测 4 次失败均发生在 upload 与 deploy
-      # 同一秒内)。首次部署失败时等待片刻重试一次, 避免整条流水线变红。
+      # 同一秒内)。先轮询确认 artifact 可见, 再做首次部署; 仍失败则等 15 秒
+      # 重试一次 —— 双重保护, 避免偶发竞态把发布流水线拖红。
+      - name: 等待 github-pages artifact 可见
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -u
+          api="https://api.github.com/repos/${{ github.repository }}/actions/runs/${GITHUB_RUN_ID}/artifacts"
+          for i in $(seq 1 30); do
+            n=$(curl -fsS -H "Authorization: Bearer $GH_TOKEN" \
+                  -H "Accept: application/vnd.github+json" "$api" \
+                | jq '(.artifacts // []) | map(select(.name == "github-pages")) | length' \
+                  2>/dev/null || echo 0)
+            if [ "${n:-0}" -ge 1 ]; then
+              echo "github-pages artifact 已可见 (第 $i 次检查)"
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "::error::github-pages artifact 在 60 秒内仍不可见"
+          exit 1
       - id: deployment_first
         uses: actions/deploy-pages@v5.0.1
         continue-on-error: true
