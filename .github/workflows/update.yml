@@ -42,6 +42,7 @@ jobs:
     if: |
       !(github.event_name == 'schedule' && (github.event.schedule == '0 6 * * *' || github.event.schedule == '0 18 * * *'))
       && !(github.event_name == 'workflow_dispatch' && inputs.cleanup_only == 'true')
+      && github.ref == 'refs/heads/main'
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     permissions:
@@ -131,6 +132,11 @@ jobs:
       && (github.event_name != 'schedule' || needs.update.outputs.changed == 'true')
     runs-on: ubuntu-24.04
     timeout-minutes: 15
+    # 串行化 Pages 部署: 定时与 push 撞车时, 两个 run 的 deploy 不会同时
+    # 操作同一 environment (并发部署会互相顶掉或报 deployment 冲突)。
+    concurrency:
+      group: pages-deploy
+      cancel-in-progress: false
     permissions:
       contents: read            # checkout 产物
       pages: write              # 发布 Pages
