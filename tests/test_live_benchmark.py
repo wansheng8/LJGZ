@@ -165,11 +165,20 @@ class TestScoring(unittest.TestCase):
         self.assertEqual(0, r["score"])
         self.assertTrue(r["errors"])
 
-    def test_unmatched_selector_is_error(self):
-        r = lb.score_visible(["div.ad"],
-                             {"div.ad": {"matched": 0, "visible": 0, "non_rendered": 0}})
-        self.assertEqual(0, r["score"])
-        self.assertTrue(any("0 个元素" in e for e in r["errors"]))
+    def test_zero_match_is_diagnostic_unless_every_selector_misses(self):
+        # 单条 0 命中: 元素可能被 onerror 自行移除, 不算基线失配
+        part = lb.score_visible(
+            ["div.ad", "div.banner"],
+            {"div.ad": {"matched": 0, "visible": 0, "non_rendered": 0},
+             "div.banner": {"matched": 1, "visible": 0, "non_rendered": 1}})
+        self.assertEqual(100, part["score"])
+        self.assertEqual(["div.ad"], part["zero_match_selectors"])
+        # 全部 0 命中: 快照/规则失配, 判 0
+        whole = lb.score_visible(
+            ["div.ad"],
+            {"div.ad": {"matched": 0, "visible": 0, "non_rendered": 0}})
+        self.assertEqual(0, whole["score"])
+        self.assertTrue(any("基线可能失配" in e for e in whole["errors"]))
 
     def test_non_rendered_selector_is_reported_not_counted_as_leak(self):
         r = lb.score_visible(["param"],

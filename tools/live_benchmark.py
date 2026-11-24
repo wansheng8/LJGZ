@@ -257,9 +257,13 @@ def score_visible(selectors, visible):
     bad = sorted(s for s, v in visible.items() if not v)
     if bad:
         errors.append("选择器无法解析: " + ", ".join(bad))
-    unmatched = sorted(s for s, v in visible.items() if v and v["matched"] == 0)
-    if unmatched:
-        errors.append("选择器在页面中匹配 0 个元素: " + ", ".join(unmatched))
+    parsed = [s for s in selectors if visible.get(s)]
+    zero = sorted(s for s in parsed if visible[s]["matched"] == 0)
+    # 单条 0 命中可能是元素因 onerror 自行移除 (说明请求已被拦), 只作诊断;
+    # 全部 0 命中才说明快照被改名或规则失配, 此时分数不可信。
+    if parsed and len(zero) == len(parsed):
+        errors.append("所有评分选择器均未命中页面元素, 基线可能失配: "
+                      + ", ".join(zero))
     non_rendered = {s: v["non_rendered"] for s, v in visible.items()
                     if v and v["visible"] == 0 and v["non_rendered"] > 0}
     leaked = sum(v["visible"] for v in visible.values() if v)
@@ -267,6 +271,7 @@ def score_visible(selectors, visible):
         "score": 0 if errors else max(0, 100 - leaked * 10),
         "visible_ad_elements": leaked,
         "errors": errors,
+        "zero_match_selectors": zero,
         "non_rendered_selectors": non_rendered,
         "selectors": {s: (v if v else "unparsable") for s, v in visible.items()},
     }
