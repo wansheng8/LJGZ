@@ -33,7 +33,7 @@ class TestRuleMatching(unittest.TestCase):
             p = os.path.join(td, "all.txt")
             with open(p, "w", encoding="utf-8") as f:
                 f.write("||clean.test^$removeparam=utm\n||block.test^\n")
-            pure, _, _, _ = lb.load_blocklist(p)
+            pure, _, _, _, _ = lb.load_blocklist(p)
         self.assertNotIn("clean.test", pure)
         self.assertIn("block.test", pure)
 
@@ -43,7 +43,7 @@ class TestRuleMatching(unittest.TestCase):
             p = os.path.join(td, "all.txt")
             with open(p, "w", encoding="utf-8") as f:
                 f.write("||com/*/ModalEngage|$script,3p\n||com/$doc,ipaddress=1.2.3.4\n")
-            pure, paths, scoped, exc = lb.load_blocklist(p)
+            pure, paths, scoped, exc, _ = lb.load_blocklist(p)
             blocked = lb.is_blocked("https://www.example.com/_astro/a.css",
                                     pure, paths, exc, scoped, "stylesheet",
                                     "https://www.example.com/test/")
@@ -54,7 +54,7 @@ class TestRuleMatching(unittest.TestCase):
             p = os.path.join(td, "all.txt")
             with open(p, "w", encoding="utf-8") as f:
                 f.write("||cdn.test^$script\n")
-            pure, paths, scoped, exc = lb.load_blocklist(p)
+            pure, paths, scoped, exc, _ = lb.load_blocklist(p)
             self.assertTrue(lb.is_blocked("https://cdn.test/a.js", pure, paths, exc,
                                           scoped, "script", "https://site.test/"))
             self.assertFalse(lb.is_blocked("https://cdn.test/a.css", pure, paths, exc,
@@ -65,7 +65,7 @@ class TestRuleMatching(unittest.TestCase):
             p = os.path.join(td, "all.txt")
             with open(p, "w", encoding="utf-8") as f:
                 f.write("||site.test^$third-party\n")
-            pure, paths, scoped, exc = lb.load_blocklist(p)
+            pure, paths, scoped, exc, _ = lb.load_blocklist(p)
             self.assertTrue(
                 lb.is_blocked("https://api.site.test/x", pure, paths, exc,
                               scoped, "xhr", "https://other.test/"))
@@ -78,7 +78,7 @@ class TestRuleMatching(unittest.TestCase):
             p = os.path.join(td, "all.txt")
             with open(p, "w", encoding="utf-8") as f:
                 f.write("||tracker.test^$domain=a.test|~b.a.test\n")
-            pure, paths, scoped, exc = lb.load_blocklist(p)
+            pure, paths, scoped, exc, _ = lb.load_blocklist(p)
             self.assertTrue(lb.is_blocked("https://tracker.test/p", pure, paths, exc,
                                           scoped, "script", "https://a.test/"))
             self.assertFalse(lb.is_blocked("https://tracker.test/p", pure, paths, exc,
@@ -97,6 +97,57 @@ class TestRuleMatching(unittest.TestCase):
         self.assertFalse(lb.allow_document("document", "iframe", "main"))
         self.assertFalse(lb.allow_document("script", "main", "main"))
         self.assertFalse(lb.allow_document("document", None, "main"))
+
+    def test_negated_type_is_passed_through(self):
+        """$~media 的语义是除媒体外都拦, 媒体请求必须放行。"""
+        with tempfile.TemporaryDirectory() as td:
+            p = os.path.join(td, "all.txt")
+            with open(p, "w", encoding="utf-8") as f:
+                f.write("||2mdn.net^$~media,third-party\n")
+            pure, paths, scoped, exc, exc_scoped = lb.load_blocklist(p)
+        self.assertFalse(lb.is_blocked("https://2mdn.net/a.mp4", pure, paths, exc,
+                                       scoped, "media", "https://site.test/",
+                                       exc_scoped))
+        self.assertTrue(lb.is_blocked("https://2mdn.net/a.js", pure, paths, exc,
+                                      scoped, "script", "https://site.test/",
+                                      exc_scoped))
+
+    def test_path_exception_unblocks_only_that_path(self):
+        with tempfile.TemporaryDirectory() as td:
+            p = os.path.join(td, "all.txt")
+            with open(p, "w", encoding="utf-8") as f:
+                f.write("||tracker.test^\n@@||tracker.test/allow/$script\n")
+            pure, paths, scoped, exc, exc_scoped = lb.load_blocklist(p)
+        self.assertFalse(lb.is_blocked("https://tracker.test/allow/a.js",
+                                       pure, paths, exc, scoped, "script",
+                                       "https://site.test/", exc_scoped))
+        self.assertTrue(lb.is_blocked("https://tracker.test/other/a.js",
+                                      pure, paths, exc, scoped, "script",
+                                      "https://site.test/", exc_scoped))
+
+    def test_domain_scoped_exception_respects_page(self):
+        with tempfile.TemporaryDirectory() as td:
+            p = os.path.join(td, "all.txt")
+            with open(p, "w", encoding="utf-8") as f:
+                f.write("||tracker.test^\n@@||tracker.test^$script,domain=site.test\n")
+            pure, paths, scoped, exc, exc_scoped = lb.load_blocklist(p)
+        self.assertFalse(lb.is_blocked("https://tracker.test/a.js", pure, paths,
+                                       exc, scoped, "script", "https://site.test/",
+                                       exc_scoped))
+        self.assertTrue(lb.is_blocked("https://tracker.test/a.js", pure, paths,
+                                      exc, scoped, "script", "https://other.test/",
+                                      exc_scoped))
+
+    def test_cosmetic_exception_does_not_unblock_requests(self):
+        """$ghide 只关闭元素隐藏, 不能让该域的网络请求全部放行。"""
+        with tempfile.TemporaryDirectory() as td:
+            p = os.path.join(td, "all.txt")
+            with open(p, "w", encoding="utf-8") as f:
+                f.write("||1warie.com^\n@@||1warie.com^$ghide\n")
+            pure, paths, scoped, exc, exc_scoped = lb.load_blocklist(p)
+        self.assertTrue(lb.is_blocked("https://1warie.com/x.js", pure, paths, exc,
+                                      scoped, "script", "https://site.test/",
+                                      exc_scoped))
 
 
 class TestCosmetic(unittest.TestCase):

@@ -363,5 +363,54 @@ class TestExceptions(unittest.TestCase):
         self.assertFalse(r.dns_relevant)
 
 
+class TestPathRuleNotTruncated(unittest.TestCase):
+    """以 / 开头的普通路径规则不是 /regex/ 字面量, 不得被截断。"""
+
+    def test_split_keeps_full_path(self):
+        self.assertEqual(mf._split_modifiers("/88/tag.min.js"),
+                         ("/88/tag.min.js", ""))
+        self.assertEqual(mf._split_modifiers("/ad/getban?$script"),
+                         ("/ad/getban?", "script"))
+        self.assertEqual(mf._split_modifiers("/ad/image/*$image"),
+                         ("/ad/image/*", "image"))
+
+    def test_regex_literal_still_recognized(self):
+        self.assertEqual(mf._split_modifiers("/^https?:\\/\\/ad\\./"),
+                         ("/^https?:\\/\\/ad\\./", ""))
+        self.assertEqual(mf._split_modifiers("/a/b/$script"),
+                         ("/a/b/", "script"))
+
+    def test_distinct_path_rules_are_all_kept(self):
+        m = mf.Merger()
+        m.add_lines(["/ad/getban?$script", "/ad/image/*$image", "/ad/*"])
+        out = m.finalize().all_network
+        for rule in ("/ad/getban?$script", "/ad/image/*$image", "/ad/*"):
+            self.assertIn(rule, out)
+
+
+class TestBadfilterOnExceptions(unittest.TestCase):
+    """`@@...$badfilter` 必须抵消目标例外, 且自身不输出。"""
+
+    def test_badfilter_cancels_exception(self):
+        m = mf.Merger()
+        m.add_lines(["@@||github.io^$generichide",
+                     "@@||github.io^$generichide,badfilter"])
+        res = m.finalize()
+        self.assertEqual([], res.all_exceptions)
+        self.assertEqual(1, res.stats["badfilter_exceptions"])
+
+    def test_other_exceptions_survive(self):
+        m = mf.Merger()
+        m.add_lines(["@@||keep.test^$document", "@@||keep.test^$document,badfilter",
+                     "@@||other.test^$document"])
+        res = m.finalize()
+        self.assertEqual(["@@||other.test^$document"], res.all_exceptions)
+
+
+class TestSelftest(unittest.TestCase):
+    def test_selftest_passes(self):
+        self.assertEqual(0, mf._selftest())
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -161,7 +161,13 @@ def norm_domain(d: str) -> str:
 
 def _split_modifiers(s: str) -> Tuple[str, str]:
     """把规则拆成 (pattern, modifiers)。识别开头的 /regex/ 字面量;
-    其余按第一个未转义的 `$` 切分。"""
+    其余按第一个未转义的 `$` 切分。
+
+    只有闭合 `/` 位于行尾或紧跟 `$修饰符` 时才算正则字面量。`/88/tag.min.js`、
+    `/ad/getban?$script` 这类路径规则虽然有多个斜杠, 但**不是** `/正则/` 语法,
+    必须保留完整 pattern —— 否则会被截断成 `/88/`、`/ad/`, 连同修饰符一起丢失,
+    并在按语义键去重时互相覆盖。
+    """
     if s.startswith("/") and len(s) > 1:
         # 找闭合的未转义 '/'
         i = 1
@@ -173,9 +179,10 @@ def _split_modifiers(s: str) -> Tuple[str, str]:
                 rest = s[i + 1:]
                 if rest.startswith("$"):
                     return s[: i + 1], rest[1:]
-                return s[: i + 1], ""
+                if not rest:
+                    return s, ""
+                break                      # 斜杠后还有路径 → 不是正则字面量
             i += 1
-        return s, ""
     # 普通模式: 第一个未转义 $
     i = 0
     while i < len(s):
@@ -735,6 +742,8 @@ class Merger:
         self._cosmetic: Dict[str, str] = {}
         self._exc: Dict[str, Rule] = {}           # 例外原文 → Rule
         self._badfilter_targets: Set[str] = set()
+        # 被 `@@...$badfilter` 取消的例外语义键 (排除例自身不再输出)
+        self._badfilter_exc_targets: Set[str] = set()
         self._stats_dropped = 0
         self._dead_mod_dropped = 0   # 修饰符被字面 $ 切坏、客户端必然整行丢弃的规则
         self._local_count = 0
@@ -786,6 +795,14 @@ class Merger:
         elif rule.kind == K_COSMETIC:
             self._cosmetic.setdefault(rule.raw, rule.raw)
         elif rule.kind == K_EXCEPTION:
+            toks = split_mod_tokens(rule.modifiers.lower())
+            if "badfilter" in {t.split("=", 1)[0] for t in toks}:
+                # 例外同样支持 $badfilter: 记录"去掉 badfilter 后"的语义键,
+                # finalize 时据此剔除目标例外; 本行自身不输出。
+                keep = [t for t in toks if t.split("=", 1)[0] != "badfilter"]
+                self._badfilter_exc_targets.add(
+                    _canon_key(rule.pattern.lower(), keep))
+                return
             self._exc.setdefault(rule.raw, rule)
 
     def add_lines(self, lines: Iterable[str], source: str = "") -> None:
@@ -946,6 +963,16 @@ class Merger:
         # 拦截, 且常来自上游"放行合法点击链接"的误判 (实测 314 条中 25 个域
         # 的全部拦截被打穿, 是"订阅了却拦不住"的根因)。
         bare_whole_domain = 0
+        # 先执行例外层的 badfilter 抵消: 被 `@@...$badfilter` 明确取消的例外
+        # 不得出现在任何产物里 (否则不支持该修饰符的客户端会继续放行)。
+        cancelled_exceptions = 0
+        if self._badfilter_exc_targets:
+            for raw, r in list(self._exc.items()):
+                key = _canon_key(r.pattern.lower(),
+                                 split_mod_tokens(r.modifiers.lower()))
+                if key in self._badfilter_exc_targets:
+                    del self._exc[raw]
+                    cancelled_exceptions += 1
         for r in list(self._exc.values()):
             if r.dns_relevant and not r.important and not r.modifiers.strip():
                 del self._exc[r.raw]
@@ -1050,6 +1077,7 @@ class Merger:
             "exceptions_unique": len(res.all_exceptions),
             "whitelist_unique": len(res.whitelist),
             "badfilter_targets": len(bad),
+            "badfilter_exceptions": cancelled_exceptions,
             "dropped": self._stats_dropped,
             "dropped_dead_mods": self._dead_mod_dropped,
             "dropped_bare_exceptions": bare_whole_domain,
@@ -1654,10 +1682,14 @@ def main(argv=None) -> int:
 
 
 def _selftest() -> int:
-    """快速冒烟: 若干代表性行进解析+合并, 打印分类计数。"""
+    """快速冒烟: 若干代表性行进解析+合并, 断言分类结果, 失败返回非零。"""
     sample = [
         "||example.com^", "0.0.0.0 ads.example.com", "js.io",
         "||ads.com^$script", "@@||good.com^$document", "a.com##.ad",
+        # 路径规则不得被当成 /regex/ 截断
+        "/a/display.php?$script",
+        # 例外层的 $badfilter 必须抵消目标例外, 自身也不输出
+        "@@||cancel.com^$document", "@@||cancel.com^$document,badfilter",
         "! comment", "[Adblock Plus 2.0]", "", "junk line",
     ]
     m = Merger()
@@ -1666,6 +1698,26 @@ def _selftest() -> int:
     import json as _json
     print(_json.dumps(res.stats, ensure_ascii=False, indent=2))
     print(f"domains={res.domains}")
+
+    problems = []
+    missing_domains = {"example.com", "ads.example.com", "js.io"} - set(res.domains)
+    if missing_domains:
+        problems.append("域名缺失: " + ", ".join(sorted(missing_domains)))
+    for raw in ("||ads.com^$script", "/a/display.php?$script"):
+        if raw not in res.all_network:
+            problems.append("网络规则缺失: " + raw)
+    if "a.com##.ad" not in res.all_cosmetic:
+        problems.append("元素隐藏规则缺失: a.com##.ad")
+    if "@@||good.com^$document" not in res.all_exceptions:
+        problems.append("例外规则缺失: @@||good.com^$document")
+    if "@@||cancel.com^$document" in res.all_exceptions:
+        problems.append("$badfilter 未取消目标例外")
+    if any("badfilter" in e.lower() for e in res.all_exceptions):
+        problems.append("产物残留 badfilter 例外行")
+
+    if problems:
+        print("selftest FAILED:\n  " + "\n  ".join(problems))
+        return 1
     print("selftest OK")
     return 0
 

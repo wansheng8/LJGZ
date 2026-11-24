@@ -42,11 +42,13 @@ NO_BLOCK = ("$removeparam", "$cookie", "$csp", "$header", "$redirect", "$rewrite
 
 
 def parse_modifiers(mods):
-    """把 $ 后面的修饰符解析成 (类型集合|None, 仅第三方|None, 限定页面域名|None)。
+    """把 $ 后面的修饰符解析成 (类型集合|None, 否定类型集合, 仅第三方|None,
+    限定页面域名|None)。
 
-    类型为 None 表示不限类型; 限定域名用 (包含集合, 排除集合) 表示。
+    类型为 None 表示不限类型; 否定类型 (`$~media`) 表示"除这些类型外都拦",
+    命中否定类型的请求应放行。限定域名用 (包含集合, 排除集合) 表示。
     """
-    types, third, dom_in, dom_out = set(), None, set(), set()
+    types, not_types, third, dom_in, dom_out = set(), set(), None, set(), set()
     for tok in (mods or "").lstrip("$").split(","):
         tok = tok.strip().lower()
         if not tok:
@@ -65,43 +67,77 @@ def parse_modifiers(mods):
                 else:
                     dom_in.add(d)
         elif tok.startswith("~"):
-            continue  # 否定类型暂不支持, 按"不限类型"处理
+            neg = tok[1:]
+            if neg in TYPE_MAP:
+                not_types |= TYPE_MAP[neg]
         elif tok in TYPE_MAP:
             types |= TYPE_MAP[tok]
     domains = None
     if dom_in or dom_out:
         domains = (frozenset(dom_in), frozenset(dom_out))
-    return (frozenset(types) if types else None), third, domains
+    return ((frozenset(types) if types else None), frozenset(not_types),
+            third, domains)
+
+
+# 例外规则的修饰符分类: 只有请求层修饰符才影响"是否放行请求";
+# 元素隐藏 / 改写 / 注入类例外 (ghide、csp、cookie 等) 不影响请求拦截。
+REQUEST_MOD_KEYS = {
+    "script", "image", "stylesheet", "css", "object", "xmlhttprequest", "xhr",
+    "subdocument", "document", "doc", "popup", "media", "font", "websocket",
+    "ping", "other", "all", "important", "third-party", "3p",
+    "first-party", "1p", "domain",
+}
+# 整域放行例外: 只带这些修饰符时按"整个域名放行"处理 (与 benchmark 同口径)
+WHOLE_DOMAIN_EXC_MODS = {"document", "doc", "all", "important"}
 
 
 def load_blocklist(path):
-    """返回 (纯域名, [(域名, 路径前缀)], [受限规则], 例外域名)。
+    """返回 (纯域名, [(域名, 路径前缀)], [受限规则], 整域例外, [受限例外])。
 
-    受限规则为 (域名, 类型集合, 仅第三方, 路径前缀, 限定页面域名)。
+    受限规则 / 受限例外均为 (域名, 路径前缀, 类型集合, 否定类型集合,
+    仅第三方, 限定页面域名); 整域例外为域名集合。
     """
-    pure, paths, scoped, exc = set(), [], [], set()
+    pure, paths, scoped, exc, exc_scoped = set(), [], [], set(), []
     with open(path, encoding="utf-8", errors="replace") as f:
         for line in f:
             line = line.strip()
             if not line or line.startswith(("!", "[Adblock", "#")):
                 continue
             if line.startswith("@@"):
-                m = re.match(r"^@@\|\|([a-z0-9.-]+)\^(\$.*)?$", line, re.I)
-                if m:
-                    # 与 benchmark.py 同口径: 整域语义的修饰符 ($document /
-                    # $doc / $all / $important) 才算放行; 收窄修饰符不算。
-                    mods = {t.strip().lower()
-                            for t in (m.group(2) or "").lstrip("$").split(",")
-                            if t.strip()}
-                    if not mods or mods <= {"document", "doc", "all", "important"}:
-                        exc.add(m.group(1).lower())
+                m = re.match(r"^\|\|([a-z0-9.-]+)(.*)$", line[2:], re.I)
+                if not m:
+                    continue
+                host = m.group(1).lower()
+                pat, _, mods = m.group(2).partition("$")
+                if pat.startswith("^"):
+                    prefix = "/"
+                elif pat.startswith("/"):
+                    prefix = pat.rstrip("^|") or "/"
+                else:
+                    continue
+                keys = {t.split("=", 1)[0].lstrip("~")
+                        for t in mods.lower().split(",") if t.strip()}
+                if "badfilter" in keys:
+                    continue          # 被取消的例外不能当放行规则
+                # 纯元素隐藏 / 改写类例外 ($ghide、$csp、$cookie 等) 不影响
+                # 请求是否被拦, 跳过即可。
+                if keys and not (keys & REQUEST_MOD_KEYS):
+                    continue
+                types, not_types, third, domains = parse_modifiers(mods)
+                # 无修饰符或只有整域语义修饰符 → 整域放行; 其余按请求条件放行。
+                if prefix == "/" and (not keys or keys <= WHOLE_DOMAIN_EXC_MODS):
+                    exc.add(host)
+                else:
+                    exc_scoped.append((host, prefix, types, not_types,
+                                       third, domains))
                 continue
             if any(x in line.lower() for x in NO_BLOCK):
                 continue
             m = re.match(r"^\|\|([a-z0-9.-]+)\^(\$.*)$", line, re.I)
             if m and "." in m.group(1):
-                types, third, domains = parse_modifiers(m.group(2))
-                scoped.append((m.group(1).lower(), types, third, "/", domains))
+                types, not_types, third, domains = parse_modifiers(m.group(2))
+                scoped.append((m.group(1).lower(), "/", types, not_types,
+                               third, domains))
                 continue
             m = re.match(r"^\|\|([a-z0-9.-]+)\^$", line, re.I)
             if m and "." in m.group(1):
@@ -110,12 +146,12 @@ def load_blocklist(path):
             m = re.match(r"^\|\|([a-z0-9.-]+)(/[^$^]*)\^?(\$.*)?$", line, re.I)
             if m and "." in m.group(1):
                 host, prefix = m.group(1).lower(), m.group(2)
-                types, third, domains = parse_modifiers(m.group(3) or "")
-                if types or third is not None or domains:
-                    scoped.append((host, types, third, prefix, domains))
+                types, not_types, third, domains = parse_modifiers(m.group(3) or "")
+                if types or not_types or third is not None or domains:
+                    scoped.append((host, prefix, types, not_types, third, domains))
                 else:
                     paths.append((host, prefix))
-    return pure, paths, scoped, exc
+    return pure, paths, scoped, exc, exc_scoped
 
 
 def _site(host):
@@ -129,8 +165,11 @@ def _host_match(host, rule_host):
 
 
 def _scoped_hit(host, path, rule, resource_type, page_host):
-    rule_host, types, third, prefix, domains = rule
+    rule_host, prefix, types, not_types, third, domains = rule
     if not _host_match(host, rule_host) or not path.startswith(prefix):
+        return False
+    # 否定类型 (如 $~media) 表示该类型放行, 不参与拦截
+    if not_types and resource_type in not_types:
         return False
     if types is not None and resource_type not in types:
         return False
@@ -148,22 +187,27 @@ def _scoped_hit(host, path, rule, resource_type, page_host):
     return True
 
 
-def is_blocked(url, pure, paths, exc, scoped=(), resource_type=None, page_url=None):
+def is_blocked(url, pure, paths, exc, scoped=(), resource_type=None, page_url=None,
+               exc_scoped=()):
     u = urlparse(url)
     host = (u.hostname or "").lower()
     if not host:
         return False
+    path = u.path or "/"
+    page_host = (urlparse(page_url).hostname or "").lower() if page_url else ""
     parts = host.split(".")
     suffixes = [".".join(parts[i:]) for i in range(len(parts) - 1)]
     # 例外优先: 任一上级域在例外集中即放行, 与 merge_filters._excepted 一致
     if any(s in exc for s in suffixes):
         return False
+    # 路径例外与带类型/domain= 限定的例外同样优先于拦截
+    if any(_scoped_hit(host, path, rule, resource_type, page_host)
+           for rule in exc_scoped):
+        return False
     if any(s in pure for s in suffixes):
         return True
-    path = u.path or "/"
     if any(_host_match(host, h) and path.startswith(p) for h, p in paths):
         return True
-    page_host = (urlparse(page_url).hostname or "").lower() if page_url else ""
     return any(_scoped_hit(host, path, rule, resource_type, page_host)
                for rule in scoped)
 
@@ -280,7 +324,7 @@ def score_visible(selectors, visible):
 def run(html_path, all_path, config_path, out_path, shot_path=None, channel=None, url=None):
     from playwright.sync_api import sync_playwright
 
-    pure, paths, scoped, exc = load_blocklist(all_path)
+    pure, paths, scoped, exc, exc_scoped = load_blocklist(all_path)
     generic, cosmetic_scoped, cosmetic_exc = load_cosmetic(all_path, config_path)
     selectors = adblock_tester_selectors(config_path)
     stats = {"total_requests": 0, "blocked_requests": 0}
@@ -298,7 +342,7 @@ def run(html_path, all_path, config_path, out_path, shot_path=None, channel=None
                     r.continue_()
                     return
                 if is_blocked(r.request.url, pure, paths, exc, scoped,
-                              r.request.resource_type, page.url):
+                              r.request.resource_type, page.url, exc_scoped):
                     stats["blocked_requests"] += 1
                     r.abort()
                 else:
