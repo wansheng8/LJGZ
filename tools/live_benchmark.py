@@ -11,6 +11,7 @@ import json
 import os
 import re
 import sys
+from functools import lru_cache
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -164,9 +165,24 @@ def _host_match(host, rule_host):
     return host == rule_host or host.endswith("." + rule_host)
 
 
+@lru_cache(maxsize=20000)
+def _path_rx(prefix):
+    """把 Adblock 路径前缀编译为通配正则: `*` 匹配任意串, 其余字符按字面。
+
+    真实客户端的 `||host/path*` / `@@||host/path*` 都是通配匹配; 只用
+    `startswith` 会让星号被当成普通字符, 两类规则永远不命中。
+    尾部 `*` 等价于普通前缀 (`. *` 可匹配空串), 无需特殊处理。
+    """
+    return re.compile("^" + re.escape(prefix).replace(r"\*", ".*"))
+
+
+def _path_match(path, prefix):
+    return bool(_path_rx(prefix).match(path))
+
+
 def _scoped_hit(host, path, rule, resource_type, page_host):
     rule_host, prefix, types, not_types, third, domains = rule
-    if not _host_match(host, rule_host) or not path.startswith(prefix):
+    if not _host_match(host, rule_host) or not _path_match(path, prefix):
         return False
     # 否定类型 (如 $~media) 表示该类型放行, 不参与拦截
     if not_types and resource_type in not_types:
@@ -206,7 +222,7 @@ def is_blocked(url, pure, paths, exc, scoped=(), resource_type=None, page_url=No
         return False
     if any(s in pure for s in suffixes):
         return True
-    if any(_host_match(host, h) and path.startswith(p) for h, p in paths):
+    if any(_host_match(host, h) and _path_match(path, p) for h, p in paths):
         return True
     return any(_scoped_hit(host, path, rule, resource_type, page_host)
                for rule in scoped)

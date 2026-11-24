@@ -125,6 +125,34 @@ class TestRuleMatching(unittest.TestCase):
                                       pure, paths, exc, scoped, "script",
                                       "https://site.test/", exc_scoped))
 
+    def test_wildcard_path_exception_matches(self):
+        """`*` 是通配符: @@||host/allow/* 必须放行 /allow/ 下的任何路径。"""
+        with tempfile.TemporaryDirectory() as td:
+            p = os.path.join(td, "all.txt")
+            with open(p, "w", encoding="utf-8") as f:
+                f.write("||tracker.test^\n@@||tracker.test/allow/*$script\n")
+            pure, paths, scoped, exc, exc_scoped = lb.load_blocklist(p)
+        self.assertFalse(lb.is_blocked("https://tracker.test/allow/a.js",
+                                       pure, paths, exc, scoped, "script",
+                                       "https://site.test/", exc_scoped))
+        self.assertTrue(lb.is_blocked("https://tracker.test/other/a.js",
+                                      pure, paths, exc, scoped, "script",
+                                      "https://site.test/", exc_scoped))
+
+    def test_wildcard_path_block_rule_matches(self):
+        """`||host/img/*` 这类拦截规则同样要按通配命中, 不能退化成字面前缀。"""
+        with tempfile.TemporaryDirectory() as td:
+            p = os.path.join(td, "all.txt")
+            with open(p, "w", encoding="utf-8") as f:
+                f.write("||img.test/img/*$image\n")
+            pure, paths, scoped, exc, exc_scoped = lb.load_blocklist(p)
+        self.assertTrue(lb.is_blocked("https://img.test/img/a.png", pure, paths,
+                                      exc, scoped, "image", "https://site.test/",
+                                      exc_scoped))
+        self.assertFalse(lb.is_blocked("https://img.test/other/a.png", pure, paths,
+                                       exc, scoped, "image", "https://site.test/",
+                                       exc_scoped))
+
     def test_domain_scoped_exception_respects_page(self):
         with tempfile.TemporaryDirectory() as td:
             p = os.path.join(td, "all.txt")
