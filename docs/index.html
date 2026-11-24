@@ -87,13 +87,11 @@ const P = [
  {i:'🧩', n:'浏览器扩展', a:'uBlock Origin · AdGuard · Adblock Plus', f:'all.txt',
   d:'网络规则 + 元素隐藏 + 脚本注入 + 例外，全格式订阅（完整规则）。',
   u:[['⭐ 首选 完整版', PAGES+'all.txt'],
-     ['分卷 1/2', PAGES+'all-part-01.txt'],
-     ['分卷 2/2', PAGES+'all-part-02.txt'],
      ['CDN · statically', 'https://cdn.statically.io/gh/wansheng8/LJGZ/main/output/all.txt'],
      ['CDN · githack', 'https://raw.githack.com/wansheng8/LJGZ/main/output/all.txt'],
      ['CDN · ghproxy', 'https://ghproxy.net/https://raw.githubusercontent.com/wansheng8/LJGZ/main/output/all.txt'],
      ['备用', RAW+'all.txt']],
-  t:'⭐ 首选 GitHub Pages 直出（约 32MB 全量规则）。网络受限时用三个 CDN 单文件镜像，均已实测返回真实规则内容；jsDelivr 单文件超出 20MB 上限不可用，18MB 分卷也实测会返回 Failed to fetch。客户端限制单文件大小时，加下面两张 Pages 分卷，必须两卷一起订阅，缺一会少一半规则。'},
+  t:'⭐ 首选 GitHub Pages 直出（约 32MB 全量规则）。网络受限时用三个 CDN 单文件镜像，均已实测返回真实规则内容；jsDelivr 单文件超出 20MB 上限不可用，18MB 分卷也实测会返回 Failed to fetch。客户端限制单文件大小时，把下面列出的 Pages 分卷全部一起订阅，缺一卷会少一部分规则（分卷数随规则量变化，以本页列出的为准）。'},
  {i:'🏠', n:'AdGuard Home', a:'AdGuard Home · AdGuard DNS · 私人 DNS', f:'adguard.txt',
   d:'子域折叠后的 DNS 拦截规则 + $dnstype / $denyallow 等 DNS 修饰符规则 + DNS 白名单。',
   u:[['CDN 备选', CDN+'adguard.txt'], ['最短', PAGES+'adguard.txt'], ['备用', RAW+'adguard.txt']],
@@ -126,6 +124,22 @@ for (const p of P) {
     `<div class="tip">${p.d}<br>📌 ${p.t}</div>`;
   grid.appendChild(c);
 }
+// 分卷数随 all.txt 体积动态变化, 由 stats.json 的 all_parts 渲染,
+// 不在页面里写死卷数 (否则出现第 3 卷时订阅者会漏规则)。
+const extUrls = grid.querySelector('.url');
+function renderParts(parts) {
+  if (!extUrls || !Array.isArray(parts)) return;
+  extUrls.querySelectorAll('.part-row').forEach(n => n.remove());
+  const ref = extUrls.children[1] || null;   // 插在“首选完整版”之后、CDN 之前
+  parts.forEach((name, i) => {
+    const d = document.createElement('div');
+    d.className = 'row part-row';
+    d.innerHTML = `<span class="tag alt">分卷 ${i + 1}/${parts.length}</span>` +
+      `<span class="addr">${PAGES + name}</span>` +
+      `<button data-u="${PAGES + name}">复制</button>`;
+    extUrls.insertBefore(d, ref);
+  });
+}
 grid.addEventListener('click', async e => {
   const b = e.target.closest('button'); if (!b) return;
   let ok = false;
@@ -146,6 +160,7 @@ fetch('stats.json').then(r => {
   return r.json();
 }).then(s => {
   const el = document.getElementById('stats'); el.hidden = false;
+  renderParts(s.all_parts);
   const f = n => n >= 10000 ? (n / 10000).toFixed(1) + '万' : String(n);
   const total = (s.domains_unique || 0) + (s.network_unique || 0) +
                  (s.cosmetic_unique || 0) + (s.exceptions_unique || 0);

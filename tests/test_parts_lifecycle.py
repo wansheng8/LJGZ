@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """分卷生命周期测试: 规则数减少时旧分卷必须被清理, 不能残留。"""
+import json
 import os
 import sys
 import tempfile
@@ -55,6 +56,26 @@ class TestPartLifecycle(unittest.TestCase):
                 second = f.read()
             self.assertNotEqual(first, second, "分卷未随新数据重写")
             self.assertIn("! Title: t2", second)
+
+    def test_stats_lists_generated_parts(self):
+        """stats.json 必须列出实际生成的分卷, 供订阅页动态渲染。"""
+        with tempfile.TemporaryDirectory() as td:
+            mf.write_outputs(_result(300), td, title="t", now="x",
+                             max_part_bytes=2000)
+            files = sorted(f for f in os.listdir(td) if f.startswith("all-part-"))
+            self.assertGreaterEqual(len(files), 2)
+            with open(os.path.join(td, "stats.json"), encoding="utf-8") as f:
+                stats = json.load(f)
+            self.assertEqual(files, sorted(stats["all_parts"]))
+
+    def test_stats_parts_empty_without_split(self):
+        """不切卷时 all_parts 为空, 订阅页不应列出分卷。"""
+        with tempfile.TemporaryDirectory() as td:
+            mf.write_outputs(_result(10), td, title="t", now="x",
+                             max_part_bytes=10_000_000)
+            with open(os.path.join(td, "stats.json"), encoding="utf-8") as f:
+                stats = json.load(f)
+            self.assertEqual([], stats["all_parts"])
 
 
 if __name__ == "__main__":

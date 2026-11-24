@@ -71,6 +71,19 @@ class SubscriptionLinksTest(unittest.TestCase):
                     int(claim), actual,
                     "%s 声称 %s 项测试, 实际 %d 项" % (name, claim, actual))
 
+    def test_index_renders_parts_from_stats(self):
+        """分卷数随体积变化: 订阅页必须从 stats.json 渲染, 不能写死文件名。"""
+        self.assertNotIn("all-part-", self.index,
+                         "订阅页不得硬编码分卷文件名, 应由 stats.json 的 all_parts 动态渲染")
+        self.assertIn("all_parts", self.index,
+                      "订阅页缺少 all_parts 渲染逻辑")
+
+    def test_readme_does_not_claim_fixed_part_count(self):
+        """README 不得把分卷数写成固定值 (出现第 3 卷时会漏规则)。"""
+        for bad in ("两卷一起加", "两卷一起订阅", "必须两卷", "两卷会少一半"):
+            self.assertNotIn(bad, self.readme,
+                             "README 把分卷数写死了: %r" % bad)
+
     def test_every_output_has_a_pages_url(self):
         """每个产物都必须有 Pages 直出地址 —— 唯一可靠的首选链路。"""
         names = re.findall(r"\| (?:🧩|🏠|🕳|📃|✅) \*\*[^*]+\*\*", self.readme)

@@ -1516,12 +1516,14 @@ def write_outputs(res: MergeResult, outdir: str, *, title: str,
            _header_lines(title, now, n_all, "全格式", abp=True) + all_body)
 
     # CDN 分卷 (jsDelivr 单文件 <20MB)
+    all_parts: List[str] = []
     all_path_size = os.path.getsize(paths["all"])
     if all_path_size > max_part_bytes:
         chunks = _chunk_by_bytes(all_body, max_bytes=max_part_bytes - 4096)
         for ix, chunk in enumerate(chunks, 1):
             key = f"all-part-{ix:02d}"
             paths[key] = os.path.join(outdir, key + ".txt")
+            all_parts.append(key + ".txt")
             _write(paths[key],
                    _header_lines(title, now, len(chunk),
                                  f"全格式 分卷 {ix}/{len(chunks)}", abp=True)
@@ -1551,6 +1553,8 @@ def write_outputs(res: MergeResult, outdir: str, *, title: str,
 
     paths["stats"] = os.path.join(outdir, "stats.json")
     import json as _json
+    # 分卷文件名随体积动态变化; 订阅页据此渲染分卷条目, 避免把卷数写死。
+    res.stats["all_parts"] = all_parts
     with open(paths["stats"], "w", encoding="utf-8", newline="\n") as f:
         _json.dump(res.stats, f, ensure_ascii=False, indent=2, sort_keys=True)
 
