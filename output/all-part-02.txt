@@ -3,352 +3,11 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-11-25 15:37:34 +0800
-! Last Modified: 2026-11-25 15:37:34 +0800 (北京时间 UTC+8)
+! Version: 2026-11-26 04:48:52 +0800
+! Last Modified: 2026-11-26 04:48:52 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 378744
+! Rules: 378421
 
-email.info.wecleantoperfection.com$image
-email.info.weddingvendorsystems.com$image
-email.info.wedlabs.io$image
-email.info.wedoai.io$image
-email.info.weekenderhotels.com$image
-email.info.weeklydebtplan.com$image
-email.info.weepingwillowminisllc.com$image
-email.info.wegi.co.uk$image
-email.info.weightlosswithdetox.com$image
-email.info.welding-alloys.com$image
-email.info.welfaretogether.co.uk$image
-email.info.welhat.gov.uk$image
-email.info.welkinhvac.com$image
-email.info.welkinwellnesscoaching.com$image
-email.info.wellbeingmoments.com$image
-email.info.wellcraft.com$image
-email.info.wellgrow.io$image
-email.info.wellnesscontinuum.com$image
-email.info.wellnessvictory.com$image
-email.info.wellnesswakeupwhitefish.com$image
-email.info.wellnesswineandwealth.com$image
-email.info.wellspringwellnessretreats.com$image
-email.info.welovebabywearing.com$image
-email.info.welstays.in$image
-email.info.wendycaunce.com$image
-email.info.wendycotterellcoaching.com$image
-email.info.wendyhills.com$image
-email.info.werkspot.com$image
-email.info.werkspot.nl$image
-email.info.weroammoto.com$image
-email.info.weservelabs.com$image
-email.info.wespray.com.au$image
-email.info.westbocatint.com$image
-email.info.westcaplending.org$image
-email.info.westchestercds.org$image
-email.info.westerngirlie.com$image
-email.info.westernhighwaystrafficsafety.com$image
-email.info.westerntimberstructures.com$image
-email.info.westervillekickboxing.com$image
-email.info.westmedia.uk$image
-email.info.westminster.gov.uk$image
-email.info.westtexasren.com$image
-email.info.wethrivehr.org$image
-email.info.wetlandirrigation.com$image
-email.info.weyond.fr$image
-email.info.whagency.site$image
-email.info.whallsgroup.com$image
-email.info.whatcomroofing.com$image
-email.info.whatisfxsocial.com$image
-email.info.wheelbarrowprofits.com$image
-email.info.wheelieworx.com$image
-email.info.wheelrepairxpress.com$image
-email.info.whenigrowup-career.com$image
-email.info.whetzelhomes.com$image
-email.info.whg-tec.de$image
-email.info.whimsywanderhq.com$image
-email.info.whippsenforcement.co.uk$image
-email.info.whitecapllc.net$image
-email.info.whitelabeltracking.com$image
-email.info.whitelightoracle.shop$image
-email.info.whitelighttherapies.com$image
-email.info.whitemountaintrucking.com$image
-email.info.whitesmufflerandbrake.com$image
-email.info.whitmanonwheels.com$image
-email.info.whizwiseeducation.com$image
-email.info.wholedentaldesign.com$image
-email.info.wholehealthdesmoines.com$image
-email.info.wholelifewealthcreator.com$image
-email.info.wholesalemortgages.net$image
-email.info.wholisticlife.co$image
-email.info.wibly.co$image
-email.info.wichitacheapskate.com$image
-email.info.wickedlyhappywidow.com$image
-email.info.wickedwash.net$image
-email.info.wickedwraps.net$image
-email.info.wickensmarketing.co.uk$image
-email.info.widocm.com$image
-email.info.wifimoney.ai$image
-email.info.wikicasa.it$image
-email.info.wikimasz.pl$image
-email.info.wildandfreejourneys.co$image
-email.info.wildboarlandworks.com$image
-email.info.wildernesswaves.co.uk$image
-email.info.wildernlight.com$image
-email.info.wildflowergrowthco.com$image
-email.info.wildflowerremodel.com$image
-email.info.wildhoneybox.com$image
-email.info.wildkinheart.com$image
-email.info.wildrosestrategic.com.au$image
-email.info.wildstone.in$image
-email.info.wildwesttradingcompany.com$image
-email.info.willfrantz.com$image
-email.info.williamsestatelaw.com$image
-email.info.willowbarnestate.com$image
-email.info.willowlakesheds.com$image
-email.info.willowlife.co.uk$image
-email.info.willstreescolorado.com$image
-email.info.wilmajeanaguirre.com$image
-email.info.wilsonfanfinancial.com$image
-email.info.windy.law$image
-email.info.windycityfinancial.com$image
-email.info.wingmansuite.com$image
-email.info.winmachance.com$image
-email.info.winnebagoind.com$image
-email.info.winnersclub.hu$image
-email.info.winnielau.com$image
-email.info.winningassistants.com$image
-email.info.winrealtypartners.com$image
-email.info.winwithjerry.com$image
-email.info.wisemedrx.com$image
-email.info.wisetrackcrm.com$image
-email.info.wishinsurance.com$image
-email.info.wishywasheeconcierge.com$image
-email.info.wismickewealth.com$image
-email.info.with-calm.com$image
-email.info.withbelvedere.com$image
-email.info.withdanastenson.com$image
-email.info.withlizchandler.com$image
-email.info.withmercedesmacias.com$image
-email.info.withrevlyn.com$image
-email.info.withsadiesmith.com$image
-email.info.withwifiandlove.com$image
-email.info.witwisdomandwealth.com$image
-email.info.wizehomessolutions.com$image
-email.info.wizenet.io$image
-email.info.wizwealth.com.au$image
-email.info.wlvrnscty.com$image
-email.info.wmconstructionctllc.com$image
-email.info.wolskamoda.pl$image
-email.info.wolvespackmovers.com$image
-email.info.womanwho.com$image
-email.info.womensgolflounge.co.uk$image
-email.info.wonderful-blessing.com$image
-email.info.wondermentlearning.com$image
-email.info.wongchuiling.com$image
-email.info.woodgate.com$image
-email.info.woodyarddental.com$image
-email.info.worcester.gov.uk$image
-email.info.workbridgelink.com$image
-email.info.workforcecareers.com$image
-email.info.workmanship.co$image
-email.info.worknature.es$image
-email.info.worksitewebs.com$image
-email.info.worksmarterwithai.uk$image
-email.info.workwisemarketing.com$image
-email.info.workzpace.com$image
-email.info.worldcompassion.tv$image
-email.info.worldcupexperienceevents.com$image
-email.info.worldfidelitylife.org$image
-email.info.worldviewinstitute.net$image
-email.info.worthcareers.com.au$image
-email.info.wovenlightchiropracticco.com$image
-email.info.wowyourway.com$image
-email.info.wpcfencing.com$image
-email.info.writebeats.com$image
-email.info.wrldsfunding.com$image
-email.info.wsw.network$image
-email.info.wundermedia.ca$image
-email.info.www.recurringincomeplaybook.com$image
-email.info.wwwkatherin25.com$image
-email.info.wychavon.gov.uk$image
-email.info.wycoffconstructionllc.com$image
-email.info.wynharper.com$image
-email.info.wynnlifemanagement.com$image
-email.info.xbodygreece.gr$image
-email.info.xbotmedia.com$image
-email.info.xcalecards.com$image
-email.info.xceler8paddles.com$image
-email.info.xcelerategrowthmarketing.com$image
-email.info.xcelleratedloans.com.au$image
-email.info.xgilham.com$image
-email.info.xgrowthagencia.com$image
-email.info.xiaclub.org$image
-email.info.xiomaraleiva.com$image
-email.info.xlinteractive.com$image
-email.info.xlwithus.com$image
-email.info.xortlogix.com$image
-email.info.xosialx.health$image
-email.info.xoxo.lt$image
-email.info.xponentmarketing.com$image
-email.info.xrcryoiso.com$image
-email.info.xrcryoplunge.com$image
-email.info.xtendelements.co.za$image
-email.info.xterrahealth.com$image
-email.info.xuavageloveofficial.com$image
-email.info.xvidajewelry.com$image
-email.info.yaldi.ae$image
-email.info.yanovis.com$image
-email.info.yansymedia.com$image
-email.info.yardhyperadio.com$image
-email.info.yasmeenalhumood.com$image
-email.info.yaxso.com$image
-email.info.ycc-algerie.com$image
-email.info.ydacruz.com$image
-email.info.yegbeautyloft.ca$image
-email.info.yegrealestateservices.ca$image
-email.info.yegstrategies.com$image
-email.info.yesempire.com.my$image
-email.info.yesluck.com$image
-email.info.yesnonprofit.org$image
-email.info.yesreputation.com$image
-email.info.yeswardcoaching.com$image
-email.info.yfmnbyf.com$image
-email.info.yinkafinancial.org$image
-email.info.yoelsardinasclasegratuita.com$image
-email.info.yogainfinito.com$image
-email.info.yogawithjaina.com$image
-email.info.yoloteam.net$image
-email.info.yorkpubvallarta.com$image
-email.info.youareccomends.com$image
-email.info.youareunstoppable.co.uk$image
-email.info.youmatterpsychology.co.uk$image
-email.info.young4life.co$image
-email.info.youngfields.com.mx$image
-email.info.younginspections.com$image
-email.info.younglifetulsa.com$image
-email.info.younglionsva.com$image
-email.info.youngvfm.com$image
-email.info.your-claim.com$image
-email.info.yourbeautyconcierge.com$image
-email.info.yourbestiesinbusiness.com$image
-email.info.yourbusinessdoneright.com$image
-email.info.yourbusinesswizard.com$image
-email.info.yourchicagolawyer.com$image
-email.info.yourconsciouscleaners.net$image
-email.info.yourehome.io$image
-email.info.yourevs.ca$image
-email.info.yourflexiblecoverage.com$image
-email.info.yourhomeadvocate.org$image
-email.info.yourinneralignment.com$image
-email.info.yourjoyismygift.com$image
-email.info.yourlegacyearnings.com$image
-email.info.yourlenderrichard.com$image
-email.info.yourmarketinghub.io$image
-email.info.yourmomentumspark.com$image
-email.info.yournextlevelstay.com$image
-email.info.youropportunityknox.com$image
-email.info.yourpowersuite.com$image
-email.info.yourprofessionalorganiser.co.uk$image
-email.info.yourquoteteam.com$image
-email.info.yourrealpartner.com$image
-email.info.yoursilentlaunch.com$image
-email.info.yoursolutiontaxpro.com$image
-email.info.yourstonehaven.com$image
-email.info.yourswissdoctor.com$image
-email.info.yourtripbuilders.com$image
-email.info.yourtrustedconsultinggroup.com$image
-email.info.yourvibrantchurch.com$image
-email.info.yourvisioncatalyst.com$image
-email.info.yourvitamins.store$image
-email.info.yourwealthredesign.com$image
-email.info.yourworkbenefit.com$image
-email.info.yuditmanzanobroker.com$image
-email.info.yukonwoodproducts.org$image
-email.info.yurvyonline.com$image
-email.info.yvonnelorraine.org$image
-email.info.zaai.me$image
-email.info.zaazpi.com$image
-email.info.zacan.ro$image
-email.info.zachthinkshare.com$image
-email.info.zactrainingsystems.com$image
-email.info.zadacorp.ca$image
-email.info.zadistro.com$image
-email.info.zaduchod.cz$image
-email.info.zaelos.com$image
-email.info.zahloria.org$image
-email.info.zamnamed.com$image
-email.info.zamtechnology.com$image
-email.info.zanderfryer.com$image
-email.info.zang-group.com$image
-email.info.zantena.com$image
-email.info.zaragozamicufinancials.com$image
-email.info.zarrachi.com$image
-email.info.zavqio.net$image
-email.info.zazabars.com$image
-email.info.zegacy.com$image
-email.info.zelenabaterka.cz$image
-email.info.zeluxeautodetailing.com.au$image
-email.info.zemaltea.com$image
-email.info.zendoxies.com$image
-email.info.zenhotels.com$image
-email.info.zenithprivatelending.com$image
-email.info.zenithwellness-sd.com$image
-email.info.zenniqacademy.com$image
-email.info.zenretreatspk.com$image
-email.info.zenrixa.com$image
-email.info.zentraly.app$image
-email.info.zenviodigital.com$image
-email.info.zerodoubtclub.com$image
-email.info.zetmore.com$image
-email.info.zeusspro.com$image
-email.info.zewsdemo.com$image
-email.info.zigzag.dog$image
-email.info.zincfit.com$image
-email.info.zinniawealth.com$image
-email.info.zionpropertypartners.com$image
-email.info.ziplineautomation.com$image
-email.info.zippydigitalsidehustlers.com$image
-email.info.zizielang.com$image
-email.info.zlskinhealth.com$image
-email.info.zoardjg.com$image
-email.info.zoe-agent.com$image
-email.info.zoechling-gmbh.at$image
-email.info.zoel11.com$image
-email.info.zofirabutik.pl$image
-email.info.zognition.com$image
-email.info.zonarestorationaz.com$image
-email.info.zonbase.com$image
-email.info.zorward.com$image
-email.info.zpemail.net$image
-email.info.zrolimitshealthwealth.com$image
-email.info.ztxranch.com$image
-email.info.zualea.com$image
-email.info.zubardubar.es$image
-email.info.zuclan.com$image
-email.info.zumeai.com$image
-email.info.zumturm.com$image
-email.info.zvwcoaching.com$image
-email.info.zygology.com$image
-email.info.zynkpro.com.br$image
-email.info.zynture.com$image
-email.info.zystems.io$image
-email.info.zzinco.co$image
-email.info.zzlevelai.com$image
-email.info1.hoperadvocates.org$image
-email.info1.illinoiscosmetology.com$image
-email.info1.powerhouse-solutions.net$image
-email.info1.pro-systems.ai$image
-email.info1.vancouvergranite.net$image
-email.info17.advisorwebsitesqa.com$image
-email.info17.uniforms-world.com$image
-email.info2.freedomwithai.com$image
-email.info2.issa-assaf.com$image
-email.info2.playpower.com$image
-email.info2.purevista.app$image
-email.info2.qcmvmarketing.com$image
-email.info2.searchatlas.com$image
-email.info2.seawolfreachout.com$image
-email.info2.smretirementsolutions.com$image
-email.info2.twpethotel.com$image
-email.info2.watchfiremusic.com$image
 email.info21c.net$image
 email.info2health.net$image
 email.info3.hoperadvocates.org$image
@@ -193114,9 +192773,11 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||ashemaletube.*/ast/b/$frame
 ||ashemaletube.com/api/tiles
 ||ashemaletube.com/ast/b/
+||ashemaletube.com/ast/bbb/
 ||ashemaletube.com/ast/paysite
 ||ashemaletube.com/ast/www/*.js?url=*ashemaletube.com/out/
 ||ashemaletube.com/banner-iframe^
+||ashemaletube.com/o7x/$popup
 ||ashemaletv.com/includes/shem/*/ntva-z.php
 ||ashleyfurniture.com/ouqLB4fq/init.js
 ||ashoupsu.com^$popup
@@ -194958,6 +194619,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||boyfriendtv.com/bftv/bb/
 ||boyfriendtv.com/bftv/bb/$subdocument
 ||boyfriendtv.com/bftv/bbb/img/
+||boyfriendtv.com/bftv/bgg/
 ||boyfriendtv.com/bftv/paysite/
 ||boyfriendtv.com/bftv/www/js/*.min.js?url=
 ||boyfriendtv.com/link/out/b/
@@ -204293,6 +203955,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||html-load.com^$script,xmlhttprequest,domain=gamesider.com|harpersbazaar.fr|uppercutmma.com|techbook-magazine.com|travelbook-magazine.com|femmeactuelle.fr
 ||html-load.com^$script,xmlhttprequest,domain=toptenreviews.com|guitarplayer.com|goodto.com|techlearning.com|shortlist.com|realhomes.com|nexttv.com|musicradar.com|gardeningknowhow.com|countrylife.co.uk|tomsguide.com|fourfourtwo.com|musicradar.com|gardeningknowhow.com|techradar.com|gamesradar.com|livescience.com|windowscentral.com|pcgamer.com|tomshardware.com
 ||html-online.com/like.html
+||html5.gamedistribution.com/*/gameanalytics.js
 ||html5.gamedistribution.com^$removeparam=mini_signature
 ||html5.gamedistribution.com^$removeparam=mp_api_as3_url
 ||html5.gamedistribution.com^$removeparam=mp_api_as3_url_bck
@@ -204626,7 +204289,6 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||id.rambler.ru/api/v3/session/getRsidx
 ||id.rambler.ru/login-20/counters.js
 ||id.verticalhealth.net/script.js?partnerid=
-||id5-tech.io^^
 ||idcdn.de/static/common/js/build/modules/*/id.clickTr.js$domain=tz.de
 ||idcdn.de/static/common/js/build/modules/*/id.elAcViewTr.js$domain=tz.de
 ||idcdn.de/static/common/js/build/modules/*/id.emqTr.js$domain=tz.de
@@ -206494,6 +206156,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||jsdelivr.net/gh/fzdm/st*/js/fzwap-
 ||jsdelivr.net/gh/huang545/huang1111@1.0/bottom.png
 ||jsdelivr.net/gh/pizcat/static@master/goods_ad.js
+||jsdelivr.net/gh/prebid/
 ||jsdelivr.net/gh/qxomer/reklam@master/reklam.js
 ||jsdelivr.net/gh/sensitiveio/sbtracker@master/
 ||jsdelivr.net/gh/sex169hub/
@@ -213762,6 +213425,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||px.moatads.com/pixel.gif$image,domain=abcya.com,redirect=1x1.gif
 ||pxchk.net/b/s
 ||pxl-*.ozone.ru^
+||pxl-us.
 ||pxp.*/sp/$subdocument
 ||pxp.news/2.js
 ||pxp.news/spnbf.js
@@ -215278,7 +214942,6 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||s3.glbimg.com/cdn/libs/element-tracker/*/element-tracker.min.js$domain=globo.com
 ||s3.us-east-2.amazonaws.com/telemetry.bydata/
 ||s3a.pstatp.com/toutiao/push.js
-||s3blog.org^$3p
 ||s3g6.com^$popup
 ||s3media.247sports.com/Scripts/Bundle/*/videoPlayer.js^$script,1p,replace=/;if\(!\([a-z]+\|\|\(null===[^{]+/;if(false)/
 ||s3wfg.com/js/vortexloader.js
@@ -222852,6 +222515,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||xgo.com.cn/pv.js
 ||xgp.pl/wp-content/themes/asona-child-theme/scripts/ga-script.js
 ||xgp.pl/wp-content/uploads/*/*/hdrbnr-$image
+||xgram.asia^$doc
 ||xgroovy.com/*pop/|
 ||xgroovy.com/65
 ||xgroovy.com/bid?
@@ -262479,6 +262143,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ##.spectrum-cookie-policy-banner
 ##.spex-cookieConsent
 ##.spicy-consent-wrapper
+##.spil-internal-fallback
 ##.spinAdvert
 ##.spk-cookie-banner-wrap
 ##.spkcookie
@@ -275019,9 +274684,13 @@ ashemaletube.com#$##site-wrapper { padding-top: 0!important; }
 ashemaletube.com#%#//scriptlet('remove-attr', 'style', '#b-site-wrapper')
 ashemaletube.com#%#//scriptlet('remove-node-text', 'script', 'popunder')
 ashemaletube.com#?#.js-toggle-content-wrapper:has(> div.no-popup > span:contains(/Chat with LIVE models|Chatten Sie mit LIVE-Modellen|Chatea con modelos EN VIVO|Общайтесь с LIVE моделями/))
+ashemaletube.com,boyfriendtv.com#?#head > style:-abp-contains(page-shell) {remove:true;}
 ashemaletube.com,boyfriendtv.com,fetishpapa.com##.grid:has(a[href*="faphouse.com"])
 ashemaletube.com,boyfriendtv.com,fetishpapa.com##.right-rail-block
 ashemaletube.com,boyfriendtv.com,fetishpapa.com##a[href*="faphouse.com"]
+ashemaletube.com,boyfriendtv.com,fetishpapa.com,pornoxo.com##.grid:has(a[href*="faphouse.com"])
+ashemaletube.com,boyfriendtv.com,fetishpapa.com,pornoxo.com##.right-rail-block
+ashemaletube.com,boyfriendtv.com,fetishpapa.com,pornoxo.com##a[href*="faphouse.com"]
 ashemaletube.com,pornoxo.com,fetishpapa.com##.video-extra-overlay
 ashemaletv.com##.video__title-wrapper
 asherfergusson.com##.mashfs-popup-share
@@ -287679,7 +287348,6 @@ cztv.com##.drop_down_ad
 cztv.com##.right_box
 cztv.com##.vivo
 cztv.com##div[class^="banner_"]
-czzbgnw.com,allpornstream.com#%#//scriptlet('prevent-window-open')
 czzy.top,czzy77.com#?#.swiper-slide:-abp-has(a[href^="http"]:not([href*="czzy"]))
 czzy.top,czzy77.com#?#.swiper-slide:has(a[href^="http"]:not([href*="czzy"]))
 czzy01.com#?#.swiper-wrapper > div.swiper-slide:has(> a[href^="https://"])
@@ -295353,7 +295021,7 @@ facebook.com,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion##div
 facebook.com,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion##div[role="region"] + div[role="main"] div[role="article"] div[style="border-radius: max(0px, min(8px, ((100vw - 4px) - 100%) * 9999)) / 8px;"] > div[class]:not([class*=" "])
 facebook.com,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion##div[style="max-width: 390px; min-width: 190px;"]:has(a[href^="/ads/"])
 facebook.com,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion##strong > a[href*="facebook.com"][href*="/shop/?ref"]:not([href*="l.php"])
-facebook.com,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion#%#(()=>{const e="SPONSORED",t="SponsoredData",r="AdsSideFeedUnit",n=["sponsored_data","th_dat_spo","qrz_ctx_seg","pso_tad_rens"],o="MarketplaceFeedAdStory",a=new WeakMap,i=[e,t,r,...n],s=[t,o,...n],p=window.String.prototype.split,l=window.String.prototype.trim,d=new WeakMap,c=new WeakMap,y=new WeakSet,f=(e,t,r=Proxy)=>{const n=c.get(e)??Reflect.apply(window.Function.prototype.toString,e,[]),o=new r(e,t);return d.set(o,d.get(e)??e),c.set(o,n),o},w=(e,t)=>e?.length>300&&t.some(t=>e?.includes?.(t)),u=e=>w(e,i),h=e=>Boolean(e?.startsWith?.("{")&&e?.endsWith?.("}")||e?.startsWith?.("[")&&e?.endsWith?.("]")),g=e=>h(e)&&u(e),_=e=>{try{e.JSON.parse=f(e.JSON.parse,J,e.Proxy),e.String.prototype.split=f(e.String.prototype.split,V,e.Proxy),e.String=f(e.String,Y,e.Proxy),e.String.prototype.constructor=e.String,e.Function.prototype.call=f(e.Function.prototype.call,ce,e.Proxy),e.Function.prototype.toString=f(e.Function.prototype.toString,fe,e.Proxy)}catch(e){}},m=e=>Boolean(e instanceof HTMLIFrameElement&&(""===e.src||e?.src?.startsWith("about:blank"))&&e.contentWindow),S=new Set(["append","prepend","before","after","insertNode","replaceWith","replaceChild","replaceChildren"]),{apply:b}={apply(e,t,r){const n=Reflect.apply(e,t,r);try{m(n)?_(n.contentWindow):S.has(e.name)&&r.forEach(e=>{m(e)&&_(e.contentWindow)})}catch(e){}return n}},x={apply:b};window.Node.prototype.appendChild=f(window.Node.prototype.appendChild,x),window.Node.prototype.insertBefore=f(window.Node.prototype.insertBefore,x),window.Node.prototype.replaceChild=f(window.Node.prototype.replaceChild,x),window.Element.prototype.append=f(window.Element.prototype.append,x),window.Element.prototype.prepend=f(window.Element.prototype.prepend,x),window.Element.prototype.replaceChildren=f(window.Element.prototype.replaceChildren,x),window.Element.prototype.replaceWith=f(window.Element.prototype.replaceWith,x),window.Element.prototype.before=f(window.Element.prototype.before,x),window.Element.prototype.after=f(window.Element.prototype.after,x),window.Element.prototype.insertAdjacentElement=f(window.Element.prototype.insertAdjacentElement,x),window.Range.prototype.insertNode=f(window.Range.prototype.insertNode,x),window.CharacterData.prototype.replaceWith=f(window.CharacterData.prototype.replaceWith,x);const A=["item_collection","ads"],E=["auxColumnUnits","sdieFede","sideFeed"],v=e=>Boolean(e)&&(Object.values(e).some(e=>e?.__typename===t)||n.some(t=>{const r=e[t];return r&&"object"==typeof r&&!Array.isArray(r)&&[r.ad_id,r.lbl_adv_iden].some(e=>"string"==typeof e&&e.length>0)})),O=(e,t)=>{if(!e||"object"!=typeof e||Array.isArray(e))return!1;const r=Object.keys(e);return r.length===t.length&&t.every(e=>r.includes(e))},N=e=>O(e,["node"])&&O(e.node,["s"])&&O(e.node.s,["__typename"])&&e.node.s.__typename===t,B=new Set(["h4","r2","b3","d2","x5","g8"]),j=["p","z9","k4","w7","q8","n3","v6","j5","t8","m6",...B],k=e=>{const t=Array.isArray(e)&&1===e.length?e[0]:e;if(!t||"object"!=typeof t||Array.isArray(t))return!1;const r=j.find(e=>"string"==typeof t[e]);if(void 0===r)return!1;const n=["data","edges","require",r];if(Object.hasOwn(t,"extensions")){if(!(O(t.extensions,[])||O(t.extensions,["is_final"])&&!0===t.extensions.is_final))return!1;n.push("extensions")}if(Object.hasOwn(t,"__bbox")){if(!(B.has(r)&&O(t.extensions,["is_final"])&&!0===t.extensions.is_final&&(o=t.__bbox,O(o,["result"])&&O(o.result,["data"])&&O(o.result.data,["node"])&&O(o.result.data.node,["s","th_dat_spo"])&&O(o.result.data.node.s,["__typename"])&&"CometStorySponsoredLabelStrategy"===o.result.data.node.s.__typename&&O(o.result.data.node.th_dat_spo,["s"])&&1===o.result.data.node.th_dat_spo.s)))return!1;n.push("__bbox")}var o;return O(t,n)&&N(t.data)&&Array.isArray(t.edges)&&1===t.edges.length&&N(t.edges[0])&&Array.isArray(t.require)&&1===t.require.length&&N(t.require[0])},P=(e,t,n,o)=>{if(!e||"object"!=typeof e||n<0)return!1;let a=!1;if(Array.isArray(e.nodes)){const t=e.nodes.filter(e=>!(e=>e?.__typename===r||A.some(t=>{const r=e?.[t]?.nodes;return Array.isArray(r)&&r.some(e=>e?.sponsored_data?.ad_id)}))(e));e.nodes.length-t.length>0&&(e.nodes=t,a=!0)}return Object.entries(e).forEach(([e,r])=>{a=P(r,`${t}.${e}`,n-1,o)||a}),a},W=(e,t=10)=>{const r=e?.data?.viewer,n=r??e?.[3]?.[1]?.__bbox?.result?.data?.viewer;if(!n)return!1;return P(n,r?"data.viewer":"item[3][1].__bbox.result.data.viewer",t,e)},F=(t,r=10,n=new WeakMap)=>{if(!t||"object"!=typeof t||r<0)return!1;const o=n.get(t);if(void 0!==o&&o>=r)return!1;if(n.set(t,r),k(t))return!1;let a=((t,r)=>{if(!t||"object"!=typeof t)return!1;let n=!1;try{if(r){if(Array.isArray(t.require?.[0]?.[3]?.[0]?.__bbox?.require)&&t.require[0][3][0].__bbox.require.forEach(t=>{t[3]?.[1]?.__bbox?.result?.data?.category===e&&(delete t[3][1].__bbox.result.data.node,n=!0),v(t[3]?.[1]?.__bbox?.result?.data?.node)&&(delete t[3][1].__bbox.result.data.node,n=!0),n=W(t)||n}),E.some(e=>Array.isArray(t.data?.viewer?.[e]?.nodes))&&(n=W(t)||n),Array.isArray(t.data?.viewer?.news_feed?.edges)){const r=t.data.viewer.news_feed.edges.length;t.data.viewer.news_feed.edges=t.data.viewer.news_feed.edges.filter(t=>!v(t.node)&&t.category!==e),n=n||t.data.viewer.news_feed.edges.length!==r}v(t.data?.node)&&(delete t.data.node,n=!0),t.data?.category===e&&(delete t.data.node,n=!0)}}catch(e){}return n})(t,!0);return 0===r||Object.values(t).forEach(e=>{a=F(e,r-1,n)||a}),a},R=(e,t)=>{try{const r="string"==typeof t;if(r&&!u(t))return e;if(k(e))return e;if(!r&&!u(JSON.stringify(e)))return e;F(e)&&e&&"object"==typeof e&&y.add(e)}catch(e){}return e},{apply:q}={apply(e,t,r){K();const n=Reflect.apply(e,t,r);return R(n,r[0])}},J={apply:q};window.JSON.parse=f(window.JSON.parse,J);const C=(e,t,r)=>{if(!e||"object"!=typeof e&&"function"!=typeof e)return;let n=a.get(e);if(!t.some(t=>"function"==typeof e[t]&&!d.has(e[t])&&(n?.get(t)??0)<10))return;n||(n=new Map,a.set(e,n));const o=new Map;t.forEach(t=>{const r=e[t];"function"==typeof r&&d.has(r)&&o.set(d.get(r),r)}),t.forEach(t=>{const a=e[t],i=n.get(t)??0;if("function"!=typeof a||d.has(a)||i>=10)return;n.set(t,i+1);let s=o.get(a);if(!s){const{apply:e}={apply(e,t,n){const o=Reflect.apply(e,t,n);return r?R(o,n[0]):R(o)}};s=f(a,{apply:e}),o.set(a,s)}e[t]=s})},M=["parse","parseText","readText","fromText","fromSource","fromChunk","fromBlock","fromSlice","fromPiece","fromSection","fromSegment","fromExcerpt","fromFragment","fromScrap","fromSliver","fromMorsel"],$=["ghlParseServerJSPayload","readBootPayload","decodeBootScript","hydrateBootData","inflateBootPayload","expandBootPayload","unpackBootPayload","openBootPayload","loadBootPayload","readBootState","readBootRecord","readBootEntry","takeBootFrame","grabBootSlice","pullBootChunk","peelBootLayer"],L=[[["json5"],e=>C(e,M,!0)],[["GHLServerJSParse"],e=>C(e,$,!1)]],z=e=>{Array.isArray(e)&&L.forEach(t=>{e.some(e=>e?.[1]===t[1])||e.push(t)})};let D=null,T=!1,H=!1;const U=new Map,G=L.map(([[e],t])=>r=>{U.set(e,r),t(r)}),I=()=>{if(!T&&"function"==typeof window.require){T=!0;const e=window.require("ifRequired");"function"==typeof e&&(D=e)}return D},K=()=>{if(!H)try{for(let e=0;e<L.length;e+=1){const[[t],r]=L[e],n=U.get(t);if(void 0===n){if(null===I())return;D(t,G[e])}else r(n)}}catch(e){H=!0}},{apply:Q}={apply(e,t,r){let n;K();try{if(h(t),g(t)){const e=JSON.parse(t);y.has(e)&&(n=JSON.stringify(e))}}catch(e){}return Reflect.apply(e,n??t,r)}},V={apply:Q};window.String.prototype.split=f(window.String.prototype.split,V),window.String.prototype.substring=f(window.String.prototype.substring,V);const{apply:X}={apply(e,t,r){K();const n=Reflect.apply(e,t,r);try{if(g(n)){const e=JSON.parse(n);if(y.has(e)){return JSON.stringify(e)}}}catch(e){}return n}},Y={apply:X};window.String=f(window.String,Y),window.String.prototype.constructor=window.String;const Z=new Map,ee=/^[\t\r\n \v\f\u00a0\ufeff\u3000]*[\v\f\u00a0\ufeff\u3000][\t\r\n ]*/,te=/^(?:[\t\r\n ]*(?:\/\/[^\r\n]*(?:\r\n?|\n)|\/\*[\s\S]*?\*\/))+/,re=/"(?:[^"\\]|\\[\s\S])*"|((?:(?:\/\*[\s\S]*?\*\/|\/\/[^\r\n]*(?:\r\n?|\n|$))[\t\r\n ]*)+)/g,ne=/^[\t\r\n ]*(?:\[[\t\r\n ]*)?\{[\t\r\n ]*"(?:[^"\\]|\\.)*"[\t\r\n ]*:/,oe=/^[\t\r\n ]*(?:\[[\t\r\n ]*)?\{[\t\r\n ]*"(?:[^"\\]|\\.)*"[\t\r\n ]*:[\t\r\n ]*(?:"(?:[^"\\]|\\.)*"|[[{]|true|false|null|-?[\d.eE+-]+)/,ae=/^[\t\r\n ]*(?:\[[\t\r\n ]*)?\{[\t\r\n ]*"(?:[^"\\]|\\.)*"[\t\r\n ]*:[\t\r\n ]*(?:"(?:[^"\\]|\\.)*"|[[{]|true|false|null|-?[\d.eE+-]+)[\t\r\n ]*(?:"(?:[^"\\]|\\.)*"[\t\r\n ]*:|[,[{\]}])/,ie=e=>{const t=Z.get(e);if(void 0!==t)return t;let r=e;try{const t=u(e),n=e.match(ee)?.[0]??"",o=e.slice(n.length),a=o.match(te)?.[0]??"",i=o.slice(a.length);let s=i,p="";if(t&&(/\*\/[\t\r\n ]*$/.test(i)||/(?:\r\n?|\n)[\t ]*\/\/[^\r\n]*(?:[\r\n][\t ]*)*$/.test(i)))for(const e of i.matchAll(re))if(e[1]&&e.index+e[0].length===i.length){const t=i.slice(0,e.index).search(/[\t\r\n ]*$/);s=i.slice(0,t),p=i.slice(t);break}const d=Reflect.apply(l,s,[]);if(h(d)&&t){const e=d.slice(1).match(te)?.[0]??"";let t=""===e?s:s.replace(e,"");const o=t.match(ne)?.[0]??"",i=""===o?"":t.slice(o.length).match(te)?.[0]??"";""!==i&&(t=o+t.slice(o.length+i.length));const l=t.match(oe)?.[0]??"",c=""===l?"":t.slice(l.length).match(te)?.[0]??"";""!==c&&(t=l+" "+t.slice(l.length+c.length));const f=t.match(ae)?.[0]??"",w=""===f?"":t.slice(f.length).match(te)?.[0]??"";""!==w&&(t=f+" "+t.slice(f.length+w.length));let u="";if(t.includes("/*")||t.includes("//"))for(const e of t.matchAll(re))if(e[1]&&/^[\]}][\t\r\n ]*$/.test(t.slice(e.index+e[0].length))){u=e[1],t=t.slice(0,e.index)+" "+t.slice(e.index+u.length);break}const h=JSON.parse(t);if(y.has(h)){let t=JSON.stringify(h);""!==w&&(t=t.replace(ae,e=>e+w)),""!==c&&(t=t.replace(oe,e=>e+c)),""!==i&&(t=t.replace(ne,e=>e+i)),""!==u&&(t=t.slice(0,-1)+u+t.slice(-1)),r=n+a+t[0]+e+t.slice(1)+p}}}catch(e){}return((e,t)=>{if(Z.size>=2){const e=Z.keys().next().value;Z.delete(e)}return Z.set(e,t),t})(e,r)},{apply:se}={apply(e,t,r){let n=t;try{"string"==typeof t&&t.length>300&&(n=ie(t))}catch(e){}return Reflect.apply(e,n,r)}},pe={apply:se};window.String.prototype.charAt=f(window.String.prototype.charAt,pe);const le=e=>{const t=e?.data?.viewer?.marketplace_feed_stories;if(!Array.isArray(t?.edges))return!1;const r=t.edges.filter(e=>!(e=>{const t=e?.__typename;return"string"==typeof t&&t.includes(o)})(e?.node));return r.length!==t.edges.length&&(t.edges=r,!0)},{apply:de}={apply(e,t,r){const n=r[2]?.[0];if(w(n,s))try{const e=(e=>{let t=!1;const r=Reflect.apply(p,e,[/\r?\n|\r/]).map(e=>{if(""===e.trim())return e;let r;try{r=JSON.parse(e)}catch{return e}const n=y.has(r),o=le(r);return n||o?(t=!0,JSON.stringify(r)):e});return t?r.join("\r\n"):e})(n);if(e!==n){const t=r[2].slice();t[0]=e,r[2]=t}}catch(e){}return Reflect.apply(e,t,r)}},ce={apply:de};window.Function.prototype.call=f(window.Function.prototype.call,ce);const{apply:ye}={apply:(e,t,r)=>c.has(t)?c.get(t):Reflect.apply(e,t,r)},fe={apply:ye};window.Function.prototype.toString=f(window.Function.prototype.toString,fe),(()=>{const e=window.__rl_stub;if("function"==typeof window.requireLazy&&!Array.isArray(e))return void L.forEach(([e,t])=>{window.requireLazy(e,t)});let t=Array.isArray(e)?e:[];z(t);try{Object.defineProperty(window,"__rl_stub",{configurable:!0,enumerable:!0,get:()=>t,set(e){t=e,z(e)}})}catch(e){window.__rl_stub=t}})()})();
+facebook.com,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion#%#(()=>{const e="SPONSORED",t="SponsoredData",r="AdsSideFeedUnit",n=["sponsored_data","th_dat_spo","qrz_ctx_seg","pso_tad_rens"],o="MarketplaceFeedAdStory",a=new WeakMap,i=[e,t,r,...n],s=[t,o,...n],p=window.String.prototype.split,l=window.String.prototype.trim,d=new WeakMap,c=new WeakMap,y=new WeakSet,f=(e,t,r=Proxy)=>{const n=c.get(e)??Reflect.apply(window.Function.prototype.toString,e,[]),o=new r(e,t);return d.set(o,d.get(e)??e),c.set(o,n),o},u=(e,t)=>e?.length>300&&t.some(t=>e?.includes?.(t)),w=e=>u(e,i),h=e=>Boolean(e?.startsWith?.("{")&&e?.endsWith?.("}")||e?.startsWith?.("[")&&e?.endsWith?.("]")),g=e=>h(e)&&w(e),_=e=>{try{e.JSON.parse=f(e.JSON.parse,M,e.Proxy),e.String.prototype.split=f(e.String.prototype.split,Z,e.Proxy),e.String=f(e.String,te,e.Proxy),e.String.prototype.constructor=e.String,e.Function.prototype.call=f(e.Function.prototype.call,ue,e.Proxy),e.Function.prototype.toString=f(e.Function.prototype.toString,he,e.Proxy)}catch(e){}},m=e=>Boolean(e instanceof HTMLIFrameElement&&(""===e.src||e?.src?.startsWith("about:blank"))&&e.contentWindow),S=new Set(["append","prepend","before","after","insertNode","replaceWith","replaceChild","replaceChildren"]),{apply:b}={apply(e,t,r){const n=Reflect.apply(e,t,r);try{m(n)?_(n.contentWindow):S.has(e.name)&&r.forEach(e=>{m(e)&&_(e.contentWindow)})}catch(e){}return n}},A={apply:b};window.Node.prototype.appendChild=f(window.Node.prototype.appendChild,A),window.Node.prototype.insertBefore=f(window.Node.prototype.insertBefore,A),window.Node.prototype.replaceChild=f(window.Node.prototype.replaceChild,A),window.Element.prototype.append=f(window.Element.prototype.append,A),window.Element.prototype.prepend=f(window.Element.prototype.prepend,A),window.Element.prototype.replaceChildren=f(window.Element.prototype.replaceChildren,A),window.Element.prototype.replaceWith=f(window.Element.prototype.replaceWith,A),window.Element.prototype.before=f(window.Element.prototype.before,A),window.Element.prototype.after=f(window.Element.prototype.after,A),window.Element.prototype.insertAdjacentElement=f(window.Element.prototype.insertAdjacentElement,A),window.Range.prototype.insertNode=f(window.Range.prototype.insertNode,A),window.CharacterData.prototype.replaceWith=f(window.CharacterData.prototype.replaceWith,A);const x=["item_collection","ads"],E=["auxColumnUnits","sdieFede","sideFeed"],v=e=>Boolean(e)&&(Object.values(e).some(e=>e?.__typename===t)||n.some(t=>{const r=e[t];return r&&"object"==typeof r&&!Array.isArray(r)&&[r.ad_id,r.lbl_adv_iden].some(e=>"string"==typeof e&&e.length>0)})),O=(e,t)=>{if(!e||"object"!=typeof e||Array.isArray(e))return!1;const r=Object.keys(e);return r.length===t.length&&t.every(e=>r.includes(e))},j=e=>O(e,["node"])&&O(e.node,["s"])&&O(e.node.s,["__typename"])&&e.node.s.__typename===t,B=new Set(["h4","r2","b3","d2","x5","g8","c7"]),N=["p","z9","k4","w7","q8","n3","v6","j5","t8","m6",...B],k=/^[a-z]\d$/,P=["data","edges","require","extensions","__bbox"],W=e=>{const t=Array.isArray(e)&&1===e.length?e[0]:e;if(!t||"object"!=typeof t||Array.isArray(t))return!1;let r=N.find(e=>"string"==typeof t[e]);if(void 0===r){if(!Array.isArray(t.edges)||!Array.isArray(t.require))return!1;const e=Object.keys(t).filter(e=>!P.includes(e));if(1!==e.length||!k.test(e[0])||"string"!=typeof t[e[0]])return!1;r=e[0]}const n=["data","edges","require",r];if(Object.hasOwn(t,"extensions")){if(!(O(t.extensions,[])||O(t.extensions,["is_final"])&&!0===t.extensions.is_final))return!1;n.push("extensions")}if(Object.hasOwn(t,"__bbox")){if(!B.has(r)&&N.includes(r)||!O(t.extensions,["is_final"])||!0!==t.extensions.is_final||(o=t.__bbox,!(O(o,["result"])&&O(o.result,["data"])&&O(o.result.data,["node"])&&O(o.result.data.node,["s","th_dat_spo"])&&O(o.result.data.node.s,["__typename"])&&"CometStorySponsoredLabelStrategy"===o.result.data.node.s.__typename&&O(o.result.data.node.th_dat_spo,["s"])&&1===o.result.data.node.th_dat_spo.s)))return!1;n.push("__bbox")}var o;return O(t,n)&&j(t.data)&&Array.isArray(t.edges)&&1===t.edges.length&&j(t.edges[0])&&Array.isArray(t.require)&&1===t.require.length&&j(t.require[0])},q=(e,t,n,o)=>{if(!e||"object"!=typeof e||n<0)return!1;let a=!1;if(Array.isArray(e.nodes)){const t=e.nodes.filter(e=>!(e=>e?.__typename===r||x.some(t=>{const r=e?.[t]?.nodes;return Array.isArray(r)&&r.some(e=>e?.sponsored_data?.ad_id)}))(e));e.nodes.length-t.length>0&&(e.nodes=t,a=!0)}return Object.entries(e).forEach(([e,r])=>{a=q(r,`${t}.${e}`,n-1,o)||a}),a},F=(e,t=10)=>{const r=e?.data?.viewer,n=r??e?.[3]?.[1]?.__bbox?.result?.data?.viewer;if(!n)return!1;return q(n,r?"data.viewer":"item[3][1].__bbox.result.data.viewer",t,e)},R=(t,r=10,n=new WeakMap)=>{if(!t||"object"!=typeof t||r<0)return!1;const o=n.get(t);if(void 0!==o&&o>=r)return!1;if(n.set(t,r),W(t))return!1;let a=((t,r)=>{if(!t||"object"!=typeof t)return!1;let n=!1;try{if(r){if(Array.isArray(t.require?.[0]?.[3]?.[0]?.__bbox?.require)&&t.require[0][3][0].__bbox.require.forEach(t=>{t[3]?.[1]?.__bbox?.result?.data?.category===e&&(delete t[3][1].__bbox.result.data.node,n=!0),v(t[3]?.[1]?.__bbox?.result?.data?.node)&&(delete t[3][1].__bbox.result.data.node,n=!0),n=F(t)||n}),E.some(e=>Array.isArray(t.data?.viewer?.[e]?.nodes))&&(n=F(t)||n),Array.isArray(t.data?.viewer?.news_feed?.edges)){const r=t.data.viewer.news_feed.edges.length;t.data.viewer.news_feed.edges=t.data.viewer.news_feed.edges.filter(t=>!v(t.node)&&t.category!==e),n=n||t.data.viewer.news_feed.edges.length!==r}v(t.data?.node)&&(delete t.data.node,n=!0),t.data?.category===e&&(delete t.data.node,n=!0)}}catch(e){}return n})(t,!0);return 0===r||Object.values(t).forEach(e=>{a=R(e,r-1,n)||a}),a},C=(e,t)=>{try{const r="string"==typeof t;if(r&&!w(t))return e;if(W(e))return e;if(!r&&!w(JSON.stringify(e)))return e;R(e)&&e&&"object"==typeof e&&y.add(e)}catch(e){}return e},{apply:J}={apply(e,t,r){X();const n=Reflect.apply(e,t,r);return C(n,r[0])}},M={apply:J};window.JSON.parse=f(window.JSON.parse,M);const $=new WeakMap,z=(e,t,r,n)=>{if(!e||"object"!=typeof e&&"function"!=typeof e)return;let o=$.get(e);o||(o=[...t],Object.keys(e).forEach(t=>{const r=Object.getOwnPropertyDescriptor(e,t)?.value;!o.includes(t)&&"function"==typeof r&&n(e,r)&&o.push(t)}),$.set(e,o));let i=a.get(e);if(!o.some(t=>"function"==typeof e[t]&&!d.has(e[t])&&(i?.get(t)??0)<10))return;i||(i=new Map,a.set(e,i));const s=new Map;o.forEach(t=>{const r=e[t];"function"==typeof r&&d.has(r)&&s.set(d.get(r),r)}),o.forEach(t=>{const n=e[t],o=i.get(t)??0;if("function"!=typeof n||d.has(n)||o>=10)return;i.set(t,o+1);let a=s.get(n);if(!a){const{apply:e}={apply(e,t,n){const o=Reflect.apply(e,t,n);return r?C(o,n[0]):C(o)}};a=f(n,{apply:e}),s.set(n,a)}e[t]=a})},D=["parse","parseText","readText","fromText","fromSource","fromChunk","fromBlock","fromSlice","fromPiece","fromSection","fromSegment","fromExcerpt","fromFragment","fromScrap","fromSliver","fromMorsel","fromCrumb"],L=["ghlParseServerJSPayload","readBootPayload","decodeBootScript","hydrateBootData","inflateBootPayload","expandBootPayload","unpackBootPayload","openBootPayload","loadBootPayload","readBootState","readBootRecord","readBootEntry","takeBootFrame","grabBootSlice","pullBootChunk","peelBootLayer","skimBootBatch"],T=[[["json5"],e=>z(e,D,!0,(e,t)=>t===e.parse||t===d.get(e.parse))],[["GHLServerJSParse"],e=>z(e,L,!1,()=>!0)]],H=e=>{Array.isArray(e)&&T.forEach(t=>{e.some(e=>e?.[1]===t[1])||e.push(t)})};let U=null,G=!1,I=!1;const K=new Map,Q=T.map(([[e],t])=>r=>{K.set(e,r),t(r)}),V=()=>{if(!G&&"function"==typeof window.require){G=!0;const e=window.require("ifRequired");"function"==typeof e&&(U=e)}return U},X=()=>{if(!I)try{for(let e=0;e<T.length;e+=1){const[[t],r]=T[e],n=K.get(t);if(void 0===n){if(null===V())return;U(t,Q[e])}else r(n)}}catch(e){I=!0}},{apply:Y}={apply(e,t,r){let n;X();try{if(h(t),g(t)){const e=JSON.parse(t);y.has(e)&&(n=JSON.stringify(e))}}catch(e){}return Reflect.apply(e,n??t,r)}},Z={apply:Y};window.String.prototype.split=f(window.String.prototype.split,Z),window.String.prototype.substring=f(window.String.prototype.substring,Z);const{apply:ee}={apply(e,t,r){X();const n=Reflect.apply(e,t,r);try{if(g(n)){const e=JSON.parse(n);if(y.has(e)){return JSON.stringify(e)}}}catch(e){}return n}},te={apply:ee};window.String=f(window.String,te),window.String.prototype.constructor=window.String;const re=new Map,ne=/^[\t\r\n \v\f\u00a0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff]*[\v\f\u00a0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff][\t\r\n ]*/,oe=/^(?:[\t\r\n ]*(?:\/\/[^\r\n]*(?:\r\n?|\n)|\/\*[\s\S]*?\*\/))+/,ae=/"(?:[^"\\]|\\[\s\S])*"|((?:(?:\/\*[\s\S]*?\*\/|\/\/[^\r\n]*(?:\r\n?|\n|$))[\t\r\n ]*)+)/g,ie=/^[\t\r\n ]*(?:\[[\t\r\n ]*)?\{[\t\r\n ]*"(?:[^"\\]|\\.)*"[\t\r\n ]*:/,se=/^[\t\r\n ]*(?:\[[\t\r\n ]*)?\{[\t\r\n ]*"(?:[^"\\]|\\.)*"[\t\r\n ]*:[\t\r\n ]*(?:"(?:[^"\\]|\\.)*"|[[{]|true|false|null|-?[\d.eE+-]+)/,pe=/^[\t\r\n ]*(?:\[[\t\r\n ]*)?\{[\t\r\n ]*"(?:[^"\\]|\\.)*"[\t\r\n ]*:[\t\r\n ]*(?:"(?:[^"\\]|\\.)*"|[[{]|true|false|null|-?[\d.eE+-]+)[\t\r\n ]*(?:"(?:[^"\\]|\\.)*"[\t\r\n ]*:|[,[{\]}])/,le=e=>{const t=re.get(e);if(void 0!==t)return t;let r=e;try{const t=w(e),n=e.match(ne)?.[0]??"",o=e.slice(n.length),a=o.match(oe)?.[0]??"",i=o.slice(a.length);let s=i,p="";if(t&&(/\*\/[\t\r\n ]*$/.test(i)||/(?:\r\n?|\n)[\t ]*\/\/[^\r\n]*(?:[\r\n][\t ]*)*$/.test(i)))for(const e of i.matchAll(ae))if(e[1]&&e.index+e[0].length===i.length){const t=i.slice(0,e.index).search(/[\t\r\n ]*$/);s=i.slice(0,t),p=i.slice(t);break}const d=Reflect.apply(l,s,[]);if(h(d)&&t){const e=d.slice(1).match(oe)?.[0]??"";let t=""===e?s:s.replace(e,"");const o=t.match(ie)?.[0]??"",i=""===o?"":t.slice(o.length).match(oe)?.[0]??"";""!==i&&(t=o+t.slice(o.length+i.length));const l=t.match(se)?.[0]??"",c=""===l?"":t.slice(l.length).match(oe)?.[0]??"";""!==c&&(t=l+" "+t.slice(l.length+c.length));const f=t.match(pe)?.[0]??"",u=""===f?"":t.slice(f.length).match(oe)?.[0]??"";""!==u&&(t=f+" "+t.slice(f.length+u.length));let w="";if(t.includes("/*")||t.includes("//"))for(const e of t.matchAll(ae))if(e[1]&&/^[\]}][\t\r\n ]*$/.test(t.slice(e.index+e[0].length))){w=e[1],t=t.slice(0,e.index)+" "+t.slice(e.index+w.length);break}const h=JSON.parse(t);if(y.has(h)){let t=JSON.stringify(h);""!==u&&(t=t.replace(pe,e=>e+u)),""!==c&&(t=t.replace(se,e=>e+c)),""!==i&&(t=t.replace(ie,e=>e+i)),""!==w&&(t=t.slice(0,-1)+w+t.slice(-1)),r=n+a+t[0]+e+t.slice(1)+p}}}catch(e){}return((e,t)=>{if(re.size>=2){const e=re.keys().next().value;re.delete(e)}return re.set(e,t),t})(e,r)},{apply:de}={apply(e,t,r){let n=t;try{"string"==typeof t&&t.length>300&&(n=le(t))}catch(e){}return Reflect.apply(e,n,r)}},ce={apply:de};window.String.prototype.charAt=f(window.String.prototype.charAt,ce);const ye=e=>{const t=e?.data?.viewer?.marketplace_feed_stories;if(!Array.isArray(t?.edges))return!1;const r=t.edges.filter(e=>!(e=>{const t=e?.__typename;return"string"==typeof t&&t.includes(o)})(e?.node));return r.length!==t.edges.length&&(t.edges=r,!0)},{apply:fe}={apply(e,t,r){const n=r[2]?.[0];if(u(n,s))try{const e=(e=>{let t=!1;const r=Reflect.apply(p,e,[/\r?\n|\r/]).map(e=>{if(""===e.trim())return e;let r;try{r=JSON.parse(e)}catch{return e}const n=y.has(r),o=ye(r);return n||o?(t=!0,JSON.stringify(r)):e});return t?r.join("\r\n"):e})(n);if(e!==n){const t=r[2].slice();t[0]=e,r[2]=t}}catch(e){}return Reflect.apply(e,t,r)}},ue={apply:fe};window.Function.prototype.call=f(window.Function.prototype.call,ue);const{apply:we}={apply:(e,t,r)=>c.has(t)?c.get(t):Reflect.apply(e,t,r)},he={apply:we};window.Function.prototype.toString=f(window.Function.prototype.toString,he),(()=>{const e=window.__rl_stub;if("function"==typeof window.requireLazy&&!Array.isArray(e))return void T.forEach(([e,t])=>{window.requireLazy(e,t)});let t=Array.isArray(e)?e:[];H(t);try{Object.defineProperty(window,"__rl_stub",{configurable:!0,enumerable:!0,get:()=>t,set(e){t=e,H(e)}})}catch(e){window.__rl_stub=t}})()})();
 facebook.com,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion#%#//scriptlet('json-prune-xhr-response', 'data.viewer.instream_video_ads data.scrubber', '', '/api/graphql')
 facebook.com,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion#%#new MutationObserver(function(){var t=["&eid=","%26eid%3D","?eid=","%3Feid%3D","?__tn__=","%3F%5F%5Ftn%5F%5F%3D","&__tn__=","%26%5F%5Ftn%5F%5F%3D","?source=","%3Fsource%3D","?__xts__","%3F%5F%5Fxts%5F%5F","&__xts__","%26%5F%5Fxts%5F%5F","&amp;__xts__%5B","?ref=","%3Fref%3D","?fref=","%3Ffref%3D","?epa=","%3Fepa%3D","&ifg=","%26ifg%3D","?comment_tracking=","%3Fcomment_tracking%3D","?av=","%3Fav%3D","&av=","%26av%3D","?acontext=","%3Facontext%3D","&session_id=","%26session_id%3D","&amp;session_id=","?hc_location=","%3Fhc_location%3D","&fref=","%26fref%3D","?__cft","%3f__cft"];document.querySelectorAll('a:not([target="_blank"]):not([href*="2fac/"])').forEach(function(e){for(i=0;i<t.length;i++)e.href.includes(t[i])&&e.setAttribute("href",e.href.split(t[i])[0])})}).observe(document,{childList:!0,subtree:!0});
 facebook.com,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion#?#.pagelet-group .pagelet:has(a:has-text(/Sponsored|Create ad|Crear un anuncio|Publicidad/))
@@ -300265,8 +299933,10 @@ gameost.net##.apsc-floating-sidebar
 gameost.net##.tt-share
 gamepadla.com###sliderBlock:has(> .relative > .sliderBlock > .ads)
 gamepadla.com##.gpPartnerCard
+gamepadla.com##.pMain + div:not([class])[style*="aspect-ratio"]
 gamepadla.com##.panel-container:has(img[src*="/upload/slider/"])
 gamepadla.com##div:has(> div > div > a[href^="/visit/"][href*="cmp=slider"])
+gamepadla.com#?#.pMain:has(> .relative > script:has-text(gpdl_hb_all))
 gamepedia.com###bodyContent:style(width:100%!important)
 gamepedia.com##[id^="siderail_"]
 gamepedia.jp##.ad-article-bottom
@@ -308226,6 +307896,7 @@ ign.com##.box-wrapper > div.promo-card:has(a[href="https://x.com/IGNDeals"])
 ign.com##.box-wrapper:has(> .promo-card)
 ign.com##.commerceblock-container
 ign.com##.opt-social_vertical-column
+ign.com##.pgOutstream
 ign.com##.privacy-content
 ign.com##.slideshow .sidebar > .special::after
 ign.com##.twenty-questions-widget
@@ -310317,6 +309988,7 @@ iotwock.info##.grid__container div.custom-html-box
 iotwock.info##.news__content > div[style="min-height: 500px;"]
 iotworldtoday.com,lightreading.com##.ArticleBase-Newsletter
 iowagirleats.com,simplifylivelove.com,therecipecritic.com##.block-pinterest-cta
+iowapublicradio.org##.gtm_share
 ip-address.org###adsleft
 ip-address.org##.ad-1-728
 ip-address.org##.ad-2-336
@@ -312510,7 +312182,6 @@ joxi.userecho.com,kinopoisk.userecho.com##.module-facebook
 joxi.userecho.com,kinopoisk.userecho.com##.module-twitter
 joxi.userecho.com,yandexmail.userecho.com##.module-vk
 joy.hu##.shareArticleBox
-joyacg.top##a[href^="http"] > .img-fluid
 joybet114.cam,betmoneytv80.live,bahisnowtv297.com##.nk-post-share > div[style^="margin-left:"]
 joydeepdeb.com##.mb-4.card
 joydivision.de##.tx-bwscookie
@@ -320043,6 +319714,7 @@ maomaomom.com##.textwidget > table[width="1050"]
 maousama.jp##div[class*="_shareWrap"]
 map.baidu.com###downloadnativepopupUlink
 map.baidu.com###mapBanner
+map.baidu.com###message-center-panel:has(> span.message-ad-tag)
 map.baidu.com###message-panel
 map.baidu.com##.bottom-banner-float
 map.baidu.com##.damoce-search-item
@@ -329524,6 +329196,7 @@ oilprice.com##.footerLogoBanner__socialMedia
 oilprice.com##.google_preferred_source_banner_sidebar
 oilprice.com##.sidebarShare
 oipc.bc.ca##.clsPopupContainer
+oisauh.com,czzbgnw.com,allpornstream.com#%#//scriptlet('prevent-window-open')
 oisd.nl###adgb
 oita-press.co.jp##.FloatingBanner
 ojaivalleynews.com#$#.pub_300x250.pub_300x250m.pub_728x90.text-ad.textAd.text_ad.text_ads.text-ads.text-ad-links.ad-text.adSense.adBlock.adContent.adBanner { display: block !important; }
@@ -335030,6 +334703,7 @@ pornoxo.com##.side-content-block
 pornoxo.com##.site-center-wrapper > div[style]:not([class]):has(> a.blinker)
 pornoxo.com##.video-listing > div.no-popup
 pornoxo.com##.wgt-container
+pornoxo.com##a.player-click-layer
 pornoxo.com##a[href^="/link/out/b?"]
 pornoxo.com##a[href^="https://tsyndicate.com/"]
 pornoxo.com##a[href^="https://www.pornoxo.com/link/out/"]
@@ -340297,6 +339971,7 @@ ruter.no##.fixed-messages
 rutgames.net###rg-cookie-bar
 rutracker.appspot.com,pornolab.biz,pornolab.cc,pornolab.lib,pornolab.net,rutracker.lib,rutracker.net,rutracker.org#?#.vf-table > tbody > tr:not([data-topic_id]):has(> td > a[class^="ref-"])
 rutube.ru##.cookie-message-module__cookie-consent
+rutube.ru##.cookie-snackbar-module__snackbar
 rutube.ru##.eu-cookie-popup-module__eu_cookie_popup
 rutube.ru##div[class^="freyja_char-share-url__buttons_"]
 rutube.ru#?#div[class^="wdp-video-row-actions-module"] > button:has(> span + span:contains(Поделиться))
@@ -346248,7 +345923,6 @@ stackabuse.com#?#.sidebar > .widget-sticky:has(> div > div > .ad)
 stackabuse.com#?#.sidebar > .widget:has(> .ad)
 stacker.com##.actions-scroll-to-top
 stackexchange.com###newsletter-ad
-stackexchange.com##.js-zone-container
 stackexchange.com##div[id^="adzerk"]
 stackhowto.com#$#.adsbygoogle { position: absolute !important; left: -3000px !important; }
 stackify.com##.widget:has(> .social-links)
@@ -347148,6 +346822,7 @@ strtape.*#%#//scriptlet("prevent-window-open")
 strtape.*#@#.google-ad
 strtapewithadblock.*,strtapeadblocker.*#%#//scriptlet("abort-current-inline-script", "document.createElement", "o.contentWindow.document.createElement")
 structurae.net##.advertisements
+strumyk.cv,strumyk.ca##.promo
 struttandparker.com##.important-message-banner
 stsprachatice.antee.cz#@#.header-social
 sttinfo.fi##[class^="styledBarNotification__BarNotificationWrapper"]
@@ -359842,6 +359517,7 @@ web-capture.net,cryptoslate.com##.partner
 web-ole.lilax.io,ole.com.ar##.socialAuthorContainer > ul
 web-promo.ua##.web-section:has(> div.container > div.web-section-content > div.share-this)
 web-shpargalka.ru##.flat_pm_outgoing.show
+web-site.care###wsc-consent
 web.archive.org###wm-share
 web.centro-zaragoza.com###cookie-wrapper-objeto
 web.core.windows.net##+js(aeld, beforeunload, /[Ww]orker/)
@@ -360371,6 +360047,7 @@ weszlo.com##.ad-placeholder-bg + p[style="text-align: center;"] > a[href^="https
 weszlo.com##.article-list > .snap-mandatory > .snap-always.flex:has(> .overflow-hidden > .re-box-wrap)
 weszlo.com##.btn-adclose
 weszlo.com##.fuksiarz-logo
+weszlo.com##.post-buttons > a[href^="mailto:?"]
 weszlo.com##.post-content-wrap a[href*="fuksiarz.pl"][href*="utm_"] > img
 weszlo.com##.post-content-wrap a[href^="https://bit.ly/"] > img
 weszlo.com##.re-box-wrap
@@ -362295,7 +361972,7 @@ x.com##[id^="urt"] > ul > li:has([target="_blank"][href*="?twclid="])
 x.com##[id^="urt"] > ul > li[data-index]:has(.x-link+button [href="#icon-more-dots-hor"])
 x.com##header[role="banner"] > ._3oxnid3o._3f2NsD-H
 x.com#%#//scriptlet('json-prune', '$.data..["entries","items"][?(@.*.content.promoted_metadata)]')
-x.com#%#//scriptlet('json-prune', 'data.*.home_timeline_urt.instructions.*.entries.[-].content.content.promoted_metadata data.threaded_conversation_with_injections_v2.instructions.*.entries.*.content.items.[-].item.content.promoted_metadata')
+x.com#%#//scriptlet('json-prune', 'data.*.home_timeline_urt.instructions.*.entries.[-].content.content.promoted_metadata data.threaded_conversation_with_injections_v2.instructions.*.entries.*.content.items.[-].item.content.promoted_metadata data.search_by_raw_query.search_timeline.timeline.instructions.*.entries.[-].content.content.promoted_metadata')
 x.com#%#//scriptlet('prevent-fetch', '/i/api/1.1/flow/viewer.json')
 x.com#?#.css-175oi2r.r-12vffkv[style^="position: absolute; bottom: 0px; width: 100%;"]:has-text(data protection)
 x.com#?#.css-175oi2r[data-testid="BottomBar"]:has-text(Did someone say)
