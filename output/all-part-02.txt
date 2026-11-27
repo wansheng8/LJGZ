@@ -3,1498 +3,11 @@
 ! Description: 多上游广告过滤规则自动合并 (去重/归并/例外保护) — 全格式 分卷 2/2
 ! Homepage: https://github.com/wansheng8/LJGZ
 ! Licence: 各上游列表许可证的并集, 见 README 致谢部分
-! Version: 2026-11-27 15:23:46 +0800
-! Last Modified: 2026-11-27 15:23:46 +0800 (北京时间 UTC+8)
+! Version: 2026-11-28 04:26:54 +0800
+! Last Modified: 2026-11-28 04:26:54 +0800 (北京时间 UTC+8)
 ! Expires: 12 hours
-! Rules: 379442
+! Rules: 378008
 
-email.info.topquartz.co.za$image
-email.info.topratedrealestateagent.com$image
-email.info.topshinepressureclean.com$image
-email.info.topsidefacilities.scot$image
-email.info.torontoacademy.org$image
-email.info.torrezenic.com$image
-email.info.torrezfrench.com$image
-email.info.tosfosinenglish.shop$image
-email.info.total-advantage.net$image
-email.info.totalhealthmarkets.org$image
-email.info.totalwealthadvisory.com$image
-email.info.touchlearn.co.uk$image
-email.info.touchpointconsulting.co$image
-email.info.touchpointmassage.net.au$image
-email.info.toughenoughcleaning.com$image
-email.info.toulousewalkingtours.com$image
-email.info.towfiqul.me$image
-email.info.townhouseonthegreen.ie$image
-email.info.townly.cc$image
-email.info.towproacademy.com$image
-email.info.tpdagency.com$image
-email.info.tpurpose.com$image
-email.info.traceylindsay.com$image
-email.info.traceypolito.com$image
-email.info.tracfencend.com$image
-email.info.tracitheaffiliate.com$image
-email.info.traciwells.com$image
-email.info.trackingtableaccess.com$image
-email.info.tracydoyle.life$image
-email.info.tracylovig.com$image
-email.info.tracythames.com$image
-email.info.tradealgorithm.net$image
-email.info.tradeflexsolutions.com$image
-email.info.trademarkwizards.co.uk$image
-email.info.tradeup.com$image
-email.info.tradexprop.com$image
-email.info.tradiesforacause.org$image
-email.info.tradingpatiently.com$image
-email.info.tradingscalpers.com$image
-email.info.trafficlocker.com$image
-email.info.trailerrentalnearmeomaha.com$image
-email.info.trainingacademylyon.fr$image
-email.info.trainingacademyrennes.fr$image
-email.info.trainingacademytours.fr$image
-email.info.trainingthinktank.com$image
-email.info.trainwithchadanddenise.com$image
-email.info.trakem.net$image
-email.info.tranquilguide.com$image
-email.info.transcendentphenomsllc.com$image
-email.info.transcendlifeandleadershipcoaching.com$image
-email.info.transcendtech.org$image
-email.info.transformeddesign.com$image
-email.info.transformfitnesscrm.com$image
-email.info.transformmytrading.com$image
-email.info.transformnowhypnosis.com$image
-email.info.traslaesencia.com$image
-email.info.travaux.com$image
-email.info.travel-alpha.com$image
-email.info.travelcarehawaii.com$image
-email.info.travelceotoolkit.com$image
-email.info.travellabprogram.com$image
-email.info.travelmoneyandfreedom.com$image
-email.info.travelwb3.com$image
-email.info.traversecitybouncehouserentals.com$image
-email.info.travisjohnholder.com$image
-email.info.travistharp.com$image
-email.info.treehousetradeschool.com$image
-email.info.treenadavies.com$image
-email.info.treeservice-digital.com$image
-email.info.trendytrovedesigns.com$image
-email.info.treuagency.com$image
-email.info.trgdecks.com$image
-email.info.tri-pod.com$image
-email.info.triadmartialartsruston.com$image
-email.info.triagproducts.com$image
-email.info.trianglecitydigital.com$image
-email.info.tribeconsulting.us$image
-email.info.tribemingle.com$image
-email.info.tribupiercings.com$image
-email.info.tribupuravida.com$image
-email.info.tributarygroup.com$image
-email.info.tricountyservicesfl.com$image
-email.info.trident1pos.com$image
-email.info.tridentleeds.com$image
-email.info.triforceworkforcesolutions.com$image
-email.info.triggers.binany.com$image
-email.info.trim-light-austin.com$image
-email.info.trimedia3.com$image
-email.info.trinamcgowan.com$image
-email.info.trinitylifegroup.com$image
-email.info.trinityrealestatesolutions.us$image
-email.info.trinityshutters.co.uk$image
-email.info.trinixmarketing.com$image
-email.info.tripathiconsulting.com$image
-email.info.triplecrownbusinesssolutions.com$image
-email.info.tripsource.com$image
-email.info.triptongo.com.ar$image
-email.info.tristarauction.com$image
-email.info.triton-charters.com$image
-email.info.tritoncapitalinc.com$image
-email.info.tritoneinteriors.net$image
-email.info.trivalleyautospa.com$image
-email.info.trmartinhome.com$image
-email.info.troypremier.com$image
-email.info.trubicars.ca$image
-email.info.truckingonestopshop.net$image
-email.info.truebeacon.ca$image
-email.info.truechoicecoverage.com$image
-email.info.truecreditai.com$image
-email.info.truefit.life$image
-email.info.truefreedomservices.com$image
-email.info.truehealth-collective.com$image
-email.info.truehealthcanada.ca$image
-email.info.truelinereputation.com$image
-email.info.truenorththerapyandconsulting.com$image
-email.info.truesignalmarketing.com$image
-email.info.truesilver.co.in$image
-email.info.truetennisny.com$image
-email.info.truevoxai.com$image
-email.info.trugreenroofing.sprayfoamaudit.com$image
-email.info.truharvestcapital.com$image
-email.info.truinkinsight.com$image
-email.info.trulysma.com$image
-email.info.trumanlakemarine.com$image
-email.info.trump-accounts.co$image
-email.info.trump-collective.com$image
-email.info.trunorthpropertypartners.com$image
-email.info.trupathgroup.com$image
-email.info.trusted-cles.com$image
-email.info.trustedcleaninggroup.com$image
-email.info.trustedtradinginstitute.com$image
-email.info.trustewps.com$image
-email.info.trustpatrickus.com$image
-email.info.trustsolar.co.za$image
-email.info.trustwired.com$image
-email.info.trustyourmove.com$image
-email.info.trw.fyi$image
-email.info.try-ikigai.com$image
-email.info.tryblmarketing.com$image
-email.info.trycmp.com$image
-email.info.trycodeready.com$image
-email.info.trydeepalichadha.com$image
-email.info.tryfurball.co$image
-email.info.tryikigai.net$image
-email.info.tryingallthenewthings.com$image
-email.info.trynovapeak.com$image
-email.info.tryoandbrumco.com$image
-email.info.trysnapautomation.com$image
-email.info.tryvoiceai4roofers.com$image
-email.info.tsmsmarinesurveyors.com$image
-email.info.tsye.education$image
-email.info.ttmusicstudio.com$image
-email.info.ttrdigitalmarketing.com$image
-email.info.tubsoffun.com$image
-email.info.tucokids.com$image
-email.info.tucomunidadlatina.us$image
-email.info.tudominioia.com$image
-email.info.tugymfacial.com$image
-email.info.tulsafairhomebuyer.com$image
-email.info.tulsamusicproduction.com$image
-email.info.tuno.ca$image
-email.info.turboandshine.co.nz$image
-email.info.turbochargeleads.com$image
-email.info.turbomedusa.com$image
-email.info.turbovisuals.com$image
-email.info.turiestanza.com$image
-email.info.turnerfunding.com$image
-email.info.turners.co.nz$image
-email.info.turning65plansincalifornia.com$image
-email.info.turnovercasitas.com$image
-email.info.turntechsolutions.com$image
-email.info.tusaludintegral.es$image
-email.info.tusegundaoportunidadlegal.com$image
-email.info.tusiguientecliente.com$image
-email.info.tusindfryd.io$image
-email.info.tuteria.com$image
-email.info.tutordepartment.co.uk$image
-email.info.tux-solutions.com$image
-email.info.tuxholidaylighting.com$image
-email.info.twigacrm.com$image
-email.info.twilight-eventgroup.com$image
-email.info.twistedprims.com$image
-email.info.two-up-two-down-llc.com$image
-email.info.twocentcharlie.com$image
-email.info.tybowersdesign.com$image
-email.info.tyedaniels.com$image
-email.info.typeaeveryday.com$image
-email.info.tyreethomasjr.com$image
-email.info.tzarinamusic.com$image
-email.info.ucontrol.site$image
-email.info.ugcnexus.com$image
-email.info.uglybasementceilings.com$image
-email.info.ugyfelaram.pro$image
-email.info.ugyfelkapcsolo.com$image
-email.info.uhcglobal.com$image
-email.info.uiautos.com$image
-email.info.uk.aspiredigitaldesign.com$image
-email.info.ukbeautyteam.co.uk$image
-email.info.ulfberhtautomation.com$image
-email.info.ulmasterclasses.com$image
-email.info.ultimatejazzviolindojo.com$image
-email.info.ultrarevival.com$image
-email.info.ultrasonolab.org$image
-email.info.ummahaccelerator.com$image
-email.info.ummugulsumnet.com$image
-email.info.umusic-hotels.com$image
-email.info.unbrokenshenyunmovie.com$image
-email.info.unchainedsilence.com$image
-email.info.unclaimedceo.com$image
-email.info.uncommonsojourner.com$image
-email.info.undercomplicated.com$image
-email.info.understandexceptional.com$image
-email.info.uni-abroad.org$image
-email.info.unicoinsurance.com$image
-email.info.unified-training.ca$image
-email.info.unified1.com$image
-email.info.unima.ecampus.ac.mw$image
-email.info.unisolent.co.za$image
-email.info.unitedfamilyinsurancegroup.com$image
-email.info.unitedpta.org$image
-email.info.unitedsuccessllc.com$image
-email.info.universidad.cc$image
-email.info.universitygradweek.com$image
-email.info.universoprime.com$image
-email.info.unleashedadvisors.com$image
-email.info.unleashedk9.dogconsult.co$image
-email.info.unlimitedfreedomlifestyle.com$image
-email.info.unlimitedvacationclub.com$image
-email.info.unlockedcrm.online$image
-email.info.unlockingblackhistory.com$image
-email.info.unoagro.space$image
-email.info.unodeocho.com$image
-email.info.untamedwoman.com$image
-email.info.untangledhypnosis.com$image
-email.info.unwind-agency.com$image
-email.info.unwindpodcast.com$image
-email.info.up-xonline.com$image
-email.info.upandupmedia.com$image
-email.info.updurns.com$image
-email.info.upgradedcoach.com$image
-email.info.upgradehardscapes.com$image
-email.info.uphillbenefitgroup.com$image
-email.info.upliftdigital.us$image
-email.info.uplinkmedia.ca$image
-email.info.upmotionmedia.com$image
-email.info.uppermaids.com$image
-email.info.upsidetotalsolutions.com$image
-email.info.upstarinsurance.com$image
-email.info.upstatecustomcoatings.com$image
-email.info.uptechspace.com$image
-email.info.upwize.ar$image
-email.info.urbiz.link$image
-email.info.urgenthomeleads.com$image
-email.info.urgentmedic.co.uk$image
-email.info.uribeschwarzkopf.com$image
-email.info.urisenshine.com$image
-email.info.urlandheros.com$image
-email.info.urprotectionsecurity.com.au$image
-email.info.usa-insulation.net$image
-email.info.usacentralstation.com$image
-email.info.usaimortgage.com$image
-email.info.usaninjachallenge.com$image
-email.info.usavenorthplatte.com$image
-email.info.useflowfrog.com$image
-email.info.uselaps.com$image
-email.info.usepolished.com$image
-email.info.ushomecomfortoffers.com$image
-email.info.usinsagency.com$image
-email.info.usma.to$image
-email.info.usmobileiv.com$image
-email.info.uspsmartweb.com$image
-email.info.utah-reversemortgage.com$image
-email.info.utahcleanpower.com$image
-email.info.utahheadshot.net$image
-email.info.utahkicks.com$image
-email.info.utahpeakhomesolutions.com$image
-email.info.utahsleepapneatmj.com$image
-email.info.uticadentallab.com$image
-email.info.uworldinsurance.com$image
-email.info.uww.zone$image
-email.info.v-ants.com$image
-email.info.v360grados.com$image
-email.info.va1vaplusvip.com$image
-email.info.vabyjeramy.com$image
-email.info.vacaywiztravel.com$image
-email.info.vagyrejuvenation.do$image
-email.info.vahro.in$image
-email.info.vaikoemocijos.lt$image
-email.info.vailresortsmail.com$image
-email.info.valenciaposey.org$image
-email.info.valentinoristorante.com$image
-email.info.valentinrealtyexchange.com$image
-email.info.valerie-diane.com$image
-email.info.validationnation.co$image
-email.info.valkyriesporthorses.com$image
-email.info.valleydl.com$image
-email.info.valoautomotriz.cl$image
-email.info.valoradigitalmarketing.com$image
-email.info.valorecasa.app$image
-email.info.valorenostro.com$image
-email.info.valorwellness.co$image
-email.info.vandrelsystems.com$image
-email.info.vandusenpro.com$image
-email.info.vanguardsconcretecreationsllc.com$image
-email.info.vank-ai.com$image
-email.info.vantagecleaningsolutions.com$image
-email.info.vantagehospitalitygroup.com$image
-email.info.vantageiws.com$image
-email.info.vantageplan.info$image
-email.info.vantagepointcapital.io$image
-email.info.vantagepte.com$image
-email.info.vantsquasar.com$image
-email.info.vantummarketing.com$image
-email.info.vanyapavlova.com$image
-email.info.vapify.agency$image
-email.info.varellosolutions.com$image
-email.info.vargas-consultores.com$image
-email.info.varnetagency.com$image
-email.info.vartaniancapital.net$image
-email.info.vaultmetal.com$image
-email.info.vcoachingv.es$image
-email.info.vcounselors.com$image
-email.info.veblendirectors.com$image
-email.info.vecthr.com$image
-email.info.vectorygrow.com$image
-email.info.vedaphilly.com$image
-email.info.veevus.com$image
-email.info.vegantechnomad.com$image
-email.info.vegas.hu$image
-email.info.vegasaviation.com$image
-email.info.vegasvalleyiron.com$image
-email.info.velogrowthco.com$image
-email.info.veloraelite.co$image
-email.info.venderecasalagodigarda.com$image
-email.info.venditaautomatica.it$image
-email.info.vendorpride.com$image
-email.info.vengain.com$image
-email.info.ventas-flash.com$image
-email.info.vente-immorenier.be$image
-email.info.venture360.co$image
-email.info.venturethirtythree.com$image
-email.info.venueboost.io$image
-email.info.venueflowai.com$image
-email.info.venuegrowth.ai$image
-email.info.verbanoactive.it$image
-email.info.verdanaperu.com$image
-email.info.verdantgr.com$image
-email.info.verdetribe.com$image
-email.info.verifycxsmbelgium.com$image
-email.info.veritas-financial.com$image
-email.info.versabusiness.net$image
-email.info.versatileagency.ca$image
-email.info.versloautopilotas.lt$image
-email.info.versusstrengthandconditioning.com$image
-email.info.vertikalaimarketing.com$image
-email.info.veselybot.sk$image
-email.info.vessel-archive.com$image
-email.info.vestasolutions.net$image
-email.info.veteranscareinternational.com$image
-email.info.veteransthrifthavasu.org$image
-email.info.vetlinks.us$image
-email.info.vetpracticesolutions.com$image
-email.info.vettecitysupply.com$image
-email.info.vetvantage.io$image
-email.info.vgliveroom.com$image
-email.info.vgssoftware.net$image
-email.info.vhaaccounting.com$image
-email.info.vibiin.com$image
-email.info.vibraniumteam.com$image
-email.info.victoryleadershipcoaching.com$image
-email.info.victorymedicalflight.com$image
-email.info.victorymovingsolutions.com$image
-email.info.victoryspinalcarecape.com$image
-email.info.vidafinancialadvisors.com$image
-email.info.vidagestao.com.br$image
-email.info.video4victory.com$image
-email.info.vietnamfranchise.vn$image
-email.info.vijilan.com$image
-email.info.villageglen-newyork.com$image
-email.info.villapilates.com.au$image
-email.info.vilomahsolace.com$image
-email.info.vintra.mx$image
-email.info.vioneapp.com$image
-email.info.viperr.ai$image
-email.info.viprealestateco.net$image
-email.info.viprefl.com$image
-email.info.vipwineryvacations.com$image
-email.info.viranegocio.pt$image
-email.info.vireyx.com$image
-email.info.virgosmarketing.com$image
-email.info.virtualassistantre.com$image
-email.info.virtualassistants.solutions$image
-email.info.virtualtouchsolutions.com$image
-email.info.virtualworldassistants.com$image
-email.info.virtueadvisors.com$image
-email.info.visiednextgenai.com$image
-email.info.visionairai.com$image
-email.info.visionaryfemme.co.uk$image
-email.info.visioninspires-weddings.com$image
-email.info.visionld.com$image
-email.info.visitamr.org$image
-email.info.visitandmedcare.com$image
-email.info.visitstarlighthaven.com$image
-email.info.vistaedagroup.com$image
-email.info.vistafleet.com$image
-email.info.vistapropertygroup.org$image
-email.info.vistapropertyie.com$image
-email.info.visualfix.org$image
-email.info.vitaaisolution.com$image
-email.info.vitalfitpro.com$image
-email.info.vitalhealthres.com$image
-email.info.vitalityrestoredclinic.com$image
-email.info.vitalitywealthworld.com$image
-email.info.vitalmentebio.it$image
-email.info.vitalogycare.com$image
-email.info.vitalu.co.uk$image
-email.info.vitalumina.co.uk$image
-email.info.vitasols.net$image
-email.info.vitopret.com$image
-email.info.vivacity-solutions.com$image
-email.info.vivaia.com$image
-email.info.vivamediaproductions.com$image
-email.info.vivecedrela.com$image
-email.info.vividgrowthpartners.com$image
-email.info.vividlandscapeinc.com$image
-email.info.vizionshift.com$image
-email.info.vlnkacademy.com$image
-email.info.vmasesoresfinancieros.com$image
-email.info.vnoodlesushibar.com$image
-email.info.voguehairstudio.cc$image
-email.info.vohanadmc.com$image
-email.info.voiceaizone.com$image
-email.info.voiceki-hake.de$image
-email.info.vojtiskovaveronika.com$image
-email.info.voksica.com$image
-email.info.volcanomediagroup.com$image
-email.info.volden-media.com$image
-email.info.volitionfn.com$image
-email.info.vollocity.com$image
-email.info.volt-systems.com$image
-email.info.volusiasportscenter.com$image
-email.info.vomosacademy.com$image
-email.info.voraexteriors.com$image
-email.info.vosai.co$image
-email.info.votasofficial.com$image
-email.info.voteshawnrichardd10.com$image
-email.info.vowsunderthestars.com$image
-email.info.voxloud.com$image
-email.info.voyageoftranscendence.com$image
-email.info.voyawings.com$image
-email.info.voytify.com$image
-email.info.voz247.com$image
-email.info.vpgservicosdigitais.com$image
-email.info.vqis.net$image
-email.info.vrtu.ca$image
-email.info.vsportz.com$image
-email.info.vthomesecurity.com$image
-email.info.vtkalmedia.com$image
-email.info.vuduledelse.dk$image
-email.info.vulpixdetailing.co.uk$image
-email.info.vunflow.com$image
-email.info.vvgroup2025.com$image
-email.info.vyntec.co$image
-email.info.vyntherradigital.com$image
-email.info.vyoletsarts.com$image
-email.info.vyrlgrowth.com$image
-email.info.w3wealthinstitute.org$image
-email.info.wa-tech.co.uk$image
-email.info.waas.it$image
-email.info.wacopaintingtx.com$image
-email.info.wadearnoldcoaching.com$image
-email.info.waivbar.com$image
-email.info.wajihalkhiami-academy.com$image
-email.info.wakeupbymv.com$image
-email.info.wakewellsleep.com$image
-email.info.walgreens.com$image
-email.info.walkerbusiness.com$image
-email.info.walktallwellness.co.uk$image
-email.info.wallabywindowsofmelbourne.com$image
-email.info.wallisbronson.com$image
-email.info.wallsofsparta.com$image
-email.info.waltswealthcreators.com$image
-email.info.wanderingfieldstravel.com$image
-email.info.wantedfertility.com$image
-email.info.wantsuccesstoday.com$image
-email.info.warangal.chessklub.com$image
-email.info.wardonwealth.com$image
-email.info.wareline.com.br$image
-email.info.wariexpressrx.com$image
-email.info.warmcorehomes.ie$image
-email.info.warnerroofdogmail.com$image
-email.info.warrior1goldplating.com$image
-email.info.warriorgp.com$image
-email.info.warriorgrowthdirectory.com$image
-email.info.warriors37.com$image
-email.info.warriorsreset.com$image
-email.info.washweb.net$image
-email.info.wassemsitesolutions.com$image
-email.info.wat-realty.com$image
-email.info.watchlist.pro$image
-email.info.watchsarah.com$image
-email.info.watermelon-digital.com$image
-email.info.waterqualityinspection.org$image
-email.info.watsonmediahouse.com$image
-email.info.wattrealtygroup.com$image
-email.info.wavemediahq.com$image
-email.info.wavv.com$image
-email.info.waxhaw.chessklub.com$image
-email.info.waxlounge.net$image
-email.info.waychit.com$image
-email.info.wayfinderk9.dogconsult.co$image
-email.info.waymakerwa.com$image
-email.info.waynettehunt.com$image
-email.info.wayolw.com$image
-email.info.wayondplus.com$image
-email.info.wbym.com.au$image
-email.info.wclarkpublishing.com$image
-email.info.we-earnonline.com$image
-email.info.wealth-empowerment.com$image
-email.info.wealth-investors.com$image
-email.info.wealth-nestegg.com$image
-email.info.wealthbuilderkellie.com$image
-email.info.wealthbuildingpros.com$image
-email.info.wealthbuildingwithashleigh.com$image
-email.info.wealthbyheather.com$image
-email.info.wealthcreation72.com$image
-email.info.wealthcreatorliaison.com$image
-email.info.wealtheducator65.com$image
-email.info.wealthempirehub.com$image
-email.info.wealthfreedomwithmary.com$image
-email.info.wealthfrequencyelite.com$image
-email.info.wealthgeneratorlisa.com$image
-email.info.wealthguardfi.com$image
-email.info.wealthherway.com$image
-email.info.wealthindex.org$image
-email.info.wealthjourneywithjen.com$image
-email.info.wealthmakers.net$image
-email.info.wealthrisewithjesseca.com$image
-email.info.wealthsparker.com$image
-email.info.wealthwith-amanda.com$image
-email.info.wealthwithamy.com$image
-email.info.wealthwithdeniseb.com$image
-email.info.wealthwithdev.com$image
-email.info.wealthwithfallon.com$image
-email.info.wealthwithgod.com$image
-email.info.wealthwithmaggieandmom.com$image
-email.info.wealthwithmelinda.com$image
-email.info.wealthwiththefox.com$image
-email.info.wealthwjo.com$image
-email.info.wealthyandfreewithautumnlee.com$image
-email.info.wealthycontractorcommunity.com$image
-email.info.wealthylifebylily.com$image
-email.info.wealthywisewife.com$image
-email.info.weareleonidas.com$image
-email.info.wearenodi.com.br$image
-email.info.weareonehairandbeauty.co.uk$image
-email.info.weareproud.fit$image
-email.info.wearetheinstitute.com$image
-email.info.wearetulsi.com$image
-email.info.wearunify.com$image
-email.info.weatheringthestormproject.org$image
-email.info.weathertightroofingllc.net$image
-email.info.web-gainz.com$image
-email.info.web3d.app$image
-email.info.webahub.com$image
-email.info.webappstudioz.com$image
-email.info.webbaltix.com$image
-email.info.webbings.cloud$image
-email.info.webbsenterprises.com$image
-email.info.webbsestateagents.co.uk$image
-email.info.webcake.ca$image
-email.info.webcaredigital.com$image
-email.info.webconversionexpert.com$image
-email.info.webexcels.com.pk$image
-email.info.webinars.escueladecrecimiento.com$image
-email.info.webjuicetraining.com$image
-email.info.weblesc.com$image
-email.info.weblightmedia.com$image
-email.info.weblytic.ai$image
-email.info.webmy.ro$image
-email.info.webrynos.com$image
-email.info.websquirehl.com$image
-email.info.websvibe.agency$image
-email.info.webtechs.dev$image
-email.info.webvisualmarketing.com$image
-email.info.webwiz.io$image
-email.info.wecleantoperfection.com$image
-email.info.weddingvendorsystems.com$image
-email.info.wedlabs.io$image
-email.info.wedoai.io$image
-email.info.weekenderhotels.com$image
-email.info.weeklydebtplan.com$image
-email.info.weepingwillowminisllc.com$image
-email.info.wegi.co.uk$image
-email.info.weightlosswithdetox.com$image
-email.info.welding-alloys.com$image
-email.info.welfaretogether.co.uk$image
-email.info.welhat.gov.uk$image
-email.info.welkinhvac.com$image
-email.info.welkinwellnesscoaching.com$image
-email.info.wellbeingmoments.com$image
-email.info.wellcraft.com$image
-email.info.wellgrow.io$image
-email.info.wellnesscontinuum.com$image
-email.info.wellnessvictory.com$image
-email.info.wellnesswakeupwhitefish.com$image
-email.info.wellnesswineandwealth.com$image
-email.info.wellspringwellnessretreats.com$image
-email.info.welovebabywearing.com$image
-email.info.welstays.in$image
-email.info.wendycaunce.com$image
-email.info.wendycotterellcoaching.com$image
-email.info.wendyhills.com$image
-email.info.werkspot.com$image
-email.info.werkspot.nl$image
-email.info.weroammoto.com$image
-email.info.weservelabs.com$image
-email.info.wespray.com.au$image
-email.info.westbocatint.com$image
-email.info.westcaplending.org$image
-email.info.westchestercds.org$image
-email.info.westerngirlie.com$image
-email.info.westernhighwaystrafficsafety.com$image
-email.info.westerntimberstructures.com$image
-email.info.westervillekickboxing.com$image
-email.info.westmedia.uk$image
-email.info.westminster.gov.uk$image
-email.info.westtexasren.com$image
-email.info.wethrivehr.org$image
-email.info.wetlandirrigation.com$image
-email.info.weyond.fr$image
-email.info.whagency.site$image
-email.info.whallsgroup.com$image
-email.info.whatcomroofing.com$image
-email.info.whatisfxsocial.com$image
-email.info.wheelbarrowprofits.com$image
-email.info.wheelieworx.com$image
-email.info.wheelrepairxpress.com$image
-email.info.whenigrowup-career.com$image
-email.info.whetzelhomes.com$image
-email.info.whg-tec.de$image
-email.info.whimsywanderhq.com$image
-email.info.whippsenforcement.co.uk$image
-email.info.whitecapllc.net$image
-email.info.whitelabeltracking.com$image
-email.info.whitelightoracle.shop$image
-email.info.whitelighttherapies.com$image
-email.info.whitemountaintrucking.com$image
-email.info.whitesmufflerandbrake.com$image
-email.info.whitmanonwheels.com$image
-email.info.whizwiseeducation.com$image
-email.info.wholedentaldesign.com$image
-email.info.wholehealthdesmoines.com$image
-email.info.wholelifewealthcreator.com$image
-email.info.wholesalemortgages.net$image
-email.info.wholisticlife.co$image
-email.info.wibly.co$image
-email.info.wichitacheapskate.com$image
-email.info.wickedlyhappywidow.com$image
-email.info.wickedwash.net$image
-email.info.wickedwraps.net$image
-email.info.wickensmarketing.co.uk$image
-email.info.widocm.com$image
-email.info.wifimoney.ai$image
-email.info.wikicasa.it$image
-email.info.wikimasz.pl$image
-email.info.wildandfreejourneys.co$image
-email.info.wildboarlandworks.com$image
-email.info.wildernesswaves.co.uk$image
-email.info.wildernlight.com$image
-email.info.wildflowergrowthco.com$image
-email.info.wildflowerremodel.com$image
-email.info.wildhoneybox.com$image
-email.info.wildkinheart.com$image
-email.info.wildrosestrategic.com.au$image
-email.info.wildstone.in$image
-email.info.wildwesttradingcompany.com$image
-email.info.willfrantz.com$image
-email.info.williamsestatelaw.com$image
-email.info.willowbarnestate.com$image
-email.info.willowlakesheds.com$image
-email.info.willowlife.co.uk$image
-email.info.willstreescolorado.com$image
-email.info.wilmajeanaguirre.com$image
-email.info.wilsonfanfinancial.com$image
-email.info.windy.law$image
-email.info.windycityfinancial.com$image
-email.info.wingmansuite.com$image
-email.info.winmachance.com$image
-email.info.winnebagoind.com$image
-email.info.winnersclub.hu$image
-email.info.winnielau.com$image
-email.info.winningassistants.com$image
-email.info.winrealtypartners.com$image
-email.info.winwithjerry.com$image
-email.info.wisemedrx.com$image
-email.info.wisetrackcrm.com$image
-email.info.wishinsurance.com$image
-email.info.wishywasheeconcierge.com$image
-email.info.wismickewealth.com$image
-email.info.with-calm.com$image
-email.info.withbelvedere.com$image
-email.info.withdanastenson.com$image
-email.info.withlizchandler.com$image
-email.info.withmercedesmacias.com$image
-email.info.withrevlyn.com$image
-email.info.withsadiesmith.com$image
-email.info.withwifiandlove.com$image
-email.info.witwisdomandwealth.com$image
-email.info.wizehomessolutions.com$image
-email.info.wizenet.io$image
-email.info.wizwealth.com.au$image
-email.info.wlvrnscty.com$image
-email.info.wmconstructionctllc.com$image
-email.info.wolskamoda.pl$image
-email.info.wolvespackmovers.com$image
-email.info.womanwho.com$image
-email.info.womensgolflounge.co.uk$image
-email.info.wonderful-blessing.com$image
-email.info.wondermentlearning.com$image
-email.info.wongchuiling.com$image
-email.info.woodgate.com$image
-email.info.woodyarddental.com$image
-email.info.worcester.gov.uk$image
-email.info.workbridgelink.com$image
-email.info.workforcecareers.com$image
-email.info.workmanship.co$image
-email.info.worknature.es$image
-email.info.worksitewebs.com$image
-email.info.worksmarterwithai.uk$image
-email.info.workwisemarketing.com$image
-email.info.workzpace.com$image
-email.info.worldcompassion.tv$image
-email.info.worldcupexperienceevents.com$image
-email.info.worldfidelitylife.org$image
-email.info.worldviewinstitute.net$image
-email.info.worthcareers.com.au$image
-email.info.wovenlightchiropracticco.com$image
-email.info.wowyourway.com$image
-email.info.wpcfencing.com$image
-email.info.writebeats.com$image
-email.info.wrldsfunding.com$image
-email.info.wsw.network$image
-email.info.wundermedia.ca$image
-email.info.www.recurringincomeplaybook.com$image
-email.info.wwwkatherin25.com$image
-email.info.wychavon.gov.uk$image
-email.info.wycoffconstructionllc.com$image
-email.info.wynharper.com$image
-email.info.wynnlifemanagement.com$image
-email.info.xbodygreece.gr$image
-email.info.xbotmedia.com$image
-email.info.xcalecards.com$image
-email.info.xceler8paddles.com$image
-email.info.xcelerategrowthmarketing.com$image
-email.info.xcelleratedloans.com.au$image
-email.info.xgilham.com$image
-email.info.xgrowthagencia.com$image
-email.info.xiaclub.org$image
-email.info.xiomaraleiva.com$image
-email.info.xlinteractive.com$image
-email.info.xlwithus.com$image
-email.info.xortlogix.com$image
-email.info.xosialx.health$image
-email.info.xoxo.lt$image
-email.info.xponentmarketing.com$image
-email.info.xrcryoiso.com$image
-email.info.xrcryoplunge.com$image
-email.info.xtendelements.co.za$image
-email.info.xterrahealth.com$image
-email.info.xuavageloveofficial.com$image
-email.info.xvidajewelry.com$image
-email.info.yaldi.ae$image
-email.info.yanovis.com$image
-email.info.yansymedia.com$image
-email.info.yardhyperadio.com$image
-email.info.yasmeenalhumood.com$image
-email.info.yaxso.com$image
-email.info.ycc-algerie.com$image
-email.info.ydacruz.com$image
-email.info.yegbeautyloft.ca$image
-email.info.yegrealestateservices.ca$image
-email.info.yegstrategies.com$image
-email.info.yesempire.com.my$image
-email.info.yesluck.com$image
-email.info.yesnonprofit.org$image
-email.info.yesreputation.com$image
-email.info.yeswardcoaching.com$image
-email.info.yfmnbyf.com$image
-email.info.yinkafinancial.org$image
-email.info.yoelsardinasclasegratuita.com$image
-email.info.yogainfinito.com$image
-email.info.yogawithjaina.com$image
-email.info.yoloteam.net$image
-email.info.yorkpubvallarta.com$image
-email.info.youareccomends.com$image
-email.info.youareunstoppable.co.uk$image
-email.info.youmatterpsychology.co.uk$image
-email.info.young4life.co$image
-email.info.youngfields.com.mx$image
-email.info.younginspections.com$image
-email.info.younglifetulsa.com$image
-email.info.younglionsva.com$image
-email.info.youngvfm.com$image
-email.info.your-claim.com$image
-email.info.yourbeautyconcierge.com$image
-email.info.yourbestiesinbusiness.com$image
-email.info.yourbusinessdoneright.com$image
-email.info.yourbusinesswizard.com$image
-email.info.yourchicagolawyer.com$image
-email.info.yourconsciouscleaners.net$image
-email.info.yourehome.io$image
-email.info.yourevs.ca$image
-email.info.yourflexiblecoverage.com$image
-email.info.yourhomeadvocate.org$image
-email.info.yourinneralignment.com$image
-email.info.yourjoyismygift.com$image
-email.info.yourlegacyearnings.com$image
-email.info.yourlenderrichard.com$image
-email.info.yourmarketinghub.io$image
-email.info.yourmomentumspark.com$image
-email.info.yournextlevelstay.com$image
-email.info.youropportunityknox.com$image
-email.info.yourpowersuite.com$image
-email.info.yourprofessionalorganiser.co.uk$image
-email.info.yourquoteteam.com$image
-email.info.yourrealpartner.com$image
-email.info.yoursilentlaunch.com$image
-email.info.yoursolutiontaxpro.com$image
-email.info.yourstonehaven.com$image
-email.info.yourswissdoctor.com$image
-email.info.yourtripbuilders.com$image
-email.info.yourtrustedconsultinggroup.com$image
-email.info.yourvibrantchurch.com$image
-email.info.yourvisioncatalyst.com$image
-email.info.yourvitamins.store$image
-email.info.yourwealthredesign.com$image
-email.info.yourworkbenefit.com$image
-email.info.yuditmanzanobroker.com$image
-email.info.yukonwoodproducts.org$image
-email.info.yurvyonline.com$image
-email.info.yvonnelorraine.org$image
-email.info.zaai.me$image
-email.info.zaazpi.com$image
-email.info.zacan.ro$image
-email.info.zachthinkshare.com$image
-email.info.zactrainingsystems.com$image
-email.info.zadacorp.ca$image
-email.info.zadistro.com$image
-email.info.zaduchod.cz$image
-email.info.zaelos.com$image
-email.info.zahloria.org$image
-email.info.zamnamed.com$image
-email.info.zamtechnology.com$image
-email.info.zanderfryer.com$image
-email.info.zang-group.com$image
-email.info.zantena.com$image
-email.info.zaragozamicufinancials.com$image
-email.info.zarrachi.com$image
-email.info.zavqio.net$image
-email.info.zazabars.com$image
-email.info.zegacy.com$image
-email.info.zelenabaterka.cz$image
-email.info.zeluxeautodetailing.com.au$image
-email.info.zemaltea.com$image
-email.info.zendoxies.com$image
-email.info.zenhotels.com$image
-email.info.zenithprivatelending.com$image
-email.info.zenithwellness-sd.com$image
-email.info.zenniqacademy.com$image
-email.info.zenretreatspk.com$image
-email.info.zenrixa.com$image
-email.info.zentraly.app$image
-email.info.zenviodigital.com$image
-email.info.zerodoubtclub.com$image
-email.info.zetmore.com$image
-email.info.zeusspro.com$image
-email.info.zewsdemo.com$image
-email.info.zigzag.dog$image
-email.info.zincfit.com$image
-email.info.zinniawealth.com$image
-email.info.zionpropertypartners.com$image
-email.info.ziplineautomation.com$image
-email.info.zippydigitalsidehustlers.com$image
-email.info.zizielang.com$image
-email.info.zlskinhealth.com$image
-email.info.zoardjg.com$image
-email.info.zoe-agent.com$image
-email.info.zoechling-gmbh.at$image
-email.info.zoel11.com$image
-email.info.zofirabutik.pl$image
-email.info.zognition.com$image
-email.info.zonarestorationaz.com$image
-email.info.zonbase.com$image
-email.info.zorward.com$image
-email.info.zpemail.net$image
-email.info.zrolimitshealthwealth.com$image
-email.info.ztxranch.com$image
-email.info.zualea.com$image
-email.info.zubardubar.es$image
-email.info.zuclan.com$image
-email.info.zumeai.com$image
-email.info.zumturm.com$image
-email.info.zvwcoaching.com$image
-email.info.zygology.com$image
-email.info.zynkpro.com.br$image
-email.info.zynture.com$image
-email.info.zystems.io$image
-email.info.zzinco.co$image
-email.info.zzlevelai.com$image
-email.info1.hoperadvocates.org$image
-email.info1.illinoiscosmetology.com$image
-email.info1.powerhouse-solutions.net$image
-email.info1.pro-systems.ai$image
-email.info1.vancouvergranite.net$image
-email.info17.advisorwebsitesqa.com$image
-email.info17.uniforms-world.com$image
-email.info2.freedomwithai.com$image
-email.info2.issa-assaf.com$image
-email.info2.playpower.com$image
-email.info2.purevista.app$image
-email.info2.qcmvmarketing.com$image
-email.info2.searchatlas.com$image
-email.info2.seawolfreachout.com$image
-email.info2.smretirementsolutions.com$image
-email.info2.twpethotel.com$image
-email.info2.watchfiremusic.com$image
-email.info21c.net$image
-email.info2health.net$image
-email.info3.hoperadvocates.org$image
-email.info3.serviciospilarsousa.com$image
-email.info4.hoperadvocates.org$image
-email.info4.orderofstgeorge.com$image
-email.info4.searchatlas.com$image
-email.info4.serviciospilarsousa.com$image
-email.info5.hoperadvocates.org$image
-email.infoacademy.ro$image
-email.infoandreti.scalexpro.co$image
-email.infoaustin.cortz.com$image
-email.infobekijken.com$image
-email.infobox.com.tw$image
-email.infobug.org$image
-email.infoburlington.bookdexafit.com$image
-email.infobyanymeans.com$image
-email.infocar.com.br$image
-email.infocaresolutions.co.nz$image
-email.infocareworkshop.com$image
-email.infocasadeamor.servedmarketing.com.au$image
-email.infocassino.la-form.com$image
-email.infocision.com$image
-email.infocitystarcleaning.me$image
-email.infoclubrbet.com$image
-email.infocuerpo.celesmanifestacion.com$image
-email.infodallas.palosgarzalogistics.mx$image
-email.infodent.it$image
-email.infodeseguros.com$image
-email.infodigital-emanuela.com$image
-email.infodm.viewhomes.net$image
-email.infodrivesystems.com$image
-email.infodromyazilim.cloudoffix.com$image
-email.infodurham.ultraflexgym.co.uk$image
-email.infoenergia.greenkw.es$image
-email.infoevohealth.mdmobilewoundcare.com$image
-email.infofirme.com$image
-email.infogene.fr$image
-email.infogest.srl$image
-email.infogroen.nl$image
-email.infohcp.com$image
-email.infohoteltriggerflow.com$image
-email.infojam.mailnotify.co.uk$image
-email.infokes.id$image
-email.infolc.sleep-houston.com$image
-email.infolevel5reviews.com$image
-email.infolocalonline.com$image
-email.infomail.creditkasa.ua$image
-email.infomail.vovand.com$image
-email.infomail.yazminmelero.com$image
-email.infomania.one$image
-email.infomaxai.com$image
-email.infomedia.com$image
-email.infomekosrl.it$image
-email.infomomo.vn$image
-email.infomontysfusion.servedmarketing.com.au$image
-email.infonavigators.com$image
-email.infonf.com$image
-email.infonoti.paparazzihairstore.com$image
-email.infoo.jrwebspark.com$image
-email.infoorlando.bookdexafit.com$image
-email.infopaolamaldonado.palosgarzalogistics.mx$image
-email.infopureaura.gwynethsarigumba.com$image
-email.infoquant.com$image
-email.infoquest.io$image
-email.infoquest360.com$image
-email.infor.dgdesignmodeling.com$image
-email.inforeadyreview.com$image
-email.inforeply.griotb.com$image
-email.informa.acerto.com.br$image
-email.informaaserta.com.mx$image
-email.informacion.academianacionaldecapacitacion.com$image
-email.informacion.arvilead.com$image
-email.informacion.deal2drive.online$image
-email.informacion.expoviviendasantander.com$image
-email.informacion.francopalumbi.com$image
-email.informacion.iaandreamora.com$image
-email.informacion.institutoibt.com$image
-email.informacion.naturalslim.com$image
-email.informacion.sistemarentable.com$image
-email.informacion.tupruebadigital.com$image
-email.informaction.movidesk.com$image
-email.informaelearning.it$image
-email.informal.systems$image
-email.informasjon.sulland.no$image
-email.information.dropship.net.au$image
-email.information.godisabove.com$image
-email.information.humrideshare.com$image
-email.information.levisai.co.za$image
-email.information.mymarketingnetwork.com$image
-email.information.nzil.co.nz$image
-email.information.saasbrosagency.com$image
-email.informationclearinghouseinc.com$image
-email.informationsstelle-gesundheit.de$image
-email.informativo.netcampos.com$image
-email.informator.greenarchitecture.pl$image
-email.informe.clubeleads.com$image
-email.informedk12.com$image
-email.informedmarketing.org$image
-email.informeimpresores.com$image
-email.informes.enppeduca.com$image
-email.informes.ipappg.edu.pe$image
-email.informes.pragmma.com$image
-email.informsonline.com$image
-email.infornetwork.com.br$image
-email.inforox.com$image
-email.inforp.rheasystem.com$image
-email.inforshop.com.br$image
-email.infortecr.edu.co$image
-email.infos-commerce.com$image
-email.infos.andreafranzel.com$image
-email.infos.clientx.ai$image
-email.infos.dtrading.net$image
-email.infos.estheticienneperformante.fr$image
-email.infos.infinityviews.agency$image
-email.infos.kalexex.com$image
-email.infosa.viewhomes.net$image
-email.infosecinstitute.com$image
-email.infosmartconcept.fr$image
-email.infosrestaurant.com$image
-email.infostreamlinesmm.com$image
-email.infotallahassee.bookdexafit.com$image
-email.infotampa.bookdexafit.com$image
-email.infotech.yourtechdiet.com$image
-email.infotechwny.com$image
-email.infotex.uk$image
-email.infotrak.com.ar$image
-email.infovenit.com$image
-email.infovictorrodriguez.palosgarzalogistics.mx$image
-email.infovitalitywellness.com$image
-email.infoweise.com$image
-email.infowisesolutions.com$image
-email.infra.pubfac.com$image
-email.inframg.varomoney.com$image
-email.infraprime.com$image
-email.infrastruktura.gov.al$image
-email.infravision.com$image
-email.infro.fresnosmiledentistry.com$image
-email.infspy.online$image
-email.infusedental.claimmyconfidentsmile.com$image
-email.infusezen.com$image
-email.infusionapi.com$image
-email.infusionmail.graceandgratitudecounseling.com$image
-email.infymedia.movidesk.com$image
-email.ingaa.aver.lv$image
-email.ingage.jp$image
-email.ingandmckee.com$image
-email.ingarden.pt$image
-email.inge-performance-lab.sportscarnival.com$image
-email.ingeborgs.healthydm.com$image
-email.ingegneriteramo.it$image
-email.ingegnosi.it$image
-email.ingelby.skinsnneedles.co.uk$image
-email.ingenia.com$image
-email.ingenieria-analitica.com$image
-email.ingenieria.lifestyleenergy.com.mx$image
-email.ingenierospolack.com.ar$image
-email.ingenioindonesia.com$image
-email.ingenuity-digital.co.uk$image
-email.ingenya.co.cr$image
-email.ingenyarse.com$image
-email.ingevecinmobiliaria.cl$image
-email.inghaminstitute.org.au$image
-email.ingimec.com$image
-email.ingleburn.conditn.com$image
-email.inglesidevineyards.com$image
-email.inglewoodconstructioninc.com$image
-email.ingoedebanen.nl$image
-email.ingoodpracticegrowth.com$image
-email.ingrain.io$image
-email.ingram.funeralpreplan.info$image
-email.ingramadvocates.com$image
-email.ingrammicrogbs-stage.app$image
-email.ingramtoft.co.uk$image
-email.ingravitymedia.com$image
-email.ingredaco.us$image
-email.ingredients.biz$image
-email.ingredientsnetwork.com$image
-email.ingresse.com$image
-email.ingrid-coach-alchimiste.com$image
-email.ingrid.youngcreatorsart.com$image
-email.ingridigitalmente.com$image
-email.ingv.it$image
-email.ingvardchristensen.dk$image
-email.inhabit.com.au$image
-email.inhale-pilates.futurogress.com$image
-email.inharmony-gohigh.bitcotapps.com$image
-email.inhealth4change.com$image
-email.inholland.nl$image
-email.inhometrainermail.com$image
-email.inhousecme.net$image
-email.inhouseconstruction.kbpost.com$image
-email.inhousegrouprealestate.com$image
-email.iniciados.evdsky.com$image
-email.inicio.biowmallorca.com$image
-email.iniserve.com$image
-email.init.org$image
-email.initialstate.com$image
-email.initiatetrademark.com$image
-email.initiva.se$image
-email.injectdigital.uk$image
-email.injectiongal-aestheticsbest.com$image
-email.injectionroomclt.com$image
-email.injury-health-center.com$image
-email.inkas-print.com$image
-email.inkblottherapy.com$image
-email.inkception.inkfunnel.de$image
-email.inkcreators.inkfunnel.de$image
-email.inkesthetics.ca$image
-email.inkfinder.tattoo$image
-email.inkinsider.inkdifferenttattoos.com$image
-email.inkjetbiz.com$image
-email.inkjetdirect.net$image
-email.inkmanufaktur.pumpyadvertising.com$image
-email.inknaija.com$image
-email.inkoop.garant-vastgoed.nl$image
-email.inkoop.woningopkoper.nl$image
-email.inkris.ai$image
-email.inksaloon.com$image
-email.inksquad.inkfunnel.de$image
-email.inkstanbul.inkfunnel.de$image
-email.inkternational.inkfunnel.de$image
-email.inktrap.co.uk$image
-email.inkubatedenver.com$image
-email.inkubatedenver.org$image
-email.inkwellretreats.org$image
-email.inkworthpublishers.com$image
-email.inkywinky7.com$image
-email.inlays.com$image
-email.inlege.net$image
-email.inlifewellnessfranchise.com$image
-email.inlineinsight.com$image
-email.inlinek9.reachout-today.com$image
-email.inlinephysio.com.au$image
-email.inlo.info$image
-email.inlog.movidesk.com$image
-email.inmail.kintell.com$image
-email.inmaillab.com$image
-email.inman-technologies.com$image
-email.inmarket.com$image
-email.inmeo.com.br$image
-email.inmigrazione.it$image
-email.inmobi.com$image
-email.inmobiliaria.espacio360.mx$image
-email.inmobiliariaarmas.trytoku.com$image
-email.inmobiliariagimax.trytoku.com$image
-email.inmobiliariainsigne.trytoku.com$image
-email.inmobiliariamanquehue.trytoku.com$image
-email.inmobiliariamartabid.trytoku.com$image
-email.inmobiliariarvc.trytoku.com$image
-email.inmobiliariaturisticatulum.trytoku.com$image
-email.inmotiondma.io$image
-email.inmotionhosting.cartrecover.net$image
-email.inmotionventures.com$image
-email.inmunotek.com.au$image
-email.inmuscle.com$image
-email.innat500.com$image
-email.innat5th.com$image
-email.innateroma.autochiroupdates.com$image
-email.innatlongwood.cartrecover.net$image
-email.innboss.intimatehotelsbarbados.com$image
-email.inndex.ru$image
-email.inndocapital.com$image
-email.innerbalancelife.com$image
-email.innerbridge.fr$image
-email.innercircle.bycolusa.com$image
-email.innercircle27.com$image
-email.innercropcircle.com$image
-email.inneredgemedia.co.za$image
-email.innergamecloser.com$image
-email.innerlight.ae$image
-email.innerpreneur.org$image
-email.innerpreneurthepod.com$image
-email.innerradianceskin.com$image
-email.innertalk.com$image
-email.innertruthcounseling.ca$image
-email.innertruthcounselling.life$image
-email.innertruthcounselling.org$image
-email.inneru.coach$image
-email.inniaccounts.co.uk$image
-email.innig.net$image
-email.inniogroup.com$image
-email.innisfailcitymotel.com.au$image
-email.innobee.com$image
-email.innobeefactura.com$image
-email.innocencenetwork.org$image
-email.innocentbystander.com.au$image
-email.innofenster.buildbuzz.agency$image
-email.innoflame.fi$image
-email.innov2e.it$image
-email.innova.nova21agency.com$image
-email.innovacare.mundomedico.es$image
-email.innovanttisolucoes.com$image
-email.innovapte.com$image
-email.innovardigitall.com$image
-email.innovare.pe$image
-email.innovaremedia.com$image
-email.innovares.eu$image
-email.innovareti.com.br$image
-email.innovatefinancial.com$image
-email.innovategas.com$image
-email.innovatesolar.solarpowersavers.com$image
-email.innovation-portal.com$image
-email.innovation-shade.com$image
-email.innovation-spectaevents.com$image
-email.innovation-system.it$image
-email.innovation.visa.co.il$image
-email.innovationdermatology.com$image
-email.innovationhalifax.net$image
-email.innovationmanager.voucherlazio.com$image
-email.innovationquarter.nl$image
-email.innovations.harderthanlife.com$image
-email.innovations.trustntm.com$image
-email.innovative-instrument.com$image
-email.innovativedesign.us$image
-email.innovativeinsure.net$image
-email.innovativeliquids.net$image
-email.innovativeoutdoordesign.net$image
-email.innovatorins.com$image
-email.innovators.dvmelite.com$image
-email.innovators.rayneo.com$image
-email.innuvo.co.uk$image
-email.innvictoria.com$image
-email.ino.affiliaide.com$image
-email.ino.elite-wellness-group.com$image
-email.inocyx.com$image
-email.inoptimum.com$image
-email.inorpelcybersecurity.com.br$image
-email.inotfs.firegang.com$image
-email.inova.to$image
-email.inovadig.com.br$image
-email.inovafutura.com$image
-email.inovatio.com.ar$image
-email.inovatorio.com.br$image
-email.inovineconferences.com$image
-email.inovtravel.com$image
-email.inovute.com$image
-email.inpelle.myskinsurvey.com$image
-email.inplayer.com$image
-email.inplaytraders.com$image
-email.inpleno.com.ua$image
-email.inputhealth.com$image
-email.inputkit.io$image
-email.inputtechnologysolutions.com$image
-email.inpyjama.com$image
-email.inqbik.com$image
-email.inquirezonedrelestate.radiantestatecinema.com$image
-email.inquiries.airsimplicity.co$image
-email.inquiries.billcoteyhomes.com$image
-email.inquiries.bridgewaysolution.com$image
-email.inquiries.clinicbookingassistant.com$image
-email.inquiries.cobbhillestate.us$image
-email.inquiries.granburyespinozastone.com$image
-email.inquiries.mjmyachts.com$image
-email.inquiries.playhoboken.com$image
-email.inquiries.scenthound.com$image
-email.inquiries.sellmyhousefast.express$image
-email.inquiries.westchesterweightlosswellness.com$image
-email.inquiry.alignedandsoulful.com$image
-email.inquiry.angelaleungddspc.com$image
-email.inquiry.bergconsult.at$image
-email.inquiry.bethenewspro.com$image
-email.inquiry.boneheadbookkeeping.com$image
-email.inquiry.comfortcare-transportation.com$image
-email.inquiry.debsinsurance.com$image
-email.inquiry.dondubosepro.com$image
-email.inquiry.gpgtouring.com$image
-email.inquiry.johnrobertpowers.com$image
-email.inquiry.ozmentmedia.com$image
-email.inquiry.profitmasterpro.com$image
-email.inquiry.resinflowco.com$image
-email.inquiry.therapiautismpro.com$image
-email.inrealtyinc.com$image
-email.inrpce.com$image
-email.ins.edinarealty.com$image
-email.ins.health-trust-financial.com$image
-email.ins.healthtrustfinancial.com$image
-email.ins.homeservices-ins.com$image
-email.ins.insurancesouth.com$image
-email.ins.itskaythalliday.ca$image
-email.ins.odomhealthgroup.com$image
-email.ins.pcgagencies.com$image
-email.ins.reecenichols.com$image
-email.ins.rosfines.ru$image
-email.ins.sandavi.com$image
-email.ins.zaraaltairfinancial.com$image
-email.insafeconnect.com$image
-email.insajder.net$image
-email.insales.com$image
-email.inscription.ensi.ma$image
-email.inscription.online$image
-email.insecure.omnivers.ai$image
-email.inseldersinne.de$image
-email.insertmd.com$image
-email.insessionstudios.com$image
-email.insforlife.com$image
-email.inshallahclothing.abprotectorplus.com$image
-email.inshanedesigns.com$image
-email.inshape.com$image
-email.inshapeclubs.com$image
-email.insia.com$image
-email.inside-mohawk.senderservices.net$image
-email.inside-talent.com$image
-email.inside.rkt360.com$image
-email.insideair.com$image
-email.insideandoutroofing.yourethicalcontracting.com$image
-email.insidecarguys.car-deals.net$image
-email.insidecircle.chefmarian.com$image
-email.insidejobacademy.com$image
-email.insidenation.com$image
-email.insideoptions.io$image
-email.insideoutpatio.ca$image
-email.insidepersonalgrowth.com$image
-email.insider.app.guest-suite.com$image
-email.insider.bodybalancemedical.com$image
-email.insider.creacheck.com$image
-email.insider.holdentimelessbeauty.com$image
-email.insider.moxxienotesolutions.com$image
-email.insider.nurse.com$image
-email.insider.realty$image
-email.insider.rnesthetics.com$image
-email.insider.smokeshowboudoir.com$image
-email.insiderbancario.com$image
-email.insiderclub.dfwh.com$image
-email.insiderperks.com$image
-email.insiderprogram.bhvr.com$image
-email.insiderreports.com$image
-email.insiders.arrow.com$image
-email.insiders.eyringdigitalsolutions.com$image
-email.insidersoftware.com$image
-email.insidesistemas.movidesk.com$image
-email.insidetracker.com$image
-email.insight-portal.com$image
-email.insight.bijaktenaga.com$image
-email.insight.glowelladvisors.com$image
-email.insight.in.th$image
-email.insight.myindibiz.co.id$image
-email.insightalliance.com$image
-email.insightconf.trimble.com$image
-email.insightdistribution.com.sg$image
-email.insighteditions.com$image
-email.insighthosting.com$image
-email.insightinsurance.ie$image
-email.insightintelli.com$image
-email.insightliving.mail.welcomehomesoftware.com$image
-email.insightmail.holder.com$image
-email.insightng.com$image
-email.insightpartners.com$image
-email.insightplus.exploremeetava.com$image
-email.insightpublications.com.au$image
-email.insightrecruitment.com$image
-email.insights.acadiadata.net$image
-email.insights.astro-results.com$image
-email.insights.beaconlogic.ai$image
-email.insights.bigbrainidea.com$image
-email.insights.bkc-cpa.com$image
-email.insights.boomlab.agency$image
-email.insights.buildbrightmoney.com$image
-email.insights.cbrands.com$image
-email.insights.coustieradvisory.com$image
-email.insights.createmeetava.com$image
-email.insights.elevaray.com$image
-email.insights.ethany.com$image
-email.insights.gg$image
-email.insights.growyourresults.com$image
-email.insights.hcpguide.com$image
-email.insights.indonesso.com$image
-email.insights.integrispartners.com$image
-email.insights.itseightyseven.com$image
-email.insights.jane-anderson.com.au$image
-email.insights.kevinhumphreys.com.au$image
-email.insights.laframboisemortgage.ca$image
-email.insights.landvaluealpha.com$image
-email.insights.livinginnaperville.com$image
-email.insights.madeformore.com.au$image
-email.insights.magnifyequity.com$image
-email.insights.maxica.com$image
-email.insights.metafox.eu$image
-email.insights.myindibiz.co.id$image
-email.insights.n-bac.com$image
-email.insights.nova-scale.ai$image
-email.insights.personallytics.com$image
-email.insights.pptmarketingemail.com$image
-email.insights.proposalhelper.net$image
-email.insights.reliableclean.com$image
-email.insights.researchandmarkets.com$image
-email.insights.resultssmartagency.com$image
-email.insights.revologyanalytics.com$image
-email.insights.salesstak.com$image
-email.insights.samantha-pearce.com.au$image
-email.insights.skefto.com$image
-email.insights.suziethoraval.com$image
-email.insights.tealepenandpixel.com$image
-email.insights.theastroblaster.com$image
-email.insights.transearchusa.com$image
-email.insights.webdizzmedia.com$image
-email.insights.work-clockwise.com$image
-email.insights.worlduraai.com$image
-email.insightssaile-ai.com$image
-email.insins-updates.com$image
-email.insite.4cd.edu$image
-email.insmed.com$image
-email.insolvenz-verwertung.net$image
-email.insomniacookiesemail.smg.com$image
-email.insp.darlingjoseph.com$image
-email.inspection.aafireandsafetyco.com$image
-email.inspectionxmail.com$image
-email.inspectornfc.com$image
-email.insperiait.com$image
-email.inspiraracademy.com$image
-email.inspirasjon.no$image
-email.inspiration.wininfinitely.com$image
-email.inspirationdanceacademy.enrolliomail.com$image
-email.inspirationsoftempe.mail.welcomehomesoftware.com$image
-email.inspirationsstudios.com$image
-email.inspire.breziesolutions.com$image
-email.inspire.ktwarren.com$image
-email.inspire.raffall.com$image
-email.inspire.sparklingflipflops.com$image
-email.inspire.to$image
-email.inspire.wefacilitatechange.com$image
-email.inspire360.com$image
-email.inspireacademy.enrolliomail.com$image
-email.inspirechico.eparms.org$image
-email.inspirechiropractic.au$image
-email.inspired.co$image
-email.inspired.nu$image
-email.inspiredactionwellness.com$image
-email.inspiredadventures.com$image
-email.inspiredbusinesscoaching.com$image
-email.inspiredcreationsdancestudio.com$image
-email.inspiredgo.ca$image
-email.inspiredscentsco.com$image
-email.inspiredwell.org$image
-email.inspireincomeimpact.com$image
-email.inspiremetoday.com$image
-email.inspirenow.com.my$image
-email.inspirepodiatry.com.au$image
-email.inspires.sparklingflipflops.com$image
-email.inspiringhypnosis.net$image
-email.inspiringquotes.com$image
-email.inspiringvacations.com.au$image
-email.inspirio.com$image
-email.inspirita.cz$image
-email.inspius.com$image
-email.insplan.fi$image
-email.inspodental.com$image
-email.insqemail.com$image
-email.insqins-followup.com$image
-email.insquoteinstantemail.com$image
-email.insquotes-coverage.com$image
-email.insrates-forlessonline.com$image
-email.inst.thermoco.ca$image
-email.insta.evergreenclinic.ca$image
-email.instahomeadvice.com$image
-email.instalaciones.ariaia.com$image
-email.install.synkrino.io$image
-email.installateur-bwt.fr$image
-email.installatiebedrijfmoesbergen.nl$image
-email.installationpanneauphotovoltaique.ch$image
 email.installernetwork.assemblyservicesforyou.com$image
 email.installmentloansaltlakecity.com$image
 email.installs.prestigerenewables.com.au$image
@@ -191479,6 +189992,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||adfox.ru^$cookie=luid1
 ||adfox.ru^$cookie=luid1_ts
 ||adfpoint.com^$popup
+||adfractal.com^$all
 ||adglare.net^$popup
 ||adguard*/-/event/
 ||adguard-dns.io/-/event/
@@ -199046,6 +197560,8 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||daniuxuexiao.org.cn/js/zk
 ||danlan.org/KFC/
 ||daohang.qq.com^$removeparam=fr
+||daophim.*/backend-api/ads/
+||daophim.*/metrics/
 ||dap-cn.c.hihonor.com/dap/jssdk.js
 ||dap.digitalgov.gov/Universal-Federated-Analytics-Min.js
 ||dap.dmm.co.jp/imp?
@@ -201021,6 +199537,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||events-api*.outfit7.com^
 ||events-proxy.mintlify.com/decide/
 ||events-proxy.mintlify.com/e/?ip=*&ver=$xmlhttprequest,redirect=noopjson
+||events.*.oci.oraclecloud.com^
 ||events.*/takeaway/takeaway.com/*/*.gif$domain=thuisbezorgd.nl|takeaway.com|just-eat.ch|lieferando.at|lieferando.de|just-eat.fr|pyszne.pl|just-eat.dk|just-eat.no
 ||events.genndi.com/tracker
 ||events.jianshu.io^*/sa.gif$image,redirect=1x1-transparent.gif,important
@@ -201514,6 +200031,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||fcbayern.com/static/*/collect?
 ||fcmatch.google.com/pixel
 ||fcmatch.youtube.com/pixel
+||fcportables.com/p4on3l/
 ||fcw45.com/js/layer1.js^
 ||fd.nl/pixel/
 ||fdc.com.cn^*adv
@@ -201622,6 +200140,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||file-upload.net/include/mitte-orig.php
 ||file.galpic.xyz/axfile/*.gif$domain=ggbases.com
 ||fileboom.me/images/i/$third-party
+||filecatchers.com/k5yy6w/
 ||filecrypt.*/js/ddownload.js
 ||filecrypt.cc/api/site/tracking-config/
 ||filecrypt.cc/api/track|
@@ -203058,6 +201577,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||globaldjmix.com/dist/js/script_site_detect.js
 ||globalgrainsadf.com^$all
 ||globalinfo.az/export/
+||globalpromo.az/placements.js$domain=baku.ws
 ||globalreward77.com^$doc
 ||globalservices.conde.digital/p77xzrbz9z.js
 ||globalwoldsinc.com^$all
@@ -208579,6 +207099,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||logbase.io/metrics
 ||logger-*.dailymotion.com^
 ||logger-*.vty.dailymotion.com/dm/
+||logging.*.oci.oraclecloud.com^
 ||loggly.com^$third-party
 ||logicdate.com^$popup
 ||logicschort.com^$popup
@@ -217269,6 +215790,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||sma-lita.site^$doc
 ||smaero.jp/advimg/
 ||smaero.jp/js/access.js
+||smailpro.com/img/smailpro.com/banners/
 ||smailpro.com/js/chunks/aff_a.js
 ||smaki.pl/_static/ads-*.js
 ||smallfunnybears.com^$popup
@@ -218660,6 +217182,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||streamtapeadblockuser.xyz/stat/
 ||streamtheworld.com/imp?
 ||streamtheworld.com/ondemand/creative?cat=cm-preroll$xhr,redirect=nooptext,domain=los40.com
+||streamvsmov.com/api/embed-hit|
 ||streamwood.ru/img/$media
 ||streamyourvid.com^$popup
 ||streeteasy.com/cZdhF737/init.js
@@ -219481,6 +218004,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||telemetry*.transcend.io^
 ||telemetry-web.api.playstation.com^$redirect=nooptext
 ||telemetry.*.oci.oraclecloud.com^
+||telemetry.*.oraclecloud.com^
 ||telemetry.*.pvp.net^
 ||telemetry.api.wmcdp.io^$third-party
 ||telepolis.pl/images/*/*/CitiKonto*_*x*.jpg
@@ -221294,7 +219818,6 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ||unpkg.com/videojs-vast-vpaid$important,domain=video.q34r.org|porntoday.ws|netuplayer.top|netu.ac|speedporn.net|meucdn.vip|yandexcdn.com|waaw1.tv|waaw.*|hqq.*|peliculas8k.com|gledajvideo.top|1069jp.com|diziturk.club|younetu.org|vzlinks.com|fsohd.pro|cinecalidad.vip|vapley.top|player.streaming-integrale.com|xtapes.to|player.igay69.com|troncha.lol|vpge.link|opuxa.lat|filmcdn.top|stbpnetu.xyz|pokemonlaserielatino.xyz|gayvidsclub.com|zarato.top|videocdnal24.xyz|play.seriesgod.com|xstream.top|latlat.xyz
 ||unpkg.com/videojs-vast-vpaid@
 ||unpkg.com/web-vitals
-||unpkg.com/web-vitals?
 ||unreshiramor.com^$popup
 ||unsplash.com/nabc^
 ||unsplash.com/nmetrics
@@ -258203,6 +256726,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ##.ot-subscribe-widget
 ##.ot_cookie_settings_btn
 ##.otd-ad-top
+##.other-ads-container
 ##.ou-cookies-bar
 ##.oui-back-to-top
 ##.our_sharing
@@ -266646,7 +265170,6 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 ##a[href^="https://www.linkedin.com/cws/share?"]
 ##a[href^="https://www.linkedin.com/feed/?shareActive="]
 ##a[href^="https://www.linkedin.com/shareArticle?"]
-##a[href^="https://www.linkedin.com/sharing/"]
 ##a[href^="https://www.linkedin.com/sharing/share-offsite/?"]
 ##a[href^="https://www.liquidfire.mobi/"]
 ##a[href^="https://www.mobi24.net/"]
@@ -267802,8 +266325,8 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 10short.com#%#//scriptlet("trusted-replace-node-text", "script", "openLink", "/window.location.href = '.*?';/", "")
 10tv.com,11alive.com,12news.com,12newsnow.com,13newsnow.com,13wmaz.com,5newsonline.com,9news.com,abc10.com,al.com,aol.com,apnews.com,artforum.com,artnews.com,bellinghamherald.com,billboard.com,birdsandblooms.com,calgaryherald.com,calgarysun.com,cbs19.tv,cbs8.com,chattanoogacw.com,cleveland.com,crazygames.com,crooksandliars.com,cwtv.com,deadline.com,dpreview.com,driving.ca,edmontonjournal.com,edmontonsun.com,familyhandyman.com,financialpost.com,firstcoastnews.com,fox43.com,fox61.com,futbin.com,goldderby.com,golfdigest.com,gulflive.com,hollywoodreporter.com,indiewire.com,kare11.com,kcentv.com,kens5.com,kgw.com,khou.com,kiiitv.com,king5.com,komonews.com,krem.com,ktvb.com,kvue.com,lehighvalleylive.com,lfpress.com,localmemphis.com,masslive.com,mlive.com,motor1.com,myfoxzone.com,nationalpost.com,nbcsports.com,news.com.au,newscentermaine.com,newswest9.com,nj.com,nydailynews.com,oregonlive.com,ottawacitizen.com,ottawasun.com,pcworld.com,pennlive.com,rd.com,robbreport.com,rollingstone.com,sherdog.com,sidereel.com,silive.com,sportico.com,superherohype.com,syracuse.com,tasteofhome.com,techcrunch.com,thehealthy.com,thv11.com,tj.news,torontosun.com,twinfinite.net,vancouversun.com,variety.com,vibe.com,wbir.com,wcnc.com,weareiowa.com,weather.com,wfaa.com,wfmynews2.com,wgrz.com,whas11.com,windsorstar.com,wkyc.com,wltx.com,wnep.com,wowhead.com,wqad.com,wthr.com,wtol.com,wtsp.com,wusa9.com,wwd.com,wwltv.com,wzzm13.com##+js(acs, document.getElementsByTagName, .pubads)
 10tv.com,11alive.com,12news.com,12newsnow.com,13newsnow.com,13wmaz.com,5newsonline.com,9news.com,abc10.com,al.com,aol.com,apnews.com,artforum.com,artnews.com,bellinghamherald.com,billboard.com,birdsandblooms.com,calgaryherald.com,calgarysun.com,cbs19.tv,cbs8.com,chattanoogacw.com,cleveland.com,crazygames.com,crooksandliars.com,cwtv.com,deadline.com,dpreview.com,driving.ca,edmontonjournal.com,edmontonsun.com,familyhandyman.com,financialpost.com,firstcoastnews.com,fox43.com,fox61.com,futbin.com,goldderby.com,golfdigest.com,gulflive.com,hollywoodreporter.com,indiewire.com,kare11.com,kcentv.com,kens5.com,kgw.com,khou.com,kiiitv.com,king5.com,komonews.com,krem.com,ktvb.com,kvue.com,lehighvalleylive.com,lfpress.com,localmemphis.com,masslive.com,mlive.com,motor1.com,myfoxzone.com,nationalpost.com,nbcsports.com,news.com.au,newscentermaine.com,newswest9.com,nj.com,nydailynews.com,oregonlive.com,ottawacitizen.com,ottawasun.com,pcworld.com,pennlive.com,rd.com,robbreport.com,rollingstone.com,sherdog.com,sidereel.com,silive.com,sportico.com,superherohype.com,syracuse.com,tasteofhome.com,techcrunch.com,thehealthy.com,thv11.com,tj.news,torontosun.com,twinfinite.net,vancouversun.com,variety.com,vibe.com,wbir.com,wcnc.com,weareiowa.com,weather.com,wfaa.com,wfmynews2.com,wgrz.com,whas11.com,windsorstar.com,wkyc.com,wltx.com,wnep.com,wowhead.com,wqad.com,wthr.com,wtol.com,wtsp.com,wusa9.com,wwd.com,wwltv.com,wzzm13.com#%#//scriptlet('ubo-acs', 'document.getElementsByTagName', '.pubads')
-10tv.com,11alive.com,12news.com,13newsnow.com,5newsonline.com,9news.com,abc10.com,abc15.com,ajc.com,al.com,attackofthefanboy.com,beavertonvalleytimes.com,cbs8.com,destructoid.com,firstcoastnews.com,fox2now.com,fox61.com,gamepur.com,gamerjournalist.com,gameskinny.com,kare11.com,kens5.com,kgw.com,khou.com,king5.com,ksdk.com,kvue.com,lehighvalleylive.com,lehighvalleylivecom,lgbtqnation.com,macwelt.de,masslive.com,mlive.com,news8000.com,newscentermaine.com,oregonlive.com,pcwelt.de,pennlive.com,portlandtribune.com,primagames.com,progameguides.com,queerty.com,siliconera.com,silive.com,sporcle.com,techcrunch.com,thebeenews.com,themarysue.com,theoutlookonline.com,timesofindia.indiatimes.com,touchtapplay.com,tweaktown.com,wbir.com,wcnc.com,wegotthiscovered.com,wfaa.com,wfmynews2.com,wgrz.com,whas11.com,winnipegfreepress.com,wiz.io,wkyc.com,wltx.com,wnep.com,wqad.com,wsvn.com,wthr.com,wtol.com,wtsp.com,wusa9.com,wwltv.com,wzzm13.com##+js(aost, decodeURI, /(?=^(?!.*\.js))/)
-10tv.com,11alive.com,12news.com,13newsnow.com,5newsonline.com,9news.com,abc10.com,abc15.com,ajc.com,al.com,attackofthefanboy.com,beavertonvalleytimes.com,cbs8.com,destructoid.com,firstcoastnews.com,fox2now.com,fox61.com,gamepur.com,gamerjournalist.com,gameskinny.com,kare11.com,kens5.com,kgw.com,khou.com,king5.com,ksdk.com,kvue.com,lehighvalleylive.com,lehighvalleylivecom,lgbtqnation.com,macwelt.de,masslive.com,mlive.com,news8000.com,newscentermaine.com,oregonlive.com,pcwelt.de,pennlive.com,portlandtribune.com,primagames.com,progameguides.com,queerty.com,siliconera.com,silive.com,sporcle.com,techcrunch.com,thebeenews.com,themarysue.com,theoutlookonline.com,timesofindia.indiatimes.com,touchtapplay.com,tweaktown.com,wbir.com,wcnc.com,wegotthiscovered.com,wfaa.com,wfmynews2.com,wgrz.com,whas11.com,winnipegfreepress.com,wiz.io,wkyc.com,wltx.com,wnep.com,wqad.com,wsvn.com,wthr.com,wtol.com,wtsp.com,wusa9.com,wwltv.com,wzzm13.com#%#//scriptlet('ubo-aost', 'decodeURI', '/(?=^(?!.*\.js))/')
+10tv.com,11alive.com,12news.com,13newsnow.com,5newsonline.com,9news.com,abc10.com,abc15.com,ajc.com,al.com,artforum.com,artnews.com,attackofthefanboy.com,beavertonvalleytimes.com,cbs8.com,destructoid.com,firstcoastnews.com,fox2now.com,fox61.com,gamepur.com,gamerjournalist.com,gameskinny.com,indiewire.com,kare11.com,kens5.com,kgw.com,khou.com,king5.com,ksdk.com,kvue.com,lehighvalleylive.com,lehighvalleylivecom,lgbtqnation.com,macwelt.de,masslive.com,mlive.com,news8000.com,newscentermaine.com,oregonlive.com,pcwelt.de,pennlive.com,portlandtribune.com,primagames.com,progameguides.com,queerty.com,robbreport.com,rollingstone.com,siliconera.com,silive.com,sporcle.com,techcrunch.com,thebeenews.com,themarysue.com,theoutlookonline.com,timesofindia.indiatimes.com,touchtapplay.com,tweaktown.com,variety.com,vibe.com,wbir.com,wcnc.com,wegotthiscovered.com,wfaa.com,wfmynews2.com,wgrz.com,whas11.com,winnipegfreepress.com,wiz.io,wkyc.com,wltx.com,wnep.com,wqad.com,wsvn.com,wthr.com,wtol.com,wtsp.com,wusa9.com,wwd.com,wwltv.com,wzzm13.com##+js(aost, decodeURI, /(?=^(?!.*\.js))/)
+10tv.com,11alive.com,12news.com,13newsnow.com,5newsonline.com,9news.com,abc10.com,abc15.com,ajc.com,al.com,artforum.com,artnews.com,attackofthefanboy.com,beavertonvalleytimes.com,cbs8.com,destructoid.com,firstcoastnews.com,fox2now.com,fox61.com,gamepur.com,gamerjournalist.com,gameskinny.com,indiewire.com,kare11.com,kens5.com,kgw.com,khou.com,king5.com,ksdk.com,kvue.com,lehighvalleylive.com,lehighvalleylivecom,lgbtqnation.com,macwelt.de,masslive.com,mlive.com,news8000.com,newscentermaine.com,oregonlive.com,pcwelt.de,pennlive.com,portlandtribune.com,primagames.com,progameguides.com,queerty.com,robbreport.com,rollingstone.com,siliconera.com,silive.com,sporcle.com,techcrunch.com,thebeenews.com,themarysue.com,theoutlookonline.com,timesofindia.indiatimes.com,touchtapplay.com,tweaktown.com,variety.com,vibe.com,wbir.com,wcnc.com,wegotthiscovered.com,wfaa.com,wfmynews2.com,wgrz.com,whas11.com,winnipegfreepress.com,wiz.io,wkyc.com,wltx.com,wnep.com,wqad.com,wsvn.com,wthr.com,wtol.com,wtsp.com,wusa9.com,wwd.com,wwltv.com,wzzm13.com#%#//scriptlet('ubo-aost', 'decodeURI', '/(?=^(?!.*\.js))/')
 10web.io##.blog_share > ul > li[class^="share_"]
 10web.io##.blog_share_bottom
 10x.co.za,afpintegra.pe,appmetrica.yandex.com,sook.space##[class^="Cookie_"]
@@ -268540,7 +267063,7 @@ zy4jviawqldmteoh.view.s11.sfmc-osl.com$image
 21cn.com##.h-gg
 21cn.com##.xuantu
 21cn.com##div[class^="topAds"]
-21group.at,acidcow.com,allangray.co.za,almayadeen.net,amaze.org,artdentis.com,autosolar.co,autosolar.pe,backaldrin.com,bankofengland.co.uk,bestlawyers.com,binary.transparency.dev,breadandbutter.ru,camgo.com,candaceowens.com,castlefineart.com,cls-computer.de,dio-center.info,direct2u.co.uk,drgerard.eu,ecosia.org,emailnator.com,estately.com,freevpnplanet.com,getbring.com,greenhouseseeds.nl,greenpeace.org,gvtc.com,harveynichols.com,iamcook.ru,ifo.de,iihf.com,isubqo.com,jetset-hairextensions.nl,kappahl.com,lehigh.edu,lightspeed.com,mageba-group.com,manpower.com.ar,manpowergroup.com.ar,mashable.com,maspethfederal.com,matchtv.ru,mct.co.il,millers.ch,monnik-dranken.nl,motocard.com,nbtc.go.th,nc-planica.si,ncfu.ru,news.sportbox.ru,oakville.ca,onlinedrugtraining.com,outfit7.com,pagetiger.com,podomatic.com,portfoliobox.com,pryor.com,psychiatryonline.org,rex-royal.ch,schweizermonat.ch,scotworkusa.com,security.mozwik.com,spartanien.de,threadless.com,toolbox.googleapps.com,topmarket.co.il,trustsig.eu,ucbi.com,ucrazy.org,underbelly.is,viboom.com,vidal.ru,vixx.nl,wine-searcher.com,xtreme.pt,zonstudio.nl##.cookie-notice
+21group.at,acidcow.com,allangray.co.za,almayadeen.net,amaze.org,artdentis.com,autosolar.co,autosolar.pe,backaldrin.com,bankofengland.co.uk,bestlawyers.com,binary.transparency.dev,breadandbutter.ru,camgo.com,candaceowens.com,castlefineart.com,cls-computer.de,dio-center.info,direct2u.co.uk,drgerard.eu,ecosia.org,emailnator.com,estately.com,freevpnplanet.com,getbring.com,greenhouseseeds.nl,greenpeace.org,gvtc.com,harveynichols.com,iamcook.ru,ifo.de,iihf.com,isubqo.com,jetset-hairextensions.nl,kappahl.com,lehigh.edu,lightspeed.com,mageba-group.com,manpower.com.ar,manpowergroup.com.ar,mashable.com,maspethfederal.com,matchtv.ru,mct.co.il,millers.ch,monnik-dranken.nl,motocard.com,nbtc.go.th,nc-planica.si,ncfu.ru,news.sportbox.ru,oakville.ca,onlinedrugtraining.com,outfit7.com,pagetiger.com,podomatic.com,portfoliobox.com,profinance.ru,pryor.com,psychiatryonline.org,rex-royal.ch,schweizermonat.ch,scotworkusa.com,security.mozwik.com,spartanien.de,threadless.com,toolbox.googleapps.com,topmarket.co.il,trustsig.eu,ucbi.com,ucrazy.org,underbelly.is,viboom.com,vidal.ru,vixx.nl,wine-searcher.com,xtreme.pt,zonstudio.nl##.cookie-notice
 21ic.com###IC2008Ad
 21ic.com##.appxb
 21ic.com##.couplet_ad2
@@ -277177,6 +275700,8 @@ backpack.tf,backpacktf.com#?#.panel:has-text(createAd)
 backpacker.com##.o-content-cta
 backpacker.com##.o-promo-module
 backpacker.com,cleaneatingmag.com,climbing.com,outsideonline.com,oxygenmag.com,skimag.com,trailrunnermag.com,triathlete.com,vegetariantimes.com,womensrunning.com,yogajournal.com##.c-thinbanner
+backpacker.com,outsideonline.com##.prestitial-ad
+backpacker.com,thedailybeast.com,on3.com,maltadaily.mt##button[aria-label="Share article"]
 backpacktf.com#?#.stats-header-panel + div[class] > .panel:has(> .panel-heading > span:contains(Advertisement))
 backroads.com###webform-submission-e-mail-popup-node-2111-form-ajax
 backroads.com##.block-sign-up-for-our-email-newsletter
@@ -278603,6 +277128,7 @@ best4you.sk##img[width="560"][height="90"]
 best4you.sk##img[width="690"][height="90"]
 bestblackhatforum.com##img[title="Advertisement"]
 bestbuy.ca##.pencilAd_EE9DV
+bestbuy.ca##.superLeaderboard_dvejh
 bestbuy.ca##.x-productListItem:has([data-automation="sponsoredProductLabel"])
 bestbuy.ca##[class^="sponsoredProdBoxGridArea"]
 bestbuy.ca##div.x-productListItem:has([class^="sponsoredProduct"])
@@ -281035,6 +279561,12 @@ boyfriendtv.com#$##b-page-frame { pointer-events:none; }
 boyfriendtv.com#$#body { cursor:default; }
 boyfriendtv.com#%#//scriptlet('abort-on-property-read', 'backgroundBlack')
 boyfriendtv.com#%#//scriptlet('prevent-addEventListener', 'click', 'interstitial')
+boyfriendtv.com,ashemaletube.com,pornoxo.com###page-shell > * {pointer-events:auto;}
+boyfriendtv.com,ashemaletube.com,pornoxo.com###page-shell {padding-top:0;background-image:none;cursor:auto;pointer-events:none;}
+boyfriendtv.com,ashemaletube.com,pornoxo.com##body {background-image:none;}
+boyfriendtv.com,ashemaletube.com,pornoxo.com#$##page-shell > * { pointer-events:auto; }
+boyfriendtv.com,ashemaletube.com,pornoxo.com#$##page-shell { padding-top:0;background-image:none;cursor:auto;pointer-events:none; }
+boyfriendtv.com,ashemaletube.com,pornoxo.com#$#body { background-image:none; }
 boyfriendtv.com,historydaily.org##.adwrapper
 boyfriendtv3.com##.media-listing-grid > .js-quiet.mtile-x7:has(> .mtile-x7__inner-wrapper a[href^="/zv3/cam"])
 boyfriendtv3.com##.tilebar-line
@@ -282464,7 +280996,6 @@ camhub.cc##.col > div.btn-holder:has(> a.btn > i > svg.icon-share)
 camhub.cc#%#//scriptlet("abort-on-property-read", "initPop")
 camhub.cc,heavyfetish.com,kissjav.*,severeporn.com,shemale6.com,watchporn.to##+js(cookie-remover, kt_ips)
 camhub.cc,public-porno.com##.grid-temp > li.spot:has(> div.thumb-box)
-camhub.one,camhub.*,yesporn.org,yesporn.top,yesporn1.cc,hornyleak.tv,justporn.com,pusvid.com,kissjav.com,3dporndude.com,hentaismile.com,camhub.cc,coralxxx.com,analry.com,hard3r.com,bigbigtits.com,public-porno.com,maturexy.com,bigbumfun.com,fuqster.com,bigtitbitches.com,hugewangs.com,w1mp.com,analpornxl.com,sexpester.com,w4nkr.com##.link-offer
 camhub.tv##.player-holder a.paly-trigger
 caminspector.net##.block-video > .table .spot
 caminspector.net##.box > .list-videos > .margin-fix[id^="list_videos_"] > noindex > div.place
@@ -288780,8 +287311,10 @@ dailyweb.pl##.user-widgets > section#text-22
 dailyweb.pl##div[id^="daily-"][class^="daily-"]
 dailyweb.pl#%#//scriptlet("set-constant", "checkAds", "noopFunc")
 dailyweb.pl#?#.single-post-content > .daily-podstrona-w-tresci:has(> .daily-adlabel)
+dailywire.com###global-header-top-ad-slot
 dailywire.com###lts-banner
 dailywire.com##.all-page-banner
+dailywire.com##.homepage-ad-container
 dailywire.com##.homepage-articles-ad-wrapper
 dailywire.com##.wisepops-block-image
 dailywire.com##article[class^="css-"] > div[style="width: 728px; height: 90px; margin: 0px auto 32px;"]
@@ -288793,6 +287326,8 @@ dailywire.com##div[style^="width: 320px; height: 50px;"]
 dailywire.com#$#.SocialMediaShareButton { visibility: hidden!important; }
 dailywire.com#?#article h3:contains(Advertisement)
 dailywire.com#?#footer[class^="css-"] > section[class^="css-"] > header[class^="css-"]:has(> div[class^="css-"] > span.zergattribution)
+dailywire.com,eweek.com,news.liga.net,pogdesign.co.uk,freebusinessapps.net##div[data-ad-slot]
+dailywire.com,worldsoccertalk.com,mckinsey.com,morningsentinel.com,bbc.com,thepost.co.nz,zmescience.com,univision.com,televisa.com,telehit.com,pod.link,deezer.com,dhakapost.com,lasestrellas.tv,tudn.com,play.google.com,linktr.ee,tunecore.co.jp,trybotics.com##button[aria-label="Share"]
 dailyxporno.com##div[class*="wps-player__happy-inside--"]
 daizurin.com##+js(nostif, nextFunction, 250)
 dajar.pl##.css-jjd2se
@@ -288992,7 +287527,6 @@ dasauge.de##.bmk_xing
 dasdie.de,lwlhome.de,policija.si,zamunda.net##.gdprcookie
 dasgibtesnureinmal.de###jm-head
 dash.hyzen-cloud.com#%#//scriptlet('abort-on-property-write', 'adScript')
-dash.infinityfree.com,omg.blog,uxwing.com,fontesk.com,iplocation.net,pureinfotech.com,insurance-space.xyz,igeeksblog.com##div[id^="bsa-zone_"]
 dashbit.co,inquirer.net,lyoncapitale.fr,offthebeatenpoints.com##.sib-form
 dashboard.honeygain.com##.ildiEr
 dashboard.razorpay.com#@##credential_picker_container
@@ -289012,6 +287546,7 @@ dastelefonbuch.de###advertisementBottom
 dastelefonbuch.de##.partner
 data-inside.de###container-banner
 data-load.*##.p-body-pageContent > center > a[target="_blank"]
+data-load.me##a[href^="https://www.data-load.me/partner/"]
 data-load.me#%#//scriptlet('remove-node-text', 'script', 'window[dynamicFunctionName]')
 data.education.gouv.fr##ods-manage-cookies-preferences-modal
 data.europa.eu###deu-cookie-banner
@@ -289443,7 +287978,6 @@ defence-industry.eu##.has-small-font-size.has-text-align-center
 defence-network.com#?#.post_content ~ .wpb_text_column:contains(Beitrag teilen)
 defence-ua.com#?#.sidebar > .section-title:contains(Ми у соцмережах)
 defence24.com,defence24.pl,energetyka24.com,infosecurity24.pl##:is(aside, .block) a:is([rel="sponsored"], [href*="utm_campaign"]) > span
-defence24.com,latestly.com,cryptobriefing.com,huskers.com,rule34-videos.com,gifyu.com,topperlearning.com,aap.org,bbcgoodfood.com,gardenersworld.com,historyextra.com,ndtv.com##.ad-banner
 defence24.pl#?#main > section.block:has(> div > a > span > figure > figcaption:contains(Reklama))
 defenceconnect.com.au#?#.b-article__footer__top__wrapper:has(> #footer-share-title + .b-article__footer__left > .b-article__footer__left__social-buttons)
 defenceturk.net##.wa__btn_popup
@@ -293429,9 +291963,15 @@ ekattor.tv###widget_623
 ekattor.tv##.ads
 ekattor.tv,engraved.blog,startech.com.bd,mindbodygreen.com##.share-on
 ekidenreki.com##div[style="width:390px; height:325px;"]
+ekitan.com##+js(set, executeImpressionTicketTracking, noopFunc)
+ekitan.com##+js(set, initHomesTracking, noopFunc)
 ekitan.com##.ek-forward-display-c_bottom_2
 ekitan.com##.ek-forward-display-c_bottom_2 + div.padding10:has(> div.cirqua-slot)
 ekitan.com##.member-pass-ad
+ekitan.com#%#//scriptlet('set-constant', 'executeImpressionTicketTracking', 'noopFunc')
+ekitan.com#%#//scriptlet('set-constant', 'initHomesTracking', 'noopFunc')
+ekitan.com#%#//scriptlet('ubo-set', 'executeImpressionTicketTracking', 'noopFunc')
+ekitan.com#%#//scriptlet('ubo-set', 'initHomesTracking', 'noopFunc')
 ekitan.com,kissanadu.com#@#.sidebar-ad:not(.adsbygoogle)
 ekn.kr##.view-share
 eko.katywroclawskie.com.pl###wiadomosccookiekontener
@@ -294507,6 +293047,8 @@ epicgames.com,wapbold.net##.up-button
 epicgfs.com##.top
 epicload.com###popconlkr
 epicload.com##.modal-backdrop
+epicroms.net##center > button.file-download-btnn
+epicroms.net#%#//scriptlet('remove-node-text', 'script', '/\(\)\;void window\;/')
 epicstream.com##.mediavine_in-content-ad_wrapper
 epicurious.com#%#//scriptlet('set-cookie', 'FP_visitorID', '1', '/', 'epicurious.com')
 epicurious.com,cntraveller.com##div[data-testid="sticky-hero-ad"]
@@ -295191,6 +293733,7 @@ eurasia.expert#$##page { padding-top: 0!important; }
 eurasia.expert#$#.content-page { padding-top: 0!important; }
 eurasianet.org,vancouversun.com##.callout
 eurasiantimes.com##.vc_row_inner
+euroauto.ru##[aria-label="Уведомление об использовании cookie"]
 eurobuildcee.com##.banner
 eurocampings.nl,weerplaza.nl##.newsletter-subscribe
 eurocash.pl###info
@@ -295539,7 +294082,6 @@ eweek.com##.gap-x-6.gap-y-1 > .gap-3.py-1\.5
 eweek.com##.has-data-empty\:hidden.print\:hidden:has([data-ad-slot])
 eweek.com,itbusinessedge.com,linuxtoday.com,serverwatch.com,techrepublic.com###bottom-footer-fixed-slot
 eweek.com,itbusinessedge.com,linuxtoday.com,serverwatch.com,techrepublic.com##.ta-campaign-widget
-eweek.com,news.liga.net,pogdesign.co.uk,freebusinessapps.net##div[data-ad-slot]
 eweiqi.com##.guoqing
 ewg.org###facebook_like_widget
 ewn.co.za##.mailer-signup-sidebar
@@ -295903,17 +294445,17 @@ f2movies.to,cineb.rs,himovies.bz##.block_area > div[class][style="width: 100%; p
 f2movies.to,moviesjoy.to##.news-iframe
 f2movies.to,streameast.watch#%#//scriptlet("abort-current-inline-script", "JSON.parse", "getPropertyValue('content')")
 f4scdn.com##.f4s-pause-ad
-f4scdn.com#$#body > .adsbox.pub_300x250[style] { display: block !important; }
-f4scdn.com#%#(()=>{const n={apply:(n,o,t)=>{try{"open"===o?.name&&"_blank"===t?.[2]&&(o=window.open)}catch(n){}return Reflect.apply(n,o,t)}};window.Function.prototype.call=new Proxy(window.Function.prototype.call,n)})();
-f4scdn.com#%#(()=>{const o={apply:(o,t,e)=>{const n=e[0];return"boolean"==typeof n&&!0===n&&(e[0]=!1),Reflect.apply(o,t,e)}},t={apply:(t,e,n)=>{try{const t=n[0];"function"==typeof t&&t.toString().includes("blockAdblock")&&(n[0]=new Proxy(n[0],o))}catch(o){}return Reflect.apply(t,e,n)}};window.Promise.prototype.then=new Proxy(window.Promise.prototype.then,t)})();
-f4scdn.com#%#//scriptlet('json-prune', '$.[?(@.urls && @.vast)].*')
-f4scdn.com#%#//scriptlet('prevent-fetch', 'pagead2.googlesyndication.com')
-f4scdn.com#%#//scriptlet('prevent-window-open', '_blank')
-f4scdn.com#%#//scriptlet('remove-attr', 'data-block-adblock', '.player-wrap[data-block-adblock]')
 f4scdn.com,f4stream.com#%#//scriptlet('remove-attr', 'data-block-adblock', '.player-wrap', 'asap stay')
 f4splay.vip##.f4s-pause-ad
 f4splay.vip#%#//scriptlet('prevent-fetch', 'pagead2.googlesyndication.com')
 f4splay.vip#%#//scriptlet('remove-attr', 'data-ads', '.player-wrap')
+f4splay.vip,f4scdn.com#$#body > .adsbox.pub_300x250[style] { display: block !important; }
+f4splay.vip,f4scdn.com#%#(()=>{const n={apply:(n,o,t)=>{try{"open"===o?.name&&"_blank"===t?.[2]&&(o=window.open)}catch(n){}return Reflect.apply(n,o,t)}};window.Function.prototype.call=new Proxy(window.Function.prototype.call,n)})();
+f4splay.vip,f4scdn.com#%#(()=>{const o={apply:(o,t,e)=>{const n=e[0];return"boolean"==typeof n&&!0===n&&(e[0]=!1),Reflect.apply(o,t,e)}},t={apply:(t,e,n)=>{try{const t=n[0];"function"==typeof t&&t.toString().includes("blockAdblock")&&(n[0]=new Proxy(n[0],o))}catch(o){}return Reflect.apply(t,e,n)}};window.Promise.prototype.then=new Proxy(window.Promise.prototype.then,t)})();
+f4splay.vip,f4scdn.com#%#//scriptlet('json-prune', '$.[?(@.urls && @.vast)].*')
+f4splay.vip,f4scdn.com#%#//scriptlet('prevent-fetch', 'pagead2.googlesyndication.com')
+f4splay.vip,f4scdn.com#%#//scriptlet('prevent-window-open', '_blank')
+f4splay.vip,f4scdn.com#%#//scriptlet('remove-attr', 'data-block-adblock', '.player-wrap[data-block-adblock]')
 f5.com##.addthis_share
 f5haber.com##.col-md-5 .social-icons
 f6s.com##+js(aeld, , redirect)
@@ -296774,8 +295316,9 @@ fcportables.com##div[class^="popup"][class$="wrap"][id]
 fcportables.com#$#.content-main-wrap ~ div[id][style*="border-block-style"]:not([class]) { display: none !important; }
 fcportables.com#$#body { overflow: auto !important; }
 fcportables.com#$#html { overflow: auto !important; }
+fcportables.com,filecatchers.com##+js(no-fetch-if, body:\\u)
 fcportables.com,filecatchers.com##+js(no-fetch-if, method:POST body:/detect|trigger/)
-fcportables.com,filecatchers.com##+js(nostif, onerror)
+fcportables.com,filecatchers.com##+js(no-xhr-if, body:\u)
 fcportables.com,ps2-bios.com##div[id$="____equal"]:not(.ad)
 fctables.com##.box-width > .hidden-xs
 fctables.com##.boxOverContentRevive__placeholder
@@ -297164,6 +295707,7 @@ filecr.com#@#.ad_unit
 filecr.com#@#.pub_300x250
 filecr.com#@#.text-ad
 filecr.com#@#.text_ad
+filecrypt.*##.butt1ns :is(button, a):has(> svg):not(form *), :has(> [name="hidden_cnl_id"]) :is(button, a):has(> svg):not(form *), [onclick*="/Link/"], :has(> svg:is(.hghdsp, .hghspd, .hghsdp))
 filecrypt.*##div[class^="fllItheadb"]
 filecrypt.cc##.butt1ns button[onclick*="href='/Link/"]
 filecrypt.cc##.support_2
@@ -297549,6 +296093,7 @@ finance.yahoo.co.jp#?#main > section#artcldtl + div[class^="_"] > div[id^="ad_"]
 finance.yahoo.com###mrt-node-Col1-1-GeminiBrokerBtnsMobileWeb
 finance.yahoo.com###mrt-node-Lead-0-Ad
 finance.yahoo.com##.ad-lrec3
+finance.yahoo.com##.dock-item.dock-top-insert
 finance.yahoo.com##.iframe-resizer-container:has(> iframe[data-testid="offers-cds-iframe"])
 finance.yahoo.com##.sdaContainer
 finance.yahoo.com##.ys-mobileFeaturedAd
@@ -300165,6 +298710,8 @@ fun48.com###float2016
 fun48.com##.margin-big-bottom
 funabashi-tsushin.com,kashiwa-tsushin.com,katsushika-tsushin.com,matsudo-tsushin.com,misato-gurashi.com##.category2 > a[href*="utm_source="][target="_blank"]
 funclub.pl##.jss359
+functioncube.com##tbody > tr > td > div[style]:has(> script + ins.adsbygoogle)
+functioncube.com#%#//scriptlet('prevent-element-src-loading', 'script', 'adsbygoogle')
 functions-online.com##.box_wide
 fund.eastmoney.com##div[data-url^="//same.eastmoney.com/"]
 funda.nl##button[title="Delen"]
@@ -300972,6 +299519,7 @@ gameranbu.jp##.m-head-sns
 gameranbu.jp##div[style="min-height:270px;"]
 gameranbu.jp#$##sub-col-wrap_top280 { padding-top: 0 !important; }
 gamerant.com##.ad-zone-container-sidebar-first
+gamerant.com##.gr-ig-offer
 gamerant.com##.w-sharing
 gamerant.com##[class^="ezoic-ad.medrectangle"]
 gamerch.com#%#//scriptlet('abort-on-property-read', 'adsbyimobile')
@@ -302120,7 +300668,7 @@ getav.net##.hidden[style*="min-height:"]
 getav.net##section[aria-label="Advertisement"]
 getav.net##section[data-ad-slot-key]
 getav.net#%#//scriptlet('trusted-set-local-storage-item', 'popunder_blocked_until', '4102444800000')
-getav.net,freexxx.to,adultclips.xyz,nhentai.to,taboofox.com,dramaflix.cc,content.st,muchohentai.com,9animetvs.pro,jouasbgo.com,gosbagotui.com,xdabo.com,crypt.cybar.to,animelok.live,mountainpages.cc,dromendra.com,123av.com,javplayer.cc,nhdapi.com,rtally.link,deemix.org,linegee.net,financeehelp.com,cloudhostt.com,selfhostt.com,rule34video.co,vidzen.fun,masrawytrend.com,nuvid.tv,fitpractise.com,crystal-launcher.net,net77.cc,kagane.to,unicorn.asso.eu.org,embedseek.com,gvhot.net,gvhot.com,totalsporteki.st,totalsportekhd.st,player.videasy.*,mmsi02.com,tophostdeal.com,pornhottube.com,mmsi01.com,fileserve.com,pornlib.*,hotchamas.com,fikfap.com,yflix.to,templetoons.com,mntest.seeks.cloud,7mmtv.upns.live,streamdesi.com,tubewav.com,mangaberri.com,mangacherri.com,viduyy.com,primesrc.me,primevid.click,cloudfam.io,rlx7.com,comix.to,rootz.so,rpmlive.online,bigbuttshubvideos.com,upns.live,streamporn.nl,upns.online,player4me.*,seekplayer.vip,speedporn.net,pornwatch.ws,rpmplay.online,pandamovies.*,aagmaal.com,wikwiki.cv,mycima.kim,xsz-av.com,app.link2unlock.com,watchluna.com,nicomanga.com,nihonkuni.com,rawinu.com,weloma.*,love4u.net,pornslash.com,hyhd.org,y2mate.*,abstream.to,nxprime.in,hentakugames.com,adultgamescollector.com,cpmlink.net,yt1s.com.co,nyaa.land,katestube.com,sakuhentai.net,getmodsapk.cc,camsmut.com,kissasian.*,igram.world,surrit.store,javplayer.me,hydrahd.com,svstream.cc,diostream.cc,nomorflix.cc,5masterzzz.*,everydayporn.co,bussyhunter.com,cmsdetect.com,player2.cdnlivestream.xyz,pornez.cam,onionplay.ae,onionplay.*,techbixby.com,ssdhostting.com,zflix.me,xporn.mom,moviesapi.to,watchluna.to,flixcdn.cyou,iqsmartgames.com,pornbusy.com,av.seeks.cloud,pns.pro,4meplayer.pro,seekplays.com,dlsrv.online,vidnest.fun,yeptube.*,vids.st,area.waffi.cloud,nutripulse.one,vercel.app,zdrive.to,1moviesz.to,apksum.com,xvideos-full.com,freemanga.me,funlove.info,javsubidn.tv,streamvid.dev,vidnest.live,vidnest.io,familyporn.tv,5play.app,bingespree.net,spencerdevs.xyz,easyvidplayer.com,cloudhostingz.com,sharedwebs.com,fitnessplanss.com,porn4days.blue,embedplayer.site,animahd.com,exposestrat.com,embedsports.top,vidplayer.live,vik1ngfile.site,fbol.top,sterham.net,embed4me.com,megatukmax.xyz,primewire.pw,primewire.*,primewire.tf,ytapi.cc,mygomp3.com,imagebam.com,ezplayer.me,datavaults.co,clickapi.net,y2down.cc,themezon.net,serverguidez.com,streamup.ws,vidlink.pro,cdn.hentaianimezone.com,galaxyporn.net,teknoasian.com,downloadyoutubesubtitles.com,alex71.com,kecapku.com,vidfast.vc,pornharlot.net,meong.club,hianimez.*,travelironguide.com,kreditexperte.online,shortnest.com,vikingf1le.us.to,mixzdrive.com,get.linkbulks.com,play.upns.live,dropzy.io,dayuploads.com,filespayouts.com,ranoz.gg,zovo.ink,manhwahentai.me,1movielinkbd.com,ytmp3.la,swiftuploads.com,techbloogs.com,oii.la,englismovies.pro,tpi.li,go.cloutgist.com,brbeast.com,vidsrc2.*,tutwuri.id,lokerwfh.net,insmyst.com,iir.la,tvi.la,cosplay18.pics,hianime.*,mobiletvshows.site,movies4u.*,x-x-x.tube,pornx.to,4khd.com,dlhd.*,kissanime.*,vidsrc.*,pahe.*#%#//scriptlet('prevent-window-open')
+getav.net,freexxx.to,adultclips.xyz,nhentai.to,taboofox.com,dramaflix.cc,content.st,muchohentai.com,9animetvs.pro,jouasbgo.com,gosbagotui.com,xdabo.com,crypt.cybar.to,animelok.live,mountainpages.cc,dromendra.com,123av.com,javplayer.cc,nhdapi.com,rtally.link,deemix.org,linegee.net,financeehelp.com,cloudhostt.com,selfhostt.com,rule34video.co,vidzen.fun,masrawytrend.com,nuvid.tv,fitpractise.com,crystal-launcher.net,net11.cc,kagane.to,unicorn.asso.eu.org,embedseek.com,gvhot.net,gvhot.com,totalsporteki.st,totalsportekhd.st,player.videasy.*,mmsi02.com,tophostdeal.com,pornhottube.com,mmsi01.com,fileserve.com,pornlib.*,hotchamas.com,fikfap.com,yflix.to,templetoons.com,mntest.seeks.cloud,7mmtv.upns.live,streamdesi.com,tubewav.com,mangaberri.com,mangacherri.com,viduyy.com,primesrc.me,primevid.click,cloudfam.io,rlx7.com,comix.to,rootz.so,rpmlive.online,bigbuttshubvideos.com,upns.live,streamporn.nl,upns.online,player4me.*,seekplayer.vip,speedporn.net,pornwatch.ws,rpmplay.online,pandamovies.*,aagmaal.com,wikwiki.cv,mycima.kim,xsz-av.com,app.link2unlock.com,watchluna.com,nicomanga.com,nihonkuni.com,rawinu.com,weloma.*,love4u.net,pornslash.com,hyhd.org,y2mate.*,abstream.to,nxprime.in,hentakugames.com,adultgamescollector.com,cpmlink.net,yt1s.com.co,nyaa.land,katestube.com,sakuhentai.net,getmodsapk.cc,camsmut.com,kissasian.*,igram.world,surrit.store,javplayer.me,hydrahd.com,svstream.cc,diostream.cc,nomorflix.cc,5masterzzz.*,everydayporn.co,bussyhunter.com,cmsdetect.com,player2.cdnlivestream.xyz,pornez.cam,onionplay.ae,onionplay.*,techbixby.com,ssdhostting.com,zflix.me,xporn.mom,moviesapi.to,watchluna.to,flixcdn.cyou,iqsmartgames.com,pornbusy.com,av.seeks.cloud,pns.pro,4meplayer.pro,seekplays.com,dlsrv.online,vidnest.fun,yeptube.*,vids.st,area.waffi.cloud,nutripulse.one,vercel.app,zdrive.to,1moviesz.to,apksum.com,xvideos-full.com,freemanga.me,funlove.info,javsubidn.tv,streamvid.dev,vidnest.live,vidnest.io,familyporn.tv,5play.app,bingespree.net,spencerdevs.xyz,easyvidplayer.com,cloudhostingz.com,sharedwebs.com,fitnessplanss.com,porn4days.blue,embedplayer.site,animahd.com,exposestrat.com,embedsports.top,vidplayer.live,vik1ngfile.site,fbol.top,sterham.net,embed4me.com,megatukmax.xyz,primewire.pw,primewire.*,primewire.tf,ytapi.cc,mygomp3.com,imagebam.com,ezplayer.me,datavaults.co,clickapi.net,y2down.cc,themezon.net,serverguidez.com,streamup.ws,vidlink.pro,cdn.hentaianimezone.com,galaxyporn.net,teknoasian.com,downloadyoutubesubtitles.com,alex71.com,kecapku.com,vidfast.vc,pornharlot.net,meong.club,hianimez.*,travelironguide.com,kreditexperte.online,shortnest.com,vikingf1le.us.to,mixzdrive.com,get.linkbulks.com,play.upns.live,dropzy.io,dayuploads.com,filespayouts.com,ranoz.gg,zovo.ink,manhwahentai.me,1movielinkbd.com,ytmp3.la,swiftuploads.com,techbloogs.com,oii.la,englismovies.pro,tpi.li,go.cloutgist.com,brbeast.com,vidsrc2.*,tutwuri.id,lokerwfh.net,insmyst.com,iir.la,tvi.la,cosplay18.pics,hianime.*,mobiletvshows.site,movies4u.*,x-x-x.tube,pornx.to,4khd.com,dlhd.*,kissanime.*,vidsrc.*,pahe.*#%#//scriptlet('prevent-window-open')
 getavataaars.com#?#.container > div > h4:contains(/^Ads$/)
 getblock.io##._getblock_ui_cookie_1m598_1
 getbukkit.org##.col-md-offset-2 > div.limit
@@ -306509,7 +305057,6 @@ highwayradio.com##.hiway-widget
 highxtar.com,motor.elpais.com##.content__compartir
 highya.com##.js-swimingBlock-stoper
 hihentaiporn.com##.main-cams-wrap
-hihentaiporn.com,rat.xxx,hdtube.porn,pornid.*##.player-top-line
 hij.com.pl#?##mvp-home-body > .clearfix + article > h1:contains(/^Reklama$/)
 hij.com.pl#?##mvp-home-body > .clearfix + article > h1:contains(/^Reklama$/) + .master-slider-parent
 hik-connect.com##.coverShow
@@ -308057,6 +306604,9 @@ hwbusters.com##section.widget_block:has(> div[id^="hwbus-"]:only-child:empty)
 hwccoffee-shop.com##div[class^="CenterSocialMediaIconListContainer-"]
 hwccoffee-shop.com##ul[class^="SocialMediaIconList"]
 hwcooling.net##.heureka-affiliate-category
+hwcooling.net#%#//scriptlet('abort-current-inline-script', 'document.getElementById', 'adsbygoogle')
+hwcooling.net#@#.ad-banner-300x250
+hwcooling.net#@#.advertisement-banner
 hwcooling.net,nationaljeweler.com,radioyacht.com##.banner_wrapper
 hwhills.com,nikktech.com,revizoronline.com,smallscreenscoop.com###headerbanner
 hwinfo.com##.download > div[class^="xds"]
@@ -308913,6 +307463,7 @@ igorchernomoretz.com##body > div[id^="ab"] + div[style*="cursor"]
 igorslab.de###extras > #single-sticky + div:has(img)
 igorslab.de###ilab-consent-banner
 igorslab.de##.entry-content > a:has(> img):has(+ aside.ilab-ad-privacy-footer)
+igorslab.de##.entry-content > a:has(> img):not([href*="igorslab.de"]):has(~ aside.ilab-ad-privacy-footer)
 igorslab.de##.herald-sidebar
 igorslab.de##.ilab-adblocker-notice
 igorslab.de##.widget_custom_html:has(> .widget-title + .textwidget:empty)
@@ -318183,6 +316734,7 @@ lolshipin.com##.box2
 lolskill.net##div[class^="container text-center aaa aaa"]
 lolvvv.com,yourbittorrent.com##iframe[src]
 london-dental-implant.co.uk###block-london-cookies
+london.edu##.C270_CtaContainer_cta-container__content___JdA6
 londonnewsonline.co.uk##.londo-target
 londonpass.com#?#.fxsEzN:has-text(Sign up to our newsletter)
 londonreal.tv###notification-bar
@@ -318540,6 +317092,7 @@ lucianne.com##table[width="300"][height="290"]
 lucianne.com##table[width="728"][height="119"]
 lucidsamples.com###blocksplash
 luciferdonghua.in###afu-ab
+luciferdonghua.in###sidebar > .widget_text > .custom-html-widget
 luciferdonghua.in###sidebar > .widget_text:has(> .custom-html-widget > div[style^="width:350px"])
 luciferdonghua.in###sidebar > div.widget_text:has(> div.textwidget > div.insta-wrapper)
 luciferdonghua.in###w2p5ortzc
@@ -321321,7 +319874,6 @@ mcfucker.com##.videoBlock > .cnt > .vcnt > .c2p
 mcfucker.com##iframe[src^="/mcfucker_html/video_right.php"]
 mcgill.ca##.paragraphs-item-call-to-action
 mckinsey.com##.StickySubscriptionFooter_mck-c-subscription-footer__au9pl
-mckinsey.com,morningsentinel.com,bbc.com,thepost.co.nz,zmescience.com,univision.com,televisa.com,telehit.com,pod.link,deezer.com,dhakapost.com,lasestrellas.tv,tudn.com,play.google.com,linktr.ee,tunecore.co.jp,trybotics.com##button[aria-label="Share"]
 mcknights.com,mcknightshomecare.com##.newsletter-html-asset
 mcloud.to###jwa
 mcloud.to##.aslot
@@ -324090,7 +322642,6 @@ morrisons.com##.fops-item:has([title="Advertisement"])
 morritastube.com##div[style^="min-width: 300px;"][id="300x100"]
 morritastube.com##ul[style^="min-height: 540px;"].ListDvr
 mortgagebusiness.com.au,smsfadviser.com#$?#div[style*="display: none;"].tabletSkinBlock { remove: true; }
-mortgageln.com,ent.f-frontier.com,filecatchers.com,aapalathakare.in,pokegonews.net,pelotalibre.co.uk,bestwebhostingsites.biz,lesateliersfeelgood.com,loanbixby.com,fcportables.com,xxxshut.com,financeguidz.com,hdmove99.com,financeehelp.com,cloudhostt.com,rank1st.in,techbixby.com,thedigitaltheater.com,ssdhostting.com,subnoche.online,anime-jl.top,selfhostt.com,javgg.me,9-gld.net,fitpractise.com,osteusfilmestuga.online,famasocial.site,skrresults.com,javx357.com,zpserver.com,sanblo.com,jobsheel.com,dwert.co.kr,devsoftwr.com,somcima.com,dredyson.com,hostzteam.com,mprogaming.com,medeberiya1.com,hostviro.com,free-wargamer.com,merlintoon.com,bestensuree.com,holyscans.com.tr,porndish.com,evspec.in,ketubanjiwa.com,bradola.com,sztucznainteligencjablog.pl,nlcosplay.com,tophostdeal.com,hispajav.com,sub69.online,vpzserver.com,pornosubtitula2.com,modapk.world,softdevelopp.com,transfap.to,teamkong.rf.gd,ensuretips.com,janammusic.in.net,stock-rom.com,lectortaurus.com,manhuakko.com,tioeroge.com,doramasonline.org,legionscans.com,candyman.fr,inventariooculto.com,3xyaoi.com,liddread.com,hostserverz.com,tech4auto.in,mahitimanch.in,tejtime24.com,gkbooks.in,ntcgsm.com,kailaba.com,cloudhostingz.com,bikyonyu-bijo-zukan.com,chitralexpress.com,nysino.com,sodalyrics.com,uozzart.com,mangacrab.org,srnovelas.com,aogen-net.com,tatakaescan.com,uncut99.com,hdmovie99.*,vbnmx.online,edoga.biz.hr,cybermania.ws,merlinshoujo.com,dragontranslation.org,neo.usachannel.info,newseco.site,trekingnews.blog,taurus.topmanhuas.org,emperorscan.mundoalterno.org,baxoi.buzz,manhwass.com,metavise.in,udebut.jp,call4cloud.nl,vintagepornfun.com,topshare.in,tempmaile.me,filydot.fun,curiosidadtop.com,thosa.info,getintopcm.com,readallcomics.com,ballexclusives.com,cwc.utah.gov,ameede.com,ameede.net,lelmak.com,sayphotobooth.com,kurakura21.com,constructionmethodology.com,youmedemblik.nl,sourds.net,babakfilm.com,pornoenspanish.es,zeijakunahiko.com,j5z.xyz,erotikclub35.pw,aitoolsfree.org,shipseducation.com,plaza.chu.jp,bellezashot.com,xvipp.com,fantasiku.com,irootapk.net,pitiurl.com,yumeost.net,musicdjfree.com,pasatiemposparaimprimir.com,boyfuck.me,buzzpit.net,thesextube.net,tamilultratv.com,kireicosplay.com,games-manuals.com,mewingzone.com,casopismetropola.sk,javboys.tv,lacrima.jp,the-mystery.org,netfuck.net,gaypornhot.com,javgay.com,realpornblogger.com,appdoze.net,airportwebcams.net,animalwebcams.net,crystalcomics.com,opchapters.com,azupro-sokuho.com,naruldonghua.com,headlinerpost.com,ffcv.es,chikianimation.com,sirenitashot.com,nullcms.ru,3dassetcollection.com,3gpterbaru.com,alexbacher.fr,alphasource.site,arti-flora.nl,assignmentdon.com,atemporal.cloud,autocadcommand.com,baithak.news,beasttips.com,berlin-teltow.de,beruhmtemedien.com,bestofarea.com,blogue.tech,canzoni-per-bambini.it,celemusic.com,chelsea24news.pl,chikonori.com,codemystery.com,coderblog.in,cuckoldsex.net,cykf.net,dailytips247.com,davewigstone.com,demooh.com,deutschpersischtv.com,diarioeducacion.com,dinheirocursosdownload.com,djstar.in,dobleaccion.xyz,domainregistrationtips.info,dramaviki.com,electricalstudent.com,fleamerica.com,flordeloto.site,footeuses.com,freemockups.org,friedrichshainblog.de,funztv.com,futbolenlatelevision.com,game5s.com,getworkation.com,hbnews24.com,healthcheckup.com,hindinest.com,hoegel-textildruck.de,infokita17.com,informatudo.com.br,kacengeng.com,kattannonser.se,lawyercontact.us,librasol.com.br,midlandstraveller.com,mummumtime.com,negative.tboys.ro,onestringlab.com,poco.rcccn.in,pornincest.net,prensaesports.com,realtormontreal.ca,riwayat-word.com,rollingglobe.online,santhoshrcf.com,searchnsucceed.in,ssdownloader.online,start-to-run.be,stimotion.pl,symboleslowianskie.pl,tamil-lyrics.com,theberserkmanga.com,thegnomishgazette.com,tnstudycorner.in,trovapromozioni.it,trucosonline.com,tsubasatr.org,tuxnews.it,ultimate-catch.eu,underground.tboys.ro,utilidades.ecuadjsradiocorp.com,videodidixx.com,videosgays.net,viralxns.com,weebee.me,wikipooster.com,wikitechy.com,xpressarticles.com,yamsoti.com,yunakhaber.com,zecchino-doro.it,zyromod.com,skycall.online,chanjaeblog.jp,mmoovvfr.cloudfree.jp,nvimfreak.com,sumirekeiba.com,baithak.news,yeeach.com,helicomicro.com,windbreaker.me,www2.tmyinsight.net,hentai-mega-mix.com,haxnode.net,sirhub.net,samuraiscan.cookni.net,two4storytale.altervista.org,marimo-info.net,analysis-chess.io.vn,bestofchristianity.com,techforu.in,tuktukcinma.com,xtremestream.xyz,osmanonline.me,appnee.com,newshuta.in,pokeca-chart.com,princetechzone.in,expressurl.net,clockskin.us,sampledrive.org,dramafren.com,elbadr.xyz,digitalcryptobox.com,farlad.com,ladkibahin.com,hoodtrendspredict.com,ngojobsite.com,haqem.com,freedom3d.org,hardlevel.com.br,twobluescans.com,abda3.xyz,apostoliclive.com,wisw.online,lottoitaliapronostici.altervista.org,mod18.com,gooltok.com,finnader.com,retireally.com,cryptomeloud.com,tojimangas.com,finveeally.com,finnanced.com,finviewvibes.com,moneysally.com,pikatees.com,blog.6ziz.com,24pdd.kz,swordalada.org,keesat.org,seriu.jp,former-railroad-worker.com,cgcosplay.org,navernovel.com,noikiiki.info,kickcharm.com,loiz.store,texw.online,hoofoot.net,tokviews.com,readytoleadafrica.org,hellenism.net,varnascan.*,lisasuites.com,gvnvh.net,tajpoints.com,howtocivil.com,towerofgod.me,notesformsc.org,iumkit.net,testious.com,obitspublishers.com,hao.lingganjie.com,kali.wiki,xprime4u.lat,marcialhub.xyz,passedawayarchives.com,examscisco.com,gsdn.live,onefitmamma.com,charlottepilgrimagetour.com,cykf.net,luchaonline.com,chevalmag.com,akihabarahitorigurasiseikatu.com,livenewsof.com,questloops.com,techlog.ta-yan.ai,pc-hobby.com,viewmyknowledge.com,builtbybuilder.com,girlydrop.com,cinelatino.net,tiny-sparklies.com,infinityskull.com,luisgdato.com,skidrowreloaded.com,mooonten.com,audiotools.blog,xn--algododoce-j5a.com,careersides.com,trendiqq.com,ftuapps.io,loanoffering.in,fattelodasolo.it,noromax.my.id,itdmusics.com,nayisahara.com,torrinomedica.it,ragnarokscanlation.net,vnuki.net,ikramlar.online,summertoon.*,utaitebu.com,aozoraapps.net,applediagram.com,hiphopa.net,worthitorwoke.com,sayrodigital.net,tvappapk.com,flixlatam.com,mrfreemium.blogspot.com,tweakdoor.com,appdoze.com,cg-method.com,nkreport.jp,nknews.jp,wpteq.org,djnonstopmusic.in,latinluchas.com,xtremestream.co,bonsaiprolink.*,lustesthd.*,korsrt.eu.org,glasbanjaluke.net,funkeypagali.com,userupload.net,fx-24.xyz,librasol.com.br,ensenchat.com,syswoody.com,mens1069.com,utaitebu.com,rail-log.net,10-train.com,4drumkits.com,english-dubbed.com,former-railroad-worker.com,francemusic.com,e-food.jp,life-travel-blog.cfbx.jp,kh-pokemon-mc.com,drinkspartner.com,eroalice.com,plantswith.com,businessnews-nigeria.com,coinbaby8.com,drake-scans.com,yuramanga.my.id,diyprojectslab.com,day4news.com,net4you.xyz,pcgameszone.com,30kaiteki.com,gameblog.jp,207hd.com,kgs-invest.com,searchmovie.wp.xdomain.jp,makotoichikawa.net,riwyat.com,rahim-soft.com,voiceloves.com,awpd24.com,ster-blog.xyz,yazilidayim.net,linkoops.com,altselection.com,donlego.com,automothink.com,majorscans.com,postazap.com,lovendal.ro,thelastgamestandingexp.com,adnan-tech.com,culture-informatique.net,msonglyrics.com,pandanote.info,violablu.net,pornfeel.com,r18blog.com,forexrw7.com,villettt.kitchen,retrotv.org,itopmusics.com,snowman-information.com,seasons-dlove.net,javcock.com,xerifetech.com,leeapk.com,hyogo.ie-t.net,tw.xn--h9jepie9n6a5394exeq51z.com,publicdomainq.net,paris-tabi.com,gahag.net,tedenglish.site,goegoe.net,xn--kckzb2722b.com,gokushiteki.com,comoinstalar.me,rabo.no,viciante.com.br,adminreboot.com,bedavahesap.org,nocfsb.com,otokukensaku.jp,josemo.com,sararun.net,shopkensaku.com,welcometojapan.jp,xn--n8jwbyc5ezgnfpeyd3i0a3ow693bw65a.com,heartrainbowblog.com,51sec.org,hotspringsofbc.ca,zippyshare.cloud,animecenterbr.com,gogifox.com,chart.services,atleticalive.it,khohieu.com,aitohuman.org,edivaldobrito.com.br,kakiagune.com,mitsmits.com,maisondeas.com,nobodycancool.com,yaspage.com,bookpraiser.com,akihabarahitorigurasiseikatu.com,egybest.*,allcivilstandard.com,smartinhome.pl,gnusocial.jp,kagohara.net,lgcnews.com,calvyn.com,limontorrents.com,note1s.com,huhulist.com,forum.release-apk.com,idesign.wiki,dailyweb.pl,webcamfuengirola.com,daybuy.tw,tecnoyfoto.com,scansatlanticos.com,thesleak.com,bible-history.com,space-faucet.com,pandadevelopment.net,naveedplace.com,newzjunky.com,codenova-center.web.app,webcras.com,bokugents.com,esportsnext.com,cimbusinessevents.com.au,veganab.co,3drubik.ru,freemagazinespdf.com,freeltc.online,4fingermusic.com,chatgbt.one,pc-hobby.com,dpscomputing.com,nudeslegion.com,habuteru.com,webmemonote.com,kurosuen.live,tech-bloggers.in,hobbykafe.com,surgicaltechie.com,payou.win,macrocreator.com,freebiesmockup.com,bugswave.com,easyjapanesee.com,madevarquitectos.com,codeastro.com,lscomic.com,tabonitobrasil.tv,techacrobat.com,chihouban.com,businesstrend.jp,yourlifeupdated.net,coingraph.us,brokensilenze.net,rspermatacirebon.com,kaystls.site,4spaces.org,minioppai.org,masashi-blog418.com,zerogptai.org,watchfacebook.com,encurtareidog.top,fine-wings.com,sukuyou.com,gatagata.net,balkanteka.net,savegame.pro,felicetommasino.com,motionisland.com,inter-news.it,chatgptfree.ai,ukigmoch.com,commodity-infobox.com,dicengineer.com,neet.wasa6.com,pilsner.nu,eroalice.com,koume-in-huistenbosch.net,starsites.fun,nyangames.altervista.org,calmarkcovers.com,plantswith.com,freedom3d.art,milanreports.com,erreguete.gal,ynk-blog.com,nsfwr34.com,anothergraphic.org,palofw-lab.com,laurasia.info,xs735978.xsrv.jp,setsuyakutoushi.com,freemen.jp,meilblog.com,happy-otalife.com,tatsublog.com,ranourano.xyz,reeell.com,it-money-life.com,ruangmoviez.my.id,moneysave.info,blurayufr.*,gdrivemovies.xyz,samuraiscan.org,donghuaworld.com,kits4beats.com,teamkong.tk,techyrick.com,cheatermad.com,keroseed.net,38.242.194.12,casperhd.com,7hd.club,autodime.com,yakisurume.com,3dyasan.com,gamenv.net,gentiluomodigitale.it,pupuweb.com,ewybory.eu,nakiny.com,avitter.net,bi-girl.net,freshersgold.com,warungkomik.com,krx18.com,daemonanime.net,my-ford-focus.de,rbs.ta36.com,myqqjd.com,cheese-cake.net,4gousya.net,onehack.us,nghetruyenma.net,downloader.is,korogashi-san.org,tarotscans.com,manhuaga.com,layardrama21.*,mlwbd.to,bitcotasks.com,covemarkets.com,shogaisha-shuro.com,shogaisha-techo.com,morinaga-office.net,tehnar.net.ua,kvadratmetr.uz,satcesc.com,azrom.net,nartag.com,quatvn.club,mhscans.com,mitaku.net,siirtolayhaber.com,diamondfansub.com,iggtech.com,zegtrends.com,atlantisscan.com,tecnoscann.com,flixhub.*,bright-b.com,intelligence-console.com,nemumemo.com,scrap-blog.com,adultcomixxx.com,magesypro.com,magesy.blog,blogk.com,motofan-r.com,sp500-up.com,fumettologica.it,japannihon.com,mantrazscan.com,sim-kichi.monster,parking-map.info,news-geinou100.com,insider-gaming.com,itdmusic.com,bg-gledai.*,pepperlive.info,pepar.net,ustvgo.live,retire49.com,54.238.186.141,fchopin.net,kana-mari-shokudo.com,odekake-spots.com,orenoraresne.com,compota-soft.work,anime-torrent.com,sysguides.com,amritadrino.com,papahd.club,kinisuru.com,beaddiagrams.com,canaltdt.es,italiadascoprire.net,kllproject.lv,learnodo-newtonic.com,oracleerpappsguide.com,eurekaddl.*,english-topics.com,starlive.xyz,topsporter.net,freevstplugins.net,4horlover.com,ayatoon.com,gemiadamlari.org,mysocceraustralia.com,neuna.net,studybullet.com,crackthemes.com,rinconpsicologia.com,rocdacier.com,tenbaiquest.com,uur-tech.net,ladypopularblog.com,game-2u.com,lapagan.org,emperorscan.com,9ketsuki.info,kenta2222.com,rubyskitchenrecipes.uk,schildempire.com,linkskibe.com,lionsfan.net,know-how-tree.com,grasta.net,mylivewallpapers.com,femisoku.net,eng-news.com,putlog.net,speculationis.com,audiotrip.org,flowsnet.com,saekita.com,brulosophy.com,reprezentacija.rs,tehnotone.com,telephone-soudan.com,brulosophy.com,daemon-hentai.com,hadakanonude.com,pasokau.com,poapan.xyz,javboys.com#%#//scriptlet('prevent-addEventListener', 'DOMContentLoaded', '/^function\(e\) \{ init\(\); \}$/')
 mortgageln.com,financeguidz.com,fitpractise.com,fapfapgames.com,pornosubtitula2.com,softdevelopp.com,fitnesstipz.com,stock-rom.com,xporn.to,kodibeginner.com,windbreaker.me,fazy.online,cricket12.com,stimotion.pl,thelastgamestandingexp.com,chart.services,moneysave.info,pornmz.com,yakisurume.com,tehnar.net.ua,rocdacier.com,audiotrip.org,flowsnet.com,brulosophy.com,reprezentacija.rs##body > div#page ~ div[id][class*=" "]
 mos.ru##.news-article-sharing
 mos.ru##.share__hot
@@ -326962,10 +325513,10 @@ net.hr#?#.cls_frame:has(> div[class^="css-"] > div.Wallpaper_container)
 net.hr#?#.cls_frame:has(> div[class^="css-"] > iframe[title="admiral-widget"])
 net.hr#?#.sectionTitle_wrapper ~ div[class^="css-"]:has(> div[class^="css-"] a[id^="placeholder_container_"])
 net.hr#?#article > div[class^="css-"]:has(> span.SlotContainer_title:contains(Tekst se nastavlja ispod oglasa))
-net77.cc#%#//scriptlet('prevent-element-src-loading', 'img', 'publishers.monetag.com')
-net77.cc#%#//scriptlet('prevent-element-src-loading', 'script', 'adsbygoogle')
-net77.cc#%#//scriptlet('prevent-setTimeout', '/\.removeClass/', '5000')
-net77.cc#@#.ad-unit:not(.textads)
+net11.cc#%#//scriptlet('prevent-element-src-loading', 'script', 'adsbygoogle')
+net11.cc#%#//scriptlet('prevent-setTimeout', '/\.removeClass/', '5000')
+net11.cc#@#.ad-unit:not(.textads)
+net11.cc,oisauh.com,czzbgnw.com,allpornstream.com#%#//scriptlet('prevent-window-open')
 netaffiliation.com##+js(acs, $, hide)
 netatopi.jp###ipc_cookie_confirmation
 netbardh.com###bg_left
@@ -328438,6 +326989,8 @@ nifty.org##div[style="position:relative;top:300px;float:left;width:160px;height:
 nifty.org##div[style="width:728px;height:90px;display:block;margin-left:auto;margin-right:auto;"]
 niftytrader.in##.top_six_brokers
 niftytrader.in##.zerodha-bottom-box
+niganpro.com##body > div.wrapper-page + script +div[id][class*=" "]
+niganpro.com,mortgageln.com,ent.f-frontier.com,filecatchers.com,aapalathakare.in,pokegonews.net,pelotalibre.co.uk,bestwebhostingsites.biz,lesateliersfeelgood.com,loanbixby.com,fcportables.com,xxxshut.com,financeguidz.com,hdmove99.com,financeehelp.com,cloudhostt.com,rank1st.in,techbixby.com,thedigitaltheater.com,ssdhostting.com,subnoche.online,anime-jl.top,selfhostt.com,javgg.me,9-gld.net,fitpractise.com,osteusfilmestuga.online,famasocial.site,skrresults.com,javx357.com,zpserver.com,sanblo.com,jobsheel.com,dwert.co.kr,devsoftwr.com,somcima.com,dredyson.com,hostzteam.com,mprogaming.com,medeberiya1.com,hostviro.com,free-wargamer.com,merlintoon.com,bestensuree.com,holyscans.com.tr,porndish.com,evspec.in,ketubanjiwa.com,bradola.com,sztucznainteligencjablog.pl,nlcosplay.com,tophostdeal.com,hispajav.com,sub69.online,vpzserver.com,pornosubtitula2.com,modapk.world,softdevelopp.com,transfap.to,teamkong.rf.gd,ensuretips.com,janammusic.in.net,stock-rom.com,lectortaurus.com,manhuakko.com,tioeroge.com,doramasonline.org,legionscans.com,candyman.fr,inventariooculto.com,3xyaoi.com,liddread.com,hostserverz.com,tech4auto.in,mahitimanch.in,tejtime24.com,gkbooks.in,ntcgsm.com,kailaba.com,cloudhostingz.com,bikyonyu-bijo-zukan.com,chitralexpress.com,nysino.com,sodalyrics.com,uozzart.com,mangacrab.org,srnovelas.com,aogen-net.com,tatakaescan.com,uncut99.com,hdmovie99.*,vbnmx.online,edoga.biz.hr,cybermania.ws,merlinshoujo.com,dragontranslation.org,neo.usachannel.info,newseco.site,trekingnews.blog,taurus.topmanhuas.org,emperorscan.mundoalterno.org,baxoi.buzz,manhwass.com,metavise.in,udebut.jp,call4cloud.nl,vintagepornfun.com,topshare.in,tempmaile.me,filydot.fun,curiosidadtop.com,thosa.info,getintopcm.com,readallcomics.com,ballexclusives.com,cwc.utah.gov,ameede.com,ameede.net,lelmak.com,sayphotobooth.com,kurakura21.com,constructionmethodology.com,youmedemblik.nl,sourds.net,babakfilm.com,pornoenspanish.es,zeijakunahiko.com,j5z.xyz,erotikclub35.pw,aitoolsfree.org,shipseducation.com,plaza.chu.jp,bellezashot.com,xvipp.com,fantasiku.com,irootapk.net,pitiurl.com,yumeost.net,musicdjfree.com,pasatiemposparaimprimir.com,boyfuck.me,buzzpit.net,thesextube.net,tamilultratv.com,kireicosplay.com,games-manuals.com,mewingzone.com,casopismetropola.sk,javboys.tv,lacrima.jp,the-mystery.org,netfuck.net,gaypornhot.com,javgay.com,realpornblogger.com,appdoze.net,airportwebcams.net,animalwebcams.net,crystalcomics.com,opchapters.com,azupro-sokuho.com,naruldonghua.com,headlinerpost.com,ffcv.es,chikianimation.com,sirenitashot.com,nullcms.ru,3dassetcollection.com,3gpterbaru.com,alexbacher.fr,alphasource.site,arti-flora.nl,assignmentdon.com,atemporal.cloud,autocadcommand.com,baithak.news,beasttips.com,berlin-teltow.de,beruhmtemedien.com,bestofarea.com,blogue.tech,canzoni-per-bambini.it,celemusic.com,chelsea24news.pl,chikonori.com,codemystery.com,coderblog.in,cuckoldsex.net,cykf.net,dailytips247.com,davewigstone.com,demooh.com,deutschpersischtv.com,diarioeducacion.com,dinheirocursosdownload.com,djstar.in,dobleaccion.xyz,domainregistrationtips.info,dramaviki.com,electricalstudent.com,fleamerica.com,flordeloto.site,footeuses.com,freemockups.org,friedrichshainblog.de,funztv.com,futbolenlatelevision.com,game5s.com,getworkation.com,hbnews24.com,healthcheckup.com,hindinest.com,hoegel-textildruck.de,infokita17.com,informatudo.com.br,kacengeng.com,kattannonser.se,lawyercontact.us,librasol.com.br,midlandstraveller.com,mummumtime.com,negative.tboys.ro,onestringlab.com,poco.rcccn.in,pornincest.net,prensaesports.com,realtormontreal.ca,riwayat-word.com,rollingglobe.online,santhoshrcf.com,searchnsucceed.in,ssdownloader.online,start-to-run.be,stimotion.pl,symboleslowianskie.pl,tamil-lyrics.com,theberserkmanga.com,thegnomishgazette.com,tnstudycorner.in,trovapromozioni.it,trucosonline.com,tsubasatr.org,tuxnews.it,ultimate-catch.eu,underground.tboys.ro,utilidades.ecuadjsradiocorp.com,videodidixx.com,videosgays.net,viralxns.com,weebee.me,wikipooster.com,wikitechy.com,xpressarticles.com,yamsoti.com,yunakhaber.com,zecchino-doro.it,zyromod.com,skycall.online,chanjaeblog.jp,mmoovvfr.cloudfree.jp,nvimfreak.com,sumirekeiba.com,baithak.news,yeeach.com,helicomicro.com,windbreaker.me,www2.tmyinsight.net,hentai-mega-mix.com,haxnode.net,sirhub.net,samuraiscan.cookni.net,two4storytale.altervista.org,marimo-info.net,analysis-chess.io.vn,bestofchristianity.com,techforu.in,tuktukcinma.com,xtremestream.xyz,osmanonline.me,appnee.com,newshuta.in,pokeca-chart.com,princetechzone.in,expressurl.net,clockskin.us,sampledrive.org,dramafren.com,elbadr.xyz,digitalcryptobox.com,farlad.com,ladkibahin.com,hoodtrendspredict.com,ngojobsite.com,haqem.com,freedom3d.org,hardlevel.com.br,twobluescans.com,abda3.xyz,apostoliclive.com,wisw.online,lottoitaliapronostici.altervista.org,mod18.com,gooltok.com,finnader.com,retireally.com,cryptomeloud.com,tojimangas.com,finveeally.com,finnanced.com,finviewvibes.com,moneysally.com,pikatees.com,blog.6ziz.com,24pdd.kz,swordalada.org,keesat.org,seriu.jp,former-railroad-worker.com,cgcosplay.org,navernovel.com,noikiiki.info,kickcharm.com,loiz.store,texw.online,hoofoot.net,tokviews.com,readytoleadafrica.org,hellenism.net,varnascan.*,lisasuites.com,gvnvh.net,tajpoints.com,howtocivil.com,towerofgod.me,notesformsc.org,iumkit.net,testious.com,obitspublishers.com,hao.lingganjie.com,kali.wiki,xprime4u.lat,marcialhub.xyz,passedawayarchives.com,examscisco.com,gsdn.live,onefitmamma.com,charlottepilgrimagetour.com,cykf.net,luchaonline.com,chevalmag.com,akihabarahitorigurasiseikatu.com,livenewsof.com,questloops.com,techlog.ta-yan.ai,pc-hobby.com,viewmyknowledge.com,builtbybuilder.com,girlydrop.com,cinelatino.net,tiny-sparklies.com,infinityskull.com,luisgdato.com,skidrowreloaded.com,mooonten.com,audiotools.blog,xn--algododoce-j5a.com,careersides.com,trendiqq.com,ftuapps.io,loanoffering.in,fattelodasolo.it,noromax.my.id,itdmusics.com,nayisahara.com,torrinomedica.it,ragnarokscanlation.net,vnuki.net,ikramlar.online,summertoon.*,utaitebu.com,aozoraapps.net,applediagram.com,hiphopa.net,worthitorwoke.com,sayrodigital.net,tvappapk.com,flixlatam.com,mrfreemium.blogspot.com,tweakdoor.com,appdoze.com,cg-method.com,nkreport.jp,nknews.jp,wpteq.org,djnonstopmusic.in,latinluchas.com,xtremestream.co,bonsaiprolink.*,lustesthd.*,korsrt.eu.org,glasbanjaluke.net,funkeypagali.com,userupload.net,fx-24.xyz,librasol.com.br,ensenchat.com,syswoody.com,mens1069.com,utaitebu.com,rail-log.net,10-train.com,4drumkits.com,english-dubbed.com,former-railroad-worker.com,francemusic.com,e-food.jp,life-travel-blog.cfbx.jp,kh-pokemon-mc.com,drinkspartner.com,eroalice.com,plantswith.com,businessnews-nigeria.com,coinbaby8.com,drake-scans.com,yuramanga.my.id,diyprojectslab.com,day4news.com,net4you.xyz,pcgameszone.com,30kaiteki.com,gameblog.jp,207hd.com,kgs-invest.com,searchmovie.wp.xdomain.jp,makotoichikawa.net,riwyat.com,rahim-soft.com,voiceloves.com,awpd24.com,ster-blog.xyz,yazilidayim.net,linkoops.com,altselection.com,donlego.com,automothink.com,majorscans.com,postazap.com,lovendal.ro,thelastgamestandingexp.com,adnan-tech.com,culture-informatique.net,msonglyrics.com,pandanote.info,violablu.net,pornfeel.com,r18blog.com,forexrw7.com,villettt.kitchen,retrotv.org,itopmusics.com,snowman-information.com,seasons-dlove.net,javcock.com,xerifetech.com,leeapk.com,hyogo.ie-t.net,tw.xn--h9jepie9n6a5394exeq51z.com,publicdomainq.net,paris-tabi.com,gahag.net,tedenglish.site,goegoe.net,xn--kckzb2722b.com,gokushiteki.com,comoinstalar.me,rabo.no,viciante.com.br,adminreboot.com,bedavahesap.org,nocfsb.com,otokukensaku.jp,josemo.com,sararun.net,shopkensaku.com,welcometojapan.jp,xn--n8jwbyc5ezgnfpeyd3i0a3ow693bw65a.com,heartrainbowblog.com,51sec.org,hotspringsofbc.ca,zippyshare.cloud,animecenterbr.com,gogifox.com,chart.services,atleticalive.it,khohieu.com,aitohuman.org,edivaldobrito.com.br,kakiagune.com,mitsmits.com,maisondeas.com,nobodycancool.com,yaspage.com,bookpraiser.com,akihabarahitorigurasiseikatu.com,egybest.*,allcivilstandard.com,smartinhome.pl,gnusocial.jp,kagohara.net,lgcnews.com,calvyn.com,limontorrents.com,note1s.com,huhulist.com,forum.release-apk.com,idesign.wiki,dailyweb.pl,webcamfuengirola.com,daybuy.tw,tecnoyfoto.com,scansatlanticos.com,thesleak.com,bible-history.com,space-faucet.com,pandadevelopment.net,naveedplace.com,newzjunky.com,codenova-center.web.app,webcras.com,bokugents.com,esportsnext.com,cimbusinessevents.com.au,veganab.co,3drubik.ru,freemagazinespdf.com,freeltc.online,4fingermusic.com,chatgbt.one,pc-hobby.com,dpscomputing.com,nudeslegion.com,habuteru.com,webmemonote.com,kurosuen.live,tech-bloggers.in,hobbykafe.com,surgicaltechie.com,payou.win,macrocreator.com,freebiesmockup.com,bugswave.com,easyjapanesee.com,madevarquitectos.com,codeastro.com,lscomic.com,tabonitobrasil.tv,techacrobat.com,chihouban.com,businesstrend.jp,yourlifeupdated.net,coingraph.us,brokensilenze.net,rspermatacirebon.com,kaystls.site,4spaces.org,minioppai.org,masashi-blog418.com,zerogptai.org,watchfacebook.com,encurtareidog.top,fine-wings.com,sukuyou.com,gatagata.net,balkanteka.net,savegame.pro,felicetommasino.com,motionisland.com,inter-news.it,chatgptfree.ai,ukigmoch.com,commodity-infobox.com,dicengineer.com,neet.wasa6.com,pilsner.nu,eroalice.com,koume-in-huistenbosch.net,starsites.fun,nyangames.altervista.org,calmarkcovers.com,plantswith.com,freedom3d.art,milanreports.com,erreguete.gal,ynk-blog.com,nsfwr34.com,anothergraphic.org,palofw-lab.com,laurasia.info,xs735978.xsrv.jp,setsuyakutoushi.com,freemen.jp,meilblog.com,happy-otalife.com,tatsublog.com,ranourano.xyz,reeell.com,it-money-life.com,ruangmoviez.my.id,moneysave.info,blurayufr.*,gdrivemovies.xyz,samuraiscan.org,donghuaworld.com,kits4beats.com,teamkong.tk,techyrick.com,cheatermad.com,keroseed.net,38.242.194.12,casperhd.com,7hd.club,autodime.com,yakisurume.com,3dyasan.com,gamenv.net,gentiluomodigitale.it,pupuweb.com,ewybory.eu,nakiny.com,avitter.net,bi-girl.net,freshersgold.com,warungkomik.com,krx18.com,daemonanime.net,my-ford-focus.de,rbs.ta36.com,myqqjd.com,cheese-cake.net,4gousya.net,onehack.us,nghetruyenma.net,downloader.is,korogashi-san.org,tarotscans.com,manhuaga.com,layardrama21.*,mlwbd.to,bitcotasks.com,covemarkets.com,shogaisha-shuro.com,shogaisha-techo.com,morinaga-office.net,tehnar.net.ua,kvadratmetr.uz,satcesc.com,azrom.net,nartag.com,quatvn.club,mhscans.com,mitaku.net,siirtolayhaber.com,diamondfansub.com,iggtech.com,zegtrends.com,atlantisscan.com,tecnoscann.com,flixhub.*,bright-b.com,intelligence-console.com,nemumemo.com,scrap-blog.com,adultcomixxx.com,magesypro.com,magesy.blog,blogk.com,motofan-r.com,sp500-up.com,fumettologica.it,japannihon.com,mantrazscan.com,sim-kichi.monster,parking-map.info,news-geinou100.com,insider-gaming.com,itdmusic.com,bg-gledai.*,pepperlive.info,pepar.net,ustvgo.live,retire49.com,54.238.186.141,fchopin.net,kana-mari-shokudo.com,odekake-spots.com,orenoraresne.com,compota-soft.work,anime-torrent.com,sysguides.com,amritadrino.com,papahd.club,kinisuru.com,beaddiagrams.com,canaltdt.es,italiadascoprire.net,kllproject.lv,learnodo-newtonic.com,oracleerpappsguide.com,eurekaddl.*,english-topics.com,starlive.xyz,topsporter.net,freevstplugins.net,4horlover.com,ayatoon.com,gemiadamlari.org,mysocceraustralia.com,neuna.net,studybullet.com,crackthemes.com,rinconpsicologia.com,rocdacier.com,tenbaiquest.com,uur-tech.net,ladypopularblog.com,game-2u.com,lapagan.org,emperorscan.com,9ketsuki.info,kenta2222.com,rubyskitchenrecipes.uk,schildempire.com,linkskibe.com,lionsfan.net,know-how-tree.com,grasta.net,mylivewallpapers.com,femisoku.net,eng-news.com,putlog.net,speculationis.com,audiotrip.org,flowsnet.com,saekita.com,brulosophy.com,reprezentacija.rs,tehnotone.com,telephone-soudan.com,brulosophy.com,daemon-hentai.com,hadakanonude.com,pasokau.com,poapan.xyz,javboys.com#%#//scriptlet('prevent-addEventListener', 'DOMContentLoaded', '/^function\(e\) \{ init\(\); \}$/')
 nightdreambabe.com##.banner_place
 nightdreambabe.com##.g-owner-banner
 nightingaledvs.com###pixelgrade-promo-box-9
@@ -330181,7 +328734,6 @@ oilprice.com##.footerLogoBanner__socialMedia
 oilprice.com##.google_preferred_source_banner_sidebar
 oilprice.com##.sidebarShare
 oipc.bc.ca##.clsPopupContainer
-oisauh.com,czzbgnw.com,allpornstream.com#%#//scriptlet('prevent-window-open')
 oisd.nl###adgb
 oita-press.co.jp##.FloatingBanner
 ojaivalleynews.com#$#.pub_300x250.pub_300x250m.pub_728x90.text-ad.textAd.text_ad.text_ads.text-ads.text-ad-links.ad-text.adSense.adBlock.adContent.adBanner { display: block !important; }
@@ -332336,7 +330888,7 @@ pawastreams.*,123movies.*###fcnbox
 pawastreams.*,groundedtechs.com,rayinfosports.com,sequencecard.xyz,matchtime.co,sportspellz.com,bestreamsports.org,silverspoon.site###dismiss-btn
 pawastreams.*,nflbite.to,footybite.to,sportschamp.fun,afly.pro,topsporter.net,soccerstreams.football,mysocceraustralia.com,rayinfosports.com,hesgoals.top,sequencecard.xyz,totalsportek.soccer,metaporky.site,nbabite.to,cyfostreams.com,gamerarcades.com,bestreamsports.org,footy.to,mcrypto.club,greaterkashmir.com###id-custom_banner
 pawchive.pw,pawchive.*#%#//scriptlet('abort-current-inline-script', 'document.createElement', 'no-referrer-when-downgrade')
-pawchive.pw,pawchive.*,nhentai.to,jmcomic-zzz.one,jmcomic-zzz.*,balbums.st,mangaraw.lc,mangaraw.*,shikotch.in,18jav.tv,batcave.biz,camslib.com,traingon.top,momon-ga.com,nyahentai.*,hentai-moon.com,animefire.io,animefire.*,pxp.farm,pxp.guru,pxp.*,upload18.org,luciferdonghua.in,25img.com,netfapx.com,pornleaks.in,twitchnosub.com,fc2ppv.me,fc2ppv.stream,fc2ppv.*,livecamrips.to,camsrip.com,brazz.org,playmogo.com,thotchicks.com,gelbooru.com,lewdzone.com,r-34.xyz,simply-hentai.com,turbo.cr,upload18.com,luluvids.top,paipancon.com,verhentai.top,muchohentai.com,mangago.me,turbovid.*,javx357.com,animebr.org,celebritydeeplink.com,japaneseholes.com,javlab.net,javmeta.com,vipserije.com,javideo.net,advertape.net,cyberdrop.*,popjav.in,vevocloud.com,x-fetish.tube,myvidplay.com,arigl.com,saint2.*,imgbox.com,mens1069.com,simpcity.*,javfan.one,jmanga.coach,javfc2.xyz,nukibooks.com,jpg6.su,luluvid.com,jav.si,javtiful.com,pornslash.com,hentai2w.com,javpas.com,nsfwr34.com,luluvdoo.com,tojav.net,ekasiwap.com,xxgasm.com,javmenu.com,porntin.com,asianporn.li,javfor.tv,shinshi-manga.net,asmr18.fans,b-hentai.com,jav-fun.cc,rawkuma.net,spoilerplus.tv,daftporn.com,thefappeningblog.com,javboys.com,empressleak.biz,ddd-smart.net,rule34.*,archivebate.*,apkhosto.com,jpg5.su,nsfwyoutube.com,thefappening.pro,javhd.*,javhdz.today,fapeza.com,xmalay1.net,animeworld.*,natomanga.com,play.playkrx18.site,missavtv.com,poapan.xyz,nudogram.com,watchadsontape.com,streamtape.com,18comic.vip,18comic-gquu.vip,mitaku.net,hitomi.la,klmanga.app,mangarawjp.tv,javmix.tv,hentai2read.com,sxyprn.com,xmoviesforyou.com,fapfappy.com,jav.direct,syosetu.*,kissjav.li,lovingsiren.com,mesex.pro,xanimeporn.com#%#//scriptlet('abort-current-inline-script', 'WebAssembly', 'atob')
+pawchive.pw,pawchive.*,nhentai.to,jmcomic-zzz.one,jmcomic-zzz.*,balbums.st,mangaraw.lc,mangaraw.*,shikotch.in,18jav.tv,batcave.biz,camslib.com,traingon.top,momon-ga.com,nyahentai.*,hentai-moon.com,animefire.io,animefire.*,pxp.farm,pxp.guru,pxp.*,upload18.org,luciferdonghua.in,25img.com,netfapx.com,pornleaks.in,twitchnosub.com,fc2ppv.me,fc2ppv.stream,fc2ppv.*,livecamrips.to,camsrip.com,brazz.org,playmogo.com,thotchicks.com,gelbooru.com,lewdzone.com,r-34.xyz,simply-hentai.com,turbo.cr,upload18.com,luluvids.top,paipancon.com,verhentai.top,muchohentai.com,mangago.me,turbovid.*,javx357.com,animebr.org,celebritydeeplink.com,japaneseholes.com,javlab.net,javmeta.com,vipserije.com,javideo.net,advertape.net,cyberdrop.*,popjav.in,vevocloud.com,x-fetish.tube,myvidplay.com,arigl.com,saint2.*,imgbox.com,mens1069.com,simpcity.*,javfan.one,jmanga.gripe,javfc2.xyz,nukibooks.com,jpg6.su,luluvid.com,jav.si,javtiful.com,pornslash.com,hentai2w.com,javpas.com,nsfwr34.com,luluvdoo.com,tojav.net,ekasiwap.com,xxgasm.com,javmenu.com,porntin.com,asianporn.li,javfor.tv,shinshi-manga.net,asmr18.fans,b-hentai.com,jav-fun.cc,rawkuma.net,spoilerplus.tv,daftporn.com,thefappeningblog.com,javboys.com,empressleak.biz,ddd-smart.net,rule34.*,archivebate.*,apkhosto.com,jpg5.su,nsfwyoutube.com,thefappening.pro,javhd.*,javhdz.today,fapeza.com,xmalay1.net,animeworld.*,natomanga.com,play.playkrx18.site,missavtv.com,poapan.xyz,nudogram.com,watchadsontape.com,streamtape.com,18comic.vip,18comic-gquu.vip,mitaku.net,hitomi.la,klmanga.app,mangarawjp.tv,javmix.tv,hentai2read.com,sxyprn.com,xmoviesforyou.com,fapfappy.com,jav.direct,syosetu.*,kissjav.li,lovingsiren.com,mesex.pro,xanimeporn.com#%#//scriptlet('abort-current-inline-script', 'WebAssembly', 'atob')
 pawgpornstars.com##a[href^="https://pawgpornstars.com/link/brazzers/"]
 pawgpornstars.com##a[href^="https://www2.pornfidelity.com/track/"]
 paxnews.com##.news-article-main-grid > div.border-bottom:has(> ul.share-links)
@@ -333327,6 +331879,7 @@ phoneworld.com.pk##.theiaStickySidebar > #stream-item-widget-4
 phoneworld.com.pk##.theiaStickySidebar > #stream-item-widget-6
 phoneworld.com.pk#%#window.$tieE3 = true;
 phoronix.com###main > script + [style]
+phoronix.com##[name="phoronix_desktop_leaderboard_header"]
 phot.ai##div[class*="styles_consentCard__"]
 photar.ru##aside[id="block-5"]
 photar.ru##div[data-td-block-uid="tdi_18"]
@@ -340791,6 +339344,8 @@ ruhrnachrichten.de##.StoryShowShare li
 ruian.com##.ad_opera
 ruian.com##div[class^="gg_"]
 ruijie.com##.cke2022fr
+rule34-videos.com##.post-ad-wrapper
+rule34-videos.com,defence24.com,latestly.com,cryptobriefing.com,huskers.com,rule34-videos.com,gifyu.com,topperlearning.com,aap.org,bbcgoodfood.com,gardenersworld.com,historyextra.com,ndtv.com##.ad-banner
 rule34.gg##div[style*="min-height:"]:has(> ins)
 rule34.paheal.net##section[id$="main"] > .blockbody:has(> div[align="center"] > ins)
 rule34.paheal.net#?#.blockbody > div[align="center"] > ins.adsbyexoclick:upward(2)
@@ -343219,6 +341774,8 @@ sheee.co.il,walla.co.il#$?#head  iframe { remove: true; }
 sheepesports.com##.bg-brand-surface[style^="aspect-ratio"]
 sheepesports.com##.items-center[class*="border"]:has(> .w-full.relative.hidden > .absolute > div[id^="/"][id*="_"])
 sheepesports.com##.items-center[class*="border"]:has(> .w-full.relative.hidden > .absolute.items-center:only-child)
+sheepesports.com##a[href="https://polymarket.com"]
+sheepesports.com##a[href="https://www.michelin.com/en/media/magazine/michelin-video-game-rocket-league"]
 sheetmusic-free.com#%#//scriptlet('abort-current-inline-script', 'document.createElement', 'adsbygoogle.js')
 sheets.works###emailFloat
 sheets.works###stickyEmailBar
@@ -344630,9 +343187,11 @@ smailpro.com##.flex > div.text-center:has(> div > ins.adsbygoogle)
 smailpro.com##.min-h-ads
 smailpro.com##.sticky[x-data="protect()"]
 smailpro.com##[x-data="buysellads()"]
+smailpro.com##div[data-partner]
 smailpro.com##div[x-data="buysellads()"]
 smailpro.com##label[for="hideip"]
 smailpro.com#?#.my-4.gap-2 > div.text-center:has(> div > ins.adsbygoogle)
+smailpro.com,dash.infinityfree.com,omg.blog,uxwing.com,fontesk.com,iplocation.net,pureinfotech.com,insurance-space.xyz,igeeksblog.com##div[id^="bsa-zone_"]
 smak.pl##.placeholder
 smak.pl##div[style="height:775px;"]
 smaker.pl##.adveet--container
@@ -346044,7 +344603,6 @@ speedfly.cn###share-s
 speedguide.net##body > div[style="position:relative; margin:auto; padding: 0px; width:728px; height:100px; text-align:center;"]
 speedguide.net##body > div[style="position:relative; margin:auto; padding: 0px; width:728px; height:95px; text-align:center;"]
 speedmeter.sk##.w_notice
-speedof.me##.api-ad-footer
 speedof.me##.cc-consent-toast
 speedof.me##.ftl-zone
 speedof.me##.intro-ad-footer
@@ -351055,7 +349613,6 @@ thedailybeast.com##div[class$="__share-buttons"]
 thedailybeast.com##div[class]:has(> aside[data-name="ADS"])
 thedailybeast.com##div[data-pos2]
 thedailybeast.com##section[class^="MenuBody_"] > button:not([data-testid="link"])
-thedailybeast.com,on3.com,maltadaily.mt##button[aria-label="Share article"]
 thedailycatch.org##.a-222
 thedailycatch.org##.a-337
 thedailydigest.com##.promocion_celda
@@ -359386,7 +357943,7 @@ vpnblade.net##.popup-overlay
 vpnblade.net##.sidebar-deals
 vpnblade.net##.sticky-bar
 vpncentral.com,windowsreport.com##.article-sharebox
-vpnjantit.com##body > div[style^="position: fixed; inset: 0px; width: 100%;"]:has(> div[style] > button[onclick^="window.location.reload"])
+vpnjantit.com#%#//scriptlet('prevent-element-src-loading', 'script', 'adsbygoogle')
 vpnmentor.com###vm_ep
 vpnmentor.com###vm_ep ~ div#vm_ep_bg
 vpnmentor.com##+js(cookie-remover, /_alooma/)
@@ -360772,7 +359329,6 @@ webrick.com##+js(acs, atob, Uint8Array)
 webrick.com#%#//scriptlet('abort-current-inline-script', 'atob', 'new Uint8Array(_0x')
 webronza.asahi.com##.bottomSocialLink
 webseriessex.com#%#//scriptlet('set-constant', 'vidorev_jav_plugin_video_ads_object', 'emptyObj')
-webseriessex.com,javrider.com##.other-ads-container
 webserver.one##[id*="ScriptRoot"]
 webserver.one##div[id^="imCell_"][class=""]:has-text(/Advertisement/i)
 webserver.one##ins.adsbygoogle
@@ -362283,7 +360839,6 @@ worldsoccertalk.com##.bottom-bar-articles
 worldsoccertalk.com##.odds-slider-widget
 worldsoccertalk.com##.sticky-container-app
 worldsoccertalk.com##[id*="primis_"]
-worldsoccertalk.com##button[aria-label="Share"]
 worldsoccertalk.com##div.article-body__sidebar > aside > section.sidebar-streaming
 worldsoccertalk.com##div[class^="article-banner-"]
 worldsoffood.de##div[id^="fblike"]
@@ -364587,6 +363142,10 @@ yokugames.com,cimaramadan.site#%#//scriptlet('prevent-fetch', 'pagead2.googlesyn
 yolculukterapisi.com###sidebar > aside#text-12
 yolculukterapisi.com###sidebar > aside#text-16
 yolo.style,funq.jp,kosodatemap.gakken.jp,report.iko-yo.net,sakigake.jp##.p-article-share
+yoloxxx.com##.head-menu li:has(> a[rel="sponsored"])
+yoloxxx.com##.yolo-native-slot
+yoloxxx.com,camhub.one,camhub.*,yesporn.org,yesporn.top,yesporn1.cc,hornyleak.tv,justporn.com,pusvid.com,kissjav.com,3dporndude.com,hentaismile.com,camhub.cc,coralxxx.com,analry.com,hard3r.com,bigbigtits.com,public-porno.com,maturexy.com,bigbumfun.com,fuqster.com,bigtitbitches.com,hugewangs.com,w1mp.com,analpornxl.com,sexpester.com,w4nkr.com##.link-offer
+yoloxxx.com,hihentaiporn.com,rat.xxx,hdtube.porn,pornid.*##.player-top-line
 yomahub.com##.sidebar-slot
 yomeruba.com##.shopModule .sns
 yomitai.jp##.social-button-series
@@ -364661,21 +363220,26 @@ youjizz.com###englishMobPr
 youjizz.com###englishPr
 youjizz.com###footer
 youjizz.com###fotter > .contener
+youjizz.com###interstitial
 youjizz.com###mobileRollAd
 youjizz.com###onPausePrOverlay
+youjizz.com###partnerPr
 youjizz.com###related > div.video-thumb:not([data-videoid])
 youjizz.com###rightVideoPrs
 youjizz.com###underPlayerPr
 youjizz.com##+js(noeval)
 youjizz.com##.bottom_pr
+youjizz.com##.modal-backdrop
 youjizz.com##.top_pr
 youjizz.com##[data-i18n^="ads."]
 youjizz.com##[data-i18n^="ads."] + label
 youjizz.com##[img][src*="blob:"]
 youjizz.com##a[href^="//"][target="_blank"]:not([href*="https://www.youjizz.com"])
 youjizz.com##a[href^="//s.zlink7.com/d.php"]
+youjizz.com##div.text-center:has(> div#underPlayerPr)
 youjizz.com##td[valign="top"] + td[width="301"]
 youjizz.com#%#//scriptlet("set-constant", "config.ads.desktopPreroll", "")
+youjizz.com#?#div.text-center:contains(/^Advertisement$/)
 youku.com###bt-banner
 youku.com###ykBottomBanner
 youku.com##.newtrochanter_trochantercontent > .g-row > .g-col:has(> .g-box > .pack_yk_pack > .pack_pack_cover > .aplus_exp > .pack_p_rt_ad)
@@ -366117,6 +364681,7 @@ zzzyk.com###Tinfo
 ~linkedin.com##a[href^="http://linkedin.com/shareArticle?"]
 ~linkedin.com##a[href^="http://www.linkedin.com/shareArticle"]
 ~linkedin.com##a[href^="https://www.linkedin.com/shareArticle"]
+~linkedin.com##a[href^="https://www.linkedin.com/sharing/"]
 ~linkedin.com##a[onclick^="window.open('https://www.linkedin.com/shareArticle?"]
 ~live.skillbox.ru##.likely
 ~livejournal.com##a[href^="//www.livejournal.com/update.bml"]
@@ -373004,6 +371569,7 @@ zzzyk.com###Tinfo
 @@||hvg.hu/Content/redesign/js-notbundled/showads.js
 @@||hw-ads.datpiff.com/news/$image,domain=datpiff.com
 @@||hwcdn.net^$script,domain=mp4upload.com
+@@||hwcooling.net/*/hwc-advertising/ads/custom_ads.js$domain=hwcooling.net
 @@||hypem.com/inc/header_menu$document
 @@||hypercomments.com/api/comments?_=$stealth=referrer
 @@||hypercomments.com/api/comments?widget_id=$stealth=referrer
@@ -374067,7 +372633,7 @@ zzzyk.com###Tinfo
 @@||lenovo.com/_ui/desktop/common/js/AdobeAnalyticsEvent.js$script,~third-party
 @@||lenovo.com/fea/js/adobeAnalytics/$script,~third-party,xmlhttprequest
 @@||lensfrontend-pa.clients6.google.*/v*/crupload$stealth=referrer
-@@||lensfrontend-pa.clients6.google.com/v1/gsessionid$xmlhttprequest,stealth
+@@||lensfrontend-pa.clients6.google.com/v1/gsessionid$xmlhttprequest,stealth=referrer
 @@||leonoticias.com^$ghide
 @@||lequipe.fr^$cname
 @@||lesmoutonsrebelles.com^$ghide
